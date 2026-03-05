@@ -1,0 +1,100 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage{xfrac}
+\usepackage{scalerel}[2014/03/10]
+\usepackage{stackengine}
+
+
+
+
+\title{Master thesis notes}
+\author{Elia Perli}
+
+
+\renewcommand\thesection{\Alph{section}} %← mette le sezioni con le lettere anziché i numeri
+
+\newtheorem{theo}{Theorem}
+\surroundwithmdframed[outerlinewidth=0.4pt,
+innerlinewidth=0.4pt,
+middlelinewidth=1pt,
+middlelinecolor=white,
+bottomline=false,topline=false,rightline=false]{theo}
+
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\Omega}{\varOmega}
+\renewcommand{\Gamma}{\varGamma}
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\rho}{\varrho}
+\renewcommand{\div}{\operatorname{div}}
+
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathcal{D}}
+
+
+\newcommand{\htl}{\reallywidetilde{h^{-1}}}
+\newcommand{\Leb}{\mathscr{L}}
+\newcommand{\restr}[1]{_{|_{#1}}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\then}{\Rightarrow}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Dom}{\operatorname{Dom}}
+
+
+\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
+\newcommand{\astr}[1]{\text{$(*#1)$}}
+
+\newtheorem{manualtheoreminner}{\textsc{teorema}}
+\newenvironment{manualtheorem}[1]{%
+	\renewcommand\themanualtheoreminner{#1}%
+	\manualtheoreminner
+}{\endmanualtheoreminner}
+
+\newtheorem{thm}{\textsc{Theorem}}[section]
+\newtheorem{cor}{\textsc{Corollary}}[section] %,\Alph] %[section/chapter, ...]
+\newtheorem{prop}{\textsc{Proposition}}[section]
+\newtheorem*{prop*}{\textsc{Proposition}}
+\newtheorem{oss}{\textsc{remark}}[section]
+\theoremstyle{definition}
+\newtheorem{defn}{\textsc{Definition}}[section]
+\newtheorem{ntt}{\textsc{Notation}}[section]
+\newtheorem{es}{\textsc{example}}[section]
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+
+Test Test
+
+
+
+\end{document}
