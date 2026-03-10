@@ -1,7 +1,6 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb,amsthm}
 \usepackage{graphicx}
@@ -46,7 +45,7 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\D}{\mathcal{D}}
-
+\newcommand{\M}{\mathbb{M}^{2,1}}
 
 \newcommand{\htl}{\reallywidetilde{h^{-1}}}
 \newcommand{\Leb}{\mathscr{L}}
@@ -67,9 +66,9 @@ bottomline=false,topline=false,rightline=false]{theo}
 }{\endmanualtheoreminner}
 
 \newtheorem{thm}{\textsc{Theorem}}[section]
-\newtheorem{cor}{\textsc{Corollary}}[section] %,\Alph] %[section/chapter, ...]
-\newtheorem{prop}{\textsc{Proposition}}[section]
+\newtheorem{cor}{\textsc{Corollary}}[section] %,\Alph] %[section/chapter, ...] \newtheorem{prop}{\textsc{Proposition}}[section]
 \newtheorem*{prop*}{\textsc{Proposition}}
+\newtheorem{prop}{\textsc{Proposition}}
 \newtheorem{oss}{\textsc{remark}}[section]
 \theoremstyle{definition}
 \newtheorem{defn}{\textsc{Definition}}[section]
@@ -93,8 +92,97 @@ bottomline=false,topline=false,rightline=false]{theo}
 
 \begin{document}
 
-Test Test
+\tableofcontents
 
 
 
+\section{Introduction}
+Goal of the work, maybe a simple example, some mention to preliminary information and a soft mention to what's the problem and the philosophy.
+\section{Minkowski space and space-like surfaces}
+The environment we will work within is the Minkowki 3-space, defined as $\R^3$ with the pseudometric
+\[ds^2 = ( dx^1)^{2} + (dx^2)^{2}-(dx^3)^2.\]
+In order to distinguish this space from $\R^3$ we will use the notation $\M$. We will also denote the coordinates as $(x^1,x^2,x^3)$ or equivalently $(x,y,t)$.
+
+\paragraph{Space-like immersions.}\mbox{}\\
+The object we will focus on are the so-called space-like surfaces of $\M$. This term refers to the immersed surfaces in $\M$ whose induced metric is positive-definite hence Riemannian.\\
+
+A nice property of this kind of surface is that they are locally the graph of a function of the form $x^3 = f(x^1,x^2)$.\\
+This fact can be seen with a simple reasoning:\\
+First, we assumed that the pseudometric restricted to $S$,$ \left< \cdot , \cdot \right>|_S \geq 0 $, is definite positive, which means that the tangent vectors of $S$ at any point $p$ belong to the set of space-like vectors:
+\begin{equation*}
+	T_p \subset \mathscr{C} := \left\{ v\in \M : \left<v,v \right> \ge 0\right\}=\{ t^2 \leq  x^2+y^2\} . 
+\end{equation*}
+This is just the outside-region of a double cone in $\M$, whose symmetry axis is $ \left\{ x^1=0, x^2 = 0 \right\} $. A plane is entirely made of space-like vectors iff it's contained between the two branches of the cone.\\
+Second, having assumed that $S$ is an immersed surface, hence an immersed submanifold, it is locally the solution of an equation of the form  $F(x,y,z)=0$. It is well known that from this local expression we can express the normal vector to the surface at a point $p$: $\vec n_p = \vec \nabla F(p)$.\\
+Furthermore, we observe that, being $\vec n_p$ orthogonal to $T_pS$, it cannot be horizontal,  $(\vec n_p)^3 = \partial_z F(p) \neq 0$, which means that we can apply the implicit function theorem and express the surface as the graph of $z=f(x,y)$.\\
+Furthermore, where the local representation holds, we can parametrize the surface as $(x,y,f(x,y))$, from which two generators of the tangent space are $V_x = (1,0,\partial_x f(x,y))$ and $V_y = (1,0,\partial_y f(x,y))$, and the first fundamental form is represented by the matrix
+\begin{align*}
+	g &= 
+\begin{pmatrix}
+\left<V_x,V_x \right> & \left<V_y,V_x \right>\\
+\left<V_x,V_y \right> & \left<V_y,V_y \right>
+\end{pmatrix}
+	  &=
+\begin{pmatrix}
+1-f_x^2 & -f_xf_y\\
+-f_xf_y & 1-f_y^2
+\end{pmatrix}.
+\end{align*}
+The condition on this being a metric translates in having a strictly positive determinant  (as the parametrization is regular).
+\begin{align*}
+	0< \det g  = 1-(f_x^2+f_y^2) = 1-|\vec \nabla f|^2,
+\end{align*}
+which means $|\vec \nabla f|^2 <1$.
+It's not difficult to convince ourselves, as the local representation as a graph is always possible, that the conditions of being able to explicit the time variable as dependent and that $|\vec \nabla f|^2 <1$ are a characterization of space-like immersed surfaces.\textcolor{red}{mettere dopo}\\
+\paragraph{Entire surfaces.}\mbox{}\\
+Given a surface $S$ immersed in  $\M$, we can define a projection $\Pi:S\to \R^2$ by forgetting the time coordinate, $\Pi(x^1,x^2,x^3):=(x^1,x^2)$ for any $(x^1,x^2,x^3)\in S$. We call the surface $S$ is entire when the map $\Pi$ is surjective. If the surface is globally a graph of a function $\phi$, this condition is exactly stating that the function $\phi$ is an entire map from $\R^2$ to $\R$.\\
+
+The situation for space-like surfaces is actually a lot nicer than what we presented up to now, as the representation as a graph is not only local but actually global, as follows from the proposition below. \textcolor{red}{dovrei mostrare che davvero la rappresentazione è globale?}
+\begin{prop}
+	Let $\Omega$ be a domain in $\C$ (that is, an open connected set) and let $S:\Omega \to \M$ be a space-like immersion. Suppose that $S$ is complete with respect to the induced Riemannian metric. Then $S$ is an entire graph and $\Omega$ is simply connected.
+\end{prop}
+\paragraph{Immersion data for $S$}\mbox{}\\
+First, second fundamental forms and curvatures
+\paragraph{The Gauss map in $\M$}\mbox{}\\
+The target of the gauss map is $\mathbb{H}^2$ and why, and it's isometric to the Poincaré Disk.
+
+\begin{itemize}[noitemsep]
+	\item $\mathbf{M}^{2,1}$
+	\item Space-like immersion, induced Riemannian metric
+	\item First and second fundamental forms
+	\item Mean curvature and Gaussian curvature expr
+	\item Space-like surfaces are graphs of functions
+	\item The Gauß map has  $\mathbb{H}^2$ as a target
+\end{itemize}
+
+\section{Harmonic maps}
+\section{Classification of CMC}
+\subsection{The idea of the proof}
+\subsection{The analytical work}
 \end{document}
+
+
+
+
+\begin{thm}
+	Let $ h$ be a continuous function defined on a domain $\Omega$ in $\C$. Let $\tilde w$ be a solution for [where do we use the inequality with zero?]
+	\begin{align*}
+		\Delta\tilde{w} &= e^{2\tilde{w}} - h^{2} e^{-2\tilde{w}} \ge 0
+	\end{align*}
+	in  $\Omega$ such that $e^{2\tilde w}$ is a complete metric on $\Omega$. Then any other solution $v$ of the equation satisfies $v\leq \tilde w$.
+\end{thm}
+\begin{proof}
+	
+\end{proof}
+
+\begin{cor}{}{}
+	Let $h$ be a continuous function defined on a domain $\Omega\subset \C$ and let $\tilde w_1, \tilde w_2$ two solutions of 
+	\begin{equation}
+		\Delta \tilde w  = e^{2\tilde w}-h^2e^{-2\tilde w} \geq 0
+	\end{equation}
+	in $\Omega$ such that $e^{2\tilde w_i}$ are complete metrics on $\Omega$. Then  $\tilde w_1 \equiv \tilde w_2$.
+\end{cor}
+\begin{cor}
+	There is at most one solution of the equation ??? such that the associated metric is complete.
+\end{cor}
+
