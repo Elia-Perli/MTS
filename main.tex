@@ -56,6 +56,9 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\Dom}{\operatorname{Dom}}
 
 
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\II}{\mathbf{I\!I}}
+
 \newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
 \newcommand{\astr}[1]{\text{$(*#1)$}}
 
@@ -90,6 +93,9 @@ bottomline=false,topline=false,rightline=false]{theo}
 
 \pdfsuppresswarningpagegroup=1
 
+
+\setcounter{tocdepth}{4}
+
 \begin{document}
 
 \tableofcontents
@@ -102,7 +108,7 @@ Goal of the work, maybe a simple example, some mention to preliminary informatio
 The environment we will work within is the Minkowki 3-space, defined as $\R^3$ with the pseudometric
 \[ds^2 = ( dx^1)^{2} + (dx^2)^{2}-(dx^3)^2.\]
 In order to distinguish this space from $\R^3$ we will use the notation $\M$. We will also denote the coordinates as $(x^1,x^2,x^3)$ or equivalently $(x,y,t)$.
-
+\textcolor{red}{Aggiungere definizione di space-like, time-like e light-like}
 \paragraph{Space-like immersions.}\mbox{}\\
 The object we will focus on are the so-called space-like surfaces of $\M$. This term refers to the immersed surfaces in $\M$ whose induced metric is positive-definite hence Riemannian.\\
 
@@ -116,36 +122,64 @@ This is just the outside-region of a double cone in $\M$, whose symmetry axis is
 Second, having assumed that $S$ is an immersed surface, hence an immersed submanifold, it is locally the solution of an equation of the form  $F(x,y,z)=0$. It is well known that from this local expression we can express the normal vector to the surface at a point $p$: $\vec n_p = \vec \nabla F(p)$.\\
 Furthermore, we observe that, being $\vec n_p$ orthogonal to $T_pS$, it cannot be horizontal,  $(\vec n_p)^3 = \partial_z F(p) \neq 0$, which means that we can apply the implicit function theorem and express the surface as the graph of $z=f(x,y)$.\\
 Furthermore, where the local representation holds, we can parametrize the surface as $(x,y,f(x,y))$, from which two generators of the tangent space are $V_x = (1,0,\partial_x f(x,y))$ and $V_y = (1,0,\partial_y f(x,y))$, and the first fundamental form is represented by the matrix
-\begin{align*}
-	g &= 
+\begin{equation*}
+	g = 
 \begin{pmatrix}
 \left<V_x,V_x \right> & \left<V_y,V_x \right>\\
 \left<V_x,V_y \right> & \left<V_y,V_y \right>
 \end{pmatrix}
-	  &=
+	  =
 \begin{pmatrix}
 1-f_x^2 & -f_xf_y\\
 -f_xf_y & 1-f_y^2
 \end{pmatrix}.
-\end{align*}
-The condition on this being a metric translates in having a strictly positive determinant  (as the parametrization is regular).
-\begin{align*}
+\end{equation*}
+The condition on this being a metric translates in having a strictly positive determinant  (as the parametrization is obviously regular),
+\begin{equation*}
 	0< \det g  = 1-(f_x^2+f_y^2) = 1-|\vec \nabla f|^2,
-\end{align*}
+\end{equation*}
 which means $|\vec \nabla f|^2 <1$.
 It's not difficult to convince ourselves, as the local representation as a graph is always possible, that the conditions of being able to explicit the time variable as dependent and that $|\vec \nabla f|^2 <1$ are a characterization of space-like immersed surfaces.\textcolor{red}{mettere dopo}\\
 \paragraph{Entire surfaces.}\mbox{}\\
 Given a surface $S$ immersed in  $\M$, we can define a projection $\Pi:S\to \R^2$ by forgetting the time coordinate, $\Pi(x^1,x^2,x^3):=(x^1,x^2)$ for any $(x^1,x^2,x^3)\in S$. We call the surface $S$ is entire when the map $\Pi$ is surjective. If the surface is globally a graph of a function $\phi$, this condition is exactly stating that the function $\phi$ is an entire map from $\R^2$ to $\R$.\\
 
-The situation for space-like surfaces is actually a lot nicer than what we presented up to now, as the representation as a graph is not only local but actually global, as follows from the proposition below. \textcolor{red}{dovrei mostrare che davvero la rappresentazione è globale?}
+The situation for space-like surfaces is actually a lot nicer than what we presented up to now, as the representation as a graph is not only local but actually global, as follows from the proposition below. \textcolor{red}{manca mostrare che davvero la rappresentazione è globale ovvero la proposizione seguente}
 \begin{prop}
 	Let $\Omega$ be a domain in $\C$ (that is, an open connected set) and let $S:\Omega \to \M$ be a space-like immersion. Suppose that $S$ is complete with respect to the induced Riemannian metric. Then $S$ is an entire graph and $\Omega$ is simply connected.
 \end{prop}
 \paragraph{Immersion data for $S$}\mbox{}\\
-First, second fundamental forms and curvatures
+As we already mentioned, the immersion $\iota:S\hookrightarrow \M$ induces both a scalar product on $TS$, the first fundamental form or pull-back metric, which we indicate as $\I = \iota^*(g_{\M}) $ and in coordinates $\I = g_{ij}dx^i dx^j$. Here we are identifying the involved and their composition with the immersion, $x^i = x^i\circ \iota,\ g_{ij}=g_{ij}\circ \iota$.\\
+Analogously we indicate the second fundamental form as $\II = h_{ij} dx^i dx_j$. Later we will look at the second fundamental form more deeply as it's involved in the definition of the Hopf differential.
 \paragraph{The Gauss map in $\M$}\mbox{}\\
-The target of the gauss map is $\mathbb{H}^2$ and why, and it's isometric to the Poincaré Disk.
+The surface $S$ is an immersed submanifold of codimension  $1$. As we have a nondegenerate form on the ambient space, $g$, once fixed a  $p\in S$, we can decompose the tangent spaces as follows:
+\begin{equation*}
+	\M = T_p \M = (T_p S)^\perp \oplus T_pS =: P^\perp \oplus P.
+\end{equation*}
+Having codimension $1$, the dimension of $(T_p S)^\perp$ is exaclty one, and in fact it's generated only by the normal vector to  $S$, $\vec n$.\\
+We can easily show that  $n$ must be a time-like vector, due to the fact that $T_p S$ is made of space-like vectors.\\
+Let's fix $e_1, e_2 \in T_pM$ two independent. As $n$ belongs to $(T_pM)^\perp$ we have $\left<e_1,n \right> = \left<e_2,n \right> = 0$. This implies that when we look at the representative matrix of $g_p$, we have
+\begin{equation*}
+	[g_p] = 
+\begin{pmatrix}
+\langle n,n\rangle & 0 & 0\\
+0 & \langle e_1,e_1\rangle & \langle e_1,e_2\rangle\\
+0 & \langle e_2,e_1\rangle & \langle e_2,e_2\rangle.
+\end{pmatrix} =:
+\begin{pmatrix}
+\langle n, n\rangle & 0 \\
+0 & [(g|_S)_p]
+\end{pmatrix}.
+\end{equation*}
+Where the block $[(g|_S)_p]$ represents the form $g$ on the subspace $T_pM$. We conclude that $\left<n,n \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a pseudometric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\ 
 
+We can now repeat the classical construction of the Gauss map in this pseusoriemannian context.\\
+The main idea is to take a unit vector in $(T_pM)^\perp$, as we have just seen we can't impose the squared norm to be $1$, which means we need to normalize it to $-1$.\\
+Given $w\in (T_pM)^\perp$ we scale by a factor $k$ such that $\left<k w, kw \right>  = -1$. This equation has two different solutions, that send $w$ to one of the two branches of $\hat{\mathbb{H}}^2 = \{v \in \M | \left<v,v \right> = -1\} $, so we need to make a choice. We consistently choose it to be in $\mathbb{H}^2 = \{v \in \M | \left<v,v \right> = -1, v^3 >0 \} $.\\
+
+This way we have constructed a map \[ u: S \to \mathbb{H}^2,\] the Gauss map of the surface $S$. Of course the only difference from the classical theory of surfaces is the codomain of the map $ u$, where it is the sphere  $\mathbb{S}^2$, and like in the classical case, the of which normal vector to choose specifies an orientation for the surface.\\
+
+\textcolor{red}{$\mathbb{H}^2$ is a model for the Hyperbolic space.}
+\paragraph{The curvatures of a space-like map}\mbox{}\\
 \begin{itemize}[noitemsep]
 	\item $\mathbf{M}^{2,1}$
 	\item Space-like immersion, induced Riemannian metric

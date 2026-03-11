@@ -3,8 +3,9 @@
 \contentsline {paragraph}{Space-like immersions.}{1}{}%
 \contentsline {paragraph}{Entire surfaces.}{2}{}%
 \contentsline {paragraph}{Immersion data for $S$}{2}{}%
-\contentsline {paragraph}{The Gauss map in $\mathbb {M}^{2,1}$}{2}{}%
-\contentsline {section}{\numberline {C}Harmonic maps}{3}{}%
-\contentsline {section}{\numberline {D}Classification of CMC}{3}{}%
-\contentsline {subsection}{\numberline {D.1}The idea of the proof}{3}{}%
-\contentsline {subsection}{\numberline {D.2}The analytical work}{3}{}%
+\contentsline {paragraph}{The Gauss map in $\mathbb {M}^{2,1}$}{3}{}%
+\contentsline {paragraph}{The curvatures of a space-like map}{3}{}%
+\contentsline {section}{\numberline {C}Harmonic maps}{4}{}%
+\contentsline {section}{\numberline {D}Classification of CMC}{4}{}%
+\contentsline {subsection}{\numberline {D.1}The idea of the proof}{4}{}%
+\contentsline {subsection}{\numberline {D.2}The analytical work}{4}{}%
