@@ -212,8 +212,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.cfg
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.cfg
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/setspace/setspace.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
@@ -222,13 +220,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/scalerel/scalerel.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/scalerel/scalerel.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/stackengine/stackengine.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/stackengine/stackengine.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/listofitems/listofitems.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/listofitems/listofitems.sty
-INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/listofitems/listofitems.tex
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/xifthen/xifthen.sty

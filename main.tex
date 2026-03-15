@@ -9,10 +9,10 @@
 \usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage{mathrsfs}
-\usepackage{setspace}
+%\usepackage{setspace}
 \usepackage{xfrac}
-\usepackage{scalerel}[2014/03/10]
-\usepackage{stackengine}
+%\usepackage{scalerel}[2014/03/10]
+%\usepackage{stackengine}
 
 
 
@@ -178,45 +178,51 @@ Before laying out the proof let's recall a couple of results from the theory of 
 	\end{itemize}
 \end{prop}
 \begin{proof}
-	The idea of the proof is to show that $\Pi\circ S$ is a global diffeomrphism. Clearly this implies that $\Pi$ restricted to $S$ is a diffeomeorphism on $\R^2$ and so that $S$ is an entire graph.\\ 
+	The idea of the proof is to show that $\Pi\circ S$ is a global diffeomrphism. Clearly this implies that $\Pi$ restricted to $S$ is a diffeomeorphism on $\R^2$ and so that $S$ is an entire graph. From that we obtain also that $\Omega$ is simply connected since it's diffeomorphic to $\R^2$.\\ 
 
-	Let's observe that the target of $\Pi\circ S$ is just $\R^2$, which is simply connected, and the domain is $\Omega$, which is connected since it's a domain. We already proved, by showing that $S$ is locally a graph, that the map $\Pi \circ S $ is a local homeomorphism. This means we only need to show that it satisfies the path lifting property. After that, by applying the proposition above we conclude that it's a diffeomorphism.\\
+	Let's observe that the target of $\Pi\circ S$ is just $\R^2$, which is simply connected, and the domain is $\Omega$, which is connected since it's a domain. We already proved, by showing that $S$ is locally a graph, that the map $\Pi \circ S $ is a local homeomorphism.\\
+	Having met these conditions, if we show that $\Pi\circ S$ satisfies the path lifting property, we conclude that it is a diffeomorphism.\\
 
-	Let's fix a point $z\in \Omega$ and a path $\gamma:[0,1] \to \R^2$ of bounded length, $\ell(\alpha) < \infty$, such that $\gamma(0) = \Pi\circ S (z)$. Define then \[ \mathcal{I}:= \{t\in [0,1]\ |\ \exists \gamma^*: [0,t] \to\Omega, \gamma = (\Pi\circ S) \circ \gamma^*, \gamma^*(0)=z\}\ \ \text{ and }\ \  \bar t := \sup \mathcal{I}. \] We will be able to lift $\gamma$ if we prove that $\bar t = 1$.\\
-	It's clear to see that $0\in \mathcal{I}$ and that it's open, since from $\Pi \circ S$ being local homeomorphism we get that $t\in \mathcal{I}\cap(0,1)$ implies $(t-\epsilon,t+\epsilon)\subset \mathcal{I}$ for a small $\epsilon$.\\
-	Let's suppose by contradiction that $\bar t<1$.\\
-	First let's prove that $\lim_{t\to \bar t} \gamma^*(t) $ exists. 
-	\begin{itemize}
-		\item Let's observe that the map $\Pi$ dilates distances, as
+	Let's fix a point $z\in \Omega$ and a path $\gamma:[0,1] \to \R^2$ of bounded length, $\ell(\gamma) < \infty$, such that $\gamma(0) = (\Pi\circ S)(z)$. Our goal is to show that $\gamma$ admits a lift to a path $\gamma^*$ on $\Omega$ starting at $z$.\\
+	To this end, let's consider the set of times up to which such a lift exists,
+	\[
+		\mathcal{J}:= \{\tau\in [0,1]\ |\ \exists \gamma^*: [0,t] \to\Omega \text{ such that } (\Pi\circ S)\circ \gamma^* = \gamma \text{ and } \gamma^*(0)=z\},
+	\]
+	and let's define $\bar \tau := \sup \mathcal{J}$.\\
+
+	If we prove that $\bar \tau = 1$, then $\gamma$ admits a lift on the whole interval $[0,1]$ and we have finished. Then let's suppose by contradiction that $\bar \tau<1$ and define $\gamma^* : [0,\bar \tau) \to \Omega$ the lift of $\gamma$ up to $\bar \tau$. This curve exists by definition of $\bar \tau$.\\
+
+	Let's observe that $0\in \mathcal{J}$ and that $\mathcal{J}$ is open. This is true because, being $\Pi \circ S$ a local homeomorphism, if a certain $\tau $ is in $\mathcal{J}\cap(0,1)$ then the whole interval $(\tau-\epsilon,\tau+\epsilon)$ for $\epsilon>0$ sufficiently small, belongs to it.\\
+	
+	Finally, we need to prove that the limit $\lim_{\tau \to \bar \tau} \gamma^*(t) $ exists. If this is true we can then extend $\gamma^*$ up to $\bar \tau$, which means that $\bar \tau\in \mathcal{J}$. Since $\mathcal{J}$ is open, there exists an element $\bar \tau +\epsilon \in \mathcal{J},\ \epsilon>0$. This contradicts the definition of $\bar \tau$ and proves $\bar \tau=1$ since the alternative is absurd.\\
+	
+	To prove that $\lim_{\tau \to \bar \tau} \gamma^*(\tau) $ exists we just need a couple of observations:\\
+	First we note that the map $\Pi$ dilates distances, as
 			\begin{align*}
 				\left<v,v \right>_{\M} &= (v^1)^2+(v^2)^2 - (v^3)^2\\
 									   &\leq (v^1) ^2 + (v^2) ^2\\
-									   &= \left<\Pi v, \Pi v \right>_{\R^2}
+									   &= \left<\Pi v, \Pi v \right>_{\R^2}.
 			\end{align*}
-		\item Then it's clear that  $\ell(\gamma^*)\leq \ell(\gamma)$.
-		\item Now, if we fix any sequence  $t_k\to \bar t$ and observe that as $\gamma$ is differentiable, it's also Lipschitz, $d(\gamma(t_k),\gamma(t_m))\leq C |t_k-t_m|$. By observing that
+	From this it's clear that $\ell(\gamma^*)\leq \ell(\gamma)$.\\
+	Now, if we fix any sequence  $\tau_k\to \bar \tau$ and observe that as $\gamma$ is differentiable, it's derivative is bounded, so $\ell(\gamma|_{[\tau_k,\tau_m]})\leq C |\tau_k-\tau_m|$. By observing that
 			\begin{align*}
-				d(\gamma^*(t_k),\gamma^*(t_m)) &\leq d(\gamma(t_k),\gamma(t_m))\\
-											   &\leq C|t_k-t_m|
+				d(\gamma^*(\tau_k),\gamma^*(\tau_m)) &\leq \ell(\gamma^*|_{[\tau_k,\tau_m]})\\
+													 &\leq \ell(\gamma|_{[\tau_k,\tau_m]})\\
+											   &\leq C|\tau_k-\tau_m|
 			\end{align*}
-			we deduce that also $\gamma^*(t_k)$ is a Cauchy sequence, hence converging since $S$ is complete and $\Omega$ is to be intended with the induced metric.\\
-			By the arbitrariness of the sequence  $(t_k)_k$ we deduce the limit $\lim_{t\to \bar t} \gamma^*(t) $ exists.
-	\end{itemize}
-	Since the limit exists, we deduce $\bar t \in \mathcal{I}$. But now, as the set  $\mathcal{I}$ is open, having $\bar t\in I$ and $\bar t <1$ implies that $t+\epsilon\in \mathcal{I}$, which is a contradiction.\\
-	We deduce then that $\bar t=1$ and that  $\Pi\circ S$ satisfies the lifting property above.
-
-
-	
+			we deduce that also $(\gamma^*(\tau_k))_{k}$ is a Cauchy sequence, hence converging since $S$ is complete and $\Omega$ is to be intended with the induced metric.\\
+			By the arbitrariness of the sequence  $(\tau_k)_k$ we deduce the limit $\lim_{\tau\to \bar \tau} \gamma^*(\tau) $ exists.
 \end{proof}
-It's not difficult to convince ourselves, as the local representation as a graph is always possible, that the conditions of being able to explicit the time variable as dependent and that $|\vec \nabla f|^2 <1$ are a characterization of space-like immersed surfaces.\textcolor{red}{sistemare}\\
+In this section we have essentially proved that a complete space-like surface, immersed in $\M$ is actually the graph of a map with $|\vec \nabla f|^2 <1$. It's easy to convince ourselves that the inverse result also holds and so that this is actually a characterization.
 \paragraph{The Gauss map in $\M$}\mbox{}\\
-The surface $S$ is an immersed submanifold of codimension  $1$. As we have a nondegenerate form on the ambient space, $g$, once fixed a  $p\in S$, we can decompose the tangent spaces as follows:
+The surface $S$ is an immersed submanifold of codimension  $1$. As we have a nondegenerate form on the ambient space, $g$, once fixed a  $p\in S$, we can write the following decomposition, which varies smoothly as we change the point: 
 \begin{equation*}
 	\M = T_p \M = (T_p S)^\perp \oplus T_pS 
 \end{equation*}
-Having codimension $1$, the dimension of $(T_p S)^\perp$ is exaclty one, and in fact it's generated only by the normal vector to  $S$, $\vec n$.\\
-We can easily show that  $n$ must be a time-like vector, due to the fact that $T_p S$ is made of space-like vectors.\\
-Let's fix $e_1, e_2 \in T_pM$ two independent. As $n$ belongs to $(T_pM)^\perp$ we have $\left<e_1,n \right> = \left<e_2,n \right> = 0$. This implies that when we look at the representative matrix of $g_p$, we have
+The codimension of the submanifold $M$ is equal to the dimension of $(T_p S)^\perp$, that is, is exaclty one. In fact this space is generated only by the normal vector to  $S$, $N_p$.\\
+We can easily show that  $N$ must be a time-like vector, due to the fact that $T_p S$ is made of space-like vectors.\\
+
+Let's fix $e_1, e_2 \in T_pM$ two independent vectors. Since $N$ belongs to $(T_pM)^\perp$ we have $\left<e_1,N \right> = \left<e_2,N \right> = 0$. This implies that when we look at the representative matrix of $g_p$ written in the basis $(N,e_1,e_2)$, we have
 \begin{equation*}
 	[g_p] = 
 \begin{pmatrix}
@@ -229,17 +235,15 @@ Let's fix $e_1, e_2 \in T_pM$ two independent. As $n$ belongs to $(T_pM)^\perp$ 
 0 & [(g|_S)_p]
 \end{pmatrix}.
 \end{equation*}
-Where the block $[(g|_S)_p]$ represents the form $g$ on the subspace $T_pM$. We conclude that $\left<n,n \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a pseudometric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\ 
+Where the block $[(g|_S)_p]$ represents the form $g$ restricted to the subspace $T_pM$. We conclude that $\left<n,n \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a pseudometric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\ 
 
 We can now repeat the classical construction of the Gauss map in this pseusoriemannian context.\\
-The main idea is to take a unit vector in $(T_pM)^\perp$, as we have just seen we can't impose the squared norm to be $1$, which means we need to normalize it to $-1$.\\
-Given $w\in (T_pM)^\perp$ we scale by a factor $k$ such that $\left<k w, kw \right>  = -1$. This equation has two different solutions, that send $w$ to one of the two branches of $\hat{\mathbb{H}}^2 = \{v \in \M | \left<v,v \right> = -1\} $, so we need to make a choice. We consistently choose it to be in $\mathbb{H}^2 = \{v \in \M | \left<v,v \right> = -1, v^3 >0 \} $.\\
+The idea is just to take a unit vector in $(T_pM)^\perp$. On this space the norm of the vectors is negative so we will need to normalize them to $-1$ instead of $1$.\\
+So let's fix $w\in (T_pM)^\perp$ and scale it by a factor $k$ such that $\left<k w, kw \right>  = -1$. If we solve this equation we obtain two distinct solutions, that send $w$ to one of the two branches of $\hat{\mathbb{H}}^2 = \{v \in \M | \left<v,v \right> = -1\} $, which means that a choice is needed. Here we consistently choose the normalized vector to to be in the space \[ \mathbb{H}^2 = \{v \in \M | \left<v,v \right> = -1, v^3 >0 \} .\]
+This way we have constructed a map \[ u: S \to \mathbb{H}^2,\] the Gauss map of the surface $S$. Of course the only difference from the classical theory of surfaces is the codomain of the map $ u$, where it is the sphere  $\mathbb{S}^2$. Like in the classical case, the choice of the normal vector specifies an orientation for the surface, which implies that the Gauss map is gloabally defined only when the surface is orientable. In our case, this condition is trivially met since we're dealing with a graph surface.\\
 
-This way we have constructed a map \[ u: S \to \mathbb{H}^2,\] the Gauss map of the surface $S$. Of course the only difference from the classical theory of surfaces is the codomain of the map $ u$, where it is the sphere  $\mathbb{S}^2$, and like in the classical case, the choice of the normal vector specifies an orientation for the surface.\\
-
-\textcolor{red}{$\mathbb{H}^2$ is a model for the Hyperbolic space.}
-\paragraph{The curvatures of a space-like map}\mbox{}\\
-\comm{tbd}
+\paragraph{$\mathbb{H}^2$ is a model for the Hyperbolic plane.}
+\paragraph{Curvatures of the surface $S$}\mbox{}\\
 
 \section{Harmonic maps}
 \section{Classification of CMC}

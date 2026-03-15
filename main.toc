@@ -3,7 +3,8 @@
 \contentsline {paragraph}{Space-like immersions.}{2}{}%
 \contentsline {paragraph}{Entire surfaces.}{2}{}%
 \contentsline {paragraph}{The Gauss map in $\mathbb {M}^{2,1}$}{4}{}%
-\contentsline {paragraph}{The curvatures of a space-like map}{5}{}%
+\contentsline {paragraph}{$\mathbb {H}^2$ is a model for the Hyperbolic plane.}{5}{}%
+\contentsline {paragraph}{Curvatures of the surface $S$}{5}{}%
 \contentsline {section}{\numberline {C}Harmonic maps}{5}{}%
 \contentsline {section}{\numberline {D}Classification of CMC}{5}{}%
 \contentsline {subsection}{\numberline {D.1}The idea of the proof}{5}{}%

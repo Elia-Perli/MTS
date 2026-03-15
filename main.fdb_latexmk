@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1773503657 "main.tex" "main.pdf" "main" 1773503659 0
+["pdflatex"] 1773586459 "main.tex" "main.pdf" "main" 1773586460 0
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -52,8 +52,6 @@
   "/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty" 1575499628 8356 7bbb2c2373aa810be568c29e333da8ed ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty" 1576878844 5412 d5a2436094cd7be85769db90f29250a6 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/generic/listofitems/listofitems.sty" 1558214112 195 27b9da3d207196766c9f281d0590e267 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/generic/listofitems/listofitems.tex" 1566419932 27590 17724a32e183cb652d922ee9f34b134d ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty" 1600895880 17859 4409f8f50cd365c68e684407e5350b1b ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty" 1593379760 20089 80423eac55aa175305d35b49e04fe23b ""
   "/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex" 1673816307 1016 1c2b89187d12a2768764b83b4945667c ""
@@ -175,9 +173,6 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty" 1601326656 348 ee405e64380c11319f0e249fed57e6c5 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty" 1601326656 274 5ae372b7df79135d240456a1c6f2cf9a ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1601326656 325 f9f16d12354225b7dd52a3321f085955 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/latex/scalerel/scalerel.sty" 1483104048 7825 43f8c26a0a3916d218f4f48c29aa92e4 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/latex/setspace/setspace.sty" 1670275497 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/latex/stackengine/stackengine.sty" 1626986448 16455 7159cc65692c01a770db5ae586ea9570 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty" 1686341992 10214 75bcd28386d4b4b9f28b2aff3cea7b24 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent-nometadata.sty" 1667073146 4212 8da4873548cbd3f1cdb053c708e8aa7e ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent.sty" 1667073146 1918 c8d1ecb3722721d6f624992cbc042b70 ""
@@ -189,9 +184,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1692786310 4663624 3c84a53e76219917d7e326b36113b2cc ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1692786545 8172927 68f9a24ea8f7d641bc5d66e1182a9271 ""
   "/usr/local/texlive/2023/texmf.cnf" 1692786301 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1773503658 1178 669ec3049601e688de4f1cced5456efd "pdflatex"
-  "main.tex" 1773503655 15968 486e0d13320b7d347f8e00684de4f86a ""
-  "main.toc" 1773503658 661 36598418502c8a8e61daf93bbea894a7 "pdflatex"
+  "main.aux" 1773586460 1301 65fef90ff5066f47addc1ae867afdb66 "pdflatex"
+  "main.tex" 1773586459 17063 d5b00a77c4bbc2d23422da88e3499ef0 ""
+  "main.toc" 1773586460 742 dea62ca1599cd8960db7f5580ba62666 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
