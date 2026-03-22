@@ -13,7 +13,7 @@
 \usepackage{xfrac}
 %\usepackage{scalerel}[2014/03/10]
 %\usepackage{stackengine}
-
+\usepackage{lipsum}
 
 
 \usepackage{xparse}
@@ -61,7 +61,7 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\then}{\Rightarrow}
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\Dom}{\operatorname{Dom}}
-
+\newcommand{\Ric}{\operatorname{Ric}}
 
 \newcommand{\I}{\mathbf{I}}
 \newcommand{\II}{\mathbf{I\!I}}
@@ -129,7 +129,7 @@ The following definition, borrowed from physics, will be useful later.
 		\item time-like if $\left<v,v \right> < 0$
 	\end{itemize}
 \end{defn*}
-We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. As usual, the immersion induces a scalar product on $S$, the first fundamental form or pull-back metric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we always forget the immersion $\iota$).\\
+We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. As usual, the immersion induces a nondegenerate bilinear form on $S$, the first fundamental form or pull-back pseudometric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we always forget the immersion $\iota$).\\
 \paragraph{Space-like immersions.}\mbox{}\\
 The object we will focus on are not arbitrary immersed surfaces but the so-called space-like surfaces of $\M$. This term refers to the immersed surfaces in $\M$ whose induced metric is positive-definite hence Riemannian, or in other terms, they're surfaces $S$ whose tangent bundle $\{(p,v)\}$ is made only of space-like vectors.\\
 
@@ -239,11 +239,150 @@ Where the block $[(g|_S)_p]$ represents the form $g$ restricted to the subspace 
 
 We can now repeat the classical construction of the Gauss map in this pseusoriemannian context.\\
 The idea is just to take a unit vector in $(T_pM)^\perp$. On this space the norm of the vectors is negative so we will need to normalize them to $-1$ instead of $1$.\\
-So let's fix $w\in (T_pM)^\perp$ and scale it by a factor $k$ such that $\left<k w, kw \right>  = -1$. If we solve this equation we obtain two distinct solutions, that send $w$ to one of the two branches of $\hat{\mathbb{H}}^2 = \{v \in \M | \left<v,v \right> = -1\} $, which means that a choice is needed. Here we consistently choose the normalized vector to to be in the space \[ \mathbb{H}^2 = \{v \in \M | \left<v,v \right> = -1, v^3 >0 \} .\]
-This way we have constructed a map \[ u: S \to \mathbb{H}^2,\] the Gauss map of the surface $S$. Of course the only difference from the classical theory of surfaces is the codomain of the map $ u$, where it is the sphere  $\mathbb{S}^2$. Like in the classical case, the choice of the normal vector specifies an orientation for the surface, which implies that the Gauss map is gloabally defined only when the surface is orientable. In our case, this condition is trivially met since we're dealing with a graph surface.\\
+So let's fix $w\in (T_pM)^\perp$ and scale it by a factor $k$ such that $\left<k w, kw \right>  = -1$. If we solve this equation we obtain two distinct solutions, that send $w$ to one of the two branches of $\hat{\mathbb{H}}^2 = \{v \in \M | \left<v,v \right> = -1\} $, which means that a choice is needed. Here we consistently choose the normalized vector to to be in the space \[ \mathbb{H} = \mathbb{H}^2 = \{v \in \M | \left<v,v \right> = -1, v^3 >0 \} .\]
+This way we have constructed a map \[ u: S \to \mathbb{H},\] the Gauss map of the surface $S$. Of course the only difference from the classical theory of surfaces is the codomain of the map $ u$, where it is the sphere  $\mathbb{S}^2$. Like in the classical case, the choice of the normal vector specifies an orientation for the surface, which implies that the Gauss map is gloabally defined only when the surface is orientable. In our case, this condition is trivially met since we're dealing with a graph surface. 
 
-\paragraph{$\mathbb{H}^2$ is a model for the Hyperbolic plane.}
-\paragraph{Curvatures of the surface $S$}\mbox{}\\
+\paragraph{$\mathbb{H}$ is a model for the Hyperbolic plane.}\mbox{}\\
+The space $\mathbb{H}$ that we just defined is clearly a surface immersed in $\M$, but there is more.
+First of all, we observe that, by manipulating the definition of $\mathbb{H}$ we can write it as the graph of the function $\phi(x,y) = \sqrt{x^2+y^2+1} $. The gradient of such function is $\nabla \phi = \frac{1 }{\sqrt{x^2+y^2+1} }(x,y) $, from which it's clear that $|\nabla \phi| <1$. By applying the result we proved before, we obtain that the bilinear form that $\mathbb{H}$ inherited from the immersion in $\M$ is a Riemannian metric.\\
+In fact this space is one of the many models of the hyperbolic plane. Amongst these models there is one which might be more useful than others, the Poincaré disk. As a manifold, the Poincaré disk is simply the unit ball in $\R^2$, $\mathbb{D}=\{\xi\in \R^2\mid |\xi|\leq 1\} $, while we can construct the metric by exhibiting a diffeomorphism between $\mathbb{D}$ and $\mathbb{H}$ pulling back the metric.\\
+A possible diffeomorphism is the map $p$, whose inverse is the map $q$, as can be verified by direct computation:
+\begin{align*}
+\begin{aligned}
+	p\colon \mathbb{H} &\longrightarrow \mathbb{D} \\
+	(x,y,t) &\longmapsto \frac{1}{1+t}(x,y)
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+	q\colon \mathbb{D} &\longrightarrow \mathbb{H} \\
+	\xi &\longmapsto \frac{1}{1-|\xi|^2}(2\xi^1,2\xi^2,1+|\xi|^2).
+\end{aligned}
+\end{align*}
+It's clear that both functions are smooth, since $|\xi| <1$ and $t>1$.\\
+We would like to find the expression of  $q^*(g_\mathbb{H})$.To simplify the calculations we might observe that the metric of $\mathbb{H}$ inherited by $\M$ is invariant under a rotation on the $t$ axis, and that such a rotation corresponds under $p$ to a rotation of the disk. This means that the metric $q^*(g_{H})$ will be invariant under rotation.\\
+It is then sufficient to fix a certain $\xi\in \mathbb{D}$ of the form $\xi = (a,0) $ and calculate $q^*(g_\mathbb{H})_\xi$; this will specify the whole metric tensor. By direct computation we obtain\\
+\begin{align*}
+	[dq_\xi]
+	=
+	\frac{2}{(1-|\xi|^2)^2}
+	\begin{pmatrix}
+		1+(\xi^1)^2-(\xi^2)^2 & 2\xi^1\xi^2 \\
+		2\xi^1\xi^2 & 1-(\xi^1)^2+(\xi^2)^2 \\
+		2\xi^1 & 2\xi^2
+	\end{pmatrix}.
+\end{align*}
+Which, evaluated at $\xi=(a,0)$, yields
+\begin{align*}
+	[dq_{(a,0)}]
+	=
+	\frac{2}{1-a^2}
+	\begin{pmatrix}
+		\frac{1+a^2}{1-a^2} & 0 \\
+		0 & 1 \\
+		\frac{2a}{1-a^2} & 0
+	\end{pmatrix} =: 
+	\frac{2}{1-a^2}\begin{pmatrix} v_1|v_2 \end{pmatrix} .
+\end{align*}
+We observe that, with respect to the metric of $\M$, it holds
+\begin{align*}
+	\langle v_1,v_1\rangle = 1,
+	\hspace{5mm}
+	\langle v_2,v_2\rangle = 1,
+	\hspace{5mm}
+	\langle v_1,v_2\rangle = 0.
+\end{align*}
+Which means that the representative matrix of $q^*(g_{\mathbb{H}})$ is a multiple of the identity, $[q^*(g_{\mathbb{H}})_{(0,a)}] = \frac{2}{1-a^2}I$. 
+By the argument on rotational invariance, we conclude that for every $\xi\in \mathbb{D}$,
+\begin{align*}
+	q^*(g_\mathbb{H})_\xi
+	=
+	\left(\frac{2}{1-|\xi|^2}\right)^2 g^E_\xi.
+\end{align*}
+The disk $\mathbb{D}$ with this metric is called the Poincaré model of the Hyperbolic plane. A nice property of this model is to be what is called a ``conformal'' model of the hyperbolic plane, namely an immersed manifold in a Euclidean space whose metric is a multiple of the standard one.\\
+
+What we discussed in this paragraph lets us identify $\mathbb{H}$ and $\mathbb{D}$. From now on we will use $\mathbb{D}$. For example, we will always use this space as the codomain of the Gauss map,\\
+\[ u: S \to \mathbb{D}.\]
+\section{The Gauss-Codazzi equations and the curvatures of $S$}
+In this section we will take a look at a pair of equations that encode much of the information of an immersion, the so called Gauss-Codazzi equations.
+\paragraph{Recall on the second fundamental form}\mbox{}\\
+Let's give a recall of the second fundamental form, which as it's well known, encodes how the surface curves in the ambient space.\\
+Let's suppose to have two Riemannian manifolds and an isometric immersion between them $f:M^{(n)}\to \overline M^{(n+k)}$, for which we will identify $M$ as a subset of $\overline M$.\\
+It is clear that any smooth vector field on $M$ can be extended to a smooth vector field on $\overline M$ and that the ambient metric induces the following splitting 
+\begin{equation*}
+	T_p \overline{M} = T_pM \oplus (T_pM) ^ \perp,
+\end{equation*}
+which is smooth, in the sense that the maps $(p,v)\mapsto  (p,v^T) $ and $(p,v) \mapsto  (p,v^N) $ are smooth transformations of $TM$.\\
+
+Let's fix a connection $\overline{\nabla}$ on $\overline{M}$ and denote with $\nabla$ the induced connection on $M$, which is constructed by taking two vector fields on $M$, $X,Y$, extending them to $\overline{M}$ obtaining $\overline{X}$ and $\overline{Y}$, and finally by projecting on the tangent space of $M$, $\nabla_X Y = (\overline{\nabla}_{\overline{X}}\overline{Y})^T$.
+We then define the bilinear form 
+\begin{equation*}
+	B(X,Y) = \overline{\nabla}_{\overline{X}}\overline{Y} - \nabla_X Y.
+\end{equation*}
+It is clear that $B(X,Y)_p \perp T_pM$ everywhere. This means that given a small open set $U\subset  M$, we can intend $B$ as a function between the space of vector fields on $U$ tangent to $M$, $\mathcal{X}(U)$ and those normal to $M$, $\mathcal{X}(U)^\perp$.
+\begin{equation*}
+	B: \mathcal{X}(U) \times  \mathcal{X}(U) \to \mathcal{X }(U)^\perp
+\end{equation*}
+It can be seen also that $B$ is $C^\infty(M)$-linear and symmetric, or in other words that it's a symmetric tensor. This means in particular that we can evaluate $B(x,y)$ at specific vectors $x,y\in T_pM$ and do not need the whole vector field.\\
+We have all we need to define the second fundamental form. Given $p\in M$ and a vector $\eta \in T_p M^\perp$, the mapping 
+\begin{align*}
+	H_\eta:  T_pM \times T_pM  \longrightarrow & \hspace{7mm}\R \\
+	(x,y)\hspace{5mm}  \longmapsto &\left<B(x,y),\eta \right>
+\end{align*}
+is the second fundamental form of the immersion $f$ at the point $p$ along the normal vector $\eta$.
+
+\section{Uniqueness for the PDE}
+So far we have reduced our classification problem to solving the PDE
+\begin{center}
+\comm{riscrivere}\\
+\raisebox{2mm}{%
+\fbox{%
+\begin{minipage}{0.75\textwidth}
+	Given a nonnegative function $q$ on the Poincaré disk $D$, find a unique smooth function
+	\[
+		w:D\to \mathbb{R}
+	\]
+	such that
+	\[
+		\Delta_p w = e^{2w}-q\,e^{-2w}-1,
+	\]
+	and such that
+	\[
+		e^{2w}ds_p^2
+	\]
+	is a complete metric on $D$, with
+	\[
+		e^{2w}-q\,e^{-2w}>0
+	\]
+	on $D$.
+\end{minipage}}}
+\end{center}
+
+We will need, beforehand, to prove a maximum principle due to Cheng and Yau that can be found in \ref{.}.
+\subsection{A generalized maximum principle}
+Let's lay out the setup. Let's suppose to have a complete Riemannian manifold of dimension $n$, $M^{(n)}$ and to have fixed an arbitrary point $p$. We suppose that the manifold $M^{(n)}$ has nonpositive sectional curvature. This hypothesis is not really necessary for what is concerned in this paragraph, but it simplifies greatly the notation and is verified in the applied problem we are facing. Let $\sigma : [0,l] \to  M$ be a unit speed geodesic joining $x$ to $p$, whose velocity is  $\sigma'(t)$ and where the Ricci curvature is given by $\Ric(\sigma'(t))$.\\
+Let's define 
+\begin{equation*}
+	K_{\sigma }(x) = \min_{0\leq k\leq l} \left[ \frac{n-1}{l-k} -	\frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t)) dt\right] .
+\end{equation*}
+Since our manifold has, by hypothesis, a nonpositive sectional curvature, by applying the Cartan-hadamard theorem we can assume that the cut locus of $p$ is empty, and so that $\sigma$ is the shortest geodesic between $x$ and $p$.\\
+Let's define $r(x):= d(x,p)$ the distance in $M$ from $p$. By the means of a simple computation, we can observe that when $r(x) \geq 1$ and if the Ricci curvature is bounded from below, then the quantity $K(x)$ is bounded from above by a constant.\comm{sistemare}
+\begin{thm}
+	Let $M$ be a complete Riemannian manifold of nonpositive sectional curvature. Let $f$ any $C^2$ function bounded from above on $M$. Then for any $p\in M$ there is a sequence of points  $(x_k)_{k}\subset M $ such that
+	\begin{enumerate}[label=\alph*.,noitemsep]
+		\item 
+			\begin{equation*}
+				\lim_{k\to \infty} f(x_k) = \sup f
+			\end{equation*}
+		\item \[ |\nabla f |(x_k)	=  \frac{2(f(x_k)-f(p)+1)r(x_k)}{k(r^2(x_k)+2)}\log(r^2(x_k)+2)\] 
+		\item 
+
+		
+	\end{enumerate}	
+
+\end{thm}
+\subsection{Uniqueness theorem}
+
+
 \end{document}
 
 
