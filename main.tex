@@ -14,7 +14,7 @@
 %\usepackage{scalerel}[2014/03/10]
 %\usepackage{stackengine}
 \usepackage{lipsum}
-
+\usepackage{showlabels}
 
 \usepackage{xparse}
 
@@ -80,7 +80,7 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newtheorem{cor}{\textsc{Corollary}}[section] %,\Alph] %[section/chapter, ...] \newtheorem{prop}{\textsc{Proposition}}[section]
 \newtheorem*{prop*}{\textsc{Proposition}}
 \newtheorem{prop}{\textsc{Proposition}}
-\newtheorem{oss}{\textsc{remark}}[section]
+\newtheorem{rmk}{\textsc{Remark}}[section]
 \theoremstyle{definition}
 \newtheorem{defn}{\textsc{Definition}}[section]
 \newtheorem*{defn*}{\textsc{Definition}}
@@ -331,29 +331,29 @@ We have all we need to define the second fundamental form. Given $p\in M$ and a 
 is the second fundamental form of the immersion $f$ at the point $p$ along the normal vector $\eta$.
 
 \section{Uniqueness for the PDE}
-So far we have reduced our classification problem to solving the PDE
+So far we have reduced our classification problem to proving existence and uniqueness for the following differential problem.
 \begin{center}
-\comm{riscrivere}\\
 \raisebox{2mm}{%
 \fbox{%
 \begin{minipage}{0.75\textwidth}
-	Given a nonnegative function $q$ on the Poincaré disk $D$, find a unique smooth function
+	Given $h$ a smooth function on the Poincaré disk $\mathbb{D}$, find a smooth function
 	\[
-		w:D\to \mathbb{R}
+		w:\mathbb{D}\to \mathbb{R}
 	\]
 	such that
 	\[
-		\Delta_p w = e^{2w}-q\,e^{-2w}-1,
+		\Delta_p w = e^{2w}-h^2\,e^{-2w}-1,
 	\]
+	where $\Delta_p$ is the 
 	and such that
 	\[
 		e^{2w}ds_p^2
 	\]
 	is a complete metric on $D$, with
 	\[
-		e^{2w}-q\,e^{-2w}>0
+		e^{2w}-h^2e^{-2w}>0
 	\]
-	on $D$.
+	on $\mathbb{D}$.
 \end{minipage}}}
 \end{center}
 
@@ -367,36 +367,436 @@ Let's define
 Since our manifold has, by hypothesis, a nonpositive sectional curvature, by applying the Cartan-hadamard theorem we can assume that the cut locus of $p$ is empty, and so that $\sigma$ is the shortest geodesic between $x$ and $p$.\\
 Let's define $r(x):= d(x,p)$ the distance in $M$ from $p$. By the means of a simple computation, we can observe that when $r(x) \geq 1$ and if the Ricci curvature is bounded from below, then the quantity $K(x)$ is bounded from above by a constant.\comm{sistemare}
 \begin{thm}
+Let $M$ be a complete Riemannian manifold of nonpositive sectional curvature and $f\in C^2(M)$ a function bounded from above. Fix $p\in M$, and let $r(x)=d(p,x)$. Then there exists a sequence $(x_k)_k\subset M$ such that
+\[
+f(x_k)\to \sup_M f,\qquad |\nabla f|(x_k) \leq \frac{1}{k} \to 0,\qquad \limsup_{k\to\infty}\Delta f(x_k)\le 0.
+\]
+If moreover the Ricci curvature is bounded from below, we can choose the sequence $(x_k)_{k}$ so that the following estimates also hold,
+\[
+\Delta f(x_k)\le \frac{C}{k}
+\]
+for some constant $C>0$ independent from $k$.
+\end{thm}
+\begin{thm}\label{th:maxprin}
 	Let $M$ be a complete Riemannian manifold of nonpositive sectional curvature. Let $f$ any $C^2$ function bounded from above on $M$. Then for any $p\in M$ there is a sequence of points  $(x_k)_{k}\subset M $ such that
 	\begin{enumerate}[label=\alph*.,noitemsep]
-		\item 
-			\begin{equation*}
+		\item \begin{equation*}
 				\lim_{k\to \infty} f(x_k) = \sup f
 			\end{equation*}
-		\item \[ |\nabla f |(x_k)	=  \frac{2(f(x_k)-f(p)+1)r(x_k)}{k(r^2(x_k)+2)}\log(r^2(x_k)+2)\] 
+		\item \[ |\nabla f |(x_k)	=  \frac{2(f(x_k)-f(p)+1)r(x_k)}{k(r^2(x_k)+2)\log(r^2(x_k)+2)}\] 
 		\item 
-
-		
+			\begin{align}
+				\Delta f(x_m)
+						&= \frac{2\big( f(x_m)- f(p)+1\big)\big(r(x_m)K(x_m)+1\big)}
+						{m\big(r(x_m)^2+2\big)^2\log\big(r(x_m)^2+2\big)} \\
+						&\qquad
+						+ \frac{4\big( f(x_m)- f(p)+1\big)r(x_m)^2}
+						{m\big(r(x_m)^2+2\big)^2\log\big(r(x_m)^2+2\big)} .
+			\end{align}
 	\end{enumerate}	
-
 \end{thm}
-\subsection{Uniqueness theorem}
+\comm{interpretazione di questo big mess}\\
+\comm{aggiungere statement teorema Caratan-Hadamard e teorema  "$r(x) = d(p,x)^2$ differenziabile in $x$ se $x$ non è nel cut locus di  $p$".}\\
+\comm{aggiungere osservazione per cui una funzione ottiene il suo massimo in $x$ allora ha laplaciano non positivo in $x$.}
+\begin{proof}
+	Let's define the auxiliary functions $u(x) = (f(x)-f(p)+1) $ and $L(x) = \log(r^2(x)+2)$. Then let's fix a positive integer $k$ and define the function $g_k$ as
+	\begin{equation*}
+		g (x) = \frac{f(x)-f(p)+1}{(\log(r^2(x) +2)^{\frac{1}{k}}} = \frac{u(x)}{L(x)^\frac{1}{k}}
+		\ \ .
+	\end{equation*} 
+	Let's observe that $g(p) = \frac{1}{\log(2)^\frac{1}{k}}>0$ and that $\lim_{r(x) \to \infty}g(x) = 0$. Since $g$ is continuous, this means that it attains its maximum at a certain point $x_k$. \comm{why}\\
+	As we already mentioned, the Cartan-Hadamard $M$ theorem grants that $x_k$ is not in the cut-locus of $p$, and so that the function $d(p,x)^2 = r(x)^2$ is differentiable in $x$.\\
+	Let's calculate the gradient of $g$,
+	\[
+	\nabla g(x)
+	=
+	\frac{\nabla f(x)}{\log(r(x)^2+2)^{1/k}}
+	-
+	\frac{2(f(x)-f(p)+1)r(x)}{k(r(x)^2+2)\log(r(x)^2+2)^{1+1/k}}\nabla r(x)
+	\ \ .\]
+	$x_k$ is the maximum of $g_k$, which means $\nabla g(x_k)= 0$, from which we get, noting also that $r$ satisfies $|\nabla r| = 1$,
+	\begin{align*}		
+	|\nabla f|(x_k)	=
+	\frac{2u(x_k)\,r(x_k)}{k\,(r^2(x_k)+2)\,\log(r^2(x_k)+2)}
+	\ \ .\end{align*}
+	We then observe, since $f$ is bounded from above, that $u(x) = f(x)-f(p)+1 \leq \sup f -f(p) +1 \leq  1$; also, the map $\frac{2x}{ (x^2+2) \log(x^2+2)}\leq 2$, so that we get the estimate 
+	\[|\nabla f| (x_k) \leq \frac{2}{k}\ \ .\] 
+	Let's now focus on the estimate on the Laplacian. Again by direct computation we obtain
 
-
-\end{document}
-
-
-
-
-\begin{thm}
-	Let $ h$ be a continuous function defined on a domain $\Omega$ in $\C$. Let $\tilde w$ be a solution for [where do we use the inequality with zero?]
 	\begin{align*}
-		\Delta\tilde{w} &= e^{2\tilde{w}} - h^{2} e^{-2\tilde{w}} \ge 0
+	\Delta g
+	&=
+	\frac{\Delta f}{L^{1/k}}
+	-\frac{4r}{k(r^2+2)L^{1+1/k}}\langle \nabla f,\nabla r\rangle
+	-\frac{2u}{k(r^2+2)L^{1+1/k}} \\
+	&\quad
+	-\frac{2ur\,\Delta r}{k(r^2+2)L^{1+1/k}}
+	+\frac{4ur^2}{k(r^2+2)^2L^{1+1/k}}
+	+\frac{4(k+1)ur^2}{k^2(r^2+2)^2L^{2+1/k}} .
 	\end{align*}
+	By observing that $\Delta g(x_k)\leq 0$ since  $x_k$ is a maximum, substituting the expression for $\Delta g$, the fact that $\nabla g(x_k) = 0$ and observing that \comm{controllare}
+	\begin{align*}
+	\langle \nabla f,\nabla r\rangle(x_k) &= \frac{2\,u(x_k)\,r(x_k)}{k\big(r^2(x_k)+2\big)\log\big(r^2(x_k)+2\big)}\ \ ,
+	\end{align*}
+	we get 
+	\begin{align*}
+	\Delta f(x_k) &\le 
+	\frac{2u(x_k)\bigl(1+r(x_k)\Delta r(x_k)\bigr)}{k\bigl(r^2(x_k)+2\bigr)\log\bigl(r^2(x_k)+2\bigr)}
+	- \frac{4u(x_k)r^2(x_k)}{k\bigl(r^2(x_k)+2\bigr)^2\log\bigl(r^2(x_k)+2\bigr)}\\
+	&\qquad\qquad
+	- \frac{4(k-1)u(x_k)r^2(x_k)}{k^2\bigl(r^2(x_k)+2\bigr)^2\log^2\bigl(r^2(x_k)+2\bigr)}\ \ .
+	\end{align*}
+	And in particular
+	\begin{align*}
+		\Delta f(x_k)
+		\le
+		\frac{2u(x_k)\bigl(1+r(x_k)\Delta r(x_k)\bigr)}
+		{k\,(r^2(x_k)+2)\,\log(r^2(x_k)+2)}
+	\ \ .
+	\end{align*}
+
+	We now apply the Cheng-Yau estimate
+	\[
+	\Delta r(x)\le K(x),
+	\]
+	where \(K(x)\) is the quantity defined along minimizing geodesics. If the Ricci
+	curvature is bounded from below, then \(K(x)\) is bounded above for \(r(x)\ge 1\).
+	Therefore, if \(u\le 1\), there exists a constant \(C>0\) such that
+	\[
+	\Delta f(x_k)\le \frac{C}{k}.
+	\]
+	\comm{assolutamente da riscrivere}\\
+	We now show directly that
+	\[
+	f(x_k)\to \sup_M f.
+	\]
+
+	Recall that \(x_k\) is chosen so that
+	\[
+	g_k(x_k)=\sup_M g_k,
+	\]
+	where
+	\[
+	g_k(x)=\frac{f(x)-f(p)+1}{L(x)^{1/k}},
+	\qquad
+	L(x):=\log\bigl(r(x)^2+2\bigr).
+	\]
+
+	Fix \(x\in M\). Since \(x_k\) maximizes \(g_k\), we have
+	\[
+	g_k(x_k)\ge g_k(x)
+	=\frac{f(x)-f(p)+1}{L(x)^{1/k}}.
+	\]
+	Now \(x\) is fixed, hence \(L(x)\) is fixed, and therefore
+	\[
+	L(x)^{1/k}\to 1
+	\qquad\text{as } k\to\infty.
+	\]
+	It follows that
+	\[
+	\liminf_{k\to\infty} g_k(x_k)\ge f(x)-f(p)+1.
+	\]
+	Since this holds for every \(x\in M\), we obtain
+	\[
+	\liminf_{k\to\infty} g_k(x_k)\ge \sup_M f-f(p)+1.
+	\]
+
+	On the other hand, since \(f\le \sup_M f\) and \(L(x_k)^{1/k}\ge 1\), we have
+	\[
+	g_k(x_k)
+	=\frac{f(x_k)-f(p)+1}{L(x_k)^{1/k}}
+	\le \sup_M f-f(p)+1.
+	\]
+	Therefore
+	\[
+	\limsup_{k\to\infty} g_k(x_k)\le \sup_M f-f(p)+1.
+	\]
+	Combining the two inequalities yields
+	\[
+	g_k(x_k)\to \sup_M f-f(p)+1.
+	\]
+
+	Finally, since \(L(x_k)^{1/k}\ge 1\), one has
+	\[
+	g_k(x_k)
+	=\frac{f(x_k)-f(p)+1}{L(x_k)^{1/k}}
+	\le f(x_k)-f(p)+1
+	\le \sup_M f-f(p)+1.
+	\]
+	Passing to the limit and using the convergence of \(g_k(x_k)\), we get
+	\[
+	\sup_M f-f(p)+1
+	\le
+	\liminf_{k\to\infty}\bigl(f(x_k)-f(p)+1\bigr)
+	\le
+	\limsup_{k\to\infty}\bigl(f(x_k)-f(p)+1\bigr)
+	\le
+	\sup_M f-f(p)+1.
+	\]
+	Hence
+	\[
+	f(x_k)\to \sup_M f.
+	\]
+\end{proof}
+
+\paragraph{A boundedness result}\mbox{}\\
+We can use this theorem also to prove a boundedness result for a certain differential inequality. We will make some observation and state the theorem at the end of the section.\\
+Let's assume that $M$ is a Riemannian Manifold with is Ricci curvature bounded from below. Let $u$ be a $C^2$ function such that
+\begin{equation}\label{eq:boundprin2}
+	\Delta u \geq f\ \ , 
+\end{equation}
+where we will state the conditions that $f$ must satisfy later.\\
+Let's suppose to have a positive function $F\in C^2(\R)$ that also we will define later. Since $F$ is positive, the function $- 1 / F  $  is bounded from above. So we can apply theorem \ref{th:maxprin} and find a sequence $(x_k)_k$ such that 
+\begin{equation}\label{eq:boundprin7}
+	\lim_{k\to \infty} \frac{1}{F(u(x_k))} = -\sup\left(-\frac{1}{F(u)}\right) = \inf \frac{1}{F(u)}
+\end{equation}
+
+and along with the estimates on the gradient and the Laplacian apply, 
+\begin{align}
+	\frac{|F'(u)||\nabla u|(x_k)}{F^2(u)}\le\frac{1}{k}, \label{eq:boundprin3}\\
+	- \frac{F''(u)\,|\nabla u|^2}{F^2}(x_k) - \frac{F'(u)\,\Delta u}{F^2}(x_k) + \frac{(F'(u))^2\,|\nabla u|^2}{F^3}(x_k) \ge -\frac{1}{k}
+	\ \ . \comm{align\ me}
+\end{align}
+By multiplying the last equation by $F'(u) / ( F(u)^2|F''(u)| $ we get,
+\begin{multline}\label{eq:boundprin1}
+	-\ \frac{F''(u)}{|F''(u)|} \frac{F'(u)^2|\nabla u|^2}{F(u)^4}
+	\ -\ \frac{F'(u)^3}{F(u)^4}\frac{\Delta u}{|F''(u)|}\\
+	\ +\ \frac{2F'(u)^2}{F(u)|F''(u)|} \frac{F'(u)^2|\nabla u|^2}{F(u)^4}
+	\ge -\frac{F'(u)^2}{kF(u)^2|F''(u)|}\ \ .
+\end{multline}
+Now we make some estimates on the LHS in \eqref{eq:boundprin1}:
+\begin{align*}
+	\frac{F'(u)^{3}}{F^4} \frac{\nabla u }{|F(u)|} \geq \frac{F'(u)^{3}}{F^4} \frac{f(u) }{|F(u)|} && \text{since $\Delta u \geq f$, \eqref{eq:boundprin2} }\\
+	-\ \frac{F''(u)}{|F''(u)|} \frac{F'(u)^2|\nabla u|^2}{F(u)^4} \leq
+	\left|  
+	-\ \frac{F''(u)}{|F''(u)|} \frac{F'(u)^2|\nabla u|^2}{F(u)^4} 
+	\right| =
+	\left| \frac{(F')^2|\nabla u|^2}{F^4} \right| \leq \frac{1}{k^2} 
+																									   && \text{ apply [\eqref{eq:boundprin3}]  }
+																									   \ \ .
+\end{align*}
+also,
+\begin{align*}
+	\frac{2F'(u)^2}{F(u)|F''(u)|} \frac{F'(u)^2|\nabla u|^2}{F(u)^4}\leq
+	2 \left| \frac{F'(u)}{F(u)|F''(u)|} \right| \left| \frac{F'(u)^2 |\nabla u|^2}{F^4} \right| \leq \frac{2}{k^2}\left| \frac{F'(u)}{F(u)|F''(u)|} \right| && \text{for \eqref{eq:boundprin3}}
+	\ \ .
+\end{align*}
+So that we get from \eqref{eq:boundprin3},
+\begin{align}\label{eq:boundprin6}
+	\frac{1}{k^2} \ - \ 
+	\frac{F'(u)^3 f(u)}{F^4 |F(u)|}
+	\ + \ \frac{2}{k^2} \left| \frac{F'(u)}{F(u)|F''(u)|} \right| \geq 
+	-\frac{1}{k}\frac{F'(u)^2}{F(u)^2|F''(u)|}
+	\ \ .
+\end{align}
+If we suppose that our function $F$ satisfies
+\begin{align}\label{eq:boundprin4}
+	\limsup_{t\to\infty}\frac{|F'(t)|^2}{F(t)\,|F''(t)|} &< \infty
+	\ \ 
+\end{align}
+and 
+\begin{align}\label{eq:boundprin5}
+	\liminf_{t\to\infty}\frac{F'(t)^3 f(t)}{F(t)^4\,|F''(t)|}>0
+	\ \ ,
+\end{align}
+we can prove then that $\limsup_k u(x_k) < \infty$.\\
+
+Let's suppose by contradiction that $\limsup u(x_k) = \infty$, then we can take $\limsup$ in \eqref{eq:boundprin6}
+\begin{align*}
+	\limsup_k{k\to \infty} \left( 
+		\frac{1}{k^2} \ - \ 
+		\frac{F'(u)^3 f(u)}{F^4 |F(u)|}
+	\ + \ \frac{2}{k^2} \left| \frac{F'(u)}{F(u)|F''(u)|} \right| \right)
+	\geq \limsup_{k\to \infty} \left(    -\ \frac{1}{k}\frac{F'(u)^2}{F(u)^2|F''(u)|}\right)
+\end{align*}
+\begin{multline*}
+	\limsup_{k \to \infty} (\frac{1}{k^2}) 
+	- \liminf_{k\to \infty} \left( \frac{F'(u)^3 f(u)}{F^4 |F(u)|} \right) 
+	+
+	2 \lim_{k\to \infty} \left( \frac{1}{k^2} \right)  \limsup_{k \to \infty} \left( \frac{F'(u)^3 f(u)}{F^4 |F(u)|} \right)  
+	\\ \geq \limsup_{k\to \infty} \left(    -\ \frac{1}{k}\frac{F'(u)^2}{F(u)^2|F''(u)|}\right)
+	\ \ .
+\end{multline*}
+since we assumed  \eqref{eq:boundprin4}, this is equivalent to
+\begin{align*}
+	\liminf_{k\to \infty} \left( \frac{F'(u)^3 f(u)}{F^4 |F(u)|} \right) 
+	&\leq\ -\ \limsup_{k\to \infty} \left(    -\ \frac{1}{k}\frac{F'(u)^2}{F(u)^2|F''(u)|}\right) \\ &=
+	- \lim_{k\to \infty} \left(- \frac{1}{k} \right)\limsup_{k\to \infty} \left( \frac{F'(u)^2}{F(u)^2|F''(u)|} \right) \\& = 0
+	\ \ .
+\end{align*}
+Again having used \eqref{eq:boundprin4}. This contradicts the assumption \eqref{eq:boundprin5}. We have proven that $\limsup_k u(x_k) <\infty$, so up to taking a subsequence, we can assume that $u(x_k)$ admits a limit.\\
+
+Now it's a good point to prove that $u$ is bounded, provided the existence of the function $F$, which we need to be strictly increasing so that $1 / F$ is strictly decreasing.\\
+First we recall that if $h:\R\to \R$ is strictly increasing, then
+\begin{align*}
+	u(x_k) \to \sup(u) \iff h \circ u(x_k) \to  \inf(h\circ u)
+	\ \ .
+\end{align*}
+In  \eqref{eq:boundprin7} we found that the sequence $(x_k)_k$ satisfies 
+\begin{align*}
+	\lim_{k\to \infty} \frac{1}{F(u(x_k))} &= \inf \frac{1}{F(u)}\\
+										   &= \frac{1}{\sup F(u)}
+										   \ \ .
+\end{align*}
+hence, knowing that $F>0$, $\lim F(u(x_k)) = \sup F(u)$.
+So, knowing that $\limsup_{k} u(x_k)\leq C$,
+\begin{align*}
+	\sup(F(u)) &=  \lim F(u(x_k))\\
+	\then \sup(u) = \lim_k u(x_k) \leq 0
+	\ \ .
+\end{align*}
+
+\noindent We have moved our problem to finding a function $F$ that is
+\begin{itemize}[noitemsep]
+	\item Positive
+	\item Strictly increasing
+	\item Satisfies \eqref{eq:boundprin4} and \eqref{eq:boundprin5} .
+\end{itemize}
+Let's search such a function $F$ of the form 
+\begin{align*}
+	F(s) = \int_a^s \left( \int_a^t g(\tau) d\tau \right)^{-\frac{1}{2}} dt+1
+	\ \ ,
+\end{align*}
+where $g$ is a positive continuous function defined on $[a, \infty)$ with $\int_b^\infty \left( \int_a^t g(\tau) d\tau \right) ^{-1 / 2} dt <\infty$. Then we extend $F$ on the whole line $\R$ so that it's a strictly increasing $C^2$ function. \\
+We need to compute a couple of quantities,
+\begin{align*}
+	F''(s) = -\frac{1}{2} \left( \int_a^s g(\tau) d\tau \right)^{-\frac{3}{2}} g(s)
+	\ \ .
+\end{align*}
+\begin{align*}
+	\frac{|F'(s)|^2}{F(t) |F''(t)|} = 2 \frac{ \left( \int_a^t g(\tau) d\tau \right) ^{\frac{1}{2}}}{F(t)g(t)}
+	\ \ .
+\end{align*}
+so the condition  \eqref{eq:boundprin4} is equivalent to 
+\begin{align*}
+	\limsup_{t\to\infty}\frac{\left(\displaystyle\int_{a}^{t} g(\tau)\,d\tau\right)^{1/2}}{F(t)\,g(t)} &< \infty\ \ .
+\end{align*}
+\begin{align*}
+	\frac{F'(t)^3f(t)}{F(t)^4|F''(t)|} = 2\frac{f(t)}{F(t)^4g(t)}
+	\ \ .
+\end{align*}
+Then also the condition \eqref{eq:boundprin5} is equivalent to
+\begin{align*}
+	\liminf_{t\to\infty}\frac{f(t)}{F(t)^4 g(t)}>0.
+\end{align*}
+Finally we observe that since $g$ is positive, if $t<s$,
+\begin{align*}
+	\left( \int_a^t g(\tau) d\tau \right) ^{- 1/2 } \geq \left( \int_a^s g(\tau) d\tau \right) ^{- 1/2 }
+	\ \ ,
+\end{align*}
+so that 
+\begin{align*}
+	F(t)-1 &= \int_a^s \left( \int_a^t g(\tau) d\tau \right)^{-\frac{1}{2}} ds\\
+		   &\geq \int_a^t \left( \int_a^t g(\tau) d\tau \right)^{-\frac{1}{2}} dt\\
+		   &= \left( \int_a^t g(\tau)d\tau \right)^{ - 1 / 2} \int_b^t 1ds\\
+		   &=(t-b) \left( \int_a^t g(\tau)d\tau \right)
+		   \ \ .
+\end{align*}
+So 
+\begin{align*}
+	F(t) \geq (t-b) \left( \int_a^t g(\tau)d\tau \right)^{- 1 /2} 
+	\ \ .
+\end{align*}
+Which means we can further rewrite the condition \eqref{eq:boundprin5}
+\begin{align*}
+	\frac{\left(\displaystyle\int_{a}^{t} g(\tau)\,d\tau\right)^{1/2}}{F(t)\,g(t)} &\leq \frac{\left(\displaystyle\int_{a}^{t} g(\tau)\,d\tau\right)^{1/2}}{(t-b) \left( \int_a^t g(\tau)d\tau \right)^{- 1 /2} g(t)}\\
+																					   & =  \frac{\int_a^t g(\tau)d\tau	}{(t-b)g(t)}\\
+																																			   &\sim \frac{\int_a^t g(\tau)d\tau}{tg(t)}
+																																			   \ \ .
+\end{align*}
+
+We have proven the following theorem
+\begin{thm}\label{th:boundprin}
+	Let $M$ be a Riemannian manifold whose Ricci curvature is bounded from below such that 
+	 \begin{equation*}
+		\Delta u \geq f(u)
+		\ \ .
+	\end{equation*}
+	A sufficient condition for $u$ being bounded from above on $M$ is that there is a continuous positive function $g$, defined on an interval $[a,\infty)$ such that 
+	\begin{itemize}[noitemsep]
+		\item $\int_b^\infty \left( \int_a^t g(\tau)d\tau \right) ^{-1 /2}dt < \infty $ for some $b\geq a$,
+		\item $\limsup_{t \to \infty} \frac{\int_a^t g(\tau) d\tau}{t g(t) }<\infty$
+		\item $\liminf_{t\to \infty} \frac{f(t)}{g(t)}>0$.
+	\end{itemize}
+\end{thm}
+
+\subsection{The uniqueness theorem}
+In order to prove the uniqueness theorem, we will consider an auxiliary problem, prove the uniqueness for that problem and finally bring back the uniqueness from the auxiliary problem to the original problem.
+\begin{thm}
+	Let $ h$ be a continuous function defined on a domain $\Omega$ in $\C$. Let $\tilde w$ be a solution for \comm{[where do we use the inequality with zero?]}
+	\begin{align}\label{eq:unithm}
+		\Delta\tilde{w} &= e^{2\tilde{w}} - h^{2} e^{-2\tilde{w}} \ge 0
+	\end{align}
 	in  $\Omega$ such that $e^{2\tilde w}$ is a complete metric on $\Omega$. Then any other solution $v$ of the equation satisfies $v\leq \tilde w$.
 \end{thm}
 \begin{proof}
-	
+	Let us define $\eta = v- \tilde w$. We need to prove that $\eta \leq 0$.\\
+	We have
+	\begin{align}
+	\Delta \eta &= \Delta v - \Delta \tilde w\notag\\
+			& \overset{[\eqref{eq:unithm}]}{=} e^{2 v}- h^2 e^{-2v} -e^{2\tilde w} + h^2e^{-2\tilde w}\label{eq:unithm2}
+	\ \ .
+	\end{align}
+	Now let's make some calculations
+	\begin{align*}
+		e^{2v} = e^{2(\eta + \tilde w) } = e^{2\eta}e^{2\tilde w}
+		\ \ .
+	\end{align*}
+	Let's define the quantity $|\mu|^2 = h^2 e^{-4\tilde w}$, we have then
+	\begin{align*}
+		h^2 e^{-2\tilde w} = h^2 e^{-2\tilde w}e^{-2\eta} = |\mu|^2e^{2\tilde w}e^{-2\eta}\\
+		h^2 e^{-2\tilde w} = \left( h^2 e^{-4\tilde w}\right)  e^{2\tilde w}		= |\mu|^2e^{2\tilde w}
+	\ \ .
+	\end{align*}
+	So, by substituting what we just found in \eqref{eq:unithm2}, we get
+	\begin{align}
+		\Delta \eta &= e^{2\tilde w} e^{2\eta}-|\mu|^2 e^{2\tilde w} e^{-2\eta} -e^{2 \tilde w} + |\mu|^{2}e^{2\tilde w}\notag\\
+			&= e^{2\tilde w}(e^{2\eta} -|\mu|^2 e^{-2\eta}-1+|\mu|^2)\label{eq:unithm3}
+	\ \ .
+	\end{align}
+	The Laplacian with respect to the metric $g=e^{2\tilde w}|dz|^2$ is simply $e^{-2\tilde w}\Delta$. So in \eqref{eq:unithm3} we obtain 
+	\begin{align*}
+	\Delta_g \eta =e^{-2\tilde w}\Delta \eta = e^{2\eta}-|\mu|^2 e^{-2\eta}-1+|\mu|^2
+	\ \ .
+	\end{align*}
+	Let's now observe that $|\mu|^2\leq 1$, since we know from \eqref{eq:unithm}
+	\begin{align*}
+		e^{2\tilde w}-h^2 e^{-2\tilde w}&\geq 0\\
+		e^{2\tilde w }(1-h^2 e^{-4 \tilde w}) &\geq 0\\
+		e^{2\tilde w }(1-|\mu|^2) &\geq 0
+	\ \ ,
+	\end{align*}
+	so that $|\mu|\leq 1$.\\
+	Now, continuing in \eqref{eq:unithm3},
+	\begin{align*}
+		\Delta_g \eta &= e^{2\tilde w}(e^{2\eta} -|\mu|^2 e^{-2\eta}-1+|\mu|^2)\\
+					  &\geq e^{2\eta}-e^{-2\eta}-1+|\mu|^2\\
+					  &\geq e^{2\eta}-e^{-2\eta}-1\\
+					  &=: f(\eta)
+	\ \ .
+	\end{align*}
+	This inequality is exactly what is found in theorem \ref{th:boundprin}. If we show the other hypotheses, we obtain that $\eta$ is bounded. First, a direct computation shows that $g(t) = t^2 \chi_{[0,\infty)}$, where $\chi$ is the indicator function of the interval, satisfies the three required conditions.\\
+	Also, the metric $g$ is assumed to be complete, so we only need to check that the Gaussian curvature (which is the same as the Ricci curvature since we're dealing with a surface) is bounded from below:\comm{questa parte è da sistemare}
+	\begin{align*}
+	\ \ .
+	\end{align*}
+	Now, since  $\eta$ is bounded from above, the Gaussian curvature of $g$ is negative, and it is clearly smooth, we can apply also theorem \ref{th:maxprin}, obtaining a sequence $(z_k)_k \subset \Omega$ such that
+	\begin{align*}
+		\lim_{k\to \infty} \eta(z_k) = \bar \eta = \sup \eta,\quad \text{and}\quad \limsup_{k\to \infty} \Delta_g \eta(z_k) \leq 0
+	\ \ .
+	\end{align*}
+	We know that $|\mu|^2 \leq 1$ is continuous and bounded, so we can assume that the sequence verifies
+	\begin{align*}
+		\lim_{k\to \infty}|\mu|^2(z_k) = a\leq 1
+	\ \ .
+	\end{align*}
+	Therefore, by taking the limits in \eqref{eq:unithm3}, we obtain
+	\begin{align}
+		0\geq \limsup_{k \to \infty}\Delta_g \eta(z_k) &= \lim_{k\to \infty} \left( e^{2\eta}-|\mu|^2 e^{-2\eta}-1+|\mu|^2 \right)\notag\\
+				&= e^{2 \bar \eta}-ae^{-2\bar \eta}- 1 +a \label{eq:unithm4}
+	\ \ .
+	\end{align}
+	A simple computation shows that the function $\phi(s) = e^{2s}-ae^{-2s}-1+a$ is increasing and such that $\phi(0) = 0$. So from \eqref{eq:unithm4} we get that $\sup \eta\bar \eta \leq 0$, which means $\eta \leq 0$ everywhere.
 \end{proof}
 
 \begin{cor}{}{}
@@ -412,15 +812,4 @@ Let's define $r(x):= d(x,p)$ the distance in $M$ from $p$. By the means of a sim
 
 
 
-% SOME NOTES
-
-\begin{itemize}[noitemsep]
-	\item $\mathbf{M}^{2,1}$
-	\item Space-like immersion, induced Riemannian metric
-	\item First and second fundamental forms
-	\item Mean curvature and Gaussian curvature expr
-	\item Space-like surfaces are graphs of functions
-	\item The Gauß map has  $\mathbb{H}^2$ as a target
-\end{itemize}
-
-	 If this is true then the function $S \circ (\Pi \circ S)^{-1} $ is a diffeo, where $\pi_3$ is the projection on the $t$ axis, is a smooth map from $\R^2$ to $\R$ whose graph is exactly $S$.
+\end{document}

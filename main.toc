@@ -8,4 +8,5 @@
 \contentsline {paragraph}{Recall on the second fundamental form}{7}{}%
 \contentsline {section}{\numberline {D}Uniqueness for the PDE}{7}{}%
 \contentsline {subsection}{\numberline {D.1}A generalized maximum principle}{8}{}%
-\contentsline {subsection}{\numberline {D.2}Uniqueness theorem}{9}{}%
+\contentsline {paragraph}{A boundedness result}{11}{}%
+\contentsline {subsection}{\numberline {D.2}The uniqueness theorem}{15}{}%

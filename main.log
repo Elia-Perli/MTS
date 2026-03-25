@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  22 MAR 2026 11:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  25 MAR 2026 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,16 +559,22 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count314
 \l__lipsum_a_int=\count315
 \l__lipsum_b_int=\count316
- (/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-\c@theo=\count317
-\c@manualtheoreminner=\count318
-\c@thm=\count319
-\c@cor=\count320
-\c@prop=\count321
-\c@oss=\count322
-\c@defn=\count323
-\c@ntt=\count324
-\c@es=\count325
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2023/texmf-dist/tex/latex/showlabels/showlabels.sty
+Package: showlabels 2022/07/18 v1.9.2
+
+Package: `showlabels' v1.9.2 <2022/07/18>
+with amsmath equation tags
+\SL@labelposition=\count317
+)
+\c@theo=\count318
+\c@manualtheoreminner=\count319
+\c@thm=\count320
+\c@cor=\count321
+\c@prop=\count322
+\c@rmk=\count323
+\c@defn=\count324
+\c@ntt=\count325
+\c@es=\count326
  (/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/xifthen/xifthen.sty
@@ -590,13 +596,13 @@ Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count326
+\pdfpages@includegraphics@status=\count327
 \AM@pagebox=\box74
 \AM@global@opts=\toks45
-\AM@pagecnt=\count327
+\AM@pagecnt=\count328
 \AM@toc@title=\toks46
 \AM@lof@heading=\toks47
-\c@AM@survey=\count328
+\c@AM@survey=\count329
 \AM@templatesizebox=\box75
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent.sty
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
@@ -624,16 +630,16 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
 LaTeX Font Info:    ... okay on input line 108.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count329
+\scratchcounter=\count330
 \scratchdimen=\dimen280
 \scratchbox=\box76
-\nofMPsegments=\count330
-\nofMParguments=\count331
+\nofMPsegments=\count331
+\nofMParguments=\count332
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count332
+\MPscratchCnt=\count333
 \MPscratchDim=\dimen281
-\MPnumerator=\count333
-\makeMPintoPDFobject=\count334
+\MPnumerator=\count334
+\makeMPintoPDFobject=\count335
 \everyMPtoPDFconversion=\toks49
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -755,7 +761,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
 LaTeX Warning: Reference `.' on page 8 undefined on input line 360.
 
-[8] [9] (./main.aux)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 380.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [8] [9] [10]
+Overfull \hbox (25.95197pt too wide) detected at line 535
+[] \OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ) + 1 \OMS/cmsy/m/n/10 ^^T [][]\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ) + 1[] \OMS/cmsy/m/n/10 ^^T [][]\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ) + 1[] \OMS/cmsy/m/n/10 ^^T [] \OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ) + 1\OML/cmm/m/it/10 :
+ []
+
+[11]
+Overfull \hbox (61.42676pt too wide) detected at line 577
+[]
+ []
+
+
+Overfull \hbox (48.94997pt too wide) detected at line 583
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 601--603
+
+ []
+
+
+Overfull \hbox (51.424pt too wide) detected at line 611
+[]
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 626--628
+
+ []
+
+
+Overfull \hbox (35.13028pt too wide) in paragraph at lines 659--662
+\T1/cmr/m/n/10 where $\OML/cmm/m/it/10 g$ \T1/cmr/m/n/10 is a pos-i-tive con-tin-u-ous func-tion de-fined on $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 a; \OMS/cmsy/m/n/10 1\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 with $[][] [][] \OML/cmm/m/it/10 dt <
+ []
+
+[13] [14] [15] [16] [17] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -766,18 +810,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 18690 strings out of 475189
- 372217 string characters out of 5763838
- 1933254 words of memory out of 5000000
- 39576 multiletter control sequences out of 15000+600000
- 571073 words of font info for 69 fonts, out of 8000000 for 9000
+ 18830 strings out of 475189
+ 375027 string characters out of 5763838
+ 1943254 words of memory out of 5000000
+ 39707 multiletter control sequences out of 15000+600000
+ 572151 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,18n,111p,596b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on main.pdf (9 pages, 283739 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
+Output written on main.pdf (17 pages, 361725 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 183 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
