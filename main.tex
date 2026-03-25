@@ -15,8 +15,12 @@
 %\usepackage{stackengine}
 \usepackage{lipsum}
 \usepackage{showlabels}
-
 \usepackage{xparse}
+
+
+\usepackage{biblatex}
+\addbibresource{out-mybiblio.bib}
+
 
 \NewDocumentEnvironment{recall}{O{Recall}}
   {\begin{quote}\itshape\noindent\textbf{#1.}\ }
@@ -66,7 +70,8 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\I}{\mathbf{I}}
 \newcommand{\II}{\mathbf{I\!I}}
 
-\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
+%\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
+%\newcommand{\comment}[1]{\text{{\setstretch{0.1}#1}}
 \newcommand{\comm}[1]{\textcolor{red}{#1}}
 \newcommand{\astr}[1]{\text{$(*#1)$}}
 
@@ -344,7 +349,7 @@ So far we have reduced our classification problem to proving existence and uniqu
 	\[
 		\Delta_p w = e^{2w}-h^2\,e^{-2w}-1,
 	\]
-	where $\Delta_p$ is the 
+	where $\Delta_p$ is the Laplacian with respect to the  metric $ds_p^2$
 	and such that
 	\[
 		e^{2w}ds_p^2
@@ -353,11 +358,12 @@ So far we have reduced our classification problem to proving existence and uniqu
 	\[
 		e^{2w}-h^2e^{-2w}>0
 	\]
-	on $\mathbb{D}$.
+	on $\mathbb{D}$.\\
+	\comm{rimuoverò questo box quando ho scritto le sezioni precedenti}
 \end{minipage}}}
 \end{center}
 
-We will need, beforehand, to prove a maximum principle due to Cheng and Yau that can be found in \ref{.}.
+We will need the following generalized maximum principle, due to Cheng and Yau \cite{cheng_yau_1975}. \comment{ciao}
 \subsection{A generalized maximum principle}
 Let's lay out the setup. Let's suppose to have a complete Riemannian manifold of dimension $n$, $M^{(n)}$ and to have fixed an arbitrary point $p$. We suppose that the manifold $M^{(n)}$ has nonpositive sectional curvature. This hypothesis is not really necessary for what is concerned in this paragraph, but it simplifies greatly the notation and is verified in the applied problem we are facing. Let $\sigma : [0,l] \to  M$ be a unit speed geodesic joining $x$ to $p$, whose velocity is  $\sigma'(t)$ and where the Ricci curvature is given by $\Ric(\sigma'(t))$.\\
 Let's define 
@@ -721,7 +727,28 @@ We have proven the following theorem
 \end{thm}
 
 \subsection{The uniqueness theorem}
-In order to prove the uniqueness theorem, we will consider an auxiliary problem, prove the uniqueness for that problem and finally bring back the uniqueness from the auxiliary problem to the original problem.
+In order to prove uniqueness, we pass to an auxiliary formulation of the problem. We first prove uniqueness in this new setting, and then show that this implies uniqueness for the original equation.\\
+Recall that we are looking for a function $w$ such that the metric $g$ can be written as
+\[
+g=e^{2w}ds_p^2,
+\]
+where $ds_p^2$ is the Poincaré metric on $\mathbb{D}$. Since $ds_p^2$ is itself conformal to the Euclidean metric $|dz|^2$, with conformal factor
+\[
+\frac{4}{(1-|z|^2)^2},
+\]
+it follows that $g$ is also conformal to $|dz|^2$. In fact, we can write
+\[
+g=\frac{4e^{2w}}{(1-|z|^2)^2}|dz|^2.
+\]
+If we now express the conformal factor in the form $e^{2\tilde w}$, we find a transformation between $w$ and $\tilde w$,
+\[
+\tilde w=w+\log\left(\frac{2}{1-|z|^2}\right).
+\]
+This lets us write the metric $g$ as
+\[
+g=e^{2\tilde w}|dz|^2.
+\]
+Therefore $w$ and $\tilde w$ describe the same metric, the former with respect to the Poincaré background metric and the latter with respect to the Euclidean one. We perform this transformation as it will be convenient to study the corresponding equation in the Euclidean setting first, where the relevant operator is the standard Laplacian $\Delta$. Once we have proved uniqueness there, we will translate the result back to the original formulation.
 \begin{thm}
 	Let $ h$ be a continuous function defined on a domain $\Omega$ in $\C$. Let $\tilde w$ be a solution for \comm{[where do we use the inequality with zero?]}
 	\begin{align}\label{eq:unithm}
@@ -811,5 +838,7 @@ In order to prove the uniqueness theorem, we will consider an auxiliary problem,
 \end{cor}
 
 
+	\nocite{*}
+	\printbibliography
 
 \end{document}

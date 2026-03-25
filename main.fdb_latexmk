@@ -1,5 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1774449381 "main.tex" "main.pdf" "main" 1774449383 0
+["biber main"] 1774452123 "main.bcf" "main.bbl" "main" 1774452773 0
+  "./out-mybiblio.bib" 1774449385 577 6e1aa8ce4fc26939ce82ea057eb81716 ""
+  "main.bcf" 1774452773 107839 19da9b5059c0be7a721e93b2e5739402 "pdflatex"
+  (generated)
+  "main.bbl"
+  "main.blg"
+  (rewritten before read)
+["pdflatex"] 1774452770 "main.tex" "main.pdf" "main" 1774452773 2
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -136,6 +143,16 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo" 1686341992 8448 74078c4a887f2cdcd57c3ec111622740 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd" 1686341992 2443 955a820f7890344dc6c6ca236a5c2990 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty" 1686341992 2894 3ac7bdb70dd9b75530be2ade2842c355 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx" 1609451401 1818 9ed166ac0a9204a8ebe450ca09db5dde ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/bbx/standard.bbx" 1609451401 25680 409c3f3d570418bc545e8065bebd0688 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.cfg" 1342308459 69 249fa6df04d948e51b6d5c67bea30c42 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.def" 1678141846 92527 8f6b3a677f74ea525477a813f33c4e65 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.sty" 1678141846 528517 7eed285c714f532e12ae48b360c080f8 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty" 1609451401 8433 72f8188742e7214b7068f345cd0287ac ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-compat.def" 1643926307 13919 5426dbe90e723f089052b4e908b56ef9 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-dm.def" 1643926307 32455 8d3e554836db11aab80a8e11be62e1b1 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx" 1678141846 4629 cda468e8a0b1cfa0f61872e171037a4b ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx" 1643926307 39965 48ce9ce3350aba9457f1020b1deba5cf ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.cfg" 1429144587 7068 06f8d141725d114847527a66439066b6 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.def" 1663185836 21994 2bc2a882df92d97dbce35c06bb1d3541 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/csquotes/csquotes.sty" 1663185836 62761 3c92d495a9e03d7254b9a3266aa17164 ""
@@ -168,6 +185,8 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex" 1632168149 95525 6fd0552101a6b1f9b7a84b402ec435ba ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.sty" 1632168149 14690 c2c754218a7108db7823a4839c1bc3cd ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/logreq/logreq.def" 1284153563 1620 fb1c32b818f2058eca187e5c41dfae77 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/logreq/logreq.sty" 1284153563 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mathtools.sty" 1656621545 62269 5c1837a5bc5db4c0d255eedc225ca44b ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1616101747 5582 a43dedf8e5ec418356f1e9dfe5d29fc3 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/mdframed/md-frame-1.mdf" 1372805434 24632 760c4c81e779e6958bac43417deb524f ""
@@ -191,6 +210,7 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty" 1686341992 10214 75bcd28386d4b4b9f28b2aff3cea7b24 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent-nometadata.sty" 1667073146 4212 8da4873548cbd3f1cdb053c708e8aa7e ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent.sty" 1667073146 1918 c8d1ecb3722721d6f624992cbc042b70 ""
+  "/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/xcolor/xcolor.sty" 1655066402 56148 51a9a8571c07b9921892ae11063ae853 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/xifthen/xifthen.sty" 1448319911 5689 1bfa68243e89a54479e7d0580773c57e ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/zref/zref-abspage.sty" 1649363507 2245 c8a4088d07cffc2e5207730c738edd76 ""
@@ -199,12 +219,16 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1692786310 4663624 3c84a53e76219917d7e326b36113b2cc ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1692786545 8172927 68f9a24ea8f7d641bc5d66e1182a9271 ""
   "/usr/local/texlive/2023/texmf.cnf" 1692786301 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1774449383 1970 02d4b228e4d00022f03643467784c5a3 "pdflatex"
-  "main.tex" 1774449381 42622 0b5b199c89bb65bfa780c124048790e5 ""
-  "main.toc" 1774449383 858 1500e9c00277e7223f7937f202ec9f78 "pdflatex"
+  "main.aux" 1774452773 2307 142e64d56eaaf7bac0ca10852df59452 "pdflatex"
+  "main.bbl" 1774452131 3046 accc082aa8b5f9e62936caf239fa6c03 "biber main"
+  "main.run.xml" 1774452773 2307 badf4e090609f6e58a0e9f15a5732579 "pdflatex"
+  "main.tex" 1774452768 43984 fc8539139060892e6326e6acd56fe1a4 ""
+  "main.toc" 1774452773 858 1500e9c00277e7223f7937f202ec9f78 "pdflatex"
   (generated)
   "main.aux"
+  "main.bcf"
   "main.log"
   "main.pdf"
+  "main.run.xml"
   "main.toc"
   (rewritten before read)
