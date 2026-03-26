@@ -47,8 +47,35 @@
       \field{title}{Differential equations on Riemannian manifolds and their geometric applications}
       \field{volume}{28}
       \field{year}{1975}
+      \true{nocite}
       \field{pages}{333\bibrangedash 354}
       \range{pages}{22}
+    \endentry
+    \entry{yau_harmonic_1975}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2238b78e6ce727843bf0d4139b9542d3}{%
+           family={Yau},
+           familyi={Y\bibinitperiod},
+           given={Shing-Tung},
+           giveni={S\bibinithyphendelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{2238b78e6ce727843bf0d4139b9542d3}
+      \strng{fullhash}{2238b78e6ce727843bf0d4139b9542d3}
+      \strng{bibnamehash}{2238b78e6ce727843bf0d4139b9542d3}
+      \strng{authorbibnamehash}{2238b78e6ce727843bf0d4139b9542d3}
+      \strng{authornamehash}{2238b78e6ce727843bf0d4139b9542d3}
+      \strng{authorfullhash}{2238b78e6ce727843bf0d4139b9542d3}
+      \field{extraname}{1}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications on Pure and Applied Mathematics}
+      \field{title}{Harmonic Functions on Complete Riemannian Manifolds}
+      \field{volume}{28}
+      \field{year}{1975}
+      \field{pages}{201\bibrangedash 228}
+      \range{pages}{28}
     \endentry
     \entry{yau_1975}{article}{}
       \name{author}{1}{}{%
@@ -64,6 +91,7 @@
       \strng{authorbibnamehash}{2238b78e6ce727843bf0d4139b9542d3}
       \strng{authornamehash}{2238b78e6ce727843bf0d4139b9542d3}
       \strng{authorfullhash}{2238b78e6ce727843bf0d4139b9542d3}
+      \field{extraname}{2}
       \field{sortinit}{Y}
       \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labelnamesource}{author}
