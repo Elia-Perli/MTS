@@ -5,6 +5,7 @@
 \contentsline {paragraph}{The Gauss map in $\mathbb {M}^{2,1}$}{4}{}%
 \contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{5}{}%
 \contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{6}{}%
-\contentsline {subsection}{\numberline {C.1}A generalized maximum principle}{6}{}%
+\contentsline {section}{\numberline {D}Uniqueness for the PDE}{6}{}%
+\contentsline {subsection}{\numberline {D.1}A generalized maximum principle}{7}{}%
 \contentsline {paragraph}{A boundedness result}{11}{}%
-\contentsline {subsection}{\numberline {C.2}The uniqueness theorem}{15}{}%
+\contentsline {subsection}{\numberline {D.2}The uniqueness theorem}{15}{}%

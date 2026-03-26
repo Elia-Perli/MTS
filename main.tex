@@ -15,9 +15,10 @@
 %\usepackage{scalerel}[2014/03/10]
 %\usepackage{stackengine}
 \usepackage{lipsum}
-\usepackage{showlabels}
 \usepackage{xparse}
 
+
+%\usepackage{showlabels}
 
 \usepackage{biblatex}
 \addbibresource{out-mybiblio.bib}
@@ -313,6 +314,37 @@ The disk $\mathbb{D}$ with this metric is called the Poincaré model of the Hype
 What we discussed in this paragraph lets us identify $\mathbb{H}$ and $\mathbb{D}$. From now on we will use $\mathbb{D}$. For example, we will always use this space as the target of the Gauss map,\\
 \[ u: S \to \mathbb{D}.\]
 \section{The Gauss-Codazzi equations and the curvatures of $S$}
+
+\section{Uniqueness for the PDE}
+So far we have reduced our classification problem to proving existence and uniqueness for the following differential problem.
+\begin{center}
+\raisebox{2mm}{%
+\fbox{%
+\begin{minipage}{0.75\textwidth}
+	Given $q$ a smooth function on the Poincaré disk $\mathbb{D}$, find a smooth function
+	\[
+		w:\mathbb{D}\to \mathbb{R}
+	\]
+	such that
+	\begin{align}\label{eq:box}
+		\Delta_p w = e^{2w}-q^2e^{-2w}-1
+	\ ,
+	\end{align}
+	where $\Delta_p$ is the Laplacian with respect to the  metric $ds_p^2$
+	and such that
+	\[
+		e^{2w}ds_p^2
+	\]
+	is a complete metric on $D$, with
+	\begin{align}\label{eq:box2}
+		e^{2w}-q^2e^{-2w}>0
+	\ \ .
+	\end{align}
+	on $\mathbb{D}$.\\
+	\comm{rimuoverò questo box una volta scritte le sezioni precedenti}
+\end{minipage}}}
+\end{center}
+We will need the following generalized maximum principle, due to Cheng and Yau and found in the article \cite{cheng_yau_1975}.
 \subsection{A generalized maximum principle}
 Let $M$ be a complete Riemannian manifold of dimension $n$, and fix a point $p\in M$. Assume moreover that $M$ is simply connected and has nonpositive sectional curvature. This assumption is stronger than what is strictly needed in this section, but it greatly simplifies the discussion and is satisfied in the case of a complete space-like surface of $\M$. These hypotheses allow us to apply the Cartan-Hadamard theorem, so that the exponential map $\exp_p$ is a diffeomorphism. In particular, this tells us that the cut locus of $p$ is empty, since for every $x\in M\setminus\{p\}$ the minimizing geodesic joining $p$ to $x$ is radial and therefore unique. It follows that the function $r(x):=d(x,p)$ is differentiable on $M\setminus\{p\}$ and that, for every $x\in M$, there exists a unique minimizing unit-speed geodesic
 \[

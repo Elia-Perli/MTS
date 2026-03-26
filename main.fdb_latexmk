@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1774560516 "main.bcf" "main.bbl" "main" 1774560569 0
+["biber main"] 1774561456 "main.bcf" "main.bbl" "main" 1774561485 0
   "./out-mybiblio.bib" 1774464437 828 63dea2291e5920e820385d72f8f50272 ""
-  "main.bcf" 1774560569 107842 af63a1c884b53a6c53751bf1c3afb382 "pdflatex"
+  "main.bcf" 1774561485 107911 192139bc15dba86c02700251191b22e0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1774560567 "main.tex" "main.pdf" "main" 1774560569 0
+["pdflatex"] 1774561484 "main.tex" "main.pdf" "main" 1774561485 0
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -16,14 +16,12 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm" 1136768653 3584 178baad7ffca7f5d3428a83bd7cc64c3 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm" 1136768653 3584 cf973739aac7ab6247f9150296af7954 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm" 1136768653 3584 49064b465390a8e316a3c8417a050403 ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm0900.tfm" 1136768653 3584 d3d8ac8b25ca19c0a40b86a5db1e8ccc ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1136768653 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm" 1136768653 3584 3169d30142b88a27d4ab0e3468e963a2 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecss0800.tfm" 1136768653 3584 885a9b5d0df19657ad7066a0c4430437 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm" 1136768653 3584 ab55608ad377891510479d34d90acc46 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm" 1136768653 3072 3bce340d4c075dffe6d4ec732b4c32fe ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt0900.tfm" 1136768653 1536 ae7aab2f8a4bc9edfce2899f53ba88c3 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecxc1000.tfm" 1136768653 3072 0fb1076023cd8addae57cf5c95cb8e0d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -75,7 +73,6 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb" 1215737283 95441 e322369dec2b43bb317c506a4a44deaa ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb" 1215737283 186554 e8f0fa8ca05e038f257a06405232745f ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb" 1215737283 170827 2e4b634de7b58578eae1dc93e51dfe48 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb" 1215737283 118670 7d50fb0eab10bb1382ee2d3e5b9c88ee ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb" 1229303445 16077 4737ac34f0fb5608550f3780a0202c22 ""
   "/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -156,7 +153,6 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty" 1686341992 5048 4a74b0804469fbfae7849704c4687a07 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/size10.clo" 1686341992 8448 74078c4a887f2cdcd57c3ec111622740 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd" 1686341992 2641 638ddbe214c47dfda2b97e60780ae6c5 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd" 1686341992 2443 955a820f7890344dc6c6ca236a5c2990 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/base/textcomp.sty" 1686341992 2894 3ac7bdb70dd9b75530be2ade2842c355 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx" 1609451401 1818 9ed166ac0a9204a8ebe450ca09db5dde ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/bbx/standard.bbx" 1609451401 25680 409c3f3d570418bc545e8065bebd0688 ""
@@ -221,7 +217,6 @@
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgffor.sty" 1601326656 348 ee405e64380c11319f0e249fed57e6c5 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty" 1601326656 274 5ae372b7df79135d240456a1c6f2cf9a ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1601326656 325 f9f16d12354225b7dd52a3321f085955 ""
-  "/usr/local/texlive/2023/texmf-dist/tex/latex/showlabels/showlabels.sty" 1658261377 9766 c039a91ed6b8f1720b58fa11cdc5a2ce ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty" 1686341992 10214 75bcd28386d4b4b9f28b2aff3cea7b24 ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent-nometadata.sty" 1667073146 4212 8da4873548cbd3f1cdb053c708e8aa7e ""
   "/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent.sty" 1667073146 1918 c8d1ecb3722721d6f624992cbc042b70 ""
@@ -234,11 +229,11 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1692786310 4663624 3c84a53e76219917d7e326b36113b2cc ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1692786545 8172927 68f9a24ea8f7d641bc5d66e1182a9271 ""
   "/usr/local/texlive/2023/texmf.cnf" 1692786301 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1774560569 2878 8fb0826e4cb3153c021a95280ea361ec "pdflatex"
-  "main.bbl" 1774560528 4208 768b03ae5af014ac586890f5ddc0d966 "biber main"
-  "main.run.xml" 1774560569 2307 badf4e090609f6e58a0e9f15a5732579 "pdflatex"
-  "main.tex" 1774560567 47339 345697b1f8de0c7b8d289ef8cd827c56 ""
-  "main.toc" 1774560569 718 d8470c27f885117ec1a537a2e71263b8 "pdflatex"
+  "main.aux" 1774561485 3124 6650329918381eaef8e60fa061214b91 "pdflatex"
+  "main.bbl" 1774561458 4188 6e29ac08cac857c2cf881cade6fa1de9 "biber main"
+  "main.run.xml" 1774561485 2307 badf4e090609f6e58a0e9f15a5732579 "pdflatex"
+  "main.tex" 1774561483 48256 0d385d7e7b61ff0f5b949df44a9e4029 ""
+  "main.toc" 1774561485 787 845576a238ec9fc4cb3743988aaf678b "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"
