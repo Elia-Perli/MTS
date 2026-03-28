@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  26 MAR 2026 22:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  28 MAR 2026 15:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,11 +559,35 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \g__lipsum_par_int=\count314
 \l__lipsum_a_int=\count315
 \l__lipsum_b_int=\count316
- (/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.sty
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/soul/soul.sty
+Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/soul/soul-ori.sty
+Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
+\SOUL@word=\toks45
+\SOUL@lasttoken=\toks46
+\SOUL@syllable=\toks47
+\SOUL@cmds=\toks48
+\SOUL@buffer=\toks49
+\SOUL@token=\toks50
+\SOUL@syllgoal=\dimen275
+\SOUL@syllwidth=\dimen276
+\SOUL@charkern=\dimen277
+\SOUL@hyphkern=\dimen278
+\SOUL@dimen=\dimen279
+\SOUL@dimeni=\dimen280
+\SOUL@minus=\count317
+\SOUL@comma=\count318
+\SOUL@apo=\count319
+\SOUL@grave=\count320
+\SOUL@spaceskip=\skip129
+\SOUL@ttwidth=\dimen281
+\SOUL@uldp=\dimen282
+\SOUL@ulht=\dimen283
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2023/03/05 v3.19 programmable bibliographies (PK/MW)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count317
+\lrq@indent=\count321
  (/usr/local/texlive/2023/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
@@ -572,63 +596,63 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip20
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count318
-\c@listtotal=\count319
-\c@listcount=\count320
-\c@liststart=\count321
-\c@liststop=\count322
-\c@citecount=\count323
-\c@citetotal=\count324
-\c@multicitecount=\count325
-\c@multicitetotal=\count326
-\c@instcount=\count327
-\c@maxnames=\count328
-\c@minnames=\count329
-\c@maxitems=\count330
-\c@minitems=\count331
-\c@citecounter=\count332
-\c@maxcitecounter=\count333
-\c@savedcitecounter=\count334
-\c@uniquelist=\count335
-\c@uniquename=\count336
-\c@refsection=\count337
-\c@refsegment=\count338
-\c@maxextratitle=\count339
-\c@maxextratitleyear=\count340
-\c@maxextraname=\count341
-\c@maxextradate=\count342
-\c@maxextraalpha=\count343
-\c@abbrvpenalty=\count344
-\c@highnamepenalty=\count345
-\c@lownamepenalty=\count346
-\c@maxparens=\count347
-\c@parenlevel=\count348
-\blx@tempcnta=\count349
-\blx@tempcntb=\count350
-\blx@tempcntc=\count351
-\c@blx@maxsection=\count352
-\blx@maxsegment@0=\count353
-\blx@notetype=\count354
-\blx@parenlevel@text=\count355
-\blx@parenlevel@foot=\count356
-\blx@sectionciteorder@0=\count357
-\blx@sectionciteorderinternal@0=\count358
-\blx@entrysetcounter=\count359
-\blx@biblioinstance=\count360
-\labelnumberwidth=\skip129
-\labelalphawidth=\skip130
-\biblabelsep=\skip131
-\bibitemsep=\skip132
-\bibnamesep=\skip133
-\bibinitsep=\skip134
-\bibparsep=\skip135
-\bibhang=\skip136
+\c@tabx@nest=\count322
+\c@listtotal=\count323
+\c@listcount=\count324
+\c@liststart=\count325
+\c@liststop=\count326
+\c@citecount=\count327
+\c@citetotal=\count328
+\c@multicitecount=\count329
+\c@multicitetotal=\count330
+\c@instcount=\count331
+\c@maxnames=\count332
+\c@minnames=\count333
+\c@maxitems=\count334
+\c@minitems=\count335
+\c@citecounter=\count336
+\c@maxcitecounter=\count337
+\c@savedcitecounter=\count338
+\c@uniquelist=\count339
+\c@uniquename=\count340
+\c@refsection=\count341
+\c@refsegment=\count342
+\c@maxextratitle=\count343
+\c@maxextratitleyear=\count344
+\c@maxextraname=\count345
+\c@maxextradate=\count346
+\c@maxextraalpha=\count347
+\c@abbrvpenalty=\count348
+\c@highnamepenalty=\count349
+\c@lownamepenalty=\count350
+\c@maxparens=\count351
+\c@parenlevel=\count352
+\blx@tempcnta=\count353
+\blx@tempcntb=\count354
+\blx@tempcntc=\count355
+\c@blx@maxsection=\count356
+\blx@maxsegment@0=\count357
+\blx@notetype=\count358
+\blx@parenlevel@text=\count359
+\blx@parenlevel@foot=\count360
+\blx@sectionciteorder@0=\count361
+\blx@sectionciteorderinternal@0=\count362
+\blx@entrysetcounter=\count363
+\blx@biblioinstance=\count364
+\labelnumberwidth=\skip130
+\labelalphawidth=\skip131
+\biblabelsep=\skip132
+\bibitemsep=\skip133
+\bibnamesep=\skip134
+\bibinitsep=\skip135
+\bibparsep=\skip136
+\bibhang=\skip137
 \blx@bcfin=\read3
 \blx@bcfout=\write4
 \blx@langwohyphens=\language87
-\c@mincomprange=\count361
-\c@maxcomprange=\count362
-\c@mincompwidth=\count363
+\c@mincomprange=\count365
+\c@maxcomprange=\count366
+\c@mincompwidth=\count367
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -636,88 +660,88 @@ File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count364
-\c@savedafterword=\count365
-\c@annotator=\count366
-\c@savedannotator=\count367
-\c@author=\count368
-\c@savedauthor=\count369
-\c@bookauthor=\count370
-\c@savedbookauthor=\count371
-\c@commentator=\count372
-\c@savedcommentator=\count373
-\c@editor=\count374
-\c@savededitor=\count375
-\c@editora=\count376
-\c@savededitora=\count377
-\c@editorb=\count378
-\c@savededitorb=\count379
-\c@editorc=\count380
-\c@savededitorc=\count381
-\c@foreword=\count382
-\c@savedforeword=\count383
-\c@holder=\count384
-\c@savedholder=\count385
-\c@introduction=\count386
-\c@savedintroduction=\count387
-\c@namea=\count388
-\c@savednamea=\count389
-\c@nameb=\count390
-\c@savednameb=\count391
-\c@namec=\count392
-\c@savednamec=\count393
-\c@translator=\count394
-\c@savedtranslator=\count395
-\c@shortauthor=\count396
-\c@savedshortauthor=\count397
-\c@shorteditor=\count398
-\c@savedshorteditor=\count399
-\c@labelname=\count400
-\c@savedlabelname=\count401
-\c@institution=\count402
-\c@savedinstitution=\count403
-\c@lista=\count404
-\c@savedlista=\count405
-\c@listb=\count406
-\c@savedlistb=\count407
-\c@listc=\count408
-\c@savedlistc=\count409
-\c@listd=\count410
-\c@savedlistd=\count411
-\c@liste=\count412
-\c@savedliste=\count413
-\c@listf=\count414
-\c@savedlistf=\count415
-\c@location=\count416
-\c@savedlocation=\count417
-\c@organization=\count418
-\c@savedorganization=\count419
-\c@origlocation=\count420
-\c@savedoriglocation=\count421
-\c@origpublisher=\count422
-\c@savedorigpublisher=\count423
-\c@publisher=\count424
-\c@savedpublisher=\count425
-\c@language=\count426
-\c@savedlanguage=\count427
-\c@origlanguage=\count428
-\c@savedoriglanguage=\count429
-\c@pageref=\count430
-\c@savedpageref=\count431
-\shorthandwidth=\skip137
-\shortjournalwidth=\skip138
-\shortserieswidth=\skip139
-\shorttitlewidth=\skip140
-\shortauthorwidth=\skip141
-\shorteditorwidth=\skip142
-\locallabelnumberwidth=\skip143
-\locallabelalphawidth=\skip144
-\localshorthandwidth=\skip145
-\localshortjournalwidth=\skip146
-\localshortserieswidth=\skip147
-\localshorttitlewidth=\skip148
-\localshortauthorwidth=\skip149
-\localshorteditorwidth=\skip150
+\c@afterword=\count368
+\c@savedafterword=\count369
+\c@annotator=\count370
+\c@savedannotator=\count371
+\c@author=\count372
+\c@savedauthor=\count373
+\c@bookauthor=\count374
+\c@savedbookauthor=\count375
+\c@commentator=\count376
+\c@savedcommentator=\count377
+\c@editor=\count378
+\c@savededitor=\count379
+\c@editora=\count380
+\c@savededitora=\count381
+\c@editorb=\count382
+\c@savededitorb=\count383
+\c@editorc=\count384
+\c@savededitorc=\count385
+\c@foreword=\count386
+\c@savedforeword=\count387
+\c@holder=\count388
+\c@savedholder=\count389
+\c@introduction=\count390
+\c@savedintroduction=\count391
+\c@namea=\count392
+\c@savednamea=\count393
+\c@nameb=\count394
+\c@savednameb=\count395
+\c@namec=\count396
+\c@savednamec=\count397
+\c@translator=\count398
+\c@savedtranslator=\count399
+\c@shortauthor=\count400
+\c@savedshortauthor=\count401
+\c@shorteditor=\count402
+\c@savedshorteditor=\count403
+\c@labelname=\count404
+\c@savedlabelname=\count405
+\c@institution=\count406
+\c@savedinstitution=\count407
+\c@lista=\count408
+\c@savedlista=\count409
+\c@listb=\count410
+\c@savedlistb=\count411
+\c@listc=\count412
+\c@savedlistc=\count413
+\c@listd=\count414
+\c@savedlistd=\count415
+\c@liste=\count416
+\c@savedliste=\count417
+\c@listf=\count418
+\c@savedlistf=\count419
+\c@location=\count420
+\c@savedlocation=\count421
+\c@organization=\count422
+\c@savedorganization=\count423
+\c@origlocation=\count424
+\c@savedoriglocation=\count425
+\c@origpublisher=\count426
+\c@savedorigpublisher=\count427
+\c@publisher=\count428
+\c@savedpublisher=\count429
+\c@language=\count430
+\c@savedlanguage=\count431
+\c@origlanguage=\count432
+\c@savedoriglanguage=\count433
+\c@pageref=\count434
+\c@savedpageref=\count435
+\shorthandwidth=\skip138
+\shortjournalwidth=\skip139
+\shortserieswidth=\skip140
+\shorttitlewidth=\skip141
+\shortauthorwidth=\skip142
+\shorteditorwidth=\skip143
+\locallabelnumberwidth=\skip144
+\locallabelalphawidth=\skip145
+\localshorthandwidth=\skip146
+\localshortjournalwidth=\skip147
+\localshortserieswidth=\skip148
+\localshorttitlewidth=\skip149
+\localshortauthorwidth=\skip150
+\localshorteditorwidth=\skip151
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-compat.def
@@ -727,19 +751,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count432
-\c@textcitetotal=\count433
-\c@textcitemaxnames=\count434
-\c@biburlbigbreakpenalty=\count435
-\c@biburlbreakpenalty=\count436
-\c@biburlnumpenalty=\count437
-\c@biburlucpenalty=\count438
-\c@biburllcpenalty=\count439
+\c@textcitecount=\count436
+\c@textcitetotal=\count437
+\c@textcitemaxnames=\count438
+\c@biburlbigbreakpenalty=\count439
+\c@biburlbreakpenalty=\count440
+\c@biburlnumpenalty=\count441
+\c@biburlucpenalty=\count442
+\c@biburllcpenalty=\count443
 \biburlbigskip=\muskip21
 \biburlnumskip=\muskip22
 \biburlucskip=\muskip23
 \biburllcskip=\muskip24
-\c@smartand=\count440
+\c@smartand=\count444
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -747,10 +771,11 @@ Package biblatex Info: ... file 'numeric.bbx' found.
 File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
- (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count441
-\c@bbx:relatedtotal=\count442
+\c@bbx:relatedcount=\count445
+\c@bbx:relatedtotal=\count446
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -770,8 +795,7 @@ Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.cfg
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -783,16 +807,16 @@ Package biblatex Info: ... and expl3
  (/usr/local/texlive/2023/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
-\c@theo=\count443
-\c@manualtheoreminner=\count444
-\c@thm=\count445
-\c@cor=\count446
-\c@prop=\count447
-\c@lemma=\count448
-\c@rmk=\count449
-\c@defn=\count450
-\c@ntt=\count451
-\c@es=\count452
+\c@theo=\count447
+\c@manualtheoreminner=\count448
+\c@thm=\count449
+\c@cor=\count450
+\c@prop=\count451
+\c@lemma=\count452
+\c@rmk=\count453
+\c@defn=\count454
+\c@ntt=\count455
+\c@es=\count456
  (/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/xifthen/xifthen.sty
@@ -803,22 +827,22 @@ Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
-\ESO@tempdima=\dimen275
-\ESO@tempdimb=\dimen276
+\ESO@tempdima=\dimen284
+\ESO@tempdimb=\dimen285
 )
-\AM@pagewidth=\dimen277
-\AM@pageheight=\dimen278
-\AM@fboxrule=\dimen279
+\AM@pagewidth=\dimen286
+\AM@pageheight=\dimen287
+\AM@fboxrule=\dimen288
  (/usr/local/texlive/2023/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count453
+\pdfpages@includegraphics@status=\count457
 \AM@pagebox=\box74
-\AM@global@opts=\toks45
-\AM@pagecnt=\count454
-\AM@toc@title=\toks46
-\AM@lof@heading=\toks47
-\c@AM@survey=\count455
+\AM@global@opts=\toks51
+\AM@pagecnt=\count458
+\AM@toc@title=\toks52
+\AM@lof@heading=\toks53
+\c@AM@survey=\count459
 \AM@templatesizebox=\box75
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent.sty
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
@@ -846,17 +870,17 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
 LaTeX Font Info:    ... okay on input line 119.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count456
-\scratchdimen=\dimen280
+\scratchcounter=\count460
+\scratchdimen=\dimen289
 \scratchbox=\box76
-\nofMPsegments=\count457
-\nofMParguments=\count458
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count459
-\MPscratchDim=\dimen281
-\MPnumerator=\count460
-\makeMPintoPDFobject=\count461
-\everyMPtoPDFconversion=\toks49
+\nofMPsegments=\count461
+\nofMParguments=\count462
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count463
+\MPscratchDim=\dimen290
+\MPnumerator=\count464
+\makeMPintoPDFobject=\count465
+\everyMPtoPDFconversion=\toks55
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -902,7 +926,9 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
+ [1
 
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
@@ -912,40 +938,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
-[1
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
-
-Overfull \hbox (17.59431pt too wide) in paragraph at lines 152--157
-\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y; f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ))$\T1/cmr/m/n/10 , and de-rive the lo-cal frame $\OML/cmm/m/it/10 V[] \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; @[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ))$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 V[] \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; @[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ))$\T1/cmr/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 192--193
+[2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--196
+LaTeX Warning: Reference `' on page 3 undefined on input line 186.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--203
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--205
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
 
  []
 
@@ -954,111 +971,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 206--207
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--235
+Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 248--250
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--275
+Underfull \hbox (badness 10000) in paragraph at lines 237--239
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--255
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 311--313
+Underfull \hbox (badness 10000) in paragraph at lines 277--281
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 317--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
-
- []
-
-[6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 378--380
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--410
+Overfull \hbox (2.31093pt too wide) in paragraph at lines 341--341
+[]\T1/cmr/bx/n/12 Reconstruction of the sur-face us-ing the Gauss-Codazzi
+ []
+
+[7]
+Overfull \vbox (81.02036pt too high) has occurred while \output is active []
+
+ [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 415--417
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 450--453
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--447
 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 530--532
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 540--542
-
- []
-
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 551.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
-File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [10]
-Underfull \hbox (badness 10000) in paragraph at lines 566--568
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 487--490
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 666--668
+Underfull \hbox (badness 10000) in paragraph at lines 567--569
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 677--679
+Underfull \hbox (badness 10000) in paragraph at lines 577--579
+
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 588.
+(/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 603--605
+
+ []
+
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 703--705
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--728
+Underfull \hbox (badness 10000) in paragraph at lines 714--716
 
  []
 
-[13] [14] [15] [16] [17] [18] [19]
-Overfull \hbox (2.43814pt too wide) in paragraph at lines 1088--1088
+
+Underfull \hbox (badness 10000) in paragraph at lines 763--765
+
+ []
+
+[15] [16] [17] [18] [19] [20] [21]
+Overfull \hbox (2.43814pt too wide) in paragraph at lines 1125--1125
 \T1/cmr/m/n/10 In: \T1/cmr/m/it/10 Com-mu-ni-ca-tions on Pure and Ap-plied Math-e-mat-ics \T1/cmr/m/n/10 28.2 (1975), pp. 201^^U
  []
 
-[20] (./main.aux)
+[22] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 25865 strings out of 475189
- 516562 string characters out of 5763838
- 1937254 words of memory out of 5000000
- 46686 multiletter control sequences out of 15000+600000
- 578925 words of font info for 90 fonts, out of 8000000 for 9000
+ 26112 strings out of 475189
+ 520259 string characters out of 5763838
+ 1939254 words of memory out of 5000000
+ 46925 multiletter control sequences out of 15000+600000
+ 581255 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,18n,111p,854b,1232s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on main.pdf (20 pages, 366386 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
+Output written on main.pdf (22 pages, 388169 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,7 +16,7 @@
 %\usepackage{stackengine}
 \usepackage{lipsum}
 \usepackage{xparse}
-
+\usepackage{soul}
 
 %\usepackage{showlabels}
 
@@ -131,79 +131,82 @@ In order to distinguish the use of this metric from the standard euclidean metri
 
 The space $\M$ is an example of a more general object called a pseudo-Euclidean vector space, a term that refers to a finite-dimensional vector space $V$ endowed with a nondegenerate (possibly not positive-definite) symmetric bilinear form $g$. This kind of space serves as the ``infinitesimal model'' for pseudo-Riemannian manifolds, smooth manifolds endowed with a smooth nondegenerate $(0,2)$-tensor. If the signature of this tensor is exactly $(n-1,1)$, the manifold is called a Lorentzian manifold.\\
 The following definition, borrowed from physics, will be useful later.
- \begin{defn*}
-	Given a Lorentzian manifold $(M,g)$, we say that a vector $v\in T_pM$ is
-	\vspace{-3mm}
+\begin{defn*}
+	Given $(M,g)$ a Lorentzian manifold and $p \in M$, we say that a vector $v \in T_pM$ is
 	\begin{itemize}[noitemsep]
-		\item space-like if $\left<v,v \right> >0$
-		\item light-like if $\left<v,v \right> = 0$ 
-		\item time-like if $\left<v,v \right> < 0$
+		\item {space-like} if $\langle v,v\rangle > 0$,
+		\item {light-like} if $\langle v,v\rangle = 0$ and $v \neq 0$,
+		\item {time-like} if $\langle v,v\rangle < 0$.
 	\end{itemize}
+	We also call a subspace $P \subseteq T_pM$ space-like if every nonzero vector in $P$ is space-like.
 \end{defn*}
-We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. As usual, the immersion induces a nondegenerate bilinear form on $S$, the first fundamental form or pull-back pseudometric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we always forget the immersion $\iota$).\\
+We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. As usual, the immersion induces a nondegenerate bilinear form on $S$, the first fundamental form or pull-back pseudometric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we sometimes forget the immersion $\iota$).\\
 \paragraph{Space-like immersions.}\mbox{}\\
-The object we will focus on are not arbitrary immersed surfaces but the so-called space-like surfaces of $\M$. This term refers to the immersed surfaces in $\M$ whose induced metric is positive-definite hence Riemannian, or in other terms, they're surfaces $S$ whose tangent bundle $\{(p,v)\}$ is made only of space-like vectors.\\
+The objects we will focus on are not arbitrary immersed surfaces, but the so-called space-like surfaces of $\M$. This term refers to immersed surfaces in $\M$ whose induced metric is positive-definite, and hence Riemannian. Equivalently, these are the immersed surfaces $S$ such that, for every $p \in S$, the tangent plane $T_pS$ is space-like.\\
 
 A nice property of this kind of surface is that they are locally the graph of a function of the form $x^3 = f(x^1,x^2)$.\\
 We can show this with a simple argument:\\
-First, we assumed that the pseudometric restricted to $S$,$ \left< \cdot , \cdot \right>|_S \geq 0 $, is definite positive, which means that the tangent vectors of $S$ at any point $p$ belong to the set of space-like vectors:
-\begin{equation*}
-	T_p \subset \mathscr{C} := \left\{ v\in \M : \left<v,v \right> \ge 0\right\}=\{ t^2 \leq  x^2+y^2\} . 
-\end{equation*}
-This is just the outside-region of a double cone in $\M$, whose symmetry axis is $ \left\{ x^1=0, x^2 = 0 \right\} $. A plane is entirely made of space-like vectors iff it's contained between the two branches of the cone.\\
-Then, having assumed that $S$ is an immersed surface, hence an immersed submanifold, it is locally the solution of an equation of the form  $F(x,y,z)=0$. It is well known that from this local expression we can express the normal vector to the surface at a point $p$: $ N_p = \vec \nabla F(p)$.\\
-Furthermore, we observe that $N_p$ is orthogonal to the space-like plane $T_pS$ and so it cannot be horizontal. The last two statements taken together give us $ \partial_z F(p) = (N_p)^3  \neq 0$, and so we can apply the implicit function theorem and express the surface as the graph of $z=f(x,y)$ near the point $p$.\\
-Where the local representation is valid, we can parametrize the surface as $(x,y,f(x,y))$, and derive the local frame $V_x = (1,0,\partial_x f(x,y))$, $V_y = (1,0,\partial_y f(x,y))$, for which the first fundamental form is represented by the matrix
-\begin{equation*}
-	g = 
+First, we assumed that the restriction of the Lorentzian metric to each tangent space $T_pS$ is positive-definite so that it's a space-like plane. This can be rewritten as
+\[
+T_pS \subset \mathscr{C}:=\{v\in \M:\langle v,v\rangle \ge 0\}
+=\{t^2\le x^2+y^2\}\ .
+\]
+The set $\mathscr{C}$ is the outside-region of the double cone in $\M$ whose axis is $\{x^1=0,\ x^2=0\}$. Clearly $\mathscr{C}$ does not contain any vertical vector and a fortiori also $T_pM$ doesn't. 
+Therefore we can apply the implicit function theorem and express $S$ locally near $p$ as the graph of a function $t=f(x,y)$, where $f:U\subset \R^2\to \R$.
+Where this local representation is valid, we can parametrize the surface as $(x,y,f(x,y))$, and obtain the local frame
+\[
+V_x=(1,0,\partial_x f(x,y)), \qquad V_y=(0,1,\partial_y f(x,y)),
+\]
+for which the first fundamental form is represented by the matrix
+\[
+g=
 \begin{pmatrix}
-\left<V_x,V_x \right> & \left<V_y,V_x \right>\\
-\left<V_x,V_y \right> & \left<V_y,V_y \right>
+\langle V_x,V_x\rangle & \langle V_x,V_y\rangle\\
+\langle V_y,V_x\rangle & \langle V_y,V_y\rangle
 \end{pmatrix}
-	  =
+=
 \begin{pmatrix}
 1-f_x^2 & -f_xf_y\\
 -f_xf_y & 1-f_y^2
 \end{pmatrix}.
-\end{equation*}
-Since the parametrization is obviously regular, the condition on $g$ being a metric translates in having a strictly positive determinant,
-\begin{equation*}
-	0< \det g  = 1-(f_x^2+f_y^2) = 1-|\vec \nabla f|^2,
-\end{equation*}
-which means $|\vec \nabla f|^2 <1$.
+\]
+Since the parametrization is regular, the condition that $g$ be positive-definite is equivalent to
+\[
+0<\det g = 1-(f_x^2+f_y^2)=1-|\nabla f|^2,
+\]
+and therefore $|\nabla f|^2<1$.
 \paragraph{Entire surfaces.}\mbox{}\\
 Given a surface $S$ immersed in  $\M$, we can define a projection $\Pi:S\to \R^2$ by forgetting the time coordinate, $\Pi(x^1,x^2,x^3):=(x^1,x^2)$ for any $(x^1,x^2,x^3)\in S$. We call the surface $S$ is entire when the map $\Pi$ is surjective. If the surface is globally a graph of a function $\phi$, this condition is exactly stating that the function $\phi$ is an entire map from $\R^2$ to $\R$.\\
 
 The situation for space-like surfaces is actually a lot nicer than what we presented up to now, as the representation as a graph is not only local but actually global as we prove in the proposition below.
-\begin{prop}
-	Let $\Omega$ be a domain in $\C$ (that is, an open connected set) and let $S:\Omega \to \M$ be a space-like immersion. Suppose that $S$ is complete with respect to the induced Riemannian metric. Then $S$ is an entire graph and $\Omega$ is simply connected.
+\begin{prop}\label{prop:topproprspimm}
+	Let $\Omega$ be a domain in $\R^2$ (that is, an open connected set) and let $\iota:\Omega \hookrightarrow S\subset  \M$ be a space-like immersion. Suppose that $S$ is complete with respect to the induced Riemannian metric. Then $S$ is an entire graph and $\Omega$ is simply connected.
 
 \end{prop}
-Before laying out the proof let's recall a couple of results from the theory of coverings.
+Before laying out the proof let's recall a definition and a proposition, whose proof can be found in  \ref{}, from the theory of coverings. Let $M$ and $N$ two differentiable manifolds and $f:M\to N$ a smooth map.
+\begin{defn}
+	We say that the map $f$ satisfies the path lifting property if for every $p\in N$ and for every path $\alpha: I \to M$ such that $\alpha(0) = f(p)$ there exists a path $\tilde \alpha: I \to N$ such that $\tilde \alpha(0)=p$ and $f\circ \tilde \alpha = \alpha$. We can assume without loss of generality that the paths involved are differentiable.
+\end{defn}
 \begin{prop}
-	Let $M$ and  $N$ be two differentiable manifolds and $f:M\to N$ a smooth map
-	\begin{itemize}[noitemsep]
-		\item If $M$ is simply connected, $N$ is connected and $f$ is a covering map, then it is a homeomorphism.
-		\item We say that the map $f$ satisfies the path lifting property if for every $p\in N$ and for every path $\alpha: I \to M$ such that $\alpha(0) = f(p)$ there exists a path $\tilde \alpha: I \to N$ such that $\tilde \alpha(0)=p$ and $f\circ \tilde \alpha = \alpha$. We can assume without loss of generality that the paths involved are differentiable.
-		\item If $f$ is a local homeomorphism and satisfies the path lifting property, then it's a covering map.
-	\end{itemize}
+	If $f$ is a local homeomorphism and satisfies the path lifting property, then it's a covering map.
 \end{prop}
-\begin{proof}
-	The idea of the proof is to show that $\Pi\circ S$ is a global diffeomrphism. Clearly this implies that $\Pi$ restricted to $S$ is a diffeomeorphism on $\R^2$ and so that $S$ is an entire graph. From that we obtain also that $\Omega$ is simply connected since it's diffeomorphic to $\R^2$.\\ 
+\begin{proof}[Proof of Proposition \ref{prop:topproprspimm}]
+	The idea of the proof is to show that $\Pi\circ \iota$ is a global diffeomrphism. Clearly this implies that $\Pi$ restricted to $S$ is a diffeomeorphism on $\R^2$ and so that $S$ is an entire graph. From that we obtain also that $\Omega$ is simply connected since it's diffeomorphic to $\R^2$.\\ 
 
-	Let's observe that the target of $\Pi\circ S$ is just $\R^2$, which is simply connected, and the domain is $\Omega$, which is connected since it's a domain. We already proved, by showing that $S$ is locally a graph, that the map $\Pi \circ S $ is a local homeomorphism.\\
-	Having met these conditions, if we show that $\Pi\circ S$ satisfies the path lifting property, we conclude that it is a diffeomorphism.\\
+	Let's observe that the target of $\Pi\circ \iota$ is just $\R^2$, which is simply connected, and the domain is $\Omega$, which is connected since it's a domain. We already proved, by showing that $S$ is locally a graph, that the map $\Pi \circ S $ is a local homeomorphism.\\
+	Having met these conditions, if we show that $\Pi\circ \iota$ satisfies the path lifting property, we conclude that it is a smooth covering map whose domain is simply connected, hence a diffeomorphism.\\
 
-	Let's fix a point $z\in \Omega$ and a path $\gamma:[0,1] \to \R^2$ of bounded length, $\ell(\gamma) < \infty$, such that $\gamma(0) = (\Pi\circ S)(z)$. Our goal is to show that $\gamma$ admits a lift to a path $\gamma^*$ on $\Omega$ starting at $z$.\\
+	Let's fix a point $z\in \Omega$ and a path $\gamma:[0,1] \to \R^2$ of bounded length, $\ell(\gamma) < \infty$, such that $\gamma(0) = (\Pi\circ \iota)(z)$. Our goal is to show that $\gamma$ admits a lift to a path $\gamma^*$ on $\Omega$ starting at $z$.\\
 	To this end, let's consider the set of times up to which such a lift exists,
 	\[
-		\mathcal{J}:= \{\tau\in [0,1]\ |\ \exists \gamma^*: [0,t] \to\Omega \text{ such that } (\Pi\circ S)\circ \gamma^* = \gamma \text{ and } \gamma^*(0)=z\},
+		\mathcal{J}:= \{\tau\in [0,1]\ |\ \exists \gamma^*: [0,t] \to\Omega \text{ such that } (\Pi\circ\iota)\circ \gamma^* = \gamma \text{ and } \gamma^*(0)=z\},
 	\]
 	and let's define $\bar \tau := \sup \mathcal{J}$.\\
 
+	Let's observe that $0\in \mathcal{J}$ and that $\mathcal{J}$ is open. This is true because, being $\Pi \circ\iota$ a local homeomorphism, if a certain $\tau $ is in $\mathcal{J}\cap(0,1)$ then the whole interval $(\tau-\epsilon,\tau+\epsilon)$ for $\epsilon>0$ sufficiently small, belongs to it.\\
+
 	If we prove that $\bar \tau = 1$, then $\gamma$ admits a lift on the whole interval $[0,1]$ and we have finished. Then let's suppose by contradiction that $\bar \tau<1$ and define $\gamma^* : [0,\bar \tau) \to \Omega$ the lift of $\gamma$ up to $\bar \tau$. This curve exists by definition of $\bar \tau$.\\
 
-	Let's observe that $0\in \mathcal{J}$ and that $\mathcal{J}$ is open. This is true because, being $\Pi \circ S$ a local homeomorphism, if a certain $\tau $ is in $\mathcal{J}\cap(0,1)$ then the whole interval $(\tau-\epsilon,\tau+\epsilon)$ for $\epsilon>0$ sufficiently small, belongs to it.\\
 	
 	Finally, we need to prove that the limit $\lim_{\tau \to \bar \tau} \gamma^*(t) $ exists. If this is true we can then extend $\gamma^*$ up to $\bar \tau$, which means that $\bar \tau\in \mathcal{J}$. Since $\mathcal{J}$ is open, there exists an element $\bar \tau +\epsilon \in \mathcal{J},\ \epsilon>0$. This contradicts the definition of $\bar \tau$ and proves $\bar \tau=1$ since the alternative is absurd.\\
 	
@@ -224,35 +227,38 @@ Before laying out the proof let's recall a couple of results from the theory of 
 			we deduce that also $(\gamma^*(\tau_k))_{k}$ is a Cauchy sequence, hence converging since $S$ is complete and $\Omega$ is to be intended with the induced metric.\\
 			By the arbitrariness of the sequence  $(\tau_k)_k$ we deduce the limit $\lim_{\tau\to \bar \tau} \gamma^*(\tau) $ exists.
 \end{proof}
-In this section we have essentially proved that a complete space-like surface, immersed in $\M$ is actually the graph of a map with $|\vec \nabla f|^2 <1$. It's easy to convince ourselves that the inverse result also holds and so that this is actually a characterization.
+In this section we have essentially proved that a complete space-like surface immersed in $\M$ is actually the graph of a function $f$ satisfying $|\nabla f|^2<1$. A partial converse also holds: the graph of a locally Lipschitz function whose gradient has norm strictly smaller than $1$ is a space-like surface, if it is complete.
 \paragraph{The Gauss map in $\M$}\mbox{}\\
-The surface $S$ is an immersed submanifold of codimension  $1$. As we have a nondegenerate form on the ambient space, $g$, once fixed a  $p\in S$, we can write the following decomposition, which varies smoothly as we change the point: 
+
+Since the ambient metric $g$ is nondegenerate and each tangent plane $T_pS$ is space-like, the restriction of $g$ to $T_pS$ is positive-definite, hence nondegenerate. It follows that, for every $p\in S$,
+
 \begin{equation*}
 	\M = T_p \M = (T_p S)^\perp \oplus T_pS 
 \end{equation*}
-The codimension of the submanifold $M$ is equal to the dimension of $(T_p S)^\perp$, that is, is exaclty one. In fact this space is generated only by the normal vector to  $S$, $N_p$.\\
-We can easily show that  $N$ must be a time-like vector, due to the fact that $T_p S$ is made of space-like vectors.\\
+Since $S$ has codimension $1$ in $\M$, the orthogonal complement $(T_pS)^\perp$ is one-dimensional. Therefore it is generated by a normal vector $N_p$ to $S$.\\
 
+We can easily show that  $N$ must be a time-like vector, since $T_p S$ is space-like.\\
 Let's fix $e_1, e_2 \in T_pM$ two independent vectors. Since $N$ belongs to $(T_pM)^\perp$ we have $\left<e_1,N \right> = \left<e_2,N \right> = 0$. This implies that when we look at the representative matrix of $g_p$ written in the basis $(N,e_1,e_2)$, we have
 \begin{equation*}
 	[g_p] = 
 \begin{pmatrix}
-\langle n,n\rangle & 0 & 0\\
+\langle N,N\rangle & 0 & 0\\
 0 & \langle e_1,e_1\rangle & \langle e_1,e_2\rangle\\
 0 & \langle e_2,e_1\rangle & \langle e_2,e_2\rangle.
 \end{pmatrix} =:
 \begin{pmatrix}
-\langle n, n\rangle & 0 \\
+\langle N, N\rangle & 0 \\
 0 & [(g|_S)_p]
 \end{pmatrix}.
 \end{equation*}
-Where the block $[(g|_S)_p]$ represents the form $g$ restricted to the subspace $T_pM$. We conclude that $\left<n,n \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a pseudometric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\ 
+Where the block $[(g|_S)_p]$ represents the form $g$ restricted to the subspace $T_pM$. We conclude that $\left<N,N \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a Lorentzian metric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\ 
 
-We can now repeat the classical construction of the Gauss map in this pseusoriemannian context.\\
-The idea is just to take a unit vector in $(T_pM)^\perp$. On this space the norm of the vectors is negative so we will need to normalize them to $-1$ instead of $1$.\\
-So let's fix $w\in (T_pM)^\perp$ and scale it by a factor $k$ such that $\left<k w, kw \right>  = -1$. If we solve this equation we obtain two distinct solutions, that send $w$ to one of the two branches of $\hat{\mathbb{H}}^2 = \{v \in \M | \left<v,v \right> = -1\} $, which means that a choice is needed. Here we consistently choose the normalized vector to to be in the space \[ \mathbb{H} = \mathbb{H}^2 = \{v \in \M | \left<v,v \right> = -1, v^3 >0 \} .\]
-This way we have constructed a map \[ u: S \to \mathbb{H},\] the Gauss map of the surface $S$. Of course the only difference from the classical theory of surfaces is the codomain of the map $ u$, where it is the sphere  $\mathbb{S}^2$. Like in the classical case, the choice of the normal vector specifies an orientation for the surface, which implies that the Gauss map is gloabally defined only when the surface is orientable. In our case, this condition is trivially met since we're dealing with a graph surface. 
-
+We can now repeat the classical construction of the Gauss map in the Lorentzian setting. For every $p\in S$, the orthogonal complement $(T_pS)^\perp$ is a one-dimensional timelike subspace of $T_p\M$. Hence it contains exactly two unit vectors, characterized by the condition $ \langle w,w\rangle=-1. $ These two vectors lie on the two connected components of $ \hat{\mathbb{H}}^2=\{v\in \M:\langle v,v\rangle=-1\}. $ By choosing the connected component \[  \mathbb{H}=\mathbb{H}^2=\{v\in \M:\langle v,v\rangle=-1,\ v^3>0\}, \] we select, at each point $p\in S$, a unique unit normal vector. What is sometimes called a ``time-orientation'' for the space $\M$. This way we obtain a globally defined map
+\[
+u:S\to \mathbb{H},
+\]
+called the Gauss map of $S$.\\
+This construction is analogous to the classical one, except that the target is $\mathbb{H}^2$ instead of $\mathbb{S}^2$. Moreover, unlike the Euclidean case, for a space-like surface we always have a globally defined unit normal field: once a time orientation of $\M$ is fixed, the timelike line $(T_pS)^\perp$ intersects the corresponding sheet of $\hat{\mathbb{H}}^2$ in exactly one point for every $p\in S$. Hence the Gauss map is globally well defined on the whole surface. Furthermore, the orientation of $\M$ induces an orientation on $S$.
 \paragraph{$\mathbb{H}$ is a model for the Hyperbolic plane.}\mbox{}\\
 The space $\mathbb{H}$ that we just defined is clearly a surface immersed in $\M$, but there is more.
 First of all, we observe that, by manipulating the definition of $\mathbb{H}$ we can write it as the graph of the function $\phi(x,y) = \sqrt{x^2+y^2+1} $. The gradient of such function is $\nabla \phi = \frac{1 }{\sqrt{x^2+y^2+1} }(x,y) $, from which it's clear that $|\nabla \phi| <1$. By applying the result we proved before, we obtain that the bilinear form that $\mathbb{H}$ inherited from the immersion in $\M$ is a Riemannian metric.\\
@@ -314,7 +320,38 @@ The disk $\mathbb{D}$ with this metric is called the Poincaré model of the Hype
 What we discussed in this paragraph lets us identify $\mathbb{H}$ and $\mathbb{D}$. From now on we will use $\mathbb{D}$. For example, we will always use this space as the target of the Gauss map,\\
 \[ u: S \to \mathbb{D}.\]
 \section{The Gauss-Codazzi equations and the curvatures of $S$}
+\subsection{First and second fundamental forms}
+\subsection{Mean curvature and Gaussian curvature expr}
 
+\section{Riemann surfaces and harmonic maps}
+\subsection{(... preliminaries on Riemann surfaces ...)}
+\subsection{Harmonic maps between Riemann surfaces}
+\subsection{Energy density and Jacobian}
+\subsection{Hopf differential}
+\subsection{Holomorphicity of the Hopf differential}
+\subsection{Bochner identities}
+\subsection{Harmonic maps into the Poincaré disk}
+\subsection{Uniformization theorem}
+
+\section{CMC surfaces and harmonic maps}
+\subsection{Gauss map harmonic if and only if mean curvature is constant} 
+\subsection{Definition of w} 
+\subsection{Expression of the induced metric in terms of w and the Hopf differential} 
+\subsection{Derivation of the main PDE} 
+\subsection{Reconstruction of the surface using the Gauss-Codazzi equations} 
+\section{Classification of hyperbolic CMC cuts}
+
+\subsection{The mean curvature of the CMC immersed in $\M$ cannot be -1} 
+\subsection{The idea behind the classification} 
+\subsection{The map $\mathcal{A}$  } 
+\subsubsection{Hyperbolic CMC cuts and conformal type of the disk} 
+\subsubsection{From a surface to a holomorphic quadratic differential} 
+\subsection{inverting the map $\mathcal{A}$} 
+\subsubsection{Reconstruction from the PDE data} 
+\subsubsection{Use of Gauss and Codazzi equations} 
+\subsubsection{Fundamental theorem of surface theory} 
+\subsection{Statement of the classification theorem} 
+\newpage%TODO:
 \section{Uniqueness for the PDE}
 So far we have reduced our classification problem to proving existence and uniqueness for the following differential problem.
 \begin{center}
@@ -1085,5 +1122,5 @@ w_1=w_2.
 
 	\nocite{*}
 	\printbibliography
-
+\section{existence for the nonlinear PDE}
 \end{document}
