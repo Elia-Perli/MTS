@@ -17,8 +17,8 @@
 \usepackage{lipsum}
 \usepackage{xparse}
 \usepackage{soul}
-
-%\usepackage{showlabels}
+\usepackage{hyperref}
+\usepackage{showlabels}
 
 \usepackage{biblatex}
 \addbibresource{out-mybiblio.bib}
@@ -324,14 +324,61 @@ What we discussed in this paragraph lets us identify $\mathbb{H}$ and $\mathbb{D
 \subsection{Mean curvature and Gaussian curvature expr}
 
 \section{Riemann surfaces and harmonic maps}
-\subsection{(... preliminaries on Riemann surfaces ...)}
+
+We here introduce some notation and some fundamental concepts of Riemann surfaces. The most crucial part will be the fact that each metric on a surface is locally conformal to the Euclidean, the relationship between a Riemannian metric and a complex structure, the Uniformization theorem and some properties of Harmonic functions.
+\subsection{Preliminaries on Riemann surfaces}
+\paragraph{Complexification}
+Let us fix $M$ a smooth manifold and $\pi_E: E \to  M$ a smooth vector bundle on $M$. We define the complexification of the tangent bundle $TM$ as
+\[T_{\C}M := TM\otimes \C, \] 
+where the tensor product has to be intended fiberwise. TODO %TODO
+\paragraph{Complex surfaces}\mbox{}\\
+Let us fix $S$ a surface (a topological manifold of dimension 2).
+\begin{defn}
+	A complex atlas $\mathcal{C}$ is a collection of charts 
+	 \[\mathcal{C} = \{z_{\alpha}: U_{\alpha} \to  \C \} \] 
+	 that covers the whole surface $S$ and whose transition maps
+	\begin{align*}
+	z_{\beta}\circ z_{\alpha}^{-1} &: \; z_{\alpha}\big(U_{\alpha}\cap U_{\beta}\big) \to z_{\beta}\big(U_{\alpha}\cap U_{\beta}\big)
+	\end{align*}
+	 are holomorphic as maps between open subsets of $\C$. We call $\mathscr{C}$ a complex or conformal structure if it is an atlas maximal under the subset relation. Finally we call the pair $(S,\mathscr{C})$ (just $S$ for short) a Riemann surface.
+\end{defn}
+\begin{defn}
+	A continuous map $h: S_1 \to S_2$ between Riemann surfaces is said to be holomorphic if, in local coordinates  $\{U_\alpha,z_\alpha\}$ on $S_1$ and $\{U'_\beta,z'_\beta\}$ on $S_2$,all the maps $z'_\beta\circ h\circ z_\alpha^{-1}$ are holomorphic wherever they are defined.
+	We call $f$ a biholomorphism if it is holomorphic, bijective and its inverse  $f^{-1}$ is holomoprhic.
+\end{defn}
+\paragraph{Conformal metrics}\mbox{}
+\begin{defn}
+	We say that two metrics $g$ and $g'$ on the surface $S$ are conformal to each other if there exists a smooth function $u$ such that 
+	\[g' = e^u g.\] 
+	Or in less formal terms, the metric $g'$ is at each point multiple of $ g$, by the means of a smooth function. The term $e^u$ is called conformal factor.
+\end{defn}
+\begin{defn}
+	A map $f:(M,g)\to (N,h) $ between two Riemannian manifolds is conformal if it's a diffeomorphism and the pull back metric is conformal to the ambient metric, that is, there exists a smooth function $u$ such that
+	\[f^{*}(h) = e^{u}g.\] 
+\end{defn}
+The following fact might be useful TODO %TODO
+ \begin{lemma}
+	Given $\Omega, \Omega' \subset \C$ open subsets of $\C$, equipped with the flat metric, then a map $f:\Omega\to \Omega'$ is conformal iff it's a biholomorphism.
+\end{lemma}
+\paragraph{Conformal structures on 2-surfaces}\mbox{}\\
+Here we state the results that lead to the fact that every Riemannian surface admits a complex structure.
+\begin{thm}[Gauss]
+	Given $g$ a Riemannian metric on $S$ differentiable surface, and a point $p\in S$, there is a chart near $p$, $\phi:U\to \R^2$ such that $g$ takes the form and a smooth positive function $\lambda$ such that
+	\[g  = \lambda^2(dx^2+dy^2),\]
+	where $(x,y)$ are the coordinates defined by $\phi$.
+\end{thm}
+\begin{defn}
+	The chart $(\phi,U)$ in the theorem is called conformal, while the coordinates $(x,y)$ on $U$ are called isothermal coordinates around $p$.\\
+	:w
+\end{defn}
+\subsection{Uniformization theorem}
+
 \subsection{Harmonic maps between Riemann surfaces}
 \subsection{Energy density and Jacobian}
 \subsection{Hopf differential}
 \subsection{Holomorphicity of the Hopf differential}
 \subsection{Bochner identities}
 \subsection{Harmonic maps into the Poincaré disk}
-\subsection{Uniformization theorem}
 
 \section{CMC surfaces and harmonic maps}
 \subsection{Gauss map harmonic if and only if mean curvature is constant} 
