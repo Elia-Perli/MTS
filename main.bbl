@@ -19,6 +19,66 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{akutagawa_nishikawa_1990}{article}{}
+      \name{author}{2}{}{%
+        {{hash=83444e5979d3bd292fb3e90ba55fb15b}{%
+           family={Akutagawa},
+           familyi={A\bibinitperiod},
+           given={Kazuo},
+           giveni={K\bibinitperiod}}}%
+        {{hash=9a26a90af4a1e534e505b8ce3dc4300a}{%
+           family={Nishikawa},
+           familyi={N\bibinitperiod},
+           given={Seiki},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{5c477af569cfcb476a478e87942ccf44}
+      \strng{fullhash}{5c477af569cfcb476a478e87942ccf44}
+      \strng{bibnamehash}{5c477af569cfcb476a478e87942ccf44}
+      \strng{authorbibnamehash}{5c477af569cfcb476a478e87942ccf44}
+      \strng{authornamehash}{5c477af569cfcb476a478e87942ccf44}
+      \strng{authorfullhash}{5c477af569cfcb476a478e87942ccf44}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Tohoku Mathematical Journal}
+      \field{title}{The Gauss map and spacelike surfaces with prescribed mean curvature in Minkowski 3-space}
+      \field{volume}{42}
+      \field{year}{1990}
+      \field{pages}{67\bibrangedash 82}
+      \range{pages}{16}
+    \endentry
+    \entry{do_carmo_2016}{book}{}
+      \name{author}{1}{}{%
+        {{hash=63ce3933cfc623d4ee8d405bf8a1d8c8}{%
+           family={Carmo},
+           familyi={C\bibinitperiod},
+           given={Manfredo\bibnamedelima P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           prefix={do},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Mineola, New York}%
+      }
+      \list{publisher}{1}{%
+        {Dover Publications}%
+      }
+      \strng{namehash}{63ce3933cfc623d4ee8d405bf8a1d8c8}
+      \strng{fullhash}{63ce3933cfc623d4ee8d405bf8a1d8c8}
+      \strng{bibnamehash}{63ce3933cfc623d4ee8d405bf8a1d8c8}
+      \strng{authorbibnamehash}{63ce3933cfc623d4ee8d405bf8a1d8c8}
+      \strng{authornamehash}{63ce3933cfc623d4ee8d405bf8a1d8c8}
+      \strng{authorfullhash}{63ce3933cfc623d4ee8d405bf8a1d8c8}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Differential Geometry of Curves and Surfaces}
+      \field{year}{2016}
+    \endentry
     \entry{cheng_yau_1975}{article}{}
       \name{author}{2}{}{%
         {{hash=ccd224b77fe6d28e2868f4410839a0cb}{%
@@ -38,6 +98,7 @@
       \strng{authorbibnamehash}{80c579ba4881e6d7d74592643f835309}
       \strng{authornamehash}{80c579ba4881e6d7d74592643f835309}
       \strng{authorfullhash}{80c579ba4881e6d7d74592643f835309}
+      \field{extraname}{1}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
@@ -50,31 +111,185 @@
       \field{pages}{333\bibrangedash 354}
       \range{pages}{22}
     \endentry
-    \entry{yau_harmonic_1975}{article}{}
-      \name{author}{1}{}{%
+    \entry{cheng_yau_1976}{article}{}
+      \name{author}{2}{}{%
+        {{hash=ccd224b77fe6d28e2868f4410839a0cb}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Shiu\bibnamedelima Yuen},
+           giveni={S\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
         {{hash=2238b78e6ce727843bf0d4139b9542d3}{%
            family={Yau},
            familyi={Y\bibinitperiod},
            given={Shing-Tung},
            giveni={S\bibinithyphendelim T\bibinitperiod}}}%
       }
-      \strng{namehash}{2238b78e6ce727843bf0d4139b9542d3}
-      \strng{fullhash}{2238b78e6ce727843bf0d4139b9542d3}
-      \strng{bibnamehash}{2238b78e6ce727843bf0d4139b9542d3}
-      \strng{authorbibnamehash}{2238b78e6ce727843bf0d4139b9542d3}
-      \strng{authornamehash}{2238b78e6ce727843bf0d4139b9542d3}
-      \strng{authorfullhash}{2238b78e6ce727843bf0d4139b9542d3}
-      \field{extraname}{1}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \strng{namehash}{80c579ba4881e6d7d74592643f835309}
+      \strng{fullhash}{80c579ba4881e6d7d74592643f835309}
+      \strng{bibnamehash}{80c579ba4881e6d7d74592643f835309}
+      \strng{authorbibnamehash}{80c579ba4881e6d7d74592643f835309}
+      \strng{authornamehash}{80c579ba4881e6d7d74592643f835309}
+      \strng{authorfullhash}{80c579ba4881e6d7d74592643f835309}
+      \field{extraname}{2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Communications on Pure and Applied Mathematics}
-      \field{title}{Harmonic Functions on Complete Riemannian Manifolds}
-      \field{volume}{28}
-      \field{year}{1975}
-      \field{pages}{201\bibrangedash 228}
-      \range{pages}{28}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{number}{2}
+      \field{title}{Maximal spacelike hypersurfaces in the Lorentz-Minkowski space}
+      \field{volume}{104}
+      \field{year}{1976}
+      \field{pages}{407\bibrangedash 419}
+      \range{pages}{13}
+    \endentry
+    \entry{choi_treibergs_1990}{article}{}
+      \name{author}{2}{}{%
+        {{hash=97bb52b3dbb8a5b773dbd61ece2b68ba}{%
+           family={Choi},
+           familyi={C\bibinitperiod},
+           given={H.\bibnamedelimi I.},
+           giveni={H\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=91043cb934d7c82bade94dd09186a73e}{%
+           family={Treibergs},
+           familyi={T\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d03a16acbbcff167dad63d67b02b821}
+      \strng{fullhash}{0d03a16acbbcff167dad63d67b02b821}
+      \strng{bibnamehash}{0d03a16acbbcff167dad63d67b02b821}
+      \strng{authorbibnamehash}{0d03a16acbbcff167dad63d67b02b821}
+      \strng{authornamehash}{0d03a16acbbcff167dad63d67b02b821}
+      \strng{authorfullhash}{0d03a16acbbcff167dad63d67b02b821}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Differential Geometry}
+      \field{title}{Gauss maps of spacelike constant mean curvature hypersurfaces of Minkowski space}
+      \field{volume}{32}
+      \field{year}{1990}
+      \field{pages}{775\bibrangedash 817}
+      \range{pages}{43}
+    \endentry
+    \entry{gilbarg_trudinger_1983}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d91d04ccf8e51f30c6f9eb4b6bc0ccc1}{%
+           family={Gilbarg},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=7d500e0b463a2ce688322509a10db6c5}{%
+           family={Trudinger},
+           familyi={T\bibinitperiod},
+           given={Neil\bibnamedelima S.},
+           giveni={N\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{fullhash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{bibnamehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authorbibnamehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authornamehash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \strng{authorfullhash}{7b31fa4bbbe430ec2608ecbe7894bf57}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Elliptic Partial Differential Equations of Second Order}
+      \field{year}{1983}
+      \true{nocite}
+    \endentry
+    \entry{jost2006compact}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9dad1ae12f6d3956f7a954184d05d6b7}{%
+           family={Jost},
+           familyi={J\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{fullhash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{bibnamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorbibnamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authornamehash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \strng{authorfullhash}{9dad1ae12f6d3956f7a954184d05d6b7}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Compact Riemann Surfaces: An Introduction to Contemporary Mathematics}
+      \field{year}{2006}
+    \endentry
+    \entry{milnor_1983}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0fd9ff5b5fd354a543dafc6fb815b7ad}{%
+           family={Milnor},
+           familyi={M\bibinitperiod},
+           given={Tilla\bibnamedelima Klotz},
+           giveni={T\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{0fd9ff5b5fd354a543dafc6fb815b7ad}
+      \strng{fullhash}{0fd9ff5b5fd354a543dafc6fb815b7ad}
+      \strng{bibnamehash}{0fd9ff5b5fd354a543dafc6fb815b7ad}
+      \strng{authorbibnamehash}{0fd9ff5b5fd354a543dafc6fb815b7ad}
+      \strng{authornamehash}{0fd9ff5b5fd354a543dafc6fb815b7ad}
+      \strng{authorfullhash}{0fd9ff5b5fd354a543dafc6fb815b7ad}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Transactions of the American Mathematical Society}
+      \field{title}{Harmonic maps and classical surface theory in Minkowski space}
+      \field{volume}{280}
+      \field{year}{1983}
+      \field{pages}{161\bibrangedash 185}
+      \range{pages}{25}
+    \endentry
+    \entry{schoen_yau_1978}{article}{}
+      \name{author}{2}{}{%
+        {{hash=64d5c8c524ee9c5523cb938fceecead2}{%
+           family={Schoen},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2238b78e6ce727843bf0d4139b9542d3}{%
+           family={Yau},
+           familyi={Y\bibinitperiod},
+           given={Shing-Tung},
+           giveni={S\bibinithyphendelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{775288d35f9ac62e2d3ffb69105d2fe3}
+      \strng{fullhash}{775288d35f9ac62e2d3ffb69105d2fe3}
+      \strng{bibnamehash}{775288d35f9ac62e2d3ffb69105d2fe3}
+      \strng{authorbibnamehash}{775288d35f9ac62e2d3ffb69105d2fe3}
+      \strng{authornamehash}{775288d35f9ac62e2d3ffb69105d2fe3}
+      \strng{authorfullhash}{775288d35f9ac62e2d3ffb69105d2fe3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Inventiones Mathematicae}
+      \field{title}{On univalent harmonic maps between surfaces}
+      \field{volume}{44}
+      \field{year}{1978}
+      \true{nocite}
+      \field{pages}{265\bibrangedash 278}
+      \range{pages}{14}
     \endentry
     \entry{yau_1975}{article}{}
       \name{author}{1}{}{%
@@ -90,7 +305,6 @@
       \strng{authorbibnamehash}{2238b78e6ce727843bf0d4139b9542d3}
       \strng{authornamehash}{2238b78e6ce727843bf0d4139b9542d3}
       \strng{authorfullhash}{2238b78e6ce727843bf0d4139b9542d3}
-      \field{extraname}{2}
       \field{sortinit}{Y}
       \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
       \field{labelnamesource}{author}
@@ -100,7 +314,6 @@
       \field{title}{Harmonic functions on complete Riemannian manifolds}
       \field{volume}{28}
       \field{year}{1975}
-      \true{nocite}
       \field{pages}{201\bibrangedash 228}
       \range{pages}{28}
     \endentry

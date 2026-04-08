@@ -23,7 +23,38 @@
 \usepackage{biblatex}
 \addbibresource{out-mybiblio.bib}
 
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
 
+\usepackage{xstring}
+
+\newcommand{\numunderarrow}[2]{%
+	\tikz[baseline=(X.base)]{
+		\node[inner sep=0pt] (X) {$#2$};
+		\coordinate (M) at ($([yshift=-1.3ex]X.south west)!0.5!([yshift=-1.3ex]X.south east)$);
+		\draw[<->] ([yshift=-1.3ex]X.south west) -- ([yshift=-1.3ex]X.south east);
+		\StrLen{#1}[\numlen]
+			\node[
+				draw,
+				rounded corners=.7ex,
+				fill=white,
+				inner xsep=.6ex,
+				inner ysep=.2ex
+			] at (M) {\scriptsize $#1$};
+	}%
+}
+\newcommand{\pillref}[1]{%
+	\tikz[baseline=(X.base)]{
+		\node[
+			draw,
+			rounded corners=.7ex,
+			fill=white,
+			inner xsep=.6ex,
+			inner ysep=.2ex
+		] (X) {\scriptsize \strut #1};
+	}%
+}
 \NewDocumentEnvironment{recall}{O{Recall}}
   {\begin{quote}\itshape\noindent\textbf{#1.}\ }
   {\end{quote}}
@@ -52,13 +83,14 @@ bottomline=false,topline=false,rightline=false]{theo}
 \renewcommand{\div}{\operatorname{div}}
 
 
-
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\M}{\mathbb{M}^{2,1}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\QD}{\mathbf{QD}}
 
 \newcommand{\htl}{\reallywidetilde{h^{-1}}}
 \newcommand{\Leb}{\mathscr{L}}
@@ -69,10 +101,10 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\Dom}{\operatorname{Dom}}
 \newcommand{\Ric}{\operatorname{Ric}}
 \newcommand{\Cut}{\operatorname{Cut}}
-
+\newcommand{\tr}{\operatorname{tr}}
 \newcommand{\I}{\mathbf{I}}
 \newcommand{\II}{\mathbf{I\!I}}
-
+\newcommand{\Hopf}{\operatorname{Hopf}}
 %\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
 %\newcommand{\comment}[1]{\text{{\setstretch{0.1}#1}}
 \newcommand{\commb}[1]{\textsf{{\footnotesize[#1]}}}
@@ -97,7 +129,8 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newtheorem*{defn*}{\textsc{Definition}}
 \newtheorem{ntt}{\textsc{Notation}}[section]
 \newtheorem{es}{\textsc{example}}[section]
-
+\newtheorem{claim}{\textsc{Claim}}
+\newtheorem*{claim*}{\textsc{Claim}}
 
 
 % figure support
@@ -124,12 +157,12 @@ bottomline=false,topline=false,rightline=false]{theo}
 
 \section{Introduction}
 Goal of the work, maybe a simple example, some mention to preliminary information and a soft mention to what's the problem and the philosophy.
-\section{Minkowski space and space-like surfaces}
+\section{Minkowski space and space-like surfaces}\label{sc:splsrf}
 The environment we will work within is the Minkowki 3-space, defined as $\R^3$ endowed with the pseudometric
 \[ds^2 = ( dx^1)^{2} + (dx^2)^{2}-(dx^3)^2.\]
-In order to distinguish the use of this metric from the standard euclidean metric of $\R^3$ we will use the notation $\M$. We will also denote the coordinates either as $(x^1,x^2,x^3)$ or $(x,y,t)$, choosing the notation according to convenience. We will also identify the slice $\{(x,y,0)\}$ of $\M$ with $\R^2$ and with $\C$.\\
+In order to distinguish the use of this metric from the standard euclidean metric of $\R^3$ we will use the notation $\M$. We will also denote the coordinates either as $(x^1,x^2,x^3)$ or $(x,y,t)$, choosing the notation according to convenience and will identify the slice $\{(x,y,0)\}$ of $\M$ with $\R^2$ and with $\C$.\\
 
-The space $\M$ is an example of a more general object called a pseudo-Euclidean vector space, a term that refers to a finite-dimensional vector space $V$ endowed with a nondegenerate (possibly not positive-definite) symmetric bilinear form $g$. This kind of space serves as the ``infinitesimal model'' for pseudo-Riemannian manifolds, smooth manifolds endowed with a smooth nondegenerate $(0,2)$-tensor. If the signature of this tensor is exactly $(n-1,1)$, the manifold is called a Lorentzian manifold.\\
+The space $\M$ is an example of a more general object called a pseudo-Euclidean vector space, a term that refers to a finite-dimensional vector space $V$ endowed with a nondegenerate (possibly not positive-definite) symmetric bilinear form $g$. This kind of space serves as the ``infinitesimal model'' for pseudo-Riemannian manifolds, smooth manifolds endowed with a smooth nondegenerate 0-2 tensor. If the signature of this tensor is exactly $(n-1,1)$, the manifold is called a Lorentzian manifold.\\
 The following definition, borrowed from physics, will be useful later.
 \begin{defn*}
 	Given $(M,g)$ a Lorentzian manifold and $p \in M$, we say that a vector $v \in T_pM$ is
@@ -144,14 +177,14 @@ We will always denote with $S$ a differentiable manifold of dimension  $2$  (a s
 \paragraph{Space-like immersions.}\mbox{}\\
 The objects we will focus on are not arbitrary immersed surfaces, but the so-called space-like surfaces of $\M$. This term refers to immersed surfaces in $\M$ whose induced metric is positive-definite, and hence Riemannian. Equivalently, these are the immersed surfaces $S$ such that, for every $p \in S$, the tangent plane $T_pS$ is space-like.\\
 
-A nice property of this kind of surface is that they are locally the graph of a function of the form $x^3 = f(x^1,x^2)$.\\
+A nice property of this kind of surface is that they are locally the graph of a function of the form $x^3 = f(x^1,x^2)$, $f$ being smooth and Lipschitz with constant less than $1$.\\
 We can show this with a simple argument:\\
 First, we assumed that the restriction of the Lorentzian metric to each tangent space $T_pS$ is positive-definite so that it's a space-like plane. This can be rewritten as
 \[
 T_pS \subset \mathscr{C}:=\{v\in \M:\langle v,v\rangle \ge 0\}
 =\{t^2\le x^2+y^2\}\ .
 \]
-The set $\mathscr{C}$ is the outside-region of the double cone in $\M$ whose axis is $\{x^1=0,\ x^2=0\}$. Clearly $\mathscr{C}$ does not contain any vertical vector and a fortiori also $T_pM$ doesn't. 
+The set $\mathscr{C}$ is the outside-region of the double cone in $\M$ whose axis is $\{x^1=0,\ x^2=0\}$. Clearly $\mathscr{C}$ does not contain any vertical vector and clearly also $T_pM$ doesn't. 
 Therefore we can apply the implicit function theorem and express $S$ locally near $p$ as the graph of a function $t=f(x,y)$, where $f:U\subset \R^2\to \R$.
 Where this local representation is valid, we can parametrize the surface as $(x,y,f(x,y))$, and obtain the local frame
 \[
@@ -183,7 +216,7 @@ The situation for space-like surfaces is actually a lot nicer than what we prese
 	Let $\Omega$ be a domain in $\R^2$ (that is, an open connected set) and let $\iota:\Omega \hookrightarrow S\subset  \M$ be a space-like immersion. Suppose that $S$ is complete with respect to the induced Riemannian metric. Then $S$ is an entire graph and $\Omega$ is simply connected.
 
 \end{prop}
-Before laying out the proof let's recall a definition and a proposition, whose proof can be found in  \ref{}, from the theory of coverings. Let $M$ and $N$ two differentiable manifolds and $f:M\to N$ a smooth map.
+Before laying out the proof let's recall a definition and a proposition from the theory of coverings. Let $M$ and $N$ two differentiable manifolds and $f:M\to N$ a smooth map.
 \begin{defn}
 	We say that the map $f$ satisfies the path lifting property if for every $p\in N$ and for every path $\alpha: I \to M$ such that $\alpha(0) = f(p)$ there exists a path $\tilde \alpha: I \to N$ such that $\tilde \alpha(0)=p$ and $f\circ \tilde \alpha = \alpha$. We can assume without loss of generality that the paths involved are differentiable.
 \end{defn}
@@ -227,15 +260,14 @@ Before laying out the proof let's recall a definition and a proposition, whose p
 			we deduce that also $(\gamma^*(\tau_k))_{k}$ is a Cauchy sequence, hence converging since $S$ is complete and $\Omega$ is to be intended with the induced metric.\\
 			By the arbitrariness of the sequence  $(\tau_k)_k$ we deduce the limit $\lim_{\tau\to \bar \tau} \gamma^*(\tau) $ exists.
 \end{proof}
-In this section we have essentially proved that a complete space-like surface immersed in $\M$ is actually the graph of a function $f$ satisfying $|\nabla f|^2<1$. A partial converse also holds: the graph of a locally Lipschitz function whose gradient has norm strictly smaller than $1$ is a space-like surface, if it is complete.
-\paragraph{The Gauss map in $\M$}\mbox{}\\
-
+In this section we have essentially proved that a complete space-like surface immersed in $\M$ is actually the graph of a smooth function $f$ satisfying $|\nabla f|^2<1$. A partial converse also holds: the graph of a smooth function whose gradient has norm strictly smaller than $1$ is a space-like surface, although it may lack completeness.
+\paragraph{Normal vectors to a space-like surface in $\M$}\mbox{}\\
 Since the ambient metric $g$ is nondegenerate and each tangent plane $T_pS$ is space-like, the restriction of $g$ to $T_pS$ is positive-definite, hence nondegenerate. It follows that, for every $p\in S$,
 
 \begin{equation*}
-	\M = T_p \M = (T_p S)^\perp \oplus T_pS 
+	\M = T_p \M = (T_p S)^\perp \oplus T_pS \ .
 \end{equation*}
-Since $S$ has codimension $1$ in $\M$, the orthogonal complement $(T_pS)^\perp$ is one-dimensional. Therefore it is generated by a normal vector $N_p$ to $S$.\\
+Since $S$ has codimension $1$ in $\M$, the orthogonal complement $(T_pS)^\perp$ is one-dimensional. Therefore it is generated by a vector $N = N_p$ normal to $S$.\\
 
 We can easily show that  $N$ must be a time-like vector, since $T_p S$ is space-like.\\
 Let's fix $e_1, e_2 \in T_pM$ two independent vectors. Since $N$ belongs to $(T_pM)^\perp$ we have $\left<e_1,N \right> = \left<e_2,N \right> = 0$. This implies that when we look at the representative matrix of $g_p$ written in the basis $(N,e_1,e_2)$, we have
@@ -251,18 +283,25 @@ Let's fix $e_1, e_2 \in T_pM$ two independent vectors. Since $N$ belongs to $(T_
 0 & [(g|_S)_p]
 \end{pmatrix}.
 \end{equation*}
-Where the block $[(g|_S)_p]$ represents the form $g$ restricted to the subspace $T_pM$. We conclude that $\left<N,N \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a Lorentzian metric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\ 
+Where the block $[(g|_S)_p]$ represents the form $g$ restricted to the subspace $T_pM$. We conclude that $\left<N,N \right>$ is negative just by observing that $\det [g_p] <0$ as $g$ is a Lorentzian metric, while $\det[(g|_S)_p]>0 $ since  $g$  becomes a metric when restricted to $S$.\\
 
-We can now repeat the classical construction of the Gauss map in the Lorentzian setting. For every $p\in S$, the orthogonal complement $(T_pS)^\perp$ is a one-dimensional timelike subspace of $T_p\M$. Hence it contains exactly two unit vectors, characterized by the condition $ \langle w,w\rangle=-1. $ These two vectors lie on the two connected components of $ \hat{\mathbb{H}}^2=\{v\in \M:\langle v,v\rangle=-1\}. $ By choosing the connected component \[  \mathbb{H}=\mathbb{H}^2=\{v\in \M:\langle v,v\rangle=-1,\ v^3>0\}, \] we select, at each point $p\in S$, a unique unit normal vector. What is sometimes called a ``time-orientation'' for the space $\M$. This way we obtain a globally defined map
-\[
-u:S\to \mathbb{H},
-\]
-called the Gauss map of $S$.\\
-This construction is analogous to the classical one, except that the target is $\mathbb{H}^2$ instead of $\mathbb{S}^2$. Moreover, unlike the Euclidean case, for a space-like surface we always have a globally defined unit normal field: once a time orientation of $\M$ is fixed, the timelike line $(T_pS)^\perp$ intersects the corresponding sheet of $\hat{\mathbb{H}}^2$ in exactly one point for every $p\in S$. Hence the Gauss map is globally well defined on the whole surface. Furthermore, the orientation of $\M$ induces an orientation on $S$.
+Since $(T_pS)^\perp$ is $1$-dimensional, all the vectors in it are proportional to each other. Moreover, as we have just seen, they are all timelike, so if $w$ is a nonzero vector in $(T_pS)^\perp$, then \[ \langle w,w\rangle<0.\] 
+We can thus rescale $w$ by a factor $k\in \R$ such that $\left<kw,kw \right> = -1$. This equation yields two possible choices of $k$, one for each connected component of the space $\hat{\mathbb H}^2=\{v\in \M:\langle v,v\rangle=-1\}$. We can consistently choose the connected component with positive time 
+\begin{align*}
+	\mathbb H=\mathbb H^2=\{v\in \M:\langle v,v\rangle=-1,\ v^3>0\}
+\ \ ,
+\end{align*}
+effectively selecting a unique normal vector for each $p\in S$. The choice of the component within  $\{v^3>0\} $ or $\{v^3<0\} $ is sometimes referred to a ``time-orientation'' for the space $\M$, and can be performed independently from the surface $S$. 
+This way we obtain a globally defined map
+\begin{align}\label{eq:gausshmap}
+	\tilde  u:S\to \mathbb{H}
+\ \ .
+\end{align}
 \paragraph{$\mathbb{H}$ is a model for the Hyperbolic plane.}\mbox{}\\
 The space $\mathbb{H}$ that we just defined is clearly a surface immersed in $\M$, but there is more.
-First of all, we observe that, by manipulating the definition of $\mathbb{H}$ we can write it as the graph of the function $\phi(x,y) = \sqrt{x^2+y^2+1} $. The gradient of such function is $\nabla \phi = \frac{1 }{\sqrt{x^2+y^2+1} }(x,y) $, from which it's clear that $|\nabla \phi| <1$. By applying the result we proved before, we obtain that the bilinear form that $\mathbb{H}$ inherited from the immersion in $\M$ is a Riemannian metric.\\
-In fact this space is one of the many models of the hyperbolic plane. Amongst these models there is one which might be more useful than others, the Poincaré disk. As a manifold, the Poincaré disk is simply the unit ball in $\R^2$, $\mathbb{D}=\{\xi\in \R^2\mid |\xi|\leq 1\} $, while we can construct the metric by exhibiting a diffeomorphism between $\mathbb{D}$ and $\mathbb{H}$ pulling back the metric.\\
+First of all, we observe that, by manipulating the definition of $\mathbb{H}$, we can write it as the graph of the function $\phi(x,y) = \sqrt{x^2+y^2+1} $. The gradient of such function is $\nabla \phi = \frac{1 }{\sqrt{x^2+y^2+1} }(x,y) $, from which it's clear that $|\nabla \phi| <1$. By applying the result we proved before, we obtain that the bilinear form that $\mathbb{H}$ inherited from the immersion in $\M$ is a Riemannian metric.
+In fact this space is one of the many models of the hyperbolic plane.\\
+Another model for the same Riemannian manifold is the Poincaré disk. As a differentiable manifold, the Poincaré disk is simply the unit ball in $\R^2$, $\mathbb{D}=\{\xi\in \R^2\mid |\xi|\leq 1\} $, while we can construct the metric by exhibiting a diffeomorphism between $\mathbb{D}$ and $\mathbb{H}$ pulling back the metric.\\
 A possible diffeomorphism is the map $p$, whose inverse is the map $q$, as can be verified by direct computation:
 \begin{align*}
 \begin{aligned}
@@ -275,11 +314,13 @@ A possible diffeomorphism is the map $p$, whose inverse is the map $q$, as can b
 	\xi &\longmapsto \frac{1}{1-|\xi|^2}(2\xi^1,2\xi^2,1+|\xi|^2).
 \end{aligned}
 \end{align*}
-It's clear that both functions are smooth, since $|\xi| <1$ and $t>1$.\\
+It is clear that both functions are smooth, since $|\xi| <1$ and $t>1$.\\
+
+
 We would like to find the expression of  $q^*(g_\mathbb{H})$.To simplify the calculations we might observe that the metric of $\mathbb{H}$ inherited by $\M$ is invariant under a rotation on the $t$ axis, and that such a rotation corresponds under $p$ to a rotation of the disk. This means that the metric $q^*(g_{H})$ will be invariant under rotation.\\
-It is then sufficient to fix a certain $\xi\in \mathbb{D}$ of the form $\xi = (a,0) $ and calculate $q^*(g_\mathbb{H})_\xi$; this will specify the whole metric tensor. By direct computation we obtain\\
+It is then sufficient to fix a certain $\xi\in \mathbb{D}$ of the form $\xi = (a,0) $ and calculate $q^*(g_\mathbb{H})_\xi$; this will specify the whole metric tensor. The matrix associated to $dq_\xi$ in the canonical bases $\mathscr{B}_1	= (e_1,e_2)$ of $\R^2$ and of $\mathscr{B}_{2}=(E_1,E_2,E_3)$ of $\M$ is
 \begin{align*}
-	[dq_\xi]
+	[dq_\xi]_{\mathscr{B}_1 \mathscr{B}_2}
 	=
 	\frac{2}{(1-|\xi|^2)^2}
 	\begin{pmatrix}
@@ -290,7 +331,7 @@ It is then sufficient to fix a certain $\xi\in \mathbb{D}$ of the form $\xi = (a
 \end{align*}
 Which, evaluated at $\xi=(a,0)$, yields
 \begin{align*}
-	[dq_{(a,0)}]
+	[dq_{(a,0)}]_{\mathscr{B}_1 \mathscr{B}_2}
 	=
 	\frac{2}{1-a^2}
 	\begin{pmatrix}
@@ -308,30 +349,243 @@ We observe that, with respect to the metric of $\M$, it holds
 	\hspace{5mm}
 	\langle v_1,v_2\rangle = 0.
 \end{align*}
-Which means that the representative matrix of $q^*(g_{\mathbb{H}})$ is a multiple of the identity, $[q^*(g_{\mathbb{H}})_{(0,a)}] = \frac{2}{1-a^2}I$. 
+Therefore $\mathscr{B}_3 = (v_1,v_2)$ is an orthonormal basis of $T_{q(0,a)}\mathbb{H}$ with respect to $g_{\mathbb{H}}$, hence $[g_{\mathbb{H}}]_{\mathscr{B}_3 }= I $, while $dq_{(a,0)}$ represented by
+\[[dq_{(a,0)}]_{\mathscr{B}_3\mathscr{B}_1} = \frac{2}{1-a^2}I.\] 
+So we have
+\begin{align*}
+	[q^*(g_{\mathbb H})_{(0,a)}]_{\mathscr{B}_1}
+	&=
+	[dq_{(0,a)}]_{\mathscr{B}_3 \mathscr{B}_1}^T[g_{\mathbb H}]_{\mathscr{B}_3}[dq_{(0,a)}]_{\mathscr{B}_3 \mathscr{B}_1}\\
+	&=
+	[dq_{(0,a)}]_{\mathscr{B}_3 \mathscr{B}_1}^TI[dq_{(0,a)}]_{\mathscr{B}_3 \mathscr{B}_1}\\
+	&=
+	\left(\frac{2}{1-a^2}\right)^2 I
+\ \ .
+\end{align*}
+In particular, $q^*(g_{\mathbb H})_{(0,a)}$ is a multiple of the Euclidean metric.\\
 By the argument on rotational invariance, we conclude that for every $\xi\in \mathbb{D}$,
 \begin{align*}
 	q^*(g_\mathbb{H})_\xi
 	=
 	\left(\frac{2}{1-|\xi|^2}\right)^2 g^E_\xi.
 \end{align*}
-The disk $\mathbb{D}$ with this metric is called the Poincaré model of the Hyperbolic plane. A nice property of this model is to be what is called a ``conformal'' model of the hyperbolic plane, namely an immersed manifold in a Euclidean space whose metric is a multiple of the standard one.\\
+The disk $\mathbb{D}$ with this metric, which we denote also with $ds_p^2$, is called the Poincaré model of the Hyperbolic plane.\\
+\paragraph{The Gauss Map in $\M$}\mbox{}\\
+In \eqref{eq:gausshmap} we constructed a map $\tilde u$ between the surface $S$ and $\mathbb{H}$. Having now at our disposal the isometry $q$ between $\mathbb{H}$ and the Poincaré disk, $\mathbb{D}$, we can compose $\tilde u$ with $q$, obtaining what is called the Gauss map of the surface $S$. 
+\[ u := q \circ \tilde u:S\to \mathbb{D}. \]
+The construction we followed is analogous to the classical one, except that the target of the Gauss map is here $\mathbb{D}^2$ instead of $\mathbb{S}^2$. Moreover, unlike the Euclidean case, for a space-like surface we always have a globally defined unit normal field: once a time orientation of $\M$ is fixed, the timelike line $(T_pS)^\perp$ intersects the corresponding connected component of $\hat{\mathbb{H}}^2$ in exactly one point for every $p\in S$. Instead, for an immersed surface in Euclidean space, there is no canonical way to choose a normal vector.\\
 
-What we discussed in this paragraph lets us identify $\mathbb{H}$ and $\mathbb{D}$. From now on we will use $\mathbb{D}$. For example, we will always use this space as the target of the Gauss map,\\
-\[ u: S \to \mathbb{D}.\]
 \section{The Gauss-Codazzi equations and the curvatures of $S$}
-\subsection{First and second fundamental forms}
-\subsection{Mean curvature and Gaussian curvature expr}
+In this section we derive the Gauss-Codazzi equations for a space-like surface immersed in $\M$, since in this setting they differ in some important respects from the classical case. These equations will play a central role in the discussion that follows.
+\subsection{Recall on the second fundamental form}
+We repeat now the construction of the second fundamental form of the immersion $\iota$, which brings a different sign convention that will occur also to the expression of the Gaussian curvature.\\
 
+
+As we have already noted, given a point $p\in S$, since $S$ is a space-like surface, we can decompose the tangent space
+\[T_p \M = T_p S \oplus (T_pS)^\perp\ . \] 
+This splitting is differentiable, in the sense that the mappings
+ \[(p,v) \mapsto (p,v^T) \qquad\text{and}\qquad (p,v)\mapsto (p,v^N)  \] 
+ are differentiable maps of $T\M$ to $T\M$.
+
+Denote with $D$ the Levi-Civita connection on $\M$ induced by the pseudometric $g_{\M}$ and with $\nabla$ the connection induced on the surface $S$. As usual, if $X$ and $Y$ are local vector fields on $S$ with local extensions $\bar X$ and $\bar Y$ then the induced connection on  $S$ is simply the projection of the connection of the ambient space onto the surface $S$
+\[ \nabla_X Y = \left( D_{\bar X} \bar Y \right)^T\ .\] 
+Which means that the difference between the two connections of $X$ and $Y$ will be a local vector field on $\M$  normal to $S$,
+\begin{align}\label{eq:defB}
+	B(X,Y)_p := (D_{\bar X} \bar Y - \nabla_X Y)_p \perp T_pS.
+\ \ . 
+\end{align}
+As in the Euclidean case, $B$ is a symmetric tensor and is independent of the chosen extensions $\overline X$ and $\overline Y$. Since the normal space $(T_pS)^\perp$ is one-dimensional, once a local unit normal vector field $N$ along $S$ is fixed, there exists a unique symmetric bilinear form $\II = \II(X,Y)$ such that
+\[
+B(X,Y)_p=\epsilon(\II(X,Y)N)_p,
+\]
+where we can choose $\epsilon = \pm 1$.
+%As in the Euclidean setting, $B$ is a tensor and doesn't depend on the extensions $\overline{X}$ and $\overline{Y}$, and it is symmetric in $X$ and $Y$. The differences with the usual theory of surfaces stems from what immediately follows. Since  $T_pM$ is one-dimensional, we will have a function $\II$ that satisfies
+%\[B(X,Y)_p = \epsilon \II(X,Y) N\] 
+%with $N$ a fixed normal unit vector on $S$ and $\epsilon = \pm 1$ depending on the context.\\
+Let's find a suitable choice for $\epsilon$.\\
+From now on we forget to distinguish a vector field $X$ with its extension $\overline{X}$. Let $N$ be local normal vector field on $S$ and $V,W$ two local tangent vector fields to $S$. We observe first that
+\[\left<N,W \right> \equiv 0\ ,\] 
+so that by taking the derivative along $V$,
+\begin{align*}
+	\left<D_V N,W \right> + \left<N,D_VW \right> = 0
+	\ \ .
+\end{align*}
+Then
+\begin{align*}
+	\left<D_VN,W \right> &= -\left<N,B(V,W)N+\nabla_VW \right>\\
+	&= -\left<N,B(V,W)N \right> \\
+	&= -\left<N,\epsilon\II(V,W)N \right> \\
+	&= -\epsilon\left<N,N \right>\II(V,W) \\
+	&=  \epsilon\II(V,W)
+\ \ . 
+\end{align*}
+So the natural choice is $\epsilon=-1$.\\
+With this choice we have, from definition \ref{eq:defB},
+\begin{align}\label{eq:gc1}
+	D_V X= \nabla_V X + \II(V,X)N 
+\ \ . 
+\end{align}
+
+\subsection{The Gauss-Codazzi equations and Gaussian curvature}
+It's easy to see that $\M$ is actually flat with its metric. This mean that its curvature tensor is zero $\overline{R} (X,Y)Z \equiv 0 $.
+Let's rewrite $\overline{R}$ in relation with $R$ the curvature tensor of the surface $S$.
+By definition
+\begin{align*}
+	\overline{R}(X,Y) Z = D_X D_Y Z - D_Y D_X Z - D_{[X,Y]}Z
+\ \ . 
+\end{align*}
+Let's focus first on the term $D_X D_Y Z $, applying the equation \eqref{eq:gc1} we get
+\begin{align*}
+	D_X D_Y Z &= D_X (\nabla_Y Z +\II(Z,Y)N)\\
+	&= \nabla_X \nabla_Y Z + \II\left(\nabla_Y,X\right) N + d_X(\II(Z,Y))N + \II(Z,Y)D_XN
+\ \ . 
+\end{align*}
+And analogously
+\begin{align*}
+	D_Y D_X Z &= \nabla_Y \nabla_X Z + \II\left(\nabla_X,Y\right) N + d_Y(\II(Z,X))N + \II(Z,X)D_YN
+\ \ . 
+\end{align*}
+Finally we have, by noting that the connection $\nabla$ is symmetric,
+\begin{align*}
+	D_{[X,Y]}Z &= \nabla_{[X,Y]}Z - \II([X,Y],Z)N\\
+	&=   \nabla_{[X,Y]}Z + \II(Z,\nabla_X Y)N - \II(Z,\nabla_Y X)N
+\ \ . 
+\end{align*}
+So that, by putting everything together we obtain,
+\begin{align}\label{eq:gc2}
+	0 &= \overline{R}(X,Y)Z \notag\\
+	  &= D_X D_Y Z - D_Y D_X Z- D_{[X,Y]}Z\notag\\ % &=\numunderarrow{\astr{4}}{D_X D_Y Z - D_Y D_X Z} - D_{[X,Y]}Z\\
+	&= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z\notag\\
+	& \qquad\qquad+ d_X(\II(Z,Y))N-\II (\nabla_X Z, Y) N -\II(Z,\nabla_X Y)N \notag\\
+	& \qquad \hspace{5.75mm}
+	-\left[ d_Y(\II(Z,X))N-\II (\nabla_YZ,X)N - \II(Z,\nabla_Y X)N\right]\notag\\
+	& \qquad \qquad +\II(Z,Y)D_XN-\II(Z,X)D_YN
+\ \ . 
+\end{align}
+Now, we recognize in the expression that $R(X,Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z$, and by definition, we set the derivative of the tensor,\[(\nabla_X(\II))(Y,Z) = d_X(\II(Z,Y))-\II (\nabla_X Z, Y)  -\II(Z,\nabla_X Y)\ .\] So, by continuing in \eqref{eq:gc2},
+\begin{multline}\label{eq:gc3}
+	0 = R(X,Y)Z + (\nabla_X \II)(Y,Z)N - (\nabla_Y\II) (Z,X)N\\ +\II(Z,Y)D_XN-\II(Z,X)D_YN
+\ \ . 
+\end{multline}
+Now we observe that from  $\left<N,N \right> \equiv -1$ we have, for $v$ tangent to $S$, 
+\[2\left<D_vN,N \right> = 0\] 
+so that $D_vN$ is a tangent vector on $S$.
+Now, in \eqref{eq:gc3} we can separate the terms that are tangent to $S$ and those that are normal. This way we obtain two distinct equations
+\begin{align}\label{eq:gc4}
+	\begin{cases}
+		R(X,Y)Z  = -\II(Z,Y)D_XN+\II(Z,X)D_YN\\
+		(\nabla_X \II)(Y,Z) - (\nabla_Y\II) (Z,X) = 0
+	\end{cases}
+\ \ . 
+\end{align}
+These equations are (a form of) the Gauss-Codazzi equations.
+
+Let's take the first equation of \eqref{eq:gc3} and test it by a tangent local vector field $W$. We get
+\begin{align*}
+	\left<R(X,Y)Z,W \right> &=  \left<- \II(Z,Y)D_XN+\II(Z,X)D_YN, W\right>\\
+							&= -\II(Z,Y)\left< D_XN, W\right> +\II(Z,X)\left<D_YN,W \right>\\
+							&=-\II(Z,Y)\II(X,W) +\II(Z,X)\II(Y,W)
+\ \ . 
+\end{align*}
+Now, if we fix $v_1,v_2$ a basis of $T_pS$ and evaluate the last equation by setting $X=v_1, Y=v_2, Z=v_2, W=v_1$ and $h_{ij}= \II(v_i, v_j)$ we get
+
+\begin{align}\label{eq:gc5}
+	\left<R(v_1,v_2)v_2,v_1 \right>	&= -\II(v_2,v_2)\II(v_1,v_1) +\II(v_2,v_1)\II(v_2,v_1)\notag\\
+									&= - \left( \II(v_2,v_2)\II(v_1,v_1)-\II(v_1,v_2)^2 \right)\notag\\
+									&= -\det(h_{ij}) 
+\ \ .
+\end{align}
+Now, by definition of sectional curvature and setting $g_{ij} =\I( v_i,v_j) $, 
+\begin{align}\label{eq:gc6}
+	\left<R(v_1,v_2)v_2,v_3 \right> = K(v_1,v_2)\det(g_{ij}) 
+\ \ . 
+\end{align}
+Here $K(v_1,v_2)$ is the sectional curvature of the plane spanned by $v_1,v_2$ which is simply the gaussian curvature $K$ since we're in dimension $2$.\\
+So by putting together \eqref{eq:gc5} and  \eqref{eq:gc6},
+\begin{align*}
+	K = -\det_\I (\II) = - \frac{\det(h_{ij})}{\det(g_{ij})}
+\ \ . 
+\end{align*}
+Which is the same as the Gauss equation for surfaces in Euclidean space if not for a negative sign.\\
+Let's also focus on the other equation. We can define the exterior derivative of a tensor with respect to the connection, $d^\nabla T(X,Y) = \nabla_X T - \nabla_Y T$. This way, Codazzi's equation becomes
+\[d^\nabla \II = 0.\] 
+So that the two equations get the following form:
+\begin{equation}
+\begin{cases}\label{eq:gc}
+	\displaystyle \det_\I (\II)= -K  \\
+	\displaystyle d^\nabla \II = 0. 
+\end{cases}	
+\end{equation}
+\paragraph{Bonnet's theorem}\mbox{}\\
+The Gauss-Codazzi equations play a fundamental role when the ambient manifold has constant sectional curvature. In this case, they are not only necessary compatibility conditions for the existence of an isometric immersion, but, on a simply connected surface, they are also sufficient.
+\begin{thm}[Bonnet]
+	Let $(g_{ij})_{ij}$	and $(h_{ij})_{ij}$ be differentiable functions defined on an open set $V\subset \R^2$ to $\R$ such that $g = (g_{ij})_{ij}$ is is a symmetric positive definite matrix and $h = (h_{ij})_{ij}$ is symmetric. Suppose that they satisfy the equation \eqref{eq:gc}.\\
+	Then for every $q\in V$ there exists a neighborhood $U\subset V$ of $q$ and a diffeomorphism $\mathbf{x}:U\to \mathbf{x}(U) \subset \M$ such that the regular surface $\mathbf{x}(U)$ has $g$ and $h$ as first and second fundamental forms respectively.\\
+	Furthermore, if $U$ is connected and if 
+	\[\overline{\mathbf{x}} :U\to  \overline{\mathbf{x}}(U) \subset \M\] 
+	 is another diffeomorphism satisfying the same conditions, then there exist an isometry $T:\M\to \M$ such that $\overline{\mathbf{x}} = T \circ \mathbf{x}$.
+\end{thm}
+We redirect to \cite{do_carmo_2016} for a proof of the Euclidean case, whose only difference is the sign of Gauss' equation.
+\paragraph{Mean curvature}\mbox{}\\
+We conclude this section by briefly recalling the definition of mean curvature, which does not differ from the usual Euclidean setting.
+As we have already seen, we can associate to the bilinear form $\II$ a linear operator $S_p:T_pS\to T_pS$ such that
+\begin{align*}
+	\II(v,w)=\left<S_p(v),w\right>
+	\ \ .
+\end{align*}
+We define the mean curvature of $S$ at $p$ as
+\begin{align*}
+	H(p)=\frac{1}{2}\tr(S_p)
+	\ \ .
+\end{align*}
+If we again fix a basis $v_1,v_2$, denote with $(g_{ij})_{ij}$ and $(h_{ij})_{ij}$ the coefficients of the first and second fundamental forms, and express $S_p$ as $S_p(v_i)=S_i^{\ k}v_k$, we get
+\begin{align*}
+	h_{ij}
+	=\II(v_i,v_j)
+	=\left<S_p(v_i),v_j\right>
+	=S_i^{\ k}g_{kj}
+	\ \ .
+\end{align*}
+If $(g^{ij})$ is the inverse matrix of $(g_{ij})$, it follows that
+\begin{align*}
+	S_i^{\ k}=h_{ij}g^{jk},
+\end{align*}
+and therefore
+\begin{align*}
+	\tr(S_p)=S_i^{\ i}=h_{ij}g^{ji}=g^{ij}h_{ij}
+	\ \ .
+\end{align*}
+So that we have
+\begin{align*}
+	H=\frac{1}{2}\tr(S_p)=\frac{1}{2}S^{\ i}_i	= \frac{1}{2} g^{ij}h_{ij}=\frac{1}{2}\tr_{\I}(\II)
+	\ \ .
+\end{align*}
+Now, since
+\begin{align*}
+	(g^{ij})
+	=
+	\frac{1}{\det(g_{ij})}
+	\begin{pmatrix}
+		g_{22} & -g_{12}\\
+		-g_{12} & g_{11}
+	\end{pmatrix}
+	\ \ ,
+\end{align*}
+we obtain
+\begin{align*}
+	2H
+	=
+	g^{ij}h_{ij}
+	=
+	\frac{h_{22}g_{11}-2h_{12}g_{12}+h_{11}g_{22}}{\det(g_{ij})}
+	\ \ .
+\end{align*}
+As we already mentioned, there is no formal difference with surfaces immersed in $\R^3$.
 \section{Riemann surfaces and harmonic maps}
+We here introduce some notation and some fundamental concepts of Riemann surfaces. The most crucial part will be the fact that each metric on a surface is locally conformal to the Euclidean, the relationship between a Riemannian metric and a complex structure, the Uniformization theorem and the definition of the Hopf differential.
 
-We here introduce some notation and some fundamental concepts of Riemann surfaces. The most crucial part will be the fact that each metric on a surface is locally conformal to the Euclidean, the relationship between a Riemannian metric and a complex structure, the Uniformization theorem and some properties of Harmonic functions.
 \subsection{Preliminaries on Riemann surfaces}
-\paragraph{Complexification}
-Let us fix $M$ a smooth manifold and $\pi_E: E \to  M$ a smooth vector bundle on $M$. We define the complexification of the tangent bundle $TM$ as
-\[T_{\C}M := TM\otimes \C, \] 
-where the tensor product has to be intended fiberwise. TODO %TODO
-\paragraph{Complex surfaces}\mbox{}\\
+%\paragraph{Complex surfaces}\mbox{}\\
 Let us fix $S$ a surface (a topological manifold of dimension 2).
 \begin{defn}
 	A complex atlas $\mathcal{C}$ is a collection of charts 
@@ -344,61 +598,416 @@ Let us fix $S$ a surface (a topological manifold of dimension 2).
 \end{defn}
 \begin{defn}
 	A continuous map $h: S_1 \to S_2$ between Riemann surfaces is said to be holomorphic if, in local coordinates  $\{U_\alpha,z_\alpha\}$ on $S_1$ and $\{U'_\beta,z'_\beta\}$ on $S_2$,all the maps $z'_\beta\circ h\circ z_\alpha^{-1}$ are holomorphic wherever they are defined.
-	We call $f$ a biholomorphism if it is holomorphic, bijective and its inverse  $f^{-1}$ is holomoprhic.
+	We call $f$ a biholomorphism if it is holomorphic, bijective and its inverse  $f^{-1}$ is holomoprhic.\\
+	We say that the two Riemann surfaces $S_1$ and $S_2$ are isomorphic if there exists a biholomoprhism between the two.
 \end{defn}
-\paragraph{Conformal metrics}\mbox{}
+%\paragraph{Conformal metrics}\mbox{}
 \begin{defn}
-	We say that two metrics $g$ and $g'$ on the surface $S$ are conformal to each other if there exists a smooth function $u$ such that 
-	\[g' = e^u g.\] 
-	Or in less formal terms, the metric $g'$ is at each point multiple of $ g$, by the means of a smooth function. The term $e^u$ is called conformal factor.
+	We say that two metrics $g$ and $g'$ on a surface $S$ are conformal to each other if there exists a smooth function $u:S\to \R$ such that
+	\begin{align*}
+		g' = e^{2u} g
+		\ \ .
+	\end{align*}
+	Equivalently, $g'$ is at each point a positive multiple of $g$ by a smooth function. The function $e^{2u}$ is called the conformal factor.
 \end{defn}
-\begin{defn}
-	A map $f:(M,g)\to (N,h) $ between two Riemannian manifolds is conformal if it's a diffeomorphism and the pull back metric is conformal to the ambient metric, that is, there exists a smooth function $u$ such that
-	\[f^{*}(h) = e^{u}g.\] 
-\end{defn}
-The following fact might be useful TODO %TODO
- \begin{lemma}
-	Given $\Omega, \Omega' \subset \C$ open subsets of $\C$, equipped with the flat metric, then a map $f:\Omega\to \Omega'$ is conformal iff it's a biholomorphism.
-\end{lemma}
 \paragraph{Conformal structures on 2-surfaces}\mbox{}\\
 Here we state the results that lead to the fact that every Riemannian surface admits a complex structure.
-\begin{thm}[Gauss]
+\begin{thm}
 	Given $g$ a Riemannian metric on $S$ differentiable surface, and a point $p\in S$, there is a chart near $p$, $\phi:U\to \R^2$ such that $g$ takes the form and a smooth positive function $\lambda$ such that
-	\[g  = \lambda^2(dx^2+dy^2),\]
+	\[g  = \lambda^2(dx^2+dy^2) = e^{2v}(dx^2+dy^2),\]
 	where $(x,y)$ are the coordinates defined by $\phi$.
 \end{thm}
 \begin{defn}
 	The chart $(\phi,U)$ in the theorem is called conformal, while the coordinates $(x,y)$ on $U$ are called isothermal coordinates around $p$.\\
-	:w
 \end{defn}
-\subsection{Uniformization theorem}
+Given a conformal chart we may introduce the change of coordinates
+\begin{align*}
+	\begin{cases}
+		z = x+iy\\
+		\bar z = x-iy
+	\end{cases}
+	\quad \text{or equivalently}
+	\quad
+	\begin{cases}
+		x = \frac{1}{2} (z + \bar z)\\
+		y = \frac{i}{2}(z- \bar z)
+	\end{cases}
+\ \ . 
+\end{align*}
+The associated coordinated fields and forms can be expressed as
+\begin{align*}
+	\begin{cases}
+		\displaystyle\frac{\partial  }{\partial z}  = \frac{1}{2}( \frac{\partial  }{\partial x} - i \frac{\partial  }{\partial y} ) \\
+		\displaystyle\frac{\partial  }{\partial \bar z} = \frac{1}{2} ( \frac{\partial  }{\partial x} + i \frac{\partial  }{\partial y} ) 
+	\end{cases}
+	\qquad \text{and}
+	\qquad
+	\begin{cases}
+		dz = dx + idy \\
+		d \bar z = dx -idy
+	\end{cases}
+\ \ . 
+\end{align*}
+This lets us write the Euclidean metric as
+\begin{align*}
+	dx^2+dy^2 &=  dx \otimes dx + dy \otimes dy \\
+		&= \frac{1}{4} d(z+ \bar z) \otimes d(z + \bar z) - \frac{1}{4} d(z-\bar z) \otimes d(z- \bar z)\\
+		&= \frac{1}{2}( dz \otimes d \bar z + d \bar z \otimes dz)\\
+		&= \Re(dz \otimes d \bar z)\\
+		&=  dz d \bar z\\
+		&= |dz|^2
+\ \ , 
+\end{align*}
+where the last two equalities are definitions.\\
+So we can express the metric $g$ as
+\[ g = e^{2v} |dz|^2.\] 
+
+The change of coordinates $(x,y)\mapsto z=x+iy$ yields charts with values in $\C$. However, this is not yet enough to conclude that $S$ carries a complex structure, since one still has to prove that the corresponding transition maps are holomorphic. But this can be shown with a little more work:
+\begin{prop}
+	Given $(\phi,U)$ a conformal chart, denote with $(\tilde \phi, U)$ the respective complex chart. Then
+	\begin{align*}
+		\{ (\tilde \phi,U) \mid (\phi,U) \text{conformal charts on } (S,g) \} 
+	\ \  
+	\end{align*}
+	constitutes a complex structure on $S$.
+\end{prop}
+Now, let's recall some operators that take a simple form when read through a conformal chart, for which the metric has the form $e^{2u}|dz|^2$
+First, the Laplacian with respect to the metric $g$ is
+\[\Delta_g = \frac{1}{\lambda^2}(\frac{\partial  }{\partial x^2} +\frac{\partial }{\partial y^2} ) = e^{-2u}(\frac{\partial  }{\partial x^2} + \frac{\partial  }{\partial y^2} ) = e^{-2u}\frac{\partial  }{\partial z} \frac{\partial  }{\partial \overline{z}} .\] 
+While the Gauss curvature of the surface takes the form
+\[K_g = -\Delta_g\log(\lambda) = -2\Delta u.\]
+Let us finally observe that,
+\begin{align*}
+	dz^2 &= dz\otimes dz\\
+		&= d(x+iy) \otimes d(x+iy)\\
+		&= dx \otimes dx +i \left( dx \otimes dy + dy \otimes dx \right) - dy \otimes dy\\
+		&=: dx^2 - dy^2 +2i dxdy
+\ \ . 
+\end{align*}
+\paragraph{Integration through a conformal chart}\mbox{}\\
+Given a curve $\gamma$ in S, its length is defined by
+\[ \ell(\gamma) = \int_\gamma \lambda(z) |dz|\ .\] 
+On the other hand the area form can be expressed as follows
+\[ dx\wedge dy = -\frac{i}{2} dz\wedge d\bar z\ ,\] so that the area of a measurable set becomes
+\begin{align*}
+	\mathrm{Area}(B):=\int_{B}\lambda^{2}(z)\frac{i}{2}dz\wedge d\bar{z}\\
+	= \int_{B}\lambda^{2}(z)\frac{i}{2}dzd\bar{z}
+\ \ . 
+\end{align*}	
+
+
+\subsection{Uniformization}
+An important property of Riemann surfaces is that they can be classified in just three categories, depending on their universal covering. This result is  (a direct consequence of) the uniformization theorem.
+In what follows we denote by $\widehat{\C}$ the 2-sphere, with the metric and conformal structure induced by $\R^3$ or equivalently $\widehat{\C} = \C\cup \{\infty\} $.
+\begin{thm}[Uniformization Theorem]
+	Let $\Sigma$ be a simply connected Riemann surface. Then $\Sigma$ is isomorphic to exactly one of the following three surfaces:
+	\begin{enumerate}
+		\item The Riemann sphere $\widehat{\C}$.
+		\item The complex plane $\C$.
+		\item The Poincaré disk $\mathbb{D}$.
+	\end{enumerate} 
+\end{thm}
+Every Riemann surface $\Sigma$ admits a universal covering $\tilde \Sigma$, which inherits the complex structure of its base space. Since the universal covering $\tilde \Sigma$ of a surface $\Sigma$ is simply connected, we can apply the uniformization theorem to it, making $\Sigma$ fall in one of the following categories. We say that $\Sigma$ is
+\begin{itemize}[noitemsep]
+	\item elliptic if $\widetilde \Sigma \cong \widehat{\C}$,
+	\item parabolic if $\widetilde \Sigma \cong \C$,
+	\item hyperbolic if $\widetilde \Sigma \cong \mathbb{D}$.
+\end{itemize}
+In our case the surface we consider is simply connected and noncompact (for instance because it's the graph of an entire function on $\R^2$) so we can exclude the elliptic case.  
+\begin{cor}
+	If $\Sigma$ is a simply connected noncompact Riemann surface, then $\Sigma$ is conformally equivalent either to $\C$ or to $\mathbb{D}$.
+\end{cor}
 
 \subsection{Harmonic maps between Riemann surfaces}
-\subsection{Energy density and Jacobian}
-\subsection{Hopf differential}
-\subsection{Holomorphicity of the Hopf differential}
-\subsection{Bochner identities}
-\subsection{Harmonic maps into the Poincaré disk}
+We here recall the definition of harmonic map between Riemann surfaces and some important facts related to them.
+Let $(\Sigma_1,g)$ and $(\Sigma_2,h)$ two Riemann surfaces. Suppose to have fixed a conformal parameter $z$ on $\Sigma_1$ and $u$ on $\Sigma_2$ so that the we can write the two metrics as
+\begin{align*}
+	\lambda^2(z) |dz|^2 \qquad\text{and}\qquad \rho^2(u)|du|^2
+\ \ . 
+\end{align*}
+Let $f:\Sigma_1\to \Sigma_2$ be a smooth map. For brevity, we use the following notation $f_z = \frac{\partial f}{\partial z} ,f_{\bar z} = \frac{\partial f }{\partial \bar z}$. Also, it's immediate to see that $\overline{f_z} = \overline{f}_{ \overline{z}}$ .
+\begin{defn}
+	We define the energy density of a map as 
+	 \begin{align*}
+		 e(f)(z) &= \frac{\rho^2(f(z))}{\lambda^2(z)} \left( |f_z|^2 + |f_{\overline{z}}|^2 \right)\\
+				 &= \frac{\rho^2(f(z))}{\lambda^2(z)}\left( f_z \overline{f}_{\overline{z}} + \overline{f}_zf_{\overline{z}} \right)
+	 \ \ . 
+	 \end{align*}  
+	 The integral of this quantity is the energy of the map
+	\begin{align*}
+		E(f)&:= \int_\Sigma \lambda^2(z)e(f(z)) i dzd\overline{z}\\
+			&= \int_{\Sigma_1}\rho^2(f)\big(f_z \overline{f}_{\overline{z}}+\overline{f}_{z}f_{\overline{z}}\big)\frac{i}{2}dzd\bar z
+	\ \ . 
+	\end{align*}
+\end{defn}
+This definition is given in local coordinates but it's actually well posed, as proven by the following lemma whose proof can be found in \cite{jost2006compact}
+\begin{lemma}
+	$E(u)$ is independent of the choice of conformal parameters on $\Sigma_1$ and $\Sigma_2$.
+\end{lemma}
+This means we have defined a functional $E$ on the $C^2$ functions between  $\Sigma_1$ and $\Sigma_2$. The critical points of such a functional are what we call the Harmonic maps between $\Sigma_1$ and $\Sigma_2$. This functional has an Euler-Lagrange equation associated to it, which sufficies as our definition of harmonic map.
+\begin{defn}
+	A map $f\in C^2(\Sigma_1,\Sigma_2)$ is called harmonic if 
+	\[f_{z \overline{z}} + \frac{2\rho_u}{\rho}f_z f_{\overline{z}}  = 0\ .\] 
+\end{defn}
+An important observation is that the local harmonic map equation does not involve the conformal factor $\lambda$ of the metric on the domain. This reflects the fact that, in dimension two, harmonicity depends only on the conformal class of the metric on the source surface.
+\subsection{Energy densities and the Hopf differential}
+\paragraph{Energy densities and Jacobian}\mbox{}\\
+A related concept to the energy of the map $f$ are the Holomorphic and anti-holomorphic energy densities.  
+\begin{defn}
+	We define the holomorphic and antiholomorphic energy density of a smooth map $f:\Sigma_1\to \Sigma_2$ respectively as	
+\begin{align*}
+	H(f):=\frac{\rho^2(f)}{\lambda^2}|f_z|^2,
+	\qquad\text{and}\qquad
+	L(f):=\frac{\rho^2(f)}{\lambda^2}|f_{\bar z}|^2
+\ \ .
+\end{align*}
+\end{defn}
+It is immediate to note that 
+\[e(f) = H(f)+L(f)\ .\] 
+The Jacobian of the map is by definition
+\begin{align*}
+	J(f) =  \frac{\rho^2(f)}{\lambda^2}(|f_z|^2-|f_{\overline{z}}|^2)
+\ \ . 
+\end{align*}
+So that we also have 
+\begin{align}\label{eq:defjacob}
+	J(f) = H(f) - L(f)\ .
+\ \ . 
+\end{align}
+\paragraph{Quadratic differentials}\mbox{}\\
+To each map between Riemann surfaces we can associate a quantity that carries information about how far the map is from being conformal.
+\begin{defn}
+	Given $\Sigma$ a Riemann surface and a local coordinate $z$, we say that the 2-form $\phi(z) dz^2$ is a holomorphic quadratic differential if $\phi$ is holomorphic.
+\end{defn}
+It is clear that if we ha a change of coordiante $z \mapsto w = \gamma(z)$, then we can express the differentials as $dw = \gamma'(z)dz$. This means that the tensor product $dz^2$ will transform as 
+\[ dw^2 = \gamma'(z)^2 dw^2 .\] 
+To each map between Riemann surfaces, we can associate a quadratic differential, which satisfies some properties if it is harmonic 
+\begin{lemma}\label{lemma:exholdiff}
+	Let $f:\Sigma_1\to \Sigma_2$ a harmonic map between Riemann surfaces, with $\Sigma_1$ being endowed with a metric of nonpositive curvature. Let $z$ be a conformal parameter on $\Sigma_1$. Then if $w$ is a local representation of $f$,
+	\[\rho^2(w) w_zw_{\overline{z}} dz^2\] is a holomorphic quadratic differential on $\Sigma_1$. Furthermore we have that $\rho^2(w)w_z w_{\overline{z}} \equiv 0$ if and only if $f$ is holomorphic or antiholomorphic.
+\end{lemma}
+We can actually give a decomposition of any symmetric 0-2 tensor field
+\begin{lemma}
+	Let $\omega$ a symmetric 0-2 tensor field on $(\Sigma,g)$ with values in  $\C$ . Then $\Omega$ can be decomposed uniquely as
+	\[\omega = \omega^{(2,0)}+\omega^{(1,1)}+\omega^{(0,2)},\] 
+	where $\omega^{(2,0)}$ and $\overline{\omega^{(0,2)}}$ are holomorphic quadratic differentials and $\omega^{(1,1)}$ is a multiple of the metric $g$. 
+\end{lemma}
+We can then apply this last lemma to lemma to the differential we found in lemma \ref{lemma:exholdiff}, obtaining
+\begin{lemma}
+	Let $f:(\Sigma_1,g)\to (\Sigma_2,h) $ a map two Riemann surfaces with $\Sigma_1$ being hyperbolic. Let $q$ be the quadratic differential associated to $f$ as in lemma \ref{lemma:exholdiff}. Then 
+	\[q = (f^*(h))^{(2,0)}\ .\] 
+	Moreover we have that
+	\[ f^*(h) = q + \frac{e}{2}g +\bar q\ .\] 
+\end{lemma}
+This motivates the definition of the Hopf differential
+\begin{defn}
+	Given $f:(\sigma_1,g) \to  (\Sigma_2,h) $ between two Riemann surfaces, we define the Hopf differential as the quadratic differential
+	\[\Hopf(f) = (f^*(h))^{(2,0)}\ .\] 
+\end{defn}
+We can calculate, pointwise, a norm for a quadratic differential. Fix $(e_i)_i$ a local orthonormal frame on $(\Sigma_1,g)$. Let's define the $g$ norm of the quadratic differential $q $ as
+\[ \|q\|_g = \frac{1}{4}\sum_{i,j} |q(e_i,e_j)|^2\ . \] 
+It's possible to rewrite this quantity in terms of the energies of the map $f$. If the metric is $\lambda^2|dz|^2$, two orthonromal vectors are $e_1= \frac{1}{\lambda} \frac{\partial  }{\partial x} $ and $e_2 = \frac{1}{\lambda}\frac{\partial  }{\partial y} $, hence
+\[dz^2(e_1,e_1)= \frac{1}{\lambda^2},\ dz^2(e_1,e_2)=i \frac{1}{\lambda^2},\ dz^2(e_2,e_2)=-\frac{1}{\lambda^2}\ .\] 
+So that we have
+\begin{align*}
+	\|q\|_{g}^2 &= \frac{1}{4}\sum_{ij} |q(e_i,e_j)|^2 \\
+	&= \frac{1}{4}\left( |q(e_1,e_1)|^2+2|q(e_1,e_2)|^2+|q(e_2,e_2)|^2 \right)  \\
+	&= \frac{1}{4}|q(z)|^2\left(|dz(e_1,e_1)|^2 +2|q(e_1,e_2)|^2+|q(e_2,e_2)|^2\right)\\
+	&=  \frac{|q(z)|^2}{\lambda^4(z)}
+\ \ . 
+\end{align*}
 
+If we apply calculate the norm of the Hopf differential of a smooth $f:\Sigma_1\to \Sigma_2$, with local representation $w=w(z)$, 
+\[\|\Hopf(f)\|_g^2(z) = \frac{\rho^4(w)}{\lambda^4} |w_z|^2|w_{\overline{z}}|^2\ .\] 
+By recognizing the terms in this last equation we have immediately the following lemma.
+\begin{lemma}\label{lemma:qnorm}
+	Let $q = \Hopf(f)$. Then
+	\[\|q\|^2 = HL\ ,\] 
+	where $H$ and $L$ are respectively the holomorphic and anti-holomorphic energy of $f$.
+\end{lemma}
+
+An important result we will need is the following
+\begin{thm}[Bochner identities]
+	At the points where $H\neq 0$, if $K_1$ and $K_2$ are the Gaussian curvatures of $\Sigma_1$ and $\Sigma_2$ respectively, we have
+	\begin{align}\label{eq:bochner}
+		\frac{1}{2} \log H = K_1 - K_2 J\ .
+	\end{align}
+	And similarly, where $L\neq 0$, 
+	\[\frac{1}{2}\log L = K_1 + K_2J\ .\] 
+\end{thm}
 \section{CMC surfaces and harmonic maps}
-\subsection{Gauss map harmonic if and only if mean curvature is constant} 
-\subsection{Definition of w} 
-\subsection{Expression of the induced metric in terms of w and the Hopf differential} 
-\subsection{Derivation of the main PDE} 
-\subsection{Reconstruction of the surface using the Gauss-Codazzi equations} 
-\section{Classification of hyperbolic CMC cuts}
+We now introduce the class of surfaces that will be studied throughout this section.
+\begin{defn}
+	A constant mean curvature cut is a complete entire spacelike surface
+	$S \subset \M$ with constant mean curvature $H>0$.
+\end{defn}
+This is essentially the same setting we exposed in section \ref{sc:splsrf} if not for the additional condition of having a constant mean curvature.
+The first step for the desired classification is the following proposition, which we essentially proved in section \ref{sc:splsrf} if not for the last result, which can be found in \cite{cheng_yau_1976}
+\begin{prop}
+	Let $S$ be a complete spacelike surface in $\M$ with constant mean curvature $H$.
+	Then $S$ can be represented as the graph of an entire function
+	$x^3=f(x^1,x^2)$.
+	Moreover, $f$ is convex, and therefore the Gaussian curvature of $S$ satisfies
+	$K \leq 0$.
+\end{prop}
+An immediate consequence of being the graph of a convex function is that the second fundamental form of the surface is positive definite, from which we get that the mean curvature must be positive.\\
 
-\subsection{The mean curvature of the CMC immersed in $\M$ cannot be -1} 
-\subsection{The idea behind the classification} 
-\subsection{The map $\mathcal{A}$  } 
-\subsubsection{Hyperbolic CMC cuts and conformal type of the disk} 
-\subsubsection{From a surface to a holomorphic quadratic differential} 
-\subsection{inverting the map $\mathcal{A}$} 
-\subsubsection{Reconstruction from the PDE data} 
-\subsubsection{Use of Gauss and Codazzi equations} 
-\subsubsection{Fundamental theorem of surface theory} 
-\subsection{Statement of the classification theorem} 
-\newpage%TODO:
+We observe now that we may suppose the mean curvature of $S$ to be $1$. In fact, if $\iota:S\to \M$ is an immersion with constant mean curvature $H=k>0$, then we may consider the dilated immersion
+\[
+\tilde \iota = \mu\iota ,
+\]
+which has constant mean curvature $\tilde H = \mu^{-1}k$.
+Choosing $\mu= k$, we obtain a surface with constant mean curvature $1$.
+
+Therefore, there exists a bijection between complete space-like surfaces with constant mean curvature $k$ and complete space-like surfaces with constant mean curvature $1$. So a classification of the latter immediately yields a classification of the former. We may then assume from now on that the surfaces have constant mean curvature $1$.\\
+%\subsection{Gauss map harmonic if and only if mean curvature is constant}
+
+The following is the reason for our focus on Harmonic maps, whose proof can be found in \cite{milnor_1983} and \cite{choi_treibergs_1990}
+\begin{lemma}
+	The Gauss map of a spacelike surface in $\M$
+	\[
+		u:S\to \mathbb D
+	\]
+	is harmonic if and only if the mean curvature of $S$ is constant.
+\end{lemma}
+
+Now, we assumed $S$ to be hyperbolic, so the uniformization theorem provides a conformal diffeomorphism
+\[
+	\Lambda:\mathbb D \to S.
+\]
+By composing the Gauss map with $\Lambda$, we may therefore read the Gauss map as a map
+\[
+	u:\mathbb D \to \mathbb D .
+\]
+Since harmonicity is invariant under conformal changes of the metric on the domain, this new expression of $u$ is still harmonic.
+
+Now, the map $u$ lets us pull back the metric of the hyperbolic disk. 
+\begin{prop}\label{prop:indmetr}
+	Suppose that $S$ has constant mean curvature $1$. Then the pulled-back induced metric $g=\Lambda^*(\I)$ of $S$ and the respective Gaussian curvature are given by
+	\begin{align*}
+		g = \frac{4}{(1-|u|^2)^2}|u_z|^2 |dz|^2, \qquad K = \frac{|u_{\overline z}|^2}{|u_z|^2} - 1
+	\ \ .
+	\end{align*}
+\end{prop}
+\begin{proof}
+	We redirect the reader to \cite{akutagawa_nishikawa_1990}.
+\end{proof}
+We now need a claim we will prove later in the section.
+\begin{claim}\label{cl:jhupos}
+	The Gauss map $u$ satisfies  
+	\[J(u) \geq 0\qquad\text{and}\qquad H(u)>0\ .\] 
+\end{claim}
+Being  $u$ harmonic, its Hopf differential is a holomorphic quadratic differential. So, if we denote by
+\[\Hopf(f)(z) = \phi(z) dz^2\]
+then $\phi(z) = \rho^2(u(z)) u_z \overline{u}_{\overline{z}} $ is holomorphic. For brevity we set $\Phi:=\Hopf(f)$\\
+
+Let's now observe that, from lemma \ref{lemma:qnorm} we have 
+\[ L(u) = \|\Phi\|^{2}H^{-1}(u) .\] 
+So, from \eqref{eq:defjacob} we get 
+\begin{align}\label{eq:cmcclass1}
+	 J(u) &= H(u)-L(u)\notag\\
+	 &= H(u) - \|\Phi\|^2H^{-1}(u)
+\ \ . 
+\end{align}
+Now, let's define $w$ as
+\[w = \frac{1}{2} \log H\ ,\] 
+which is well defined because $H>0$ by our claim.\\
+We can then write $H = e^{2w}$ and therefore substituting in \eqref{eq:cmcclass1},
+ \[J(u) = e^{2w} - \|\Phi\|^2e^{-2w}\ .\]
+Now, let's consider the Bochner identity \eqref{eq:bochner}, applied to $u$ (which is valid because $H>0$),
+\begin{align*}
+	\Delta_{\Sigma_1}  \log H = -2K_2 J(u) +2K_1
+\ \ . 
+\end{align*}
+By substituting for $w$ and $J$, we have
+\begin{align*}
+	2\Delta_{\Sigma_1} w = -2K_2(e^{2w}-\|\Phi\|^2e^{-2w})+2K_1
+\ \ . 
+\end{align*}
+We recall that $u:\mathbb{D}\to \mathbb{D}$, so in the equation we actually have $\Sigma_1=\Sigma_2$ and so $K_1 \equiv K_2 \equiv -1$.
+Hence we get
+\begin{align*}
+	\Delta_{\Sigma_1} w = e^{2w}-\|\Phi\|^2 e^{-2w}-1
+\ \ . 
+\end{align*}
+
+Let us prove the claim 
+\begin{proof}[Proof of claim \ref{cl:jhupos}]
+	First, by proposition \ref{prop:indmetr} we have that the metric $g:= \Lambda^*(\I_S)$ is expressed by
+	\[g =  \frac{4}{(1-|u|^2)^2}|u_z|^2 |dz|^2\ .\] 
+	Then we recall that the metric on $\mathbb{D}$ at a point $v$ is $ds_p^2|_v:= \frac{4}{(1-|v|^2)^2} |dz|^2$.
+	So we have
+	\begin{align*}
+		g &=  \frac{4}{(1-|u|^2)^2} |u_z|^2|dz|^2 \\
+		&=  ds_p^2|_u|u_z|^2  \\
+		&= ds_p^2|_u H(u) 
+	\ \ . 
+	\end{align*}
+	We know that both  $g$ and $ds_p^2$ are Riemannian metrics, so that we obtain $H(u)>0$.
+
+	Now, from the second equation of proposition \ref{prop:indmetr} we havee
+	\begin{align*}
+		K = \frac{|u_{\overline{z}}|^2}{|u_z|^2}-1
+	\ \  
+	\end{align*}
+	so that	
+	 \begin{align*}
+		 |u_z|^2 K &= |u_{\overline{z}}|^2-|u_z|^2\\
+		 &=  -J(u) 
+	\ \ . 
+	\end{align*}
+	Then \[J(u)=-|u_z|^2K\geq 0\ ,\] since $K\leq 0$
+\end{proof}
+From the proof we can also observe that the metric induced on $S$ can be expressed as $g = H ds_p^2 = e^{2w}ds_p^2$.
+\section{Classification of hyperbolic CMC cuts}
+%What we have done in the last section is essentially constructing the following map, 
+%
+%\[ S\longmapsto u\longmapsto (\Phi,w) \longmapsto \Phi\ .\] 
+%That is, starting from a hyperbolic CMC-1 cut of $\M$, $S$, we constructed the Gauss map of the immersion and viewed it as $u:\mathbb{D}\to \mathbb{D}$ using the uniformization theorem. Then we considered the Hopf differential associated to $u$, the map $\Phi = \Hopf(u)$ and the map $w = \frac{1}{2}\log H(u)$ and finally forgot the map $w$ obtaining the Holomorphic quadratic differential $\Phi$.\\
+%We added the passage through the pair  $(\Phi,w)$ because through the map $w$ we can express important quantities related to the surface $S$, namely the metric $g = \Lmabda^*(\I_S) = e^{2w}ds_p^2$.
+%And we find a relation that will be crucial in the following, namely the PDE
+%\[ciao\] 
+%Now, for our purposes, we distinguish any two surfaces $S$ and $S'$ that are isometric. If we look at  the relation $S\mapsto \Phi$, this quotients to a relation between the isometric surfaces and the space of quadratic differentials up to conformal transformation.
+%
+%This way, the association $S\mapsto \Phi$ becomes, denoting with $\E$ the space of surfaces up to isometry and $\QD$ the space of quadratic differentials up to change of conformal parameter,
+%\[\mathscr{A}: \E\to\QD\ . \] 
+%The classification theorem reduces to
+%\begin{thm}
+%	\[\mathscr{A}: \E\to\QD\  \] 
+%	is bijective.
+%\end{thm}
+%
+%
+%\begin{center}
+%\begin{tikzpicture}[
+%	every node/.style={inner sep=2pt}
+%]
+%\node (phi) at (0,0) {$\Phi$};
+%\node (normphi) at (1.4,0) {$\lVert \Phi \rVert$};
+%\node (w) at (2.8,0) {$w$};
+%
+%\node (hij) at (4.4,0) {$(h_{ij})_{ij}$};
+%\node (metric) at (2.8,-1.4) {$e^{2w}ds_p^2$};
+%\node (gij) at (4.4,-1.4) {$(g_{ij})_{ij}$};
+%
+%\node[draw,circle] (gc) at (5.8,-0.7) {\tiny \textsf{G.C.}};
+%\node (S) at (7.1,-0.7) {$S$};
+%
+%\draw[|->] (phi) -- (normphi);
+%\draw[|->] (normphi) -- (w);
+%
+%\draw[|->] (w) -- (hij);
+%\draw[|->] (w) -- (metric);
+%\draw[|->] (metric) -- (gij);
+%
+%\draw[|-] (hij) -- (gc);
+%\draw[|-] (gij) -- (gc);
+%
+%\draw[->] (gc) -- (S);
+%\end{tikzpicture}
+%\end{center}
+%
+%
 \section{Uniqueness for the PDE}
 So far we have reduced our classification problem to proving existence and uniqueness for the following differential problem.
 \begin{center}
@@ -430,16 +1039,14 @@ So far we have reduced our classification problem to proving existence and uniqu
 \end{center}
 We will need the following generalized maximum principle, due to Cheng and Yau and found in the article \cite{cheng_yau_1975}.
 \subsection{A generalized maximum principle}
-Let $M$ be a complete Riemannian manifold of dimension $n$, and fix a point $p\in M$. Assume moreover that $M$ is simply connected and has nonpositive sectional curvature. This assumption is stronger than what is strictly needed in this section, but it greatly simplifies the discussion and is satisfied in the case of a complete space-like surface of $\M$. These hypotheses allow us to apply the Cartan-Hadamard theorem, so that the exponential map $\exp_p$ is a diffeomorphism. In particular, this tells us that the cut locus of $p$ is empty, since for every $x\in M\setminus\{p\}$ the minimizing geodesic joining $p$ to $x$ is radial and therefore unique. It follows that the function $r(x):=d(x,p)$ is differentiable on $M\setminus\{p\}$ and that, for every $x\in M$, there exists a unique minimizing unit-speed geodesic
-\[
-\sigma:[0,l]\to M
-\]
-joining $p$ to $x$, where $l=d(x,p)$. We denote by $\sigma'(t)$ its velocity vector, and by $\Ric(\sigma'(t))$ the Ricci curvature along $\sigma$. We then define
+Let $M$ be a complete Riemannian manifold of dimension $n$, and fix a point $p\in M$. Assume moreover that $M$ is simply connected and has nonpositive sectional curvature. This assumption is stronger than what is strictly needed in this section, but greatly simplifies the discussion and is satisfied in the case of a complete space-like surface of $\M$. These hypotheses allow us to apply the Cartan-Hadamard theorem, so that the exponential map $\exp_p$ is a diffeomorphism. In particular, this tells us that for every $x\in M$ there exists a unique geodesic joining $p$ to $x$, and that $d(\cdot ,\cdot )$ is smooth on $M\setminus \{x=y\} $.\\
+
+We need now to define an important quantity we will refer to multiple times later. Let us fix a point $x\in M$ and let $\sigma$ be the unique unit speed geodesic that joins $x$ to $p$. In the following expression we also denote with $l$ the length of $\sigma$, or in other terms $l=d(x,p)$. Let $\sigma'(t)$ be the velocity vector of $\sigma$, and denote with $\Ric(\sigma'(t))$ the Ricci curvature along $\sigma$. We then define
 \begin{align}\label{eq:intromaxprin1}
-	K(x) = \min_{0\leq k\leq l} \left[ \frac{n-1}{l-k} - \frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t))dt\right]
+	K(x) = \min_{k\in [0,l]}  \left[ \frac{n-1}{l-k} - \frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t))dt\right]
 \ \ .
 \end{align}
-We now claim that, if $r(x) \geq 1$ and the Ricci curvature is bounded from below, then $K(x)$ is bounded from above by a constant independent of $x$. Indeed, if $\Ric \geq \mathscr{S}$, then
+We now claim that, if $r(x) \geq 1$ and the Ricci curvature is bounded from below, then $K(x)$ is bounded from above by a constant independent of $x$. Indeed, if we assume that for every unit vector $v$, $\Ric(v)\geq \mathscr{S}$, then
 \begin{align*}
 	\frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t)) \,dt
 	\geq
@@ -471,7 +1078,7 @@ With the notation introduced above, for every $x\in M\setminus\{p\}$ such that $
 \end{align*}
 \end{lemma}
 \begin{proof}
-We redirect the reader to \cite{yau_harmonic_1975} for a proof.
+We redirect the reader to \cite{yau_1975} for a proof.
 \end{proof}
 We are ready to state and prove the maximum principle.
 \begin{thm}\label{th:maxprin}
@@ -492,7 +1099,18 @@ In particular,
 	\end{equation*} 
 	Let's observe that $g(p) = \frac{1}{\log(2)^\frac{1}{k}}>0$ and that $\lim_{r(x) \to \infty}g(x) = 0$. Since $g$ is continuous, this means that it attains its maximum at a certain point $x_k$.\\
 
-	Let's show first that
+	First, let's show that we can assume that $r(x_k) \to  \infty$. If that's not the case, up to taking a subsequence, $r(x_k)$ is bounded.
+	Then we can find a closed geodesic ball $\overline{B}(p;\rho)$ with $\rho>0$ that contains $x_k$ for every $k$ sufficiently big. Since $M$ is complete, the Hopf Rinow theorem implies that $\overline{B}(p;\rho)$ is compact. Therefore, after passing to a subsequence, we may assume that 
+	\begin{align*}
+		x_k \to x_0
+	\ \ .
+	\end{align*}
+	But we know that $f(x_k) \to \sup f$ and that $ f$ is continuous, which implies that $x_0$ is a maximum point.\\
+	This entails that 
+	\[ \nabla f(x_0) = 0\qquad \text{ and } \qquad \Delta f(x_0) \leq 0\ \ .\]
+	Which verifies trivially the thesis by setting $x_k \equiv x_0$. Thus we assume, from now on, that $r(x_k)\to \infty$.\\
+
+	Let us prove first that
 	\begin{align}\label{eq:boundprin13}
 		\limsup_{k\to \infty}f(x_k) = \sup_M f
 	\ \ .
@@ -502,41 +1120,16 @@ In particular,
 		f(x_k)< f(\bar x)-\delta\ , \qquad \text{equivalently},\qquad f(x_k)+\delta < f(\bar x)
 	\ \ .
 	\end{align}
-	We have two possibilities, either $r(x_k) \overset{k\to \infty}{\longrightarrow}  \infty$ or up to taking a subsequence it is bounded.\\
-	If $r(x_k) \overset{k\to \infty}{\longrightarrow} \infty$, then we have, for $k$ sufficiently large, $r(x_k) > r(\bar x) $ and $f(\bar x) > f(x_k)$ so that
+	Since we assumed that $r(x_k) \overset{k\to \infty}{\longrightarrow} \infty$, then we have, for $k$ sufficiently large, $r(x_k) > r(\bar x) $ and $f(\bar x) > f(x_k)$ so that
 	\begin{align*}
 		g(\bar x) = \frac{f(\bar x)-f(p)+1}{(\log(r^2(\bar x) +2)^{\frac{1}{k}}} > \frac{f(x_k )-f(p)+1}{(\log(r^2(x_k) +2)^{\frac{1}{k}}} = g(x_k) 
 	\ \ .
 	\end{align*}
 	Which contradicts the maximality of $x_k$.
-	
-	If on the other hand $r(x_k)$ is a bounded sequence, we can find a closed geodesic ball $\overline{B}(p;\rho)$ with $\rho>0$ that contains $x_k$ for every $k$ sufficiently big. Since $M$ is complete, the Hopf Rinow theorem implies that $\overline{B}(p;\rho)$ is compact. Therefore, after passing to a subsequence, we may assume that 
-	\begin{align*}
-		x_k \to x_0
-	\ \ .
-	\end{align*}
-	By taking the limit in \eqref{eq:boundprin12} we have
-	\begin{align*}
-		f(x_0) + \delta \leq f(\bar x)
-	\ \ .
-	\end{align*}
-	Now we observe that 
-	\begin{align*}
-		\frac{f(\bar x)-f(p)+1}{(\log(r^2(\bar x) +2)^{\frac{1}{k}}}  \overset{k\to \infty}{\longrightarrow} f(\bar x)-f(p)+1\\
-		\shortintertext{and}
-		\frac{f(x_k )-f(p)+1}{(\log(r^2(x_k) +2)^{\frac{1}{k}}} \overset{k\to \infty}{\longrightarrow} f(x_0) -f(p) +1
-	\ \ .
-	\end{align*}
-	Since we know $f(\bar x)-f(p)+1>f(x_0) -f(p) +1 $, we obtain, for $k$ sufficiently large, 
-	\begin{align*}
-		\frac{f(\bar x)-f(p)+1}{(\log(r^2(\bar x) +2)^{\frac{1}{k}}} > \frac{f(x_k )-f(p)+1}{(\log(r^2(x_k) +2)^{\frac{1}{k}}}
-	\ \ .
-	\end{align*}
-	Which again is a contradiction, hence proving \eqref{eq:boundprin13}.\\
 	It is obvious that, up to taking a subsequence, we can assume $f(x_k) \to  \sup_M f$.\\
 
-	Let's now focus on the two estimates. As we already mentioned, the Cartan-Hadamard $M$ theorem grants that $x_k$ is not in the cut-locus of $p$, and so that the function $d(p,x)^2 = r(x)^2$ is differentiable in $x_k$.\\
-	Let's calculate the gradient of $g$,
+	Let's now focus on the two estimates. As we already mentioned, the Cartan-Hadamard $M$ theorem guarantees that the function $d(p,x)^2 = r(x)^2$ is differentiable in $x_k$.\\
+	We can easily calculate the gradient of $g$,
 	\[
 	\nabla g(x)
 	=
@@ -564,19 +1157,55 @@ In particular,
 	\end{align}
 	 so that by substituting in \eqref{eq:boundprin8} we get the desired estimate 
 	\[|\nabla f| (x_k) \leq \frac{2A}{k}\ \ .\] 
-	Let's now focus on the estimate on the Laplacian. Again by direct computation we can find the expression of the Laplacian of $g$,
+	Let's now focus on the estimate on the Laplacian. We can find the expression of the Laplacian of $g=u /L^{\frac{1}{k}}$. First we observe that
+	\begin{align}\label{eq:boundprindeltag1}
+		\Delta g &= \nabla\cdot \nabla \left( \frac{u}{L^{\frac{1}{k}}} \right)\notag \\
+				 &= \nabla \cdot \left( \nabla u L^{-\frac{1}{k}} + u \nabla (L^{-\frac{1}{k}})  \right)   \notag\\
+				 &=\frac{\Delta u}{ L^{\frac{1}{k}}} +2 \left< \nabla u, \nabla (L^{-\frac{1}{k}})  \right> + u \Delta(L^{-\frac{1}{k}})
+	\ \ ,
+	\end{align}
+	then we calculate the involved quantities.
+	First,	
 	\begin{align*}
-	\Delta g
-	&=
-	\frac{\Delta f}{L^{1/k}}
-	-\frac{4r}{k(r^2+2)L^{1+1/k}}\langle \nabla f,\nabla r\rangle
-	-\frac{2u}{k(r^2+2)L^{1+1/k}} \\
-	&\quad
-	-\frac{2ur\,\Delta r}{k(r^2+2)L^{1+1/k}}
-	+\frac{4ur^2}{k(r^2+2)^2L^{1+1/k}}
-	+\frac{4(k+1)ur^2}{k^2(r^2+2)^2L^{2+1/k}} .
+		\nabla u&= \nabla f,\qquad
+		\nabla L = \frac{2r\nabla r}{r^2 +2},\qquad
+		\nabla \left( \frac{1}{r^2+2} \right) = -\frac{2r\nabla r}{(r^2+2)^2},\\
+		\nabla \left( L^{-\frac{1}{k}} \right)  &= -\frac{1}{k} \frac{\nabla L }{L^{\frac{1}{k}+1}}
+		= -\frac{1}{k} \frac{2r\nabla r}{(r^2+2)L^{\frac{1}{k}+1}},\\
+		\nabla \left( L^{-\frac{1}{k}-1} \right) &= \left( -\frac{1}{k}-1 \right)\frac{\nabla L}{L^{\frac{1}{k}+2}}
+		= -\frac{k+1}{k}\frac{2r\nabla r}{(r^2+2)L^{\frac{1}{k}+2}},\\
+		\Delta L &= \nabla \cdot \left( \frac{2r \nabla r}{r^2+2} \right)
+		= \frac{2|\nabla r|^2}{r^2+2}+ \frac{2 r \Delta r}{r^2+2}- \frac{4 r^2 |\nabla r|^2}{(r^2+2)^2}
+		\ \ ,
 	\end{align*}
-	Since $x_k$ is a maximum point of $g$, we have $\Delta g(x_k)\leq 0$. Using the expression for $\Delta g$, the identity $\nabla g(x_k)=0$, and
+	and then
+	\begin{align*}
+		\Delta \left( L^{-\frac{1}{k}} \right) &= \nabla \cdot \nabla L^{-\frac{1}{k}} \\
+											   &= -\frac{1}{k}\nabla \cdot \left( \frac{\nabla L}{L^{\frac{1}{k}+1}} \right) \\
+		&= -\frac{1}{k} \frac{\Delta L}{L^{\frac{1}{k}+1}}-\frac{1}{k} \left<\nabla L, \nabla \left( L^{-\frac{1}{k}-1} \right)  \right>\\
+		&= -\frac{1}{k} \left( \frac{2|\nabla r|^2}{r^2+2} +
+		\frac{2r \Delta r}{r^2+2} -
+		\frac{4r^2 |\nabla r|^2}{(r^2+2)^2}\right)
+		\frac{1}{L^{\frac{1}{k}+1}}
+		+
+		\frac{k+1}{k^2}\left<\frac{2r \nabla r}{r^2+2}, \frac{2r\nabla r}{(r^2+2)L^{\frac{1}{k}+2}} \right>\\
+		&= -\frac{2}{k} \frac{1}{(r^2+2)L^{\frac{1}{k}+1}}
+		- \frac{2}{k} \frac{r\Delta r}{(r^2+2) L^{\frac{1}{k}+1}}
+		+ \frac{4}{k} \frac{r^2}{(r^2+2)^2 L^{\frac{1}{k}+1}}
+		+ \frac{4(k+1)}{k^2} \frac{r^2}{(r^2+2)^2L^{\frac{1}{k}+2}}
+		\ .
+	\end{align*}
+Hence, by substituting in  \eqref{eq:boundprindeltag1} and simplifying, we obtain
+	\begin{align*}
+		\Delta g &= \frac{\Delta f}{L^{1/k}}
+		-\frac{4r}{k(r^2+2)L^{1+1/k}} \langle \nabla f, \nabla r \rangle
+		-\frac{2u}{k(r^2+2)L^{1+1/k}} \\
+		&\quad
+		-\frac{2ur \, \Delta r}{k(r^2+2)L^{1+1/k}}
+		+\frac{4ur^2}{k(r^2+2)^2L^{1+1/k}}
+		+\frac{4(k+1)ur^2}{k^2(r^2+2)^2L^{2+1/k}}\ .
+	\end{align*}
+	Since $x_k$	is a maximum point of $g$, we have $\Delta g(x_k)\leq 0$. Using the expression for $\Delta g$, the identity $\nabla g(x_k)=0$, and
 	\begin{align*}
 		\langle \nabla f,\nabla r\rangle(x_k)
 		=
@@ -602,38 +1231,20 @@ In particular,
 		\frac{2u(x_k)\bigl(1+r(x_k)\Delta r(x_k)\bigr)}{k(r^2(x_k)+2)\log(r^2(x_k)+2)}
 		\ .
 	\end{align}
-
-	Now, we can reduce to one of the following two cases, by discarding the indexes which do not satisfy the corresponding condition:
-	\[
-	r(x_k)<1 \qquad \text{for every } k,
-	\]
-	or
-	\[
-	r(x_k)\geq 1 \qquad \text{for every } k
-	\ \ .
-	\]
-	for some $x_0\in \overline{B}(p;1)$.\\
-
-	Let's assume first that $r(x_k)<1$ for every $k$. Then by definition $x_k\in \overline{B}(p;1)$ for every $k$. Again by the compactness of  $B$ we may assume, up to taking a subsequence, that
-	\[
-	x_k\to x_0
-	\]
-	for some $x_0\in \overline{B}(p;1)$.
-	But we know that $f(x_k) \to \sup f$ and that $ f$ is continuous, which implies that $x_0$ is a maximum point.\\
-	This entails that 
-	\[ \nabla f(x_0) = 0\qquad \text{ and } \qquad \Delta f(x_0) \leq 0\ \ .\]
-	Which verifies trivially the thesis by setting $x_k \equiv x_0$.\\
-
-	Assume now that $r(x_k)\geq 1$ for every $k$.
-	First, by observing that $1 / [(x^2+2)\log(x^2+2) ] \leq 2$, it follows from \eqref{eq:boundprin10},
+	First we find another inequality for a real function, namely
+	\begin{align}\label{eq:boundprin20}
+		\frac{1}{(x^2+2)\log(x^2+2)} \leq 2
+	\ \ . 
+	\end{align}
+	, it follows from \eqref{eq:boundprin10},
 	\begin{align}
 		\Delta f(x_k) 
 		&\leq \frac{2u(x_k)\bigl(1+r(x_k)\Delta r(x_k)\bigr)}{k(r^2(x_k)+2)\log(r^2(x_k)+2)}\notag \\
 		\commb{$u\leq A$}\hspace*{5mm}&\leq\frac{2A}{k} \left( \frac{1}{(r^2(x_k)+2)\log(r^2(x_k)+2)} + \frac{r(x_k)\Delta r(x_k)}{(r^2(x_k)+2)\log(r^2(x_k)+2)}\right)\notag\\
-		\commb{\eqref{eq:boundprin14}}\hspace*{5mm}&\leq \frac{2A}{k} \left( 1 +2\Delta r(x_k)   \right) \label{eq:boundprin11}
+		\commb{\eqref{eq:boundprin14}, \eqref{eq:boundprin20}}\hspace*{5mm}&\leq \frac{2A}{k} \left( 2 +2\Delta r(x_k)   \right) \label{eq:boundprin11}
 	\ \ .
 	\end{align}
-	Then we apply the estimate of Lemma~\ref{lm:distest}, which is valid since $r(x_k) \geq 1$,
+	We now apply the estimate of Lemma~\ref{lm:distest}. We can do this because under the assumption that $r(x_k)\to\infty$ we have $r(x_k)\geq 1$ for $k$ sufficienly large, so that
 	\begin{align*}
 		\Delta r(x)\leq K(x)
 		\ .
@@ -648,14 +1259,15 @@ In particular,
 \end{proof}
 
 \paragraph{A boundedness result}\mbox{}\\
-We will also use this theorem to derive a boundedness result for a certain differential inequality. We first make a few preliminary observations, and then state the theorem at the end of the section.\\
+We will also use this theorem to obtain a boundedness result for a certain differential inequality. We first make a few preliminary observations, and then state the theorem at the end of the section.\\
 
-Let $M$ be a Riemannian manifold with Ricci curvature bounded from below, and let $u\in C^2(M)$ satisfy
+Let $M$ be a complete Riemannian manifold with Ricci curvature bounded from below, and let $u\in C^2(M)$ satisfy
 \begin{equation}\label{eq:boundprin2}
 	\Delta u \geq f\ \ , 
 \end{equation}
 where the assumptions on $f$ will be specified later.\\
-Now let $F\in C^2(\R)$ be a positive function, whose precise form will also be given later. Since $F>0$, the function $-1/F$ is bounded from above. We may therefore apply Theorem \ref{th:maxprin} to $-1/F(u)$ and obtain a sequence $(x_k)_k$ such that
+Now let $F\in C^2(\R)$ be a positive function, whose precise form will also be given later, which we require to be strictly increasing or in other terms to have a strictly positive derivative.
+Since $F>0$, the function $-1/F$ is bounded from above. We may therefore apply Theorem \ref{th:maxprin} to $-1/F(u)$ and obtain a sequence $(x_k)_k$ such that
 \begin{equation}\label{eq:boundprin7}
 	\lim_{k\to \infty} \frac{1}{F(u(x_k))} = \inf \frac{1}{F(u)}
 	= -\sup\left(-\frac{1}{F(u)}\right).
@@ -683,7 +1295,7 @@ We now estimate the terms on the left-hand side of \eqref{eq:boundprin1}. First,
 	-\frac{F'(u)^3}{F(u)^4}\frac{\Delta u}{|F''(u)|}
 	\leq
 	-\frac{F'(u)^3}{F(u)^4}\frac{f(u)}{|F''(u)|}
-	\ \ . && \commb{by \eqref{eq:boundprin2}}
+	\ \ . && \commb{by \eqref{eq:boundprin2}, $F'>0$}
 \end{align*}
 Moreover,
 \begin{align*}
@@ -761,7 +1373,7 @@ Passing to a subsequence if necessary, we may therefore assume that
 \end{align*}
 for some $\ell\in\R$.\\
 
-Let us now show that, if we assume in addition that $F$ is strictly increasing, then $u$ is bounded from above.\\
+Let us now show that $u$ is bounded from above.\\
 Since $F>0$, from \eqref{eq:boundprin7} we obtain
 \begin{align*}
 	\lim_{k\to\infty}\frac{1}{F(u(x_k))}
@@ -885,7 +1497,7 @@ This allows us to further estimate the quantity appearing in \eqref{eq:boundprin
 	\ \ .
 \end{align*}
 
-We have thus proved the following theorem.
+We have thus proved the following theorem. \comm{todo: commento prof}%TODO
 \begin{thm}\label{th:boundprin}
 	Let $M$ be a Riemannian manifold whose Ricci curvature is bounded from below, and let $u\in C^2(M)$ satisfy
 	\begin{equation*}
@@ -1017,24 +1629,24 @@ Therefore $w$ and $\tilde w$ describe the same metric, the former with respect t
 		\ \ ,
 	\end{align*}
 	the Gaussian curvature is
-	\begin{align*}
+	\begin{align}\label{eq:unithm10}
 		K(g)
 		&=
-		-e^{-2\tilde w}\Delta \tilde w\\
+		-e^{-2\tilde w}\Delta \tilde w\notag\\
 		&=
-		-e^{-2\tilde w}\bigl(e^{2\tilde w}-h^2e^{-2\tilde w}\bigr)\\
+		-e^{-2\tilde w}\bigl(e^{2\tilde w}-h^2e^{-2\tilde w}\bigr)\notag\\
 		&=
-		-1+h^2e^{-4\tilde w}\\
+		-1+h^2e^{-4\tilde w}\notag\\
 		&=
-		-1+|\mu|^2
+		-1+|\mu|^2\geq -1
 		\ \ .
-	\end{align*}
+	\end{align}
 	Since $|\mu|^2\leq 1$, it follows that
 	\begin{align*}
 		-1\leq K(g)\leq 0
 		\ \ ,
 	\end{align*}
-	and in particular the curvature is bounded from below. Therefore we can apply Theorem \ref{th:boundprin} and conclude that $\eta$ is bounded from above.\\
+	and in particular, looking at \eqref{eq:unithm10}, the curvature is bounded from below. Therefore we can apply Theorem \ref{th:boundprin} and conclude that $\eta$ is bounded from above.\\
 	Now we can also apply Theorem \ref{th:maxprin} to $\eta$, obtaining a sequence $(z_k)_k\subset \Omega$ such that
 	\begin{align*}
 		\eta(z_k)\to \bar\eta=\sup_\Omega \eta,
@@ -1166,8 +1778,10 @@ Finally we apply corollary~\ref{cor:uni1} to conclude that $\tilde w_1=\tilde w_
 w_1=w_2.
 \]
 \end{proof}
+\section{existence for the PDE}
 
 	\nocite{*}
 	\printbibliography
-\section{existence for the nonlinear PDE}
 \end{document}
+
+

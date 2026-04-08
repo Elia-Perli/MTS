@@ -1,44 +1,28 @@
-\contentsline {section}{\numberline {A}Introduction}{2}{section.1}%
-\contentsline {section}{\numberline {B}Minkowski space and space-like surfaces}{2}{section.2}%
-\contentsline {paragraph}{Space-like immersions.}{3}{section*.2}%
+\contentsline {section}{\numberline {A}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {B}Minkowski space and space-like surfaces}{1}{section.2}%
+\contentsline {paragraph}{Space-like immersions.}{2}{section*.2}%
 \contentsline {paragraph}{Entire surfaces.}{3}{section*.3}%
-\contentsline {paragraph}{The Gauss map in $\mathbb {M}^{2,1}$}{5}{section*.4}%
-\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{6}{section*.5}%
+\contentsline {paragraph}{Normal vectors to a space-like surface in $\mathbb {M}^{2,1}$}{5}{section*.4}%
+\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{5}{section*.5}%
+\contentsline {paragraph}{The Gauss Map in $\mathbb {M}^{2,1}$}{7}{section*.6}%
 \contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{7}{section.3}%
-\contentsline {subsection}{\numberline {C.1}First and second fundamental forms}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {C.2}Mean curvature and Gaussian curvature expr}{7}{subsection.3.2}%
-\contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{7}{section.4}%
-\contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{8}{subsection.4.1}%
-\contentsline {paragraph}{Complexification}{8}{section*.6}%
-\contentsline {paragraph}{Complex surfaces}{8}{section*.7}%
-\contentsline {paragraph}{Conformal metrics}{8}{section*.8}%
-\contentsline {paragraph}{Conformal structures on 2-surfaces}{9}{section*.9}%
-\contentsline {subsection}{\numberline {D.2}Uniformization theorem}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {D.3}Harmonic maps between Riemann surfaces}{10}{subsection.4.3}%
-\contentsline {subsection}{\numberline {D.4}Energy density and Jacobian}{10}{subsection.4.4}%
-\contentsline {subsection}{\numberline {D.5}Hopf differential}{10}{subsection.4.5}%
-\contentsline {subsection}{\numberline {D.6}Holomorphicity of the Hopf differential}{10}{subsection.4.6}%
-\contentsline {subsection}{\numberline {D.7}Bochner identities}{10}{subsection.4.7}%
-\contentsline {subsection}{\numberline {D.8}Harmonic maps into the Poincaré disk}{10}{subsection.4.8}%
-\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{10}{section.5}%
-\contentsline {subsection}{\numberline {E.1}Gauss map harmonic if and only if mean curvature is constant}{10}{subsection.5.1}%
-\contentsline {subsection}{\numberline {E.2}Definition of w}{10}{subsection.5.2}%
-\contentsline {subsection}{\numberline {E.3}Expression of the induced metric in terms of w and the Hopf differential}{10}{subsection.5.3}%
-\contentsline {subsection}{\numberline {E.4}Derivation of the main PDE}{10}{subsection.5.4}%
-\contentsline {subsection}{\numberline {E.5}Reconstruction of the surface using the Gauss-Codazzi equations}{10}{subsection.5.5}%
-\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{10}{section.6}%
-\contentsline {subsection}{\numberline {F.1}The mean curvature of the CMC immersed in $\mathbb {M}^{2,1}$ cannot be -1}{10}{subsection.6.1}%
-\contentsline {subsection}{\numberline {F.2}The idea behind the classification}{10}{subsection.6.2}%
-\contentsline {subsection}{\numberline {F.3}The map $\mathcal {A}$ }{10}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {F.3.1}Hyperbolic CMC cuts and conformal type of the disk}{10}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {F.3.2}From a surface to a holomorphic quadratic differential}{10}{subsubsection.6.3.2}%
-\contentsline {subsection}{\numberline {F.4}inverting the map $\mathcal {A}$}{10}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {F.4.1}Reconstruction from the PDE data}{10}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {F.4.2}Use of Gauss and Codazzi equations}{10}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {F.4.3}Fundamental theorem of surface theory}{10}{subsubsection.6.4.3}%
-\contentsline {subsection}{\numberline {F.5}Statement of the classification theorem}{10}{subsection.6.5}%
-\contentsline {section}{\numberline {G}Uniqueness for the PDE}{11}{section.7}%
-\contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{11}{subsection.7.1}%
-\contentsline {paragraph}{A boundedness result}{15}{section*.10}%
-\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{19}{subsection.7.2}%
-\contentsline {section}{\numberline {H}existence for the nonlinear PDE}{24}{section.8}%
+\contentsline {subsection}{\numberline {C.1}Recall on the second fundamental form}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {C.2}The Gauss-Codazzi equations and Gaussian curvature}{8}{subsection.3.2}%
+\contentsline {paragraph}{Bonnet's theorem}{10}{section*.7}%
+\contentsline {paragraph}{Mean curvature}{10}{section*.8}%
+\contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{11}{section.4}%
+\contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{11}{subsection.4.1}%
+\contentsline {paragraph}{Conformal structures on 2-surfaces}{12}{section*.9}%
+\contentsline {paragraph}{Integration through a conformal chart}{13}{section*.10}%
+\contentsline {subsection}{\numberline {D.2}Uniformization}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {D.3}Harmonic maps between Riemann surfaces}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {D.4}Energy densities and the Hopf differential}{15}{subsection.4.4}%
+\contentsline {paragraph}{Energy densities and Jacobian}{15}{section*.11}%
+\contentsline {paragraph}{Quadratic differentials}{16}{section*.12}%
+\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{18}{section.5}%
+\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{20}{section.6}%
+\contentsline {section}{\numberline {G}Uniqueness for the PDE}{20}{section.7}%
+\contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{21}{subsection.7.1}%
+\contentsline {paragraph}{A boundedness result}{25}{section*.13}%
+\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{29}{subsection.7.2}%
+\contentsline {section}{\numberline {H}existence for the PDE}{34}{section.8}%
