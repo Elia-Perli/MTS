@@ -170,6 +170,7 @@
       \field{title}{Gauss maps of spacelike constant mean curvature hypersurfaces of Minkowski space}
       \field{volume}{32}
       \field{year}{1990}
+      \true{nocite}
       \field{pages}{775\bibrangedash 817}
       \range{pages}{43}
     \endentry
@@ -257,6 +258,7 @@
       \field{title}{Harmonic maps and classical surface theory in Minkowski space}
       \field{volume}{280}
       \field{year}{1983}
+      \true{nocite}
       \field{pages}{161\bibrangedash 185}
       \range{pages}{25}
     \endentry

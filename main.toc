@@ -7,23 +7,23 @@
 \contentsline {paragraph}{The Gauss Map in $\mathbb {M}^{2,1}$}{7}{section*.6}%
 \contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{7}{section.3}%
 \contentsline {subsection}{\numberline {C.1}Recall on the second fundamental form}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {C.2}The Gauss-Codazzi equations and Gaussian curvature}{8}{subsection.3.2}%
-\contentsline {paragraph}{Bonnet's theorem}{10}{section*.7}%
-\contentsline {paragraph}{Mean curvature}{10}{section*.8}%
-\contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{11}{section.4}%
-\contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {C.2}The Gauss-Codazzi equations and Gaussian curvature}{9}{subsection.3.2}%
+\contentsline {paragraph}{Bonnet's theorem}{11}{section*.7}%
+\contentsline {paragraph}{Mean curvature}{11}{section*.8}%
+\contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{12}{section.4}%
+\contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{12}{subsection.4.1}%
 \contentsline {paragraph}{Conformal structures on 2-surfaces}{12}{section*.9}%
-\contentsline {paragraph}{Integration through a conformal chart}{13}{section*.10}%
+\contentsline {paragraph}{Integration through a conformal chart}{14}{section*.10}%
 \contentsline {subsection}{\numberline {D.2}Uniformization}{14}{subsection.4.2}%
-\contentsline {subsection}{\numberline {D.3}Harmonic maps into $\mathbb {H}$}{14}{subsection.4.3}%
-\contentsline {subsection}{\numberline {D.4}Harmonic maps between Riemann surfaces}{19}{subsection.4.4}%
-\contentsline {subsection}{\numberline {D.5}Energy densities and the Hopf differential}{20}{subsection.4.5}%
-\contentsline {paragraph}{Energy densities and Jacobian}{20}{section*.11}%
-\contentsline {paragraph}{Quadratic differentials}{21}{section*.12}%
-\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{24}{section.5}%
-\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{27}{section.6}%
-\contentsline {section}{\numberline {G}Uniqueness for the PDE}{29}{section.7}%
+\contentsline {subsection}{\numberline {D.3}Harmonic maps into $\mathbb {H}$}{15}{subsection.4.3}%
+\contentsline {subsection}{\numberline {D.4}Harmonic maps between Riemann surfaces}{20}{subsection.4.4}%
+\contentsline {subsection}{\numberline {D.5}Energy densities and the Hopf differential}{21}{subsection.4.5}%
+\contentsline {paragraph}{Energy densities and Jacobian}{21}{section*.11}%
+\contentsline {paragraph}{Quadratic differentials}{22}{section*.12}%
+\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{25}{section.5}%
+\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{28}{section.6}%
+\contentsline {section}{\numberline {G}Uniqueness for the PDE}{30}{section.7}%
 \contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{30}{subsection.7.1}%
-\contentsline {paragraph}{A boundedness result}{34}{section*.13}%
-\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{38}{subsection.7.2}%
+\contentsline {paragraph}{A boundedness result}{35}{section*.13}%
+\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{39}{subsection.7.2}%
 \contentsline {section}{\numberline {H}existence for the PDE}{43}{section.8}%

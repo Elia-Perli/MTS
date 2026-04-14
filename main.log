@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  13 APR 2026 22:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  14 APR 2026 15:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1098,6 +1098,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
+[4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 268.
@@ -1110,7 +1111,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 268.
 
-[4]
+
 Underfull \hbox (badness 10000) in paragraph at lines 273--275
 
  []
@@ -1133,12 +1134,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 320--322
 
  []
 
-
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 375--377
 
  []
 
-[6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 377.
@@ -1169,135 +1169,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 385--386
 
  []
 
-[7] [8] [9]
+[7]
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 443.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [8] [9]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 523.
+(hyperref)                than one, level fixed on input line 539.
 
 [10] [11]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 617.
+(hyperref)                than one, level fixed on input line 629.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
-
- []
-
-[12] [13]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 725.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 725.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 734--736
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 637--638
 
  []
 
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 808--809
+[13] [14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 736.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 736.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 745--747
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 819--820
 
  []
 
 [16] [17]
-Overfull \hbox (4.1621pt too wide) in paragraph at lines 900--903
+Overfull \hbox (4.1621pt too wide) in paragraph at lines 911--914
 \T1/cmr/m/n/10 First, ob-serve that since $\OML/cmm/m/it/10 @[]; @[]$ \T1/cmr/m/n/10 are or-thog-o-nal, $[] \OT1/cmr/m/n/10 = 0$ \T1/cmr/m/n/10 we have $[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (2.88576pt too wide) in paragraph at lines 900--903
+Overfull \hbox (2.88576pt too wide) in paragraph at lines 911--914
 \OMS/cmsy/m/n/10 ^^@ []$\T1/cmr/m/n/10 . Fur-ther-more, from the ex-pres-sion of the met-ric we have $[] \OT1/cmr/m/n/10 =
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 961.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
-File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [18] [19]
+[18] [19] [20]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1043.
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 1072--1074
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
-
- []
+(hyperref)                than one, level fixed on input line 1054.
 
 [21]
-Overfull \hbox (14.80182pt too wide) detected at line 1123
-[]
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1085
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
+
  []
 
 [22]
+Overfull \hbox (14.80182pt too wide) detected at line 1134
+[]
+ []
 
-./main.tex:1199: LaTeX Error: \begin{document} ended by \end{proof}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1199 \end{proof}
-                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./main.tex:1199: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.1199 \end{proof}
-                  
-Things are pretty mixed up, but I think the worst is over.
-
-[23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 1246--1247
+[23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1256--1257
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1255--1257
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1267
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 1294--1296
+
+Underfull \hbox (badness 10000) in paragraph at lines 1285--1287
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1375--1377
+Underfull \hbox (badness 10000) in paragraph at lines 1305--1307
 
  []
 
 [27]
-Overfull \hbox (2.01532pt too wide) in paragraph at lines 1408--1410
-\T1/cmr/m/n/10 Our goal is to re-con-struct the sur-face $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 by know-ing the holo-mo-prhic quadratic
+Underfull \hbox (badness 10000) in paragraph at lines 1386--1388
+
  []
 
 [28]
-
-LaTeX Warning: Reference `' on page 29 undefined on input line 1455.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1506--1507
-
+Overfull \hbox (2.01532pt too wide) in paragraph at lines 1419--1421
+\T1/cmr/m/n/10 Our goal is to re-con-struct the sur-face $\OML/cmm/m/it/10 S$ \T1/cmr/m/n/10 by know-ing the holo-mo-prhic quadratic
  []
 
+
+LaTeX Warning: Reference `' on page 29 undefined on input line 1466.
+
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1533--1535
+Underfull \hbox (badness 10000) in paragraph at lines 1517--1518
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1563--1565
+Underfull \hbox (badness 10000) in paragraph at lines 1544--1546
 
  []
 
@@ -1306,52 +1285,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 1574--1576
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1591--1594
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1585--1587
 
  []
 
-[31]
-Overfull \hbox (72.82541pt too wide) detected at line 1661
-[]
+
+Underfull \hbox (badness 10000) in paragraph at lines 1602--1605
+
  []
 
 [32]
-Overfull \hbox (11.1433pt too wide) detected at line 1710
+Overfull \hbox (72.82541pt too wide) detected at line 1672
 []
  []
 
 [33]
+Overfull \hbox (11.1433pt too wide) detected at line 1721
+[]
+ []
+
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1725.
+(hyperref)                than one, level fixed on input line 1736.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1725--1727
-
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1826--1828
+Underfull \hbox (badness 10000) in paragraph at lines 1736--1738
 
  []
 
-
+[34] [35]
 Underfull \hbox (badness 10000) in paragraph at lines 1837--1839
 
  []
 
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 1886--1888
+
+Underfull \hbox (badness 10000) in paragraph at lines 1848--1850
 
  []
 
-[36] [37] [38] [39] [40] [41] [42]
-Overfull \hbox (13.0883pt too wide) in paragraph at lines 2253--2253
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1897--1899
+
+ []
+
+[37] [38] [39] [40] [41] [42]
+Overfull \hbox (13.0883pt too wide) in paragraph at lines 2264--2264
 []\T1/cmr/m/n/10 Tilla Klotz Mil-nor. ^^P  Har-monic maps and clas-si-cal sur-face the-ory in Minkowski
  []
 
-[43] (./main.aux)
+[43] [44] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -1367,19 +1350,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33161 strings out of 475189
- 629660 string characters out of 5763838
- 1944254 words of memory out of 5000000
- 53697 multiletter control sequences out of 15000+600000
+ 33164 strings out of 475189
+ 629707 string characters out of 5763838
+ 1946254 words of memory out of 5000000
+ 53699 multiletter control sequences out of 15000+600000
  583707 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,18n,111p,676b,1528s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,18n,111p,676b,1533s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sf
 rm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on main.pdf (43 pages, 573281 bytes).
+Output written on main.pdf (44 pages, 575625 bytes).
 PDF statistics:
- 817 PDF objects out of 1000 (max. 8388607)
- 644 compressed objects within 7 object streams
- 186 named destinations out of 1000 (max. 500000)
+ 831 PDF objects out of 1000 (max. 8388607)
+ 650 compressed objects within 7 object streams
+ 187 named destinations out of 1000 (max. 500000)
  245 words of extra memory for PDF output out of 10000 (max. 10000000)
 
