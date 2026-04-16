@@ -1,9 +1,9 @@
 \contentsline {section}{\numberline {A}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {B}Minkowski space and space-like surfaces}{1}{section.2}%
+\contentsline {section}{\numberline {B}Minkowski space and space-like surfaces}{2}{section.2}%
 \contentsline {paragraph}{Space-like immersions.}{2}{section*.2}%
 \contentsline {paragraph}{Entire surfaces.}{3}{section*.3}%
 \contentsline {paragraph}{Normal vectors to a space-like surface in $\mathbb {M}^{2,1}$}{5}{section*.4}%
-\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{5}{section*.5}%
+\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{6}{section*.5}%
 \contentsline {paragraph}{The Gauss Map in $\mathbb {M}^{2,1}$}{7}{section*.6}%
 \contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{7}{section.3}%
 \contentsline {subsection}{\numberline {C.1}Recall on the second fundamental form}{7}{subsection.3.1}%
@@ -12,7 +12,7 @@
 \contentsline {paragraph}{Mean curvature}{11}{section*.8}%
 \contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{12}{section.4}%
 \contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{12}{subsection.4.1}%
-\contentsline {paragraph}{Conformal structures on 2-surfaces}{12}{section*.9}%
+\contentsline {paragraph}{Conformal structures on 2-surfaces}{13}{section*.9}%
 \contentsline {paragraph}{Integration through a conformal chart}{14}{section*.10}%
 \contentsline {subsection}{\numberline {D.2}Uniformization}{14}{subsection.4.2}%
 \contentsline {subsection}{\numberline {D.3}Harmonic maps into $\mathbb {H}$}{15}{subsection.4.3}%
@@ -20,10 +20,14 @@
 \contentsline {subsection}{\numberline {D.5}Energy densities and the Hopf differential}{21}{subsection.4.5}%
 \contentsline {paragraph}{Energy densities and Jacobian}{21}{section*.11}%
 \contentsline {paragraph}{Quadratic differentials}{22}{section*.12}%
-\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{25}{section.5}%
-\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{28}{section.6}%
+\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{26}{section.5}%
+\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{29}{section.6}%
 \contentsline {section}{\numberline {G}Uniqueness for the PDE}{30}{section.7}%
-\contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{30}{subsection.7.1}%
+\contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{31}{subsection.7.1}%
 \contentsline {paragraph}{A boundedness result}{35}{section*.13}%
 \contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{39}{subsection.7.2}%
 \contentsline {section}{\numberline {H}existence for the PDE}{43}{section.8}%
+\contentsline {section}{\numberline {I}todo}{43}{section.9}%
+\contentsline {paragraph}{The second fundamental form and the Hopf differential of the Gauss map}{43}{section*.14}%
+\contentsline {paragraph}{The Codazzi equation is equivalent to $\Phi $ holomorphic}{46}{section*.15}%
+\contentsline {paragraph}{The Gauss equation is equivalent to the PDE}{47}{section*.16}%

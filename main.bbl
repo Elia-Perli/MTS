@@ -293,6 +293,31 @@
       \field{pages}{265\bibrangedash 278}
       \range{pages}{14}
     \endentry
+    \entry{Wan1992}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2bee9ad08ecbdf073b7240a7f8c44c71}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Tom\bibnamedelimb Y.\bibnamedelimi H.},
+           giveni={T\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{2bee9ad08ecbdf073b7240a7f8c44c71}
+      \strng{fullhash}{2bee9ad08ecbdf073b7240a7f8c44c71}
+      \strng{bibnamehash}{2bee9ad08ecbdf073b7240a7f8c44c71}
+      \strng{authorbibnamehash}{2bee9ad08ecbdf073b7240a7f8c44c71}
+      \strng{authornamehash}{2bee9ad08ecbdf073b7240a7f8c44c71}
+      \strng{authorfullhash}{2bee9ad08ecbdf073b7240a7f8c44c71}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Differential Geometry}
+      \field{title}{Constant Mean Curvature Surface, Harmonic Maps, and Universal Teichmüller Space}
+      \field{volume}{35}
+      \field{year}{1992}
+      \field{pages}{643\bibrangedash 657}
+      \range{pages}{15}
+    \endentry
     \entry{yau_1975}{article}{}
       \name{author}{1}{}{%
         {{hash=2238b78e6ce727843bf0d4139b9542d3}{%
