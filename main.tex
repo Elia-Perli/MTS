@@ -93,6 +93,7 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\E}{\mathbf{E}}
 \newcommand{\QD}{\mathbf{QD}}
 
+
 \newcommand{\htl}{\reallywidetilde{h^{-1}}}
 \newcommand{\Leb}{\mathscr{L}}
 \newcommand{\restr}[1]{_{|_{#1}}}
@@ -108,7 +109,7 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\Hopf}{\operatorname{Hopf}}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\1}{\mathds{1}}
-
+\newcommand{\loc}{\mathrm{loc}}
 
 
 %\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
@@ -2484,7 +2485,7 @@ then the function
 	\tilde w=w+\log\left(\frac{2}{1-|z|^2}\right)
 \end{align}
 solves an equivalent equation with respect to the Euclidean background metric. Therefore it is enough to prove uniqueness in the Euclidean formulation and then translate the conclusion back to the original one.
-\begin{thm}
+\begin{thm}\label{th:unithm1}
 	Let $h$ be a continuous function defined on a domain $\Omega\subset \C$. Let $\tilde w$ be a solution of
 	\begin{align}\label{eq:unithm}
 		\Delta\tilde w = e^{2\tilde w} - h^{2} e^{-2\tilde w}
@@ -2687,245 +2688,245 @@ w_1=w_2
 \end{proof}
 \section{Existence for the PDE}
 
-We now prove the existence part of Claim \ref{cl:existenceuniquew}. After exposing briefly some preliminaries, the proof proceeds in three steps: first we recall a compact-domain existence theorem based on sub- and super-solutions, then we generalize it to the case of noncompact domains, and finally we give yet another generalization for non bounded data.\\
-\subsection{A compact-domain existence theorem}
-
-\begin{thm}[Sub-/super-solution method on bounded domains.]\label{th:subsupsol_bddom}
-Let $\Omega \subset \mathbb{R}^2$ be a bounded domain with smooth boundary, and let $F \in C^{\infty}(\overline{\Omega}\times\mathbb{R})$ satisfy
-\[
-F_u(x,s) > 0
-\qquad \text{for all } (x,s)\in \overline{\Omega}\times\mathbb{R}.
-\]
-Assume that there exist
-\[
-\underline{\psi},\overline{\psi}\in C^0(\overline{\Omega})\cap H^1(\Omega),
-\qquad
-\underline{\psi}\leq \overline{\psi}\text{ on }\overline{\Omega},
-\]
-such that on $\Omega$,
-\begin{align*}
-	\begin{cases}
-	\Delta \overline{\psi} \leq F(x,\overline{\psi})\\
-	\Delta \underline{\psi} \geq F(x,\underline{\psi})
-	\end{cases}
-	\qquad \text{weakly.}
-\end{align*}
-Let $\varphi\in C^0(\partial\Omega)$ satisfy
-\[
-\underline{\psi}\leq \varphi \leq \overline{\psi}
-\qquad \text{on }\partial\Omega.
-\]
-Then there exists
-\[
-u\in C^\infty(\Omega)\cap C^0(\overline{\Omega})
-\]
-such that
-\[
-\Delta u = F(x,u)
-\quad \text{in } \Omega,
-\qquad
-u=\varphi
-\quad \text{on } \partial\Omega,
-\]
-and
-\[
-\underline{\psi}\leq u\leq \overline{\psi}
-\qquad \text{on }\overline{\Omega}.
-\]
-\end{thm}
-\noindent An important observation is that, for our purposes, the bounded-domain theorem can be applied without substantial changes on a Riemann surface endowed with a conformal metric. More precisely, let \[ g=e^{2\eta}|dz|^2 \] on a relatively compact smooth domain \(\Omega\Subset \mathbb{D}\). Then the equation \[ \Delta u = F(x,u) \] is equivalent to \[ \Delta_g u = \widetilde{F}(x,u), \qquad \widetilde{F}(x,s):=e^{-2\eta}F(x,s). \] Indeed, in conformal coordinates one has \[ \Delta_g = e^{-2\eta}\Delta. \]
-Moreover, the structural assumptions are preserved:
-\begin{itemize}[noitemsep]
-	\item Differentiation with respect to the unknown variable is unaffected by the conformal factor, hence
-	\[
-	\partial_s \widetilde{F}(x,s)=e^{-2\eta}\partial_sF(x,s)>0.
-	\]
-	\item A subsolution or supersolution for the Euclidean equation is also a subsolution or supersolution for the equation written with respect to \(g\), and conversely. For example,
-	\begin{align*}
-		\Delta \overline{\psi} \leq F(x,\overline{\psi}) \text{ weakly}
-		&\iff e^{-2\eta}\Delta \overline{\psi} \leq e^{-2\eta}F(x,\overline{\psi}) \text{ weakly}\\
-		&\iff \Delta_g \overline{\psi} \leq \widetilde{F}(x,\overline{\psi}) \text{ weakly}
-		\ . 
-	\end{align*}
-\end{itemize}
-Therefore the bounded-domain sub-supersolution theorem applies in exactly the same
-way on \((\Omega,g)\).
-\begin{thm}
-Let $M$ be a complete Riemannian manifold, and
-$F(x,u)$ be a $C^\infty$-function on $M\times \mathbb{R}$ such that
-\[
-F_u>0.
-\]
-If there exists $\psi_-<\psi\in C^0(M)\cap H^1(M)$ bounded such that
-\begin{align*}
-	\Delta \psi &< F(x,\psi)\\
-	\Delta \psi_- &> F(x,\psi_-)
-\end{align*}
-weakly, then there exists $u\in C^\infty(M)$ such that
-\[
-\Delta u = F(x,u)
-\]
-and
-\[
-\psi_-<u<\psi,
-\]
-where $\psi_-$ and $\psi$ are called the sub- and super-solutions respectively.
-\end{thm}
-\begin{proof}
-	Fix $k_0\in \mathbb N$ and set
-	\begin{align*}
-		v_k:=u_{k_0+k}
-	\end{align*}
-	for $k\geq 1$. Then $v_k$ is defined on $D_{k_0+k}$, hence in particular on $D_{k_0+1}$, and satisfies
-	\begin{align*}
-		\Delta v_k = F(x,v_k)
-	\end{align*}
-	on $D_{k_0+1}$. Moreover, since each $u_j$ is trapped between the same subsolution and supersolution, we have
-	\begin{align*}
-		\psi_- \leq v_k \leq \psi
-	\end{align*}
-	on $D_{k_0+1}$ for every $k\geq 1$.
-
-	Since $D_{k_0+1}$ is relatively compact and $\psi_-,\psi$ are continuous, there exists a constant $M>0$ such that
-	\begin{align*}
-		|v_k|\leq M
-	\end{align*}
-	on $D_{k_0+1}$ for every $k$. Since $F$ is smooth, it is bounded on the compact set $\overline{D_{k_0+1}}\times [-M,M]$, hence there exists $C_0>0$ such that
-	\begin{align*}
-		|F(x,v_k(x))|\leq C_0
-	\end{align*}
-	for every $x\in D_{k_0+1}$ and every $k$. Equivalently,
-	\begin{align*}
-		|\Delta v_k|\leq C_0
-	\end{align*}
-	on $D_{k_0+1}$.
-
-	Now choose a smooth domain $\Omega_1$ such that
-	\begin{align*}
-		D_{k_0}\Subset \Omega_1 \Subset D_{k_0+1}.
-	\end{align*}
-	Fix $p>2$. By the interior $W^{2,p}$ estimate for the Laplacian, there exists a constant $C_1>0$, independent of $k$, such that
-	\begin{align*}
-		\|v_k\|_{W^{2,p}(\Omega_1)}
-		\leq C_1\Bigl(\|v_k\|_{L^p(D_{k_0+1})}+\|\Delta v_k\|_{L^p(D_{k_0+1})}\Bigr).
-	\end{align*}
-	The right-hand side is uniformly bounded in $k$, because
-	\begin{align*}
-		\|v_k\|_{L^p(D_{k_0+1})}\leq M\,|D_{k_0+1}|^{1/p}
-	\end{align*}
-	and
-	\begin{align*}
-		\|\Delta v_k\|_{L^p(D_{k_0+1})}\leq C_0\,|D_{k_0+1}|^{1/p}.
-	\end{align*}
-	Therefore there exists $C_2>0$ such that
-	\begin{align*}
-		\|v_k\|_{W^{2,p}(\Omega_1)}\leq C_2
-	\end{align*}
-	for every $k$.
-
-	Since $\dim M=2$, the Sobolev embedding gives
-	\begin{align*}
-		W^{2,p}(\Omega_1)\hookrightarrow C^{1,\beta}(\overline{\Omega_1}),
-		\qquad \beta=1-\frac{2}{p}.
-	\end{align*}
-	Choosing $p$ sufficiently large, we may assume that $\beta>\alpha$. Hence there exists $C_3>0$ such that
-	\begin{align*}
-		\|v_k\|_{C^{1,\beta}(\Omega_1)}\leq C_3
-	\end{align*}
-	for every $k$.
-
-	We next show that $F(\cdot,v_k)$ is uniformly bounded in $C^{0,\beta}(\Omega_1)$. Since $F$ is smooth, its derivatives with respect to both variables are bounded on the compact set $\overline{\Omega_1}\times [-M,M]$. Thus there exist constants $A,B>0$ such that for every $x,y\in \Omega_1$,
-	\begin{align*}
-		|F(x,v_k(x))-F(y,v_k(y))|
-		&\leq |F(x,v_k(x))-F(y,v_k(x))|+|F(y,v_k(x))-F(y,v_k(y))|\\
-		&\leq A|x-y|+B|v_k(x)-v_k(y)|.
-	\end{align*}
-	Using the uniform $C^{0,\beta}$ bound on $v_k$, we obtain
-	\begin{align*}
-		|F(x,v_k(x))-F(y,v_k(y))|
-		\leq A|x-y|+BC_3|x-y|^\beta.
-	\end{align*}
-	Since $\Omega_1$ is bounded and $\beta<1$, the first term is also controlled by a constant multiple of $|x-y|^\beta$. Hence there exists $C_4>0$ such that
-	\begin{align*}
-		\|F(\cdot,v_k)\|_{C^{0,\beta}(\Omega_1)}\leq C_4
-	\end{align*}
-	for every $k$.
-
-	Now choose another smooth domain $\Omega_0$ such that
-	\begin{align*}
-		D_{k_0}\Subset \Omega_0 \Subset \Omega_1.
-	\end{align*}
-	Applying the interior Schauder estimate to
-	\begin{align*}
-		\Delta v_k = F(\cdot,v_k)
-	\end{align*}
-	on $\Omega_1$, we get a constant $C_5>0$, independent of $k$, such that
-	\begin{align*}
-		\|v_k\|_{C^{2,\beta}(\Omega_0)}
-		\leq C_5\Bigl(\|v_k\|_{C^0(\Omega_1)}+\|F(\cdot,v_k)\|_{C^{0,\beta}(\Omega_1)}\Bigr).
-	\end{align*}
-	The right-hand side is uniformly bounded in $k$ by the estimates above, so there exists $C_6>0$ such that
-	\begin{align*}
-		\|v_k\|_{C^{2,\beta}(\Omega_0)}\leq C_6
-	\end{align*}
-	for every $k$. In particular,
-	\begin{align*}
-		\|v_k\|_{C^{2,\beta}(D_{k_0})}\leq C_6.
-	\end{align*}
-	Since $\beta>\alpha$, the inclusion $C^{2,\beta}(D_{k_0})\hookrightarrow C^{2,\alpha}(D_{k_0})$ is continuous. Therefore there exists $C_7>0$, independent of $k$, such that
-	\begin{align*}
-		\|v_k\|_{C^{2,\alpha}(D_{k_0})}\leq C_7
-	\end{align*}
-	for every $k$.
-
-	Recalling that $v_k=u_{k_0+k}$, this proves that the sequence $(u_{k_0+k})_k$ is bounded in $C^{2,\alpha}(D_{k_0})$.
-\end{proof}
-\begin{proof}\comm{todo}
-	As we have already discussed, we may suppose without loss of generality that $M=\R^2$.\\
-	Let us fix an increasing relatively compact sequence of open bounded domains $(D_k)_{k=1}^\infty$ with sufficiently regular boundary that invade $M$, that is
-	\begin{align*}
-		\overline{D_k} \subset D_{k+1},\qquad \bigcup_{k=1}^\infty D_k = \R^2
-	\ . 
-	\end{align*}
-	We may choose, for every $m$ a boundary data $\psi_m$ on $\partial D_m$ in between $\underline{\psi}$ and $\overline{\psi}$, in other words
-	\[\underline{\psi} \leq \psi_m\leq \overline{\psi}\ .\] 
-	Then we apply theorem \ref{th:subsupsol_bddom} to the data $D_m,\psi_m, \underline{\psi}, \overline{\psi}$  to find a smooth solution $u_m$ that verifies 
-	\[\underline{\psi} \leq u_m \leq \overline{\psi}\quad\text{on } \overline{D_m}.\] 
-	Then we fix $k_0,k\in \N$, $k>0$ and set $m = k_0+k$. Since $u_{k_0+k}$ satisfies $\Delta u_{k_0+k}(x) =F(x,u_{k_0+k})$ on $D_{k_0+k}\supset D_{k_0}$, we may apply the Schauder interior estimate on $D_{k_0} \subset D_k$ to obtain the inequality
-	\begin{align}\label{eq:thmnoncptex1}
-		\|u_{k_0+k}\|_{C^{1,\alpha}(D_{k_0})} 
-		\leq
-		C \left( \|F(\;\cdot\;, u_{k_0+k} )\|_{C^0(D_{k_0+k})}+\|u_{k_0+k }\|_{L^2(D_{k_0+k})} \right) 
-	\ . 
-	\end{align}
-	Now we observe,\vspace*{-2mm}
-	\begin{itemize}[noitemsep]
-		\item[$\vartriangleright$] For every $x\in D_{k_0+k}$, \[ |u_{k_0+k}(x)| \leq \max \{|\underline{\psi}|,|\overline{\psi}|\}(x)\leq C\]  (because $\underline{\psi}, \overline{\psi}$ are bounded),
-		\item[$\vartriangleright$] then, since $F_u>0$ and so $F$ is strictly increasing, we have
-			\begin{align*}
-				F(x,u_{k_0+k}(x)) \leq F(x,\max\{|\underline{\psi}|,|\overline{\psi}|\}(x) ) \leq C
-			\ , 
-			\end{align*} 
-			(again because of continuity).
-	\end{itemize}
-	Then, by substituting the inequalities we just found in \eqref{eq:thmnoncptex1}, we obtain
-	\begin{align*}
-		\|u_{k_0+k}\|_{C^{2,\alpha}(D_{k_0})} \leq C
-	\ . 
-	\end{align*}
-
-	Fix now a compact set $K\subset M$. For $k_0$ sufficiently large and for every $k>0$ there exists a $D_{k_0}$ that contains $K$ and such that
-	 \begin{align*}
-		\|u_{k_0+k}\|_{C^2(K)}\leq \|u_{k_0+k}\|_{C^2(D_{k_0})} \leq C
-	\ . 
-	\end{align*}
-	Hence we can apply the Ascoli-Arzelà Theorem for $C^{\alpha,s}$ spaces, obtaining a subsequence $(u_{k'})_{k'}$ that converges in $C^2(K)$.\\
-
-	This construction works for every compact set $K$, so using a diagonal argument we find a limiting function defined on all of $M$ which is $C^2$ and solves the equation $\Delta u = F(x,u)$.
-
-	
-	Since $F_u>0$ we can apply the boostrapping argument and obtain that $u\in C^\infty$.\comm{tbd}
-\end{proof}
+%We now prove the existence part of Claim \ref{cl:existenceuniquew}. After exposing briefly some preliminaries, the proof proceeds in three steps: first we recall a compact-domain existence theorem based on sub- and super-solutions, then we generalize it to the case of noncompact domains, and finally we give yet another generalization for non bounded data.\\
+%\subsection{A compact-domain existence theorem}
+%
+%\begin{thm}[Sub-/super-solution method on bounded domains.]\label{th:subsupsol_bddom}
+%Let $\Omega \subset \mathbb{R}^2$ be a bounded domain with smooth boundary, and let $F \in C^{\infty}(\overline{\Omega}\times\mathbb{R})$ satisfy
+%\[
+%F_u(x,s) > 0
+%\qquad \text{for all } (x,s)\in \overline{\Omega}\times\mathbb{R}.
+%\]
+%Assume that there exist
+%\[
+%\underline{\psi},\overline{\psi}\in C^0(\overline{\Omega})\cap H^1(\Omega),
+%\qquad
+%\underline{\psi}\leq \overline{\psi}\text{ on }\overline{\Omega},
+%\]
+%such that on $\Omega$,
+%\begin{align*}
+%	\begin{cases}
+%	\Delta \overline{\psi} \leq F(x,\overline{\psi})\\
+%	\Delta \underline{\psi} \geq F(x,\underline{\psi})
+%	\end{cases}
+%	\qquad \text{weakly.}
+%\end{align*}
+%Let $\varphi\in C^0(\partial\Omega)$ satisfy
+%\[
+%\underline{\psi}\leq \varphi \leq \overline{\psi}
+%\qquad \text{on }\partial\Omega.
+%\]
+%Then there exists
+%\[
+%u\in C^\infty(\Omega)\cap C^0(\overline{\Omega})
+%\]
+%such that
+%\[
+%\Delta u = F(x,u)
+%\quad \text{in } \Omega,
+%\qquad
+%u=\varphi
+%\quad \text{on } \partial\Omega,
+%\]
+%and
+%\[
+%\underline{\psi}\leq u\leq \overline{\psi}
+%\qquad \text{on }\overline{\Omega}.
+%\]
+%\end{thm}
+%\noindent An important observation is that, for our purposes, the bounded-domain theorem can be applied without substantial changes on a Riemann surface endowed with a conformal metric. More precisely, let \[ g=e^{2\eta}|dz|^2 \] on a relatively compact smooth domain \(\Omega\Subset \mathbb{D}\). Then the equation \[ \Delta u = F(x,u) \] is equivalent to \[ \Delta_g u = \widetilde{F}(x,u), \qquad \widetilde{F}(x,s):=e^{-2\eta}F(x,s). \] Indeed, in conformal coordinates one has \[ \Delta_g = e^{-2\eta}\Delta. \]
+%Moreover, the structural assumptions are preserved:
+%\begin{itemize}[noitemsep]
+%	\item Differentiation with respect to the unknown variable is unaffected by the conformal factor, hence
+%	\[
+%	\partial_s \widetilde{F}(x,s)=e^{-2\eta}\partial_sF(x,s)>0.
+%	\]
+%	\item A subsolution or supersolution for the Euclidean equation is also a subsolution or supersolution for the equation written with respect to \(g\), and conversely. For example,
+%	\begin{align*}
+%		\Delta \overline{\psi} \leq F(x,\overline{\psi}) \text{ weakly}
+%		&\iff e^{-2\eta}\Delta \overline{\psi} \leq e^{-2\eta}F(x,\overline{\psi}) \text{ weakly}\\
+%		&\iff \Delta_g \overline{\psi} \leq \widetilde{F}(x,\overline{\psi}) \text{ weakly}
+%		\ . 
+%	\end{align*}
+%\end{itemize}
+%Therefore the bounded-domain sub-supersolution theorem applies in exactly the same
+%way on \((\Omega,g)\).
+%\begin{thm}
+%Let $M$ be a complete Riemannian manifold, and
+%$F(x,u)$ be a $C^\infty$-function on $M\times \mathbb{R}$ such that
+%\[
+%F_u>0.
+%\]
+%If there exists $\psi_-<\psi\in C^0(M)\cap H^1(M)$ bounded such that
+%\begin{align*}
+%	\Delta \psi &< F(x,\psi)\\
+%	\Delta \psi_- &> F(x,\psi_-)
+%\end{align*}
+%weakly, then there exists $u\in C^\infty(M)$ such that
+%\[
+%\Delta u = F(x,u)
+%\]
+%and
+%\[
+%\psi_-<u<\psi,
+%\]
+%where $\psi_-$ and $\psi$ are called the sub- and super-solutions respectively.
+%\end{thm}
+%%\begin{proof}
+%%	Fix $k_0\in \mathbb N$ and set
+%%	\begin{align*}
+%%		v_k:=u_{k_0+k}
+%%	\end{align*}
+%%	for $k\geq 1$. Then $v_k$ is defined on $D_{k_0+k}$, hence in particular on $D_{k_0+1}$, and satisfies
+%%	\begin{align*}
+%%		\Delta v_k = F(x,v_k)
+%%	\end{align*}
+%%	on $D_{k_0+1}$. Moreover, since each $u_j$ is trapped between the same subsolution and supersolution, we have
+%%	\begin{align*}
+%%		\psi_- \leq v_k \leq \psi
+%%	\end{align*}
+%%	on $D_{k_0+1}$ for every $k\geq 1$.
+%%
+%%	Since $D_{k_0+1}$ is relatively compact and $\psi_-,\psi$ are continuous, there exists a constant $M>0$ such that
+%%	\begin{align*}
+%%		|v_k|\leq M
+%%	\end{align*}
+%%	on $D_{k_0+1}$ for every $k$. Since $F$ is smooth, it is bounded on the compact set $\overline{D_{k_0+1}}\times [-M,M]$, hence there exists $C_0>0$ such that
+%%	\begin{align*}
+%%		|F(x,v_k(x))|\leq C_0
+%%	\end{align*}
+%%	for every $x\in D_{k_0+1}$ and every $k$. Equivalently,
+%%	\begin{align*}
+%%		|\Delta v_k|\leq C_0
+%%	\end{align*}
+%%	on $D_{k_0+1}$.
+%%
+%%	Now choose a smooth domain $\Omega_1$ such that
+%%	\begin{align*}
+%%		D_{k_0}\Subset \Omega_1 \Subset D_{k_0+1}.
+%%	\end{align*}
+%%	Fix $p>2$. By the interior $W^{2,p}$ estimate for the Laplacian, there exists a constant $C_1>0$, independent of $k$, such that
+%%	\begin{align*}
+%%		\|v_k\|_{W^{2,p}(\Omega_1)}
+%%		\leq C_1\Bigl(\|v_k\|_{L^p(D_{k_0+1})}+\|\Delta v_k\|_{L^p(D_{k_0+1})}\Bigr).
+%%	\end{align*}
+%%	The right-hand side is uniformly bounded in $k$, because
+%%	\begin{align*}
+%%		\|v_k\|_{L^p(D_{k_0+1})}\leq M\,|D_{k_0+1}|^{1/p}
+%%	\end{align*}
+%%	and
+%%	\begin{align*}
+%%		\|\Delta v_k\|_{L^p(D_{k_0+1})}\leq C_0\,|D_{k_0+1}|^{1/p}.
+%%	\end{align*}
+%%	Therefore there exists $C_2>0$ such that
+%%	\begin{align*}
+%%		\|v_k\|_{W^{2,p}(\Omega_1)}\leq C_2
+%%	\end{align*}
+%%	for every $k$.
+%%
+%%	Since $\dim M=2$, the Sobolev embedding gives
+%%	\begin{align*}
+%%		W^{2,p}(\Omega_1)\hookrightarrow C^{1,\beta}(\overline{\Omega_1}),
+%%		\qquad \beta=1-\frac{2}{p}.
+%%	\end{align*}
+%%	Choosing $p$ sufficiently large, we may assume that $\beta>\alpha$. Hence there exists $C_3>0$ such that
+%%	\begin{align*}
+%%		\|v_k\|_{C^{1,\beta}(\Omega_1)}\leq C_3
+%%	\end{align*}
+%%	for every $k$.
+%%
+%%	We next show that $F(\cdot,v_k)$ is uniformly bounded in $C^{0,\beta}(\Omega_1)$. Since $F$ is smooth, its derivatives with respect to both variables are bounded on the compact set $\overline{\Omega_1}\times [-M,M]$. Thus there exist constants $A,B>0$ such that for every $x,y\in \Omega_1$,
+%%	\begin{align*}
+%%		|F(x,v_k(x))-F(y,v_k(y))|
+%%		&\leq |F(x,v_k(x))-F(y,v_k(x))|+|F(y,v_k(x))-F(y,v_k(y))|\\
+%%		&\leq A|x-y|+B|v_k(x)-v_k(y)|.
+%%	\end{align*}
+%%	Using the uniform $C^{0,\beta}$ bound on $v_k$, we obtain
+%%	\begin{align*}
+%%		|F(x,v_k(x))-F(y,v_k(y))|
+%%		\leq A|x-y|+BC_3|x-y|^\beta.
+%%	\end{align*}
+%%	Since $\Omega_1$ is bounded and $\beta<1$, the first term is also controlled by a constant multiple of $|x-y|^\beta$. Hence there exists $C_4>0$ such that
+%%	\begin{align*}
+%%		\|F(\cdot,v_k)\|_{C^{0,\beta}(\Omega_1)}\leq C_4
+%%	\end{align*}
+%%	for every $k$.
+%%
+%%	Now choose another smooth domain $\Omega_0$ such that
+%%	\begin{align*}
+%%		D_{k_0}\Subset \Omega_0 \Subset \Omega_1.
+%%	\end{align*}
+%%	Applying the interior Schauder estimate to
+%%	\begin{align*}
+%%		\Delta v_k = F(\cdot,v_k)
+%%	\end{align*}
+%%	on $\Omega_1$, we get a constant $C_5>0$, independent of $k$, such that
+%%	\begin{align*}
+%%		\|v_k\|_{C^{2,\beta}(\Omega_0)}
+%%		\leq C_5\Bigl(\|v_k\|_{C^0(\Omega_1)}+\|F(\cdot,v_k)\|_{C^{0,\beta}(\Omega_1)}\Bigr).
+%%	\end{align*}
+%%	The right-hand side is uniformly bounded in $k$ by the estimates above, so there exists $C_6>0$ such that
+%%	\begin{align*}
+%%		\|v_k\|_{C^{2,\beta}(\Omega_0)}\leq C_6
+%%	\end{align*}
+%%	for every $k$. In particular,
+%%	\begin{align*}
+%%		\|v_k\|_{C^{2,\beta}(D_{k_0})}\leq C_6.
+%%	\end{align*}
+%%	Since $\beta>\alpha$, the inclusion $C^{2,\beta}(D_{k_0})\hookrightarrow C^{2,\alpha}(D_{k_0})$ is continuous. Therefore there exists $C_7>0$, independent of $k$, such that
+%%	\begin{align*}
+%%		\|v_k\|_{C^{2,\alpha}(D_{k_0})}\leq C_7
+%%	\end{align*}
+%%	for every $k$.
+%%
+%%	Recalling that $v_k=u_{k_0+k}$, this proves that the sequence $(u_{k_0+k})_k$ is bounded in $C^{2,\alpha}(D_{k_0})$.
+%%\end{proof}
+%\begin{proof}\comm{todo}
+%	As we have already discussed, we may suppose without loss of generality that $M=\R^2$.\\
+%	Let us fix an increasing relatively compact sequence of open bounded domains $(D_k)_{k=1}^\infty$ with sufficiently regular boundary that invade $M$, that is
+%	\begin{align*}
+%		\overline{D_k} \subset D_{k+1},\qquad \bigcup_{k=1}^\infty D_k = \R^2
+%	\ . 
+%	\end{align*}
+%	We may choose, for every $m$ a boundary data $\psi_m$ on $\partial D_m$ in between $\underline{\psi}$ and $\overline{\psi}$, in other words
+%	\[\underline{\psi} \leq \psi_m\leq \overline{\psi}\ .\] 
+%	Then we apply theorem \ref{th:subsupsol_bddom} to the data $D_m,\psi_m, \underline{\psi}, \overline{\psi}$  to find a smooth solution $u_m$ that verifies 
+%	\[\underline{\psi} \leq u_m \leq \overline{\psi}\quad\text{on } \overline{D_m}.\] 
+%	Then we fix $k_0,k\in \N$, $k>0$ and set $m = k_0+k$. Since $u_{k_0+k}$ satisfies $\Delta u_{k_0+k}(x) =F(x,u_{k_0+k})$ on $D_{k_0+k}\supset D_{k_0}$, we may apply the Schauder interior estimate on $D_{k_0} \subset D_k$ to obtain the inequality
+%	\begin{align}\label{eq:thmnoncptex1}
+%		\|u_{k_0+k}\|_{C^{1,\alpha}(D_{k_0})} 
+%		\leq
+%		C \left( \|F(\;\cdot\;, u_{k_0+k} )\|_{C^0(D_{k_0+k})}+\|u_{k_0+k }\|_{L^2(D_{k_0+k})} \right) 
+%	\ . 
+%	\end{align}
+%	Now we observe,\vspace*{-2mm}
+%	\begin{itemize}[noitemsep]
+%		\item[$\vartriangleright$] For every $x\in D_{k_0+k}$, \[ |u_{k_0+k}(x)| \leq \max \{|\underline{\psi}|,|\overline{\psi}|\}(x)\leq C\]  (because $\underline{\psi}, \overline{\psi}$ are bounded),
+%		\item[$\vartriangleright$] then, since $F_u>0$ and so $F$ is strictly increasing, we have
+%			\begin{align*}
+%				F(x,u_{k_0+k}(x)) \leq F(x,\max\{|\underline{\psi}|,|\overline{\psi}|\}(x) ) \leq C
+%			\ , 
+%			\end{align*} 
+%			(again because of continuity).
+%	\end{itemize}
+%	Then, by substituting the inequalities we just found in \eqref{eq:thmnoncptex1}, we obtain
+%	\begin{align*}
+%		\|u_{k_0+k}\|_{C^{2,\alpha}(D_{k_0})} \leq C
+%	\ . 
+%	\end{align*}
+%
+%	Fix now a compact set $K\subset M$. For $k_0$ sufficiently large and for every $k>0$ there exists a $D_{k_0}$ that contains $K$ and such that
+%	 \begin{align*}
+%		\|u_{k_0+k}\|_{C^2(K)}\leq \|u_{k_0+k}\|_{C^2(D_{k_0})} \leq C
+%	\ . 
+%	\end{align*}
+%	Hence we can apply the Ascoli-Arzelà Theorem for $C^{\alpha,s}$ spaces, obtaining a subsequence $(u_{k'})_{k'}$ that converges in $C^2(K)$.\\
+%
+%	This construction works for every compact set $K$, so using a diagonal argument we find a limiting function defined on all of $M$ which is $C^2$ and solves the equation $\Delta u = F(x,u)$.
+%
+%	
+%	Since $F_u>0$ we can apply the boostrapping argument and obtain that $u\in C^\infty$.\comm{tbd}
+%\end{proof}
 \subsection{The bounded case}
 We may prove the existence theorem with the stronger hypothesis of boundedness. 
 \begin{prop}\label{pr:exboundcase}
@@ -2990,8 +2991,58 @@ We may prove the existence theorem with the stronger hypothesis of boundedness.
 	\end{align*}
 	where in the last inequality we used  that $\frac{R_k^2}{(R_k^2-r^2)}\geq \frac{1}{1-r^2}$, which can be proved using $0<r<R_k<1$.\\
 
-	Now, again from the proof of from the proof of 
+	Now, since $(D_k,e^{2\tilde w_k}|dz|^2)$ is complete and $\tilde w_{k+1}|_{D_k}$ is still a solution to 
+	\begin{align*}
+		\Delta w = e^{2\tilde w}-|\Phi|^2 e^{-2\tilde w} \text{ on } D_k
+	\ , 
+	\end{align*}
+	we can apply Theorem  \ref{th:unithm1}, and obtain that
+	\begin{align*}
+		 \tilde w_{k+1} \leq \tilde w_k \text{ on } D_k
+	\ . 
+	\end{align*}
+	This implies that $(\tilde w_{k+j})_{j}$ is a sequence of pointwise decreasing functions on $D_k$. This fact in turn implies that $(\tilde w_k)_k$ is a pointwise convergent sequence of functions in $\mathbb{D}$. In fact, choose $x\in \mathbb{D}$, there exists a $k$ sufficiently large such that $x\in D_k$. From what we just showed, $(\tilde w_{k+j}(x))_j$ is convergent hence the sequence $(\tilde w_{k}(x))_k$, which is well defined for $k$ sufficiently large, is convergent.\\
 
+	The pointwise convergence is obviously not sufficient to show that the limit satisfies the equation. For that, we will prove the convergence in $C^2_{\loc}(\mathbb{D})$ for a subsequence, at that point uniqueness or the Urysohn property will grant convergence for the whole sequence, and this convergence is sufficiently strong to prove that the limit is a solution.\comm{todo:add the definition of this}.\\
+
+	Since we already have a sequence of domains that invades $\mathbb{D}$, we may prove the $C^2$ convergence on a certain  $D_k$, to get the full $C^2_\loc$ convergence on $\mathbb{D}$ we will apply at the end a diagonal argument. In order to have that, we may prove the boundedness in a more regular space, $C^3$, and apply the Ascoli-Arzelà Theorem \comm{todo}.\\
+	
+	So, let us fix a positive integer $k$ and consider the sequence of functions $(\tilde w_{k+j+2})_{k=1}^\infty$ on $D_k$. Since the $D_k$ are convex, we can choose a ball $B_k$ such that
+	\begin{align*}
+		\overline{D_k} \subset  B_k \subset  D_{k+1}
+	\ . 
+	\end{align*}
+	
+	We will now procede to apply a series of inequalities to $\| \tilde w_{k+j+2}\|_{C^3(\overline{D_k})}$ to obtain finally an estimate independent form $j$.\\
+
+	$B_k$ has a sufficiently regular boundary, so we can apply the Sobolev immersion $H^{\ell} \hookrightarrow C^m$, with indexes $\ell = 5$, $m=3$\comm{todo}, along with the obvious immersion $C^m(\overline{D_k}) \hookrightarrow C^3(B_k)$, 
+	\begin{align}\label{eq:exthm1}
+		\| u  \|_{C^3(\overline{D_{k}})} \leq \|u\|_{C^3(B_k)}
+		\leq \|u\|_{H^5(B_k)}
+	\ . 
+	\end{align}
+	Then we recall the elliptic interior $L^2$-estimate \comm{todo}, given a bounded domain $\Omega$ and $\Omega'$ such that $\overline{\Omega'} \subset  \Omega$, there is a constant $C = C(\ell,\Omega',\Omega)$ such that
+	\begin{align*}
+		\|u\|_{H^\ell(\Omega')} \leq C \left( \|w\|_{H^1(\Omega)}+\|\Delta u\|_{H^\ell(\Omega)} \right)
+	\ . 
+	\end{align*}
+	By applying it with $\ell=3$ we have
+	\begin{align*}
+		\|u\|_{H^5(\Omega')} \leq C \left( \|w\|_{H^1(\Omega)}+\|\Delta u\|_{H^3(\Omega)} \right)
+	\ . 
+	\end{align*}
+	
+	Using the equation, we will show now that we can estimate $\|\tilde w_{k+j+2}\|_{C^3(\overline{D_k})}$ using $\|\tilde w_{k+j+2}\|_{H^1(D_{k+1})}$. To simplify the notation, let us denote with $v = w_{k+j+2}$ for the remainder of the proof.\\
+	We know that $v = \tilde w_{k+j+2}$ is a solution for the equation
+	\begin{align*}
+		\Delta v = e^{2v}-|\Phi|^2 e^{-2v}
+	\ , 
+	\end{align*}
+	from which we obtain, by taking the gradient,
+	\begin{align*}
+		\nabla ( \Delta v ) = 2(e^{2v}+|\Phi|^2 e^{-2v})\nabla v - e^{-2v}\nabla|\Phi|^2
+	\ . 
+	\end{align*}
 \end{proof}
 
 

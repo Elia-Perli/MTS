@@ -30,6 +30,5 @@
 \contentsline {paragraph}{A boundedness result}{42}{section*.15}%
 \contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{47}{subsection.7.2}%
 \contentsline {section}{\numberline {H}Existence for the PDE}{50}{section.8}%
-\contentsline {subsection}{\numberline {H.1}A compact-domain existence theorem}{50}{subsection.8.1}%
-\contentsline {subsection}{\numberline {H.2}The bounded case}{55}{subsection.8.2}%
-\contentsline {subsection}{\numberline {H.3}The general case}{55}{subsection.8.3}%
+\contentsline {subsection}{\numberline {H.1}The bounded case}{50}{subsection.8.1}%
+\contentsline {subsection}{\numberline {H.2}The general case}{51}{subsection.8.2}%

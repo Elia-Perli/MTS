@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  19 APR 2026 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.23)  19 APR 2026 12:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -955,24 +955,24 @@ Package csquotes Info: ... none found.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count476
@@ -992,7 +992,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 160.
+Package hyperref Info: Link coloring OFF on input line 161.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1010,8 +1010,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 160.
-Package biblatex Info: Reference segment=0 on input line 160.
+Package biblatex Info: Reference section=0 on input line 161.
+Package biblatex Info: Reference segment=0 on input line 161.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/local/texlive/2023/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1036,394 +1036,399 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 168.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 169.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [1
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 185.
+(hyperref)                than one, level fixed on input line 186.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
 
  []
 
 [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 219.
+(hyperref)                than one, level fixed on input line 220.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--221
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 10000) in paragraph at lines 220--222
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--239
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--240
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 244--246
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
  []
 
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 272.
+(hyperref)                removing `math shift' on input line 273.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 272.
+(hyperref)                removing `superscript' on input line 273.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 272.
+(hyperref)                removing `math shift' on input line 273.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--279
+Underfull \hbox (badness 10000) in paragraph at lines 278--280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 293--295
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 308.
+(hyperref)                removing `math shift' on input line 309.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 308.
+(hyperref)                removing `math shift' on input line 309.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 324--326
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 379--381
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 381.
+(hyperref)                removing `math shift' on input line 382.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 381.
+(hyperref)                removing `superscript' on input line 382.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 381.
+(hyperref)                removing `math shift' on input line 382.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--385
+Underfull \hbox (badness 10000) in paragraph at lines 384--386
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 386.
+(hyperref)                removing `math shift' on input line 387.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 386.
+(hyperref)                removing `math shift' on input line 387.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
 [7]
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 447.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 448.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [8] [9] [10]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 543.
+(hyperref)                than one, level fixed on input line 544.
 
 [11] [12]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 633.
+(hyperref)                than one, level fixed on input line 634.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 
  []
 
 [13] [14]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 740.
+(hyperref)                removing `math shift' on input line 741.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 740.
+(hyperref)                removing `math shift' on input line 741.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 749--751
+Underfull \hbox (badness 10000) in paragraph at lines 750--752
 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 823--824
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
 
  []
 
 [17] [18]
-Overfull \hbox (5.4571pt too wide) in paragraph at lines 915--918
+Overfull \hbox (5.4571pt too wide) in paragraph at lines 916--919
 \T1/cmr/m/n/10 First, ob-serve that since $\OML/cmm/m/it/10 @[]; @[]$ \T1/cmr/m/n/10 are or-thog-o-nal, $[] \OT1/cmr/m/n/10 = 0$ \T1/cmr/m/n/10 we have $[] \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (4.06966pt too wide) in paragraph at lines 915--918
+Overfull \hbox (4.06966pt too wide) in paragraph at lines 916--919
 \OMS/cmsy/m/n/10 ^^@ []$\T1/cmr/m/n/10 . Fur-ther-more, from the ex-pres-sion of the met-ric we have $[] \OT1/cmr/m/n/10 =
  []
 
 [19] [20]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1051.
+(hyperref)                than one, level fixed on input line 1052.
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 1080--1082
+Underfull \hbox (badness 10000) in paragraph at lines 1081--1083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1089--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
 
  []
 
 [22]
-Overfull \hbox (14.80182pt too wide) detected at line 1131
+Overfull \hbox (14.80182pt too wide) detected at line 1132
 []
  []
 
 [23] [24] [25]
-Overfull \hbox (11.52649pt too wide) detected at line 1310
+Overfull \hbox (11.52649pt too wide) detected at line 1311
 []
  []
 
 [26]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1337.
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1338.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1397.
+(hyperref)                removing `math shift' on input line 1398.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Phi' on input line 1397.
+(hyperref)                removing `\Phi' on input line 1398.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1397.
+(hyperref)                removing `math shift' on input line 1398.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1397--1399
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1400
 
  []
 
 [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1522--1524
+Underfull \hbox (badness 10000) in paragraph at lines 1523--1525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1573--1575
+Underfull \hbox (badness 10000) in paragraph at lines 1574--1576
 
  []
 
 [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1683--1684
+Underfull \hbox (badness 10000) in paragraph at lines 1684--1685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1692--1694
+Underfull \hbox (badness 10000) in paragraph at lines 1693--1695
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1712--1714
+Underfull \hbox (badness 10000) in paragraph at lines 1713--1715
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1732--1734
+Underfull \hbox (badness 10000) in paragraph at lines 1733--1735
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1762--1763
+Underfull \hbox (badness 10000) in paragraph at lines 1763--1764
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1781--1783
+Underfull \hbox (badness 10000) in paragraph at lines 1782--1784
 
  []
 
 [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1892--1893
+Underfull \hbox (badness 10000) in paragraph at lines 1893--1894
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1894--1895
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1896
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1899--1901
+Underfull \hbox (badness 10000) in paragraph at lines 1900--1902
 
  []
 
 [36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1995--1996
+Underfull \hbox (badness 10000) in paragraph at lines 1996--1997
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2022--2024
+Underfull \hbox (badness 10000) in paragraph at lines 2023--2025
 
  []
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 2052--2054
+Underfull \hbox (badness 10000) in paragraph at lines 2053--2055
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2063--2065
+Underfull \hbox (badness 10000) in paragraph at lines 2064--2066
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 2080--2083
+Underfull \hbox (badness 10000) in paragraph at lines 2081--2084
 
  []
 
 [40]
-Overfull \hbox (72.82541pt too wide) detected at line 2150
+Overfull \hbox (72.82541pt too wide) detected at line 2151
 []
  []
 
 
-Overfull \hbox (11.1433pt too wide) detected at line 2199
+Overfull \hbox (11.1433pt too wide) detected at line 2200
 []
  []
 
 [41]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 2214.
+(hyperref)                than one, level fixed on input line 2215.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2214--2216
+Underfull \hbox (badness 10000) in paragraph at lines 2215--2217
 
  []
 
 [42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 2315--2317
+Underfull \hbox (badness 10000) in paragraph at lines 2316--2318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2326--2328
+Underfull \hbox (badness 10000) in paragraph at lines 2327--2329
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2375--2377
+Underfull \hbox (badness 10000) in paragraph at lines 2376--2378
 
  []
 
 [44] [45] [46] [47] [48] [49]
-Underfull \hbox (badness 10000) in paragraph at lines 2690--2691
 
- []
-
-[50] [51] [52]
-Overfull \hbox (25.2709pt too wide) detected at line 2842
-[]
- []
-
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 2921--2923
-
- []
-
-[54]
-
-LaTeX Warning: Reference `' on page 55 undefined on input line 2932.
+LaTeX Warning: Reference `' on page 50 undefined on input line 2933.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2940--2941
+Underfull \hbox (badness 10000) in paragraph at lines 2941--2942
 
  []
 
 
-LaTeX Warning: Reference `' on page 55 undefined on input line 2945.
+LaTeX Warning: Reference `' on page 50 undefined on input line 2946.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2948--2949
-
- []
-
-[55]
-Underfull \hbox (badness 10000) in paragraph at lines 2990--2992
+Underfull \hbox (badness 10000) in paragraph at lines 2949--2950
 
  []
 
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 2991--2993
 
-Overfull \hbox (13.0883pt too wide) in paragraph at lines 3027--3027
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3003--3005
+
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 3006--3007
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3008--3009
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3016--3017
+
+ []
+
+[52]
+Overfull \hbox (13.0883pt too wide) in paragraph at lines 3078--3078
 []\T1/cmr/m/n/10 Tilla Klotz Mil-nor. ^^P  Har-monic maps and clas-si-cal sur-face the-ory in Minkowski
  []
 
-[56] [57] (./main.aux)
+[53] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
@@ -1433,25 +1438,25 @@ L3 programming layer <2023-08-11>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 31F7090A90E3C0A8767E1414BE0545B4;7618.
+(rerunfilecheck)             Checksum: 638BE1DD4CA8ABDD341F25AE9C05B87A;7381.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33263 strings out of 475189
- 631436 string characters out of 5763838
+ 33256 strings out of 475189
+ 631353 string characters out of 5763838
  1947254 words of memory out of 5000000
  53760 multiletter control sequences out of 15000+600000
  584187 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,18n,111p,676b,1534s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm
--super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on main.pdf (57 pages, 645214 bytes).
+ 104i,18n,111p,676b,1248s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super
+/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
+Output written on main.pdf (53 pages, 624825 bytes).
 PDF statistics:
- 979 PDF objects out of 1000 (max. 8388607)
- 764 compressed objects within 8 object streams
- 216 named destinations out of 1000 (max. 500000)
- 293 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 947 PDF objects out of 1000 (max. 8388607)
+ 738 compressed objects within 8 object streams
+ 209 named destinations out of 1000 (max. 500000)
+ 285 words of extra memory for PDF output out of 10000 (max. 10000000)
 
