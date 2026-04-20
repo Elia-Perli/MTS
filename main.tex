@@ -110,6 +110,9 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\1}{\mathds{1}}
 \newcommand{\loc}{\mathrm{loc}}
+\newcommand{\Dk}{{D_{k}}}
+\newcommand{\Dkk}{{D_{k+1}}}
+\newcommand{\Dkkk}{{D_{k+2}}}
 
 
 %\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
@@ -118,6 +121,8 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\comm}[1]{\textcolor{red}{#1}}
 %\newcommand{\astr}[1]{\text{$(*#1)$}}
 \newcommand{\astr}[1]{\textsf{{(${*}$#1)}}}
+\newcommand{\astrf}[1]{\textsf{{(${\overset{\to}{*}}$#1)}}}
+\newcommand{\astrb}[1]{\textsf{{(${\overset{\leftarrow}{*}}$#1)}}}
 \newcommand{\qref}[1]{(\ref{#1})}
 
 \newtheorem{manualtheoreminner}{\textsc{teorema}}
@@ -182,11 +187,12 @@ The following definition, borrowed from physics, will be useful later.
 	\end{itemize}
 	We also call a subspace $P \subseteq T_pM$ space-like if every nonzero vector in $P$ is space-like.
 \end{defn*}
-We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. We assume that the ambient pseudometric, $g_{\M}$ when restricted to $S$, yields a nondegenerate positive definite bilinear form. We call this form the first fundamental form or pull-back pseudometric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we sometimes forget the immersion $\iota$).\\
 \paragraph{Space-like immersions.}\mbox{}\\
-The objects we will focus on are not arbitrary immersed surfaces, but the so-called space-like surfaces of $\M$. This term refers to immersed surfaces in $\M$ whose induced metric is positive-definite, and hence Riemannian. Equivalently, these are the immersed surfaces $S$ such that, for every $p \in S$, the tangent plane $T_pS$ is space-like.\\
 
-A nice property of this kind of surface is that they are locally the graph of a function of the form $x^3 = f(x^1,x^2)$, $f$ being smooth and Lipschitz with constant less than $1$.\\
+We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. We assume that the ambient pseudometric, $g_{\M}$ when restricted to $S$, yields a nondegenerate positive definite bilinear form. We call this form the first fundamental form or pull-back pseudometric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we sometimes forget the immersion $\iota$). By definition, this condition is equivalent to requiring that every tangent plane to $S$ be space-like, and such a surface is called a space-like surface.\\
+
+
+A nice property of these surfaces is that they are locally the graph of a function of the form $x^3 = f(x^1,x^2)$, $f$ being smooth and Lipschitz with constant less than $1$.\\
 We can show this with a simple argument:\\
 First, we assumed that the restriction of the Lorentzian metric to each tangent space $T_pS$ is positive-definite so that it is a space-like plane. This can be rewritten as
 \[
@@ -195,7 +201,7 @@ T_pS \subset \mathscr{C}:=\{v\in \M:\langle v,v\rangle \ge 0\}
 \]
 The set $\mathscr{C}$ is the outside-region of the double cone in $\M$ whose axis is $\{x^1=0,\ x^2=0\}$. Clearly $\mathscr{C}$ does not contain any vertical vector and clearly the same holds for $T_pM$. 
 Therefore we can apply the implicit function theorem and express $S$ locally near $p$ as the graph of a function $t=f(x,y)$, where $f:U\subset \R^2\to \R$.
-Where this local representation is valid, we can parametrize the surface as $(x,y,f(x,y))$, and obtain the local frame
+Where this local representation is valid, we can parametrize locally the surface as $(x,y,f(x,y))$, and obtain the local frame
 \[
 V_x=(1,0,\partial_x f(x,y)), \qquad V_y=(0,1,\partial_y f(x,y)),
 \]
@@ -245,12 +251,12 @@ Before laying out the proof let us recall a definition and a proposition from th
 	\]
 	and let us define $\bar \tau := \sup \mathcal{J}$.\\
 
-	Let us observe that $0\in \mathcal{J}$ and that $\mathcal{J}$ is open. This is true because, being $\Pi \circ\iota$ a local homeomorphism, if a certain $\tau $ is in $\mathcal{J}\cap(0,1)$ then the whole interval $(\tau-\epsilon,\tau+\epsilon)$ for $\epsilon>0$ sufficiently small, belongs to it.\\
+	Let us observe that $0\in \mathcal{J}$ and that $\mathcal{J}$ is open, since $\Pi \circ\iota$ is a local homeomorphism.
 
 	If we prove that $\bar \tau = 1$, then $\gamma$ admits a lift on the whole interval $[0,1]$ and we have finished. Then let us suppose by contradiction that $\bar \tau<1$ and define $\gamma^* : [0,\bar \tau) \to \Omega$ the lift of $\gamma$ up to $\bar \tau$. This curve exists by definition of $\bar \tau$.\\
 
 	
-	Finally, we need to prove that the limit $\lim_{\tau \to \bar \tau} \gamma^*(t) $ exists. If this is true we can then extend $\gamma^*$ up to $\bar \tau$, which means that $\bar \tau\in \mathcal{J}$. Since $\mathcal{J}$ is open, there exists an element $\bar \tau +\epsilon \in \mathcal{J},\ \epsilon>0$. This contradicts the definition of $\bar \tau$ and proves $\bar \tau=1$ since the alternative is absurd.\\
+	Finally, we need to prove that the limit $\lim_{\tau \to \bar \tau} \gamma^*(t) $ exists. If this is true we can then extend $\gamma^*$ up to $\bar \tau$, which means that $\bar \tau\in \mathcal{J}$. Since $\mathcal{J}$ is open, there exists an element $\bar \tau +\epsilon \in \mathcal{J},\ \epsilon>0$. This contradicts the definition of $\bar \tau$ and proves $\bar \tau=1$.\\
 	
 	To prove that $\lim_{\tau \to \bar \tau} \gamma^*(\tau) $ exists we just need a couple of observations:\\
 	First we note that the map $\Pi$ dilates distances, as
@@ -396,7 +402,7 @@ This splitting is differentiable, in the sense that the mappings
  \[(p,v) \mapsto (p,v^T) \qquad\text{and}\qquad (p,v)\mapsto (p,v^N)  \] 
  are differentiable maps of $T\M|_S$ to $T\M|_S$.
 
-Denote with $D$ the Levi-Civita connection on $\M$ induced by the pseudometric $g_{\M}$ and with $\nabla$ the connection induced on the surface $S$. As usual, if $X$ and $Y$ are local vector fields on $S$ with local extensions $\bar X$ and $\bar Y$ then the induced connection on  $S$ is simply the projection of the connection of the ambient space onto the surface $S$
+Denote with $D$ the Levi-Civita connection on $\M$ induced by the pseudometric $g_{\M}$ and with $\nabla$ the Levi-Civita connection of $(S,\I)$. As usual, if $X$ and $Y$ are local vector fields on $S$ with local extensions $\bar X$ and $\bar Y$ then the induced connection on  $S$ is simply the projection of the connection of the ambient space onto the surface $S$
 \[ \nabla_X Y = \left( D_{\bar X} \bar Y \right)^T\ .\] 
 Which means that the difference between the two connections of $X$ and $Y$ will be a local vector field on $\M$  normal to $S$,
 \begin{align}\label{eq:defB}
@@ -407,9 +413,7 @@ As in the Euclidean case, $B$ is a symmetric tensor and is independent of the ch
 \[
 B(X,Y)_p=(\II(X,Y)N)_p,
 \]
-%As in the Euclidean setting, $B$ is a tensor and doesn't depend on the extensions $\overline{X}$ and $\overline{Y}$, and it is symmetric in $X$ and $Y$. The differences with the usual theory of surfaces stems from what immediately follows. Since  $T_pM$ is one-dimensional, we will have a function $\II$ that satisfies
-%\[B(X,Y)_p = \epsilon \II(X,Y) N\] 
-%with $N$ a fixed normal unit vector on $S$ and $\epsilon = \pm 1$ depending on the context.\\
+
 From now on we forget to distinguish a vector field $X$ with its extension $\overline{X}$. Let $N$ be local normal vector field on $S$ and $V,W$ two local tangent vector fields to $S$. We observe first that
 \[\left<N,W \right> \equiv 0\ ,\] 
 so that by taking the derivative along $V$,
@@ -606,7 +610,7 @@ As we already mentioned, there is no formal difference with surfaces immersed in
 We here introduce some notation and some fundamental concepts of Riemann surfaces. The most crucial part will be the fact that each metric on a surface is locally conformal to the Euclidean, the relationship between a Riemannian metric and a complex structure, the Uniformization theorem and the definition of the Hopf differential.
 
 \subsection{Preliminaries on Riemann surfaces}
-%\paragraph{Complex surfaces}\mbox{}\\
+
 Let us fix $S$ a surface (a topological manifold of dimension 2).
 \begin{defn}
 	A complex atlas $\mathcal{C}$ is a collection of charts 
@@ -622,7 +626,7 @@ Let us fix $S$ a surface (a topological manifold of dimension 2).
 	We call $f$ a biholomorphism if it is holomorphic, bijective and its inverse  $f^{-1}$ is holomoprhic.\\
 	We say that the two Riemann surfaces $S_1$ and $S_2$ are isomorphic if there exists a biholomoprhism between them.
 \end{defn}
-%\paragraph{Conformal metrics}\mbox{}
+
 \begin{defn}
 	We say that two metrics $g$ and $g'$ on a surface $S$ are conformal to each other if there exists a smooth function $\upsilon:S\to \R$ such that
 	\begin{align*}
@@ -634,7 +638,7 @@ Let us fix $S$ a surface (a topological manifold of dimension 2).
 \paragraph{Conformal structures on 2-surfaces}\mbox{}\\
 Here we state the results that lead to the fact that every Riemannian surface admits a complex structure.
 \begin{thm}
-	Given $g$ a Riemannian metric on $S$ differentiable surface, and a point $p\in S$, there is a chart near $p$, $\varphi:U\to \R^2$ such that $g$ takes the form and a smooth positive function $\lambda$ such that
+	Given  a Riemannian metric $g$ on a differentiable surface $S$, and a point $p\in S$, there is a chart near $p$, $\varphi:U\to \R^2$ such that $g$ takes the form and a smooth positive function $\lambda$ such that
 	\[g  = \lambda^2(dx^2+dy^2) = e^{2v}(dx^2+dy^2),\]
 	where $(x,y)$ are the coordinates defined by $\varphi$.
 \end{thm}
@@ -683,9 +687,9 @@ where the last two equalities are definitions.\\
 So we can express the metric $g$ as
 \[ g = e^{2v} |dz|^2.\] 
 
-The change of coordinates $(x,y)\mapsto z=x+iy$ yields charts with values in $\C$. However, this is not yet enough to conclude that $S$ carries a complex structure, since one still has to prove that the corresponding transition maps are holomorphic. But this can be shown with a little more work:
+The change of coordinates $(x,y)\mapsto z=x+iy$ yields charts with values in $\C$. Using these charts, we can endow $S$ with a complex structure.
 \begin{prop}
-	Fix an orientation on $S$. Given a conformal chart $(\varphi,U)$ preserving this orientation, denote by $(\tilde\varphi,U)$ the associated complex chart. Then
+	Fix an orientation on $S$. Given a conformal chart $(\varphi,U)$ preserving the orientation, denote by $(\tilde\varphi,U)$ the associated complex chart. Then
 	\begin{align*}
 		\{(\tilde\varphi,U)\mid (\varphi,U)\text{ is an orientation-preserving conformal chart on }(S,g)\}
 	\end{align*}
@@ -702,8 +706,9 @@ Let us finally observe that,
 		&= d(x+iy) \otimes d(x+iy)\\
 		&= dx \otimes dx +i \left( dx \otimes dy + dy \otimes dx \right) - dy \otimes dy\\
 		&=: dx^2 - dy^2 +2i dxdy
-\ \ . 
+\ ,
 \end{align*}
+where we define $dxdy = \frac{1}{2} (dx\otimes dy+dy \otimes dx) $.
 \paragraph{Integration through a conformal chart}\mbox{}\\
 Given a curve $\gamma$ in S, its length is defined by
 \[ \ell(\gamma) = \int_\gamma \lambda(z) |dz|\ .\] 
@@ -739,7 +744,7 @@ In our case the surface we consider is simply connected and noncompact (for inst
 \end{cor}
 
 \subsection{Harmonic maps into $\mathbb{H}$}
-An important result we need to prove is that the Gauss map of a complete space-like surface in $\M$ is harmonic if and only if the surface is a CMC cut. In order to do this we need first to give a definition of harmonicity for a map with values in $\M$. \\
+An important result we need to prove is that the Gauss map of a complete space-like surface in $\M$ is harmonic if and only if the surface is CMC. In order to do this we need first to give a definition of harmonicity for a map with values in $\M$. \\
 Let us consider $f:(\mathbb{D},e^{2\eta}(dx^2+dy^2))\to  \M$. We can define the energy density of $f$ as 
 \[e(f) = e^{-2\eta}(f_x\cdot f_x+f_y\cdot f_y)\ .\] 
 If the map has compact support we can integrate the energy density, obtaining the energy of the map,
@@ -765,8 +770,14 @@ for every $(x,y)\in\mathbb{D}$, and there exists a compact set $K\subset \mathbb
 for every $(x,y)\in \mathbb{D}\setminus K$ and every $t\in (-\epsilon,\epsilon)$. We call $\xi$ of this form an admissible deformation of $f$. \\
 Then, we define \[ f_t := \xi(\cdot,\cdot,t)\ .\]
 \begin{defn}
-	We say that $f$ is a harmonic map if for every admissible deformation $\xi$ we have
-	\[\left.\frac{dE(f_t)}{dt}\right|_{t=0} = 0\ .\] 
+	We say that $f$ is a harmonic map if for every admissible deformation $\xi$, and for one, equivalently any, compact domain $\Omega\subset \mathbb{D}$ containing the support of the deformation, one has
+	\[
+	\lim_{t\to 0}\frac{\Delta E_\Omega(t)}{t}=0,
+	\]
+	where
+	\[
+	\Delta E_\Omega(t):=\int_\Omega e^{2\eta}\bigl(e(f_t)-e(f)\bigr)\,dx\wedge dy\ .
+	\]
 \end{defn}
 The following lemma is needed to give later a characterizaion of harmonic maps.
 \begin{lemma}\label{lm:deren1}
@@ -847,7 +858,7 @@ We want to prove the following theorem:
 \end{thm}
 In order to prove it, we need a lemma.
 \begin{lemma}\label{lm:trnabl}
-	Let $B$ a 1-1 tensor on a Riemannian manifold $M$ and $v\in T_pM$. Then
+	Let $B$ a 1-1 tensor on a Riemannian surface $M$, $v\in T_pM$, and denote with $\nabla$ the Levi-Civita connection of $M$. Then
 	\[\tr(\nabla_v B)=d(\tr B)(v)\ .\] 
 \end{lemma}
 \begin{proof}
@@ -1185,21 +1196,26 @@ This lets us state an important result, that is a partial inverse of lemma \ref{
 	\[
 	F:=\rho^2(w)w_{z\overline{z}}+2\rho(w)\rho_w(w)w_{\overline{z}}w_z.
 	\]
-	It is clear that $F$ is zero where $f$ is harmonic. Then we observe
-	\begin{align*}
-		0
-		&=
-		\frac{\partial}{\partial \overline{z}} (\rho^2(w)w_z\overline{w}_z)\\
-		&\Rightarrow
-		\overline{w}_zF+w_z\overline{F}=0\\
-		&\Rightarrow
-		\overline{w_{\overline{z}}}F=-w_z\overline{F}\\
-		&\Rightarrow
-		|w_{\overline{z}}|^2|F|^2=|w_z|^2|F|^2\\
-		&\Rightarrow
-		\bigl(|w_z|^2-|w_{\overline{z}}|^2\bigr)|F|^2=0.
-	\end{align*}
-	Since $f$ is orientation-preserving local diffeomorphism,
+\begin{align}
+	0
+	&=
+	\frac{\partial}{\partial \overline z}\bigl(\rho^2(w)w_z\overline{w_z}\bigr)\notag\\
+	&\Rightarrow
+	\overline{w_{\overline z}}F+w_z\overline F=0\notag\\
+	&\Rightarrow
+	\overline{w_{\overline z}}F=-w_z\overline F\label{eq:hopfhol1}\\
+	&\Rightarrow
+	w_{\overline z}\overline{F}=-\overline{w_z}F\label{eq:hopfhol2}\ .
+\end{align}
+By multiplying \eqref{eq:hopfhol1} and \eqref{eq:hopfhol2} we obtain
+\begin{align*}
+	|w_{\overline z}|^2|F|^2=|w_z|^2|F|^2,
+\end{align*}
+hence
+\begin{align*}
+	\bigl(|w_z|^2-|w_{\overline z}|^2\bigr)|F|^2=0.
+\end{align*}
+	Since $f$ is orientation-preserving local diffeomorphism, remembering that $\overline{w_z} = \overline{w}_{\overline{z}}$,
 	\begin{align*}
 		|w_z|^2-|w_{\overline{z}}|^2=J(f)>0,
 	\end{align*}
@@ -1220,7 +1236,6 @@ So that we have
 
 If we apply calculate the norm of the Hopf differential of a smooth $f:\Sigma_1\to \Sigma_2$, with local representation $w=w(z)$, 
 \[\|\Hopf(f)\|_g^2(z) = \frac{\rho^4(w)}{\lambda^4} |w_z|^2|w_{\overline{z}}|^2\ .\] 
-By recognizing the terms in this last equation we have immediately the following lemma.
 \paragraph{The second fundamental form and the Hopf differential of the Gauss map}\mbox{}\\
 We now present some observations that will illustrate how the Hopf differential of the Gauss map is related to the second fundamental form.
 \begin{lemma}\label{lm:lemmaqforms}
@@ -1306,8 +1321,8 @@ Let us fix $v = v_x \partial_x +v_y \partial_y$, by looking at the associated qu
 	 \I(L_0(v_x\partial_x+v_y\partial_y),v_x\partial x+ v_y \partial_y)
 	&= \I(v_xL_0\partial_x+v_yL_0\partial_y,v_x\partial x+ v_y \partial_y)\\
 	&= \I(v_x(a\partial_x+b\partial_y)+v_y(b\partial_x-a\partial_y),v_x\partial x+ v_y \partial_y)\\
-	&= a v_x^2+bv_xv_y+bv_xv_y-av_y^2
- \ . 
+	&= e^{2u} \left(   a v_x^2+bv_xv_y+bv_xv_y-av_y^2\right)
+ \ , 
  \end{align*}
  we have
 \begin{align*}
@@ -1672,12 +1687,12 @@ We now introduce the class of surfaces that will be studied throughout this sect
 	$S \subset \M$ with constant mean curvature $H>0$.
 \end{defn}
 This is essentially the same setting we exposed in Section \ref{sc:splsrf} if not for the additional condition of having a constant mean curvature.
-The first step for the desired classification is the following proposition, which we proved in Section \ref{sc:splsrf} if not for the last result, which can be found in \cite{cheng_yau_1976}
+The first step for classification is the following proposition.
 \begin{prop}\label{pr:convfun}
 	Let $S$ be a complete spacelike surface in $\M$ with constant mean curvature $H$.
-	Then $S$ can be represented as the graph of an entire function
+	$S$ can be represented as the graph of an entire convex function
 	$x^3=f(x^1,x^2)$.
-	Moreover, $f$ is convex, and therefore the Gaussian curvature of $S$ satisfies
+	The Gaussian curvature of $S$ satisfies
 	$K \leq 0$. More precisely, either $K<0$ everywhere or if  $K=0$ at some point then $K\equiv 0$ and the surface is parabolic.
 \end{prop}
 
@@ -1691,27 +1706,17 @@ which has constant mean curvature $\tilde H = \mu^{-1}k$.
 Choosing $\mu= k$, we obtain a surface with constant mean curvature $1$.
 
 Therefore, there exists a bijection between complete space-like surfaces with constant mean curvature $k$ and complete space-like surfaces with constant mean curvature $1$. Hence a classification of the latter immediately yields a classification of the former. We may then assume from now on that the surfaces have constant mean curvature $1$.\\
-%\subsection{Gauss map harmonic if and only if mean curvature is constant}
-
-%The following is the reason for our focus on Harmonic maps, whose proof can be found in \cite{milnor_1983} and \cite{choi_treibergs_1990}
-%\begin{lemma}
-%	The Gauss map of a spacelike surface in $\M$
-%	\[
-%		u:S\to \mathbb D
-%	\]
-%	is harmonic if and only if the mean curvature of $S$ is constant.
-%\end{lemma}
 
 
 Let us then fix $S$ a hyperbolic CMC cut with mean curvature $1$. The hyperbolic hypothesis means that using the uniformization theorem we can find a conformal diffeomorphism
 \[
 	\Lambda:\mathbb D \to S.
 \]
-Let us now consider the Gauss map of  $S$, $u:S\to \mathbb{H}$. By composing with $\Lambda$ read it as a map
+Let us now consider the Gauss map of  $S$, $u:S\to \mathbb{D}$. By composing with $\Lambda$ read it as a map
 \[
-	u:\mathbb D \to \mathbb{H} \subset \M .
+	u:\mathbb D \to \mathbb{D}.
 \]
-The hypothesis on the mean curvature of $S$ being constant lets us apply the Theorem  \ref{th:gaussmapharmiffconsth} and obtain that $u$ is harmonic.\\
+The hypothesis on the mean curvature of $S$ being constant lets us apply the Theorem  \ref{th:gaussmapharmiffconsth} and obtain that $u$ is harmonic (we remind that $\mathbb{D}$ is isometric to $\mathbb{H}$ found in the statement of the theorem).\\
 
 Now, we can pull back the metric of $S$ through the  conformal parametrization and express it in terms of  $u$:
 \begin{prop}\label{prop:indmetr}
@@ -1792,22 +1797,6 @@ So we can prove the theorem:
 \begin{thm}\label{th:class}
 	The map $\mathscr{A}$ is well defined and bijective.
 \end{thm}
-%To prove the theorem we need two claims.
-%\begin{claim}
-%	Given $\Phi$ a quadratic holomorphic differential, it is holomorphic if and only if the equations  hold
-%	\begin{align*}
-%		\frac{1}{2}(h_{11}+h_{22})= 1\\
-%		h_{11}-h_{22} = 2\Re(\varphi)\\
-%		h_{12} = -\Im(\varphi)
-%	\ \ . 
-%	\end{align*}
-%\end{claim}
-%\begin{proof}
-%	First we observe 
-%\end{proof}
-%\begin{claim}
-%	The Gauss-Codazzi it satisfies the G.C. equations \comm{todo:what?}
-%\end{claim}
 The proof of this theorem requires an existence and uniqueness result for the conformal factor of the metric induced on $S$, expressed in terms of a holomorphic quadratic differential which will later be identified with the Hopf differential of the Gauss map. We state this result here and provide proof to the next sections.
 \begin{claim}\label{cl:existenceuniquew}
 	Let $\Phi$ be a holomorphic quadratic differential on $\mathbb{D}$. Then there exists a unique smooth function $w:\mathbb{D}\to\mathbb{R}$ such that
@@ -1816,9 +1805,9 @@ The proof of this theorem requires an existence and uniqueness result for the co
 	\end{align*}
 	the metric $e^{2w}ds_p^2$ is complete and $e^{2w}-\|\Phi\|^2e^{-2w}>0$.
 \end{claim}
-\begin{proof}[of Theorem \ref{th:class}]\mbox{}\vspace*{-1.5mm}
+\begin{proof}[Proof of Theorem \ref{th:class}]\mbox{}\vspace*{-1.5mm}
 \begin{enumerate}[noitemsep,leftmargin=*,label=\textbf{\arabic*.}]
-\item Well-definedness:\\%$\mathscr{A}$ is well defined:\\
+\item Well-definedness:\\
 We just observe that by choosing a different $S'\in [S]$ ultimately results to the same map $u$ post-composed with an isometry of the hyperbolic disk $\mathbb{D}$. The Hopf differential associated to $u$ remains unchanged under this transformation.
 \item Surjectivity:\\
 Let $[\Phi]\in \mathbf{Q}_{\mathbb{D}}$ and choose a representative
@@ -2032,8 +2021,166 @@ With the notation introduced above, for every $x\in M\setminus\{p\}$ such that $
 \end{align*}
 \end{lemma}
 \begin{proof}
-We redirect the reader to \cite{yau_1975} for a proof.
+Since $M$ is complete, simply connected, and has nonpositive curvature, the Cartan--Hadamard theorem implies that
+\[
+\exp_p:T_pM\to M
+\]
+is a diffeomorphism. In particular, $r$ is smooth on $M\setminus\{p\}$.\\
+
+Let us fix an orthonormal basis $(e_1,e_2)$ of $T_pM$, and consider the polar coordinates
+\[
+\Phi(r,\theta)=\exp_p\bigl(r\cos\theta\,e_1+r\sin\theta\,e_2\bigr).
+\]
+We denote by $\partial_r$ and $\partial_\theta$ the corresponding coordinate vector fields. It is a well known fact (see for example \cite{do_carmo_2016}) that using these coordinates we can express the metric as 
+\[
+g = dr^2 +u(r,\theta)^2\, d\theta^2
+\]
+for a certain $u$, and that the following equation holds
+\begin{align}\label{eq:boundr0}
+	u_{rr} = -K(r,\theta) u\ .
+\end{align}
+Now we observe that, by definition 
+\begin{align}\label{eq:boundr1}
+	\nabla r = \left( dr \right)^\sharp = \partial_r
+\ . 
+\end{align}
+Let us fix $E_1$, $E_2$ an orthonormal frame. A suitable choice is $E_1 = \partial_r$ and $E_2 = \frac{1}{u} \partial_\theta$.
+Then we have
+\begin{align}\label{eq:boundr2}
+	\Delta r &= \nabla\cdot \nabla r\notag\\
+	\commb{\qref{eq:boundr1}}\hspace{4mm}&=  \nabla\cdot \partial_r \notag\\
+	&=  \left< \nabla_{E_1} \partial_r, E_1 \right> + \left< \nabla_{E_2}\partial_r, E_2 \right> \notag\\
+	&=  \left<\nabla_{\partial_r}\partial_r,\partial_r \right> + \frac{1}{u^2} \left<\nabla_{\partial_\theta} \partial_r, \partial_\theta \right> 
+\ . 
+\end{align}
+Now we observe that since at $\theta$ fixed, the map  $r \mapsto \Phi(r,\theta)$ is a geodesic, we have $\nabla_{\partial_r}\partial_r = 0$. Then substituting in \eqref{eq:boundr2} we obtain
+\begin{align}\label{eq:boundr3}
+	\Delta r = \frac{1}{u^2}\left< \nabla_{\partial_\theta}\partial_r,\partial_\theta \right>
+\ . 
+\end{align}
+We make two more observations. First we recall that
+\begin{align*}
+	|\partial_\theta|^2 = \left< \partial_\theta,\partial_\theta\right> = u^2
+\ . 
+\end{align*}
+And then we observe that
+\begin{align*}
+	\partial_r |\partial_\theta|^2
+	&= \partial_r(u^2) \\
+	&= 2u \partial_r(u)\\
+	&= 2u u_r
+\ . 
+\end{align*}
+Continuing in \eqref{eq:boundr3}, we obtain
+\begin{align*}
+	\Delta r &= \frac{1}{u^2}\left< \nabla_{\partial_\theta} \partial_r, \partial_\theta \right> \\
+	\commb{$\nabla$ Levi-Civita}\hspace{4mm} &= \frac{1}{u^2}\left< \nabla_{\partial_r} \partial_\theta, \partial_\theta \right> \\
+	&= \frac{1}{2u^2} \partial_r \left<\partial_\theta,\partial_\theta \right> \\
+	&=  \frac{1}{2u^2} \partial_r |\partial_\theta|^2 \\
+	&= \frac{1}{2u^2} 2u u_r  \\
+	&= \frac{u_r}{u}
+\ . 
+\end{align*}
+Now set $f= \dfrac{u_r}{u} = \Delta r$. We have
+\begin{align*}
+	f_r &= \partial_r \left( \frac{u_r}{u} \right) \\
+	&= \frac{u_{rr}}{u} - \frac{u_r^2}{u^2} \\
+	&=  \frac{u_{rr}}{u} - f^2 \\
+	\commb{\qref{eq:boundr0}}\hspace{5mm}&= -K -f^2
+\ . 
+\end{align*}
+
+Since the Gaussian curvature is bounded from below, there exists a constant $A_0\ge 0$ such that
+\[
+K\ge -A_0.
+\]
+Hence
+\begin{align}\label{eq:boundr3a}
+	f_r\le A_0-f^2.
+\ . 
+\end{align}
+Moreover, since $f$ is continuous on the compact set $\{r=1\}$, we can choose a constant $A\ge A_0$ sufficiently large such that 
+\[
+f(1,\theta)\le \sqrt{A}+1
+\qquad\text{for every }\theta.
+\]
+Therefore
+\[
+f_r\le A-f^2
+\qquad\text{and}\qquad
+f(1,\theta)\le \sqrt{A}+1
+\]
+for every $\theta$.
+
+We claim that
+\[
+f(r,\theta)\le \sqrt{A}+1
+\qquad\text{for every }r\ge 1\text{ and every }\theta.
+\]
+Let us fix a $\theta$. If this were false, there would exist an $r_0>1$ such that for every $r\in [1,r_0)$
+\begin{align}\label{eq:boundr4}
+	f(r_0,\theta)=\sqrt{A}+1,
+	\qquad
+	f(r,\theta)<\sqrt{A}+1 
+\ . 
+\end{align}
+Since $r_0$ is the first value of $r$ such that $f(r,\theta)=\sqrt A+1$, for every $r<r_0$ sufficiently close to $r_0$ we have
+\[
+f(r,\theta)<f(r_0,\theta).
+\]
+Recall that 
+\begin{align*}
+	\partial_r f(r,\theta) = \lim_{r\to r_0^-} \frac{f(r,\theta)-f(r_0,\theta)}{r-r_0} 
+\ . 
+\end{align*}
+But inside the limit, both the numerator and the denominator are positive for $r$ close enough to $r_0$, due to \eqref{eq:boundr4}.
+Hence 
+\begin{align*}
+	f_r(r_0,\theta) \geq 0
+\ . 
+\end{align*}
+On the other hand, from \ref{eq:boundr3a} we get
+\[
+f_r(r_0,\theta)
+\le
+A-f(r_0,\theta)^2
+=
+A-(\sqrt{A}+1)^2
+<
+0,
+\]
+which is a contradiction. Hence
+\[
+f(r,\theta)\le \sqrt{A}+1
+\]
+for every $r\ge 1$ and every $\theta$.
+
+Finally we conclude the proof by recalling that $f=\Delta r$, so that
+\[
+\Delta r(x)\le \sqrt{A}+1
+\]
+for every $x$ such that $r(x)\ge 1$.
 \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 We are ready to state and prove the maximum principle.
 \begin{thm}\label{th:maxprin}
 Let $M$ be a complete, simply connected Riemannian manifold of nonpositive sectional curvature, with Ricci curvature bounded from below. Let $f\in C^2(M)$ be bounded from above. Fix $p\in M$, and let $r(x)=d(p,x)$. Then there exist a constant $C>0$ and a sequence $(x_k)_k\subset M$ such that
@@ -2053,7 +2200,7 @@ In particular,
 	\end{equation*} 
 	Let us observe that $g(p) = \frac{1}{\log(2)^\frac{1}{k}}>0$ and that $\lim_{r(x) \to \infty}g(x) = 0$. Since $g$ is continuous, this means that it attains its maximum at a certain point $x_k$.\\
 
-	First, let us show that we can assume that $r(x_k) \to  \infty$. If that's not the case, up to taking a subsequence, $r(x_k)$ is bounded.
+	First, let us show that we can assume that $r(x_k) \to  \infty$. If that is not the case, up to taking a subsequence, $r(x_k)$ is bounded.
 	Then we can find a closed geodesic ball $\overline{B}(p;\rho)$ with $\rho>0$ that contains $x_k$ for every $k$ sufficiently big. Since $M$ is complete, the Hopf Rinow theorem implies that $\overline{B}(p;\rho)$ is compact. Therefore, after passing to a subsequence, we may assume that 
 	\begin{align*}
 		x_k \to x_0
@@ -2185,17 +2332,17 @@ Hence, by substituting in  \eqref{eq:boundprindeltag1} and simplifying, we obtai
 		\frac{2u(x_k)\bigl(1+r(x_k)\Delta r(x_k)\bigr)}{k(r^2(x_k)+2)\log(r^2(x_k)+2)}
 		\ .
 	\end{align}
-	First we find another inequality for a real function, namely
+	First, it is easy to see that the following real function is bounded by a constant $C>0$
 	\begin{align}\label{eq:boundprin20}
-		\frac{1}{(x^2+2)\log(x^2+2)} \leq 2
+		\frac{1}{(x^2+2)\log(x^2+2)} \leq C
 	\ \ . 
 	\end{align}
-	, it follows from \eqref{eq:boundprin10},
+	Then it follows from \eqref{eq:boundprin10}
 	\begin{align}
 		\Delta f(x_k) 
 		&\leq \frac{2u(x_k)\bigl(1+r(x_k)\Delta r(x_k)\bigr)}{k(r^2(x_k)+2)\log(r^2(x_k)+2)}\notag \\
 		\commb{$u\leq A$}\hspace*{5mm}&\leq\frac{2A}{k} \left( \frac{1}{(r^2(x_k)+2)\log(r^2(x_k)+2)} + \frac{r(x_k)\Delta r(x_k)}{(r^2(x_k)+2)\log(r^2(x_k)+2)}\right)\notag\\
-		\commb{\eqref{eq:boundprin14}, \eqref{eq:boundprin20}}\hspace*{5mm}&\leq \frac{2A}{k} \left( 2 +2\Delta r(x_k)   \right) \label{eq:boundprin11}
+		\commb{\eqref{eq:boundprin14}, \eqref{eq:boundprin20}}\hspace*{5mm}&\leq \frac{2A}{k} \left( C +2\Delta r(x_k)   \right) \label{eq:boundprin11}
 	\ \ .
 	\end{align}
 	We now apply the estimate of Lemma~\ref{lm:distest}. We can do this because under the assumption that $r(x_k)\to\infty$ we have $r(x_k)\geq 1$ for $k$ sufficienly large, so that
@@ -2217,7 +2364,7 @@ We will also use this theorem to obtain a boundedness result for a certain diffe
 
 Let $M$ be a complete Riemannian manifold with Ricci curvature bounded from below, and let $u\in C^2(M)$ satisfy
 \begin{equation}\label{eq:boundprin2}
-	\Delta u \geq f\ \ , 
+	\Delta u \geq f(u)\ \ , 
 \end{equation}
 where the assumptions on $f$ will be specified later.\\
 Now let $F\in C^2(\R)$ be a positive function, whose precise form will also be given later, which we require to be strictly increasing or in other terms to have a strictly positive derivative.
@@ -2456,7 +2603,7 @@ G(t)=\int_a^t g(\tau)\,d\tau,
 \]
 then $G\in C^1([a,\infty))$, $G(a)=0$, and $G'(t)=g(t)>0$ for every $t\geq a$. In these terms, the previous discussion yields the following theorem.
 \begin{thm}\label{th:boundprin}
-	Let $M$ be a Riemannian manifold whose Ricci curvature is bounded from below, and let $u\in C^2(M)$ satisfy
+	Let $M$ be a complete Riemannian manifold whose Ricci curvature is bounded from below, and let $u\in C^2(M)$ satisfy
 	\[
 		\Delta u \geq f(u)
 	\ \ .
@@ -2687,250 +2834,80 @@ w_1=w_2
 \]
 \end{proof}
 \section{Existence for the PDE}
+\subsection{Analytic preliminaries}
+In this chapter we will recall some essential concepts of functional analysis, that will be used extensively in the proof of the existence theorem. We report these results in this section as they come useful only now. 
 
-%We now prove the existence part of Claim \ref{cl:existenceuniquew}. After exposing briefly some preliminaries, the proof proceeds in three steps: first we recall a compact-domain existence theorem based on sub- and super-solutions, then we generalize it to the case of noncompact domains, and finally we give yet another generalization for non bounded data.\\
-%\subsection{A compact-domain existence theorem}
-%
-%\begin{thm}[Sub-/super-solution method on bounded domains.]\label{th:subsupsol_bddom}
-%Let $\Omega \subset \mathbb{R}^2$ be a bounded domain with smooth boundary, and let $F \in C^{\infty}(\overline{\Omega}\times\mathbb{R})$ satisfy
-%\[
-%F_u(x,s) > 0
-%\qquad \text{for all } (x,s)\in \overline{\Omega}\times\mathbb{R}.
-%\]
-%Assume that there exist
-%\[
-%\underline{\psi},\overline{\psi}\in C^0(\overline{\Omega})\cap H^1(\Omega),
-%\qquad
-%\underline{\psi}\leq \overline{\psi}\text{ on }\overline{\Omega},
-%\]
-%such that on $\Omega$,
-%\begin{align*}
-%	\begin{cases}
-%	\Delta \overline{\psi} \leq F(x,\overline{\psi})\\
-%	\Delta \underline{\psi} \geq F(x,\underline{\psi})
-%	\end{cases}
-%	\qquad \text{weakly.}
-%\end{align*}
-%Let $\varphi\in C^0(\partial\Omega)$ satisfy
-%\[
-%\underline{\psi}\leq \varphi \leq \overline{\psi}
-%\qquad \text{on }\partial\Omega.
-%\]
-%Then there exists
-%\[
-%u\in C^\infty(\Omega)\cap C^0(\overline{\Omega})
-%\]
-%such that
-%\[
-%\Delta u = F(x,u)
-%\quad \text{in } \Omega,
-%\qquad
-%u=\varphi
-%\quad \text{on } \partial\Omega,
-%\]
-%and
-%\[
-%\underline{\psi}\leq u\leq \overline{\psi}
-%\qquad \text{on }\overline{\Omega}.
-%\]
-%\end{thm}
-%\noindent An important observation is that, for our purposes, the bounded-domain theorem can be applied without substantial changes on a Riemann surface endowed with a conformal metric. More precisely, let \[ g=e^{2\eta}|dz|^2 \] on a relatively compact smooth domain \(\Omega\Subset \mathbb{D}\). Then the equation \[ \Delta u = F(x,u) \] is equivalent to \[ \Delta_g u = \widetilde{F}(x,u), \qquad \widetilde{F}(x,s):=e^{-2\eta}F(x,s). \] Indeed, in conformal coordinates one has \[ \Delta_g = e^{-2\eta}\Delta. \]
-%Moreover, the structural assumptions are preserved:
-%\begin{itemize}[noitemsep]
-%	\item Differentiation with respect to the unknown variable is unaffected by the conformal factor, hence
-%	\[
-%	\partial_s \widetilde{F}(x,s)=e^{-2\eta}\partial_sF(x,s)>0.
-%	\]
-%	\item A subsolution or supersolution for the Euclidean equation is also a subsolution or supersolution for the equation written with respect to \(g\), and conversely. For example,
-%	\begin{align*}
-%		\Delta \overline{\psi} \leq F(x,\overline{\psi}) \text{ weakly}
-%		&\iff e^{-2\eta}\Delta \overline{\psi} \leq e^{-2\eta}F(x,\overline{\psi}) \text{ weakly}\\
-%		&\iff \Delta_g \overline{\psi} \leq \widetilde{F}(x,\overline{\psi}) \text{ weakly}
-%		\ . 
-%	\end{align*}
-%\end{itemize}
-%Therefore the bounded-domain sub-supersolution theorem applies in exactly the same
-%way on \((\Omega,g)\).
-%\begin{thm}
-%Let $M$ be a complete Riemannian manifold, and
-%$F(x,u)$ be a $C^\infty$-function on $M\times \mathbb{R}$ such that
-%\[
-%F_u>0.
-%\]
-%If there exists $\psi_-<\psi\in C^0(M)\cap H^1(M)$ bounded such that
-%\begin{align*}
-%	\Delta \psi &< F(x,\psi)\\
-%	\Delta \psi_- &> F(x,\psi_-)
-%\end{align*}
-%weakly, then there exists $u\in C^\infty(M)$ such that
-%\[
-%\Delta u = F(x,u)
-%\]
-%and
-%\[
-%\psi_-<u<\psi,
-%\]
-%where $\psi_-$ and $\psi$ are called the sub- and super-solutions respectively.
-%\end{thm}
-%%\begin{proof}
-%%	Fix $k_0\in \mathbb N$ and set
-%%	\begin{align*}
-%%		v_k:=u_{k_0+k}
-%%	\end{align*}
-%%	for $k\geq 1$. Then $v_k$ is defined on $D_{k_0+k}$, hence in particular on $D_{k_0+1}$, and satisfies
-%%	\begin{align*}
-%%		\Delta v_k = F(x,v_k)
-%%	\end{align*}
-%%	on $D_{k_0+1}$. Moreover, since each $u_j$ is trapped between the same subsolution and supersolution, we have
-%%	\begin{align*}
-%%		\psi_- \leq v_k \leq \psi
-%%	\end{align*}
-%%	on $D_{k_0+1}$ for every $k\geq 1$.
-%%
-%%	Since $D_{k_0+1}$ is relatively compact and $\psi_-,\psi$ are continuous, there exists a constant $M>0$ such that
-%%	\begin{align*}
-%%		|v_k|\leq M
-%%	\end{align*}
-%%	on $D_{k_0+1}$ for every $k$. Since $F$ is smooth, it is bounded on the compact set $\overline{D_{k_0+1}}\times [-M,M]$, hence there exists $C_0>0$ such that
-%%	\begin{align*}
-%%		|F(x,v_k(x))|\leq C_0
-%%	\end{align*}
-%%	for every $x\in D_{k_0+1}$ and every $k$. Equivalently,
-%%	\begin{align*}
-%%		|\Delta v_k|\leq C_0
-%%	\end{align*}
-%%	on $D_{k_0+1}$.
-%%
-%%	Now choose a smooth domain $\Omega_1$ such that
-%%	\begin{align*}
-%%		D_{k_0}\Subset \Omega_1 \Subset D_{k_0+1}.
-%%	\end{align*}
-%%	Fix $p>2$. By the interior $W^{2,p}$ estimate for the Laplacian, there exists a constant $C_1>0$, independent of $k$, such that
-%%	\begin{align*}
-%%		\|v_k\|_{W^{2,p}(\Omega_1)}
-%%		\leq C_1\Bigl(\|v_k\|_{L^p(D_{k_0+1})}+\|\Delta v_k\|_{L^p(D_{k_0+1})}\Bigr).
-%%	\end{align*}
-%%	The right-hand side is uniformly bounded in $k$, because
-%%	\begin{align*}
-%%		\|v_k\|_{L^p(D_{k_0+1})}\leq M\,|D_{k_0+1}|^{1/p}
-%%	\end{align*}
-%%	and
-%%	\begin{align*}
-%%		\|\Delta v_k\|_{L^p(D_{k_0+1})}\leq C_0\,|D_{k_0+1}|^{1/p}.
-%%	\end{align*}
-%%	Therefore there exists $C_2>0$ such that
-%%	\begin{align*}
-%%		\|v_k\|_{W^{2,p}(\Omega_1)}\leq C_2
-%%	\end{align*}
-%%	for every $k$.
-%%
-%%	Since $\dim M=2$, the Sobolev embedding gives
-%%	\begin{align*}
-%%		W^{2,p}(\Omega_1)\hookrightarrow C^{1,\beta}(\overline{\Omega_1}),
-%%		\qquad \beta=1-\frac{2}{p}.
-%%	\end{align*}
-%%	Choosing $p$ sufficiently large, we may assume that $\beta>\alpha$. Hence there exists $C_3>0$ such that
-%%	\begin{align*}
-%%		\|v_k\|_{C^{1,\beta}(\Omega_1)}\leq C_3
-%%	\end{align*}
-%%	for every $k$.
-%%
-%%	We next show that $F(\cdot,v_k)$ is uniformly bounded in $C^{0,\beta}(\Omega_1)$. Since $F$ is smooth, its derivatives with respect to both variables are bounded on the compact set $\overline{\Omega_1}\times [-M,M]$. Thus there exist constants $A,B>0$ such that for every $x,y\in \Omega_1$,
-%%	\begin{align*}
-%%		|F(x,v_k(x))-F(y,v_k(y))|
-%%		&\leq |F(x,v_k(x))-F(y,v_k(x))|+|F(y,v_k(x))-F(y,v_k(y))|\\
-%%		&\leq A|x-y|+B|v_k(x)-v_k(y)|.
-%%	\end{align*}
-%%	Using the uniform $C^{0,\beta}$ bound on $v_k$, we obtain
-%%	\begin{align*}
-%%		|F(x,v_k(x))-F(y,v_k(y))|
-%%		\leq A|x-y|+BC_3|x-y|^\beta.
-%%	\end{align*}
-%%	Since $\Omega_1$ is bounded and $\beta<1$, the first term is also controlled by a constant multiple of $|x-y|^\beta$. Hence there exists $C_4>0$ such that
-%%	\begin{align*}
-%%		\|F(\cdot,v_k)\|_{C^{0,\beta}(\Omega_1)}\leq C_4
-%%	\end{align*}
-%%	for every $k$.
-%%
-%%	Now choose another smooth domain $\Omega_0$ such that
-%%	\begin{align*}
-%%		D_{k_0}\Subset \Omega_0 \Subset \Omega_1.
-%%	\end{align*}
-%%	Applying the interior Schauder estimate to
-%%	\begin{align*}
-%%		\Delta v_k = F(\cdot,v_k)
-%%	\end{align*}
-%%	on $\Omega_1$, we get a constant $C_5>0$, independent of $k$, such that
-%%	\begin{align*}
-%%		\|v_k\|_{C^{2,\beta}(\Omega_0)}
-%%		\leq C_5\Bigl(\|v_k\|_{C^0(\Omega_1)}+\|F(\cdot,v_k)\|_{C^{0,\beta}(\Omega_1)}\Bigr).
-%%	\end{align*}
-%%	The right-hand side is uniformly bounded in $k$ by the estimates above, so there exists $C_6>0$ such that
-%%	\begin{align*}
-%%		\|v_k\|_{C^{2,\beta}(\Omega_0)}\leq C_6
-%%	\end{align*}
-%%	for every $k$. In particular,
-%%	\begin{align*}
-%%		\|v_k\|_{C^{2,\beta}(D_{k_0})}\leq C_6.
-%%	\end{align*}
-%%	Since $\beta>\alpha$, the inclusion $C^{2,\beta}(D_{k_0})\hookrightarrow C^{2,\alpha}(D_{k_0})$ is continuous. Therefore there exists $C_7>0$, independent of $k$, such that
-%%	\begin{align*}
-%%		\|v_k\|_{C^{2,\alpha}(D_{k_0})}\leq C_7
-%%	\end{align*}
-%%	for every $k$.
-%%
-%%	Recalling that $v_k=u_{k_0+k}$, this proves that the sequence $(u_{k_0+k})_k$ is bounded in $C^{2,\alpha}(D_{k_0})$.
-%%\end{proof}
-%\begin{proof}\comm{todo}
-%	As we have already discussed, we may suppose without loss of generality that $M=\R^2$.\\
-%	Let us fix an increasing relatively compact sequence of open bounded domains $(D_k)_{k=1}^\infty$ with sufficiently regular boundary that invade $M$, that is
-%	\begin{align*}
-%		\overline{D_k} \subset D_{k+1},\qquad \bigcup_{k=1}^\infty D_k = \R^2
-%	\ . 
-%	\end{align*}
-%	We may choose, for every $m$ a boundary data $\psi_m$ on $\partial D_m$ in between $\underline{\psi}$ and $\overline{\psi}$, in other words
-%	\[\underline{\psi} \leq \psi_m\leq \overline{\psi}\ .\] 
-%	Then we apply theorem \ref{th:subsupsol_bddom} to the data $D_m,\psi_m, \underline{\psi}, \overline{\psi}$  to find a smooth solution $u_m$ that verifies 
-%	\[\underline{\psi} \leq u_m \leq \overline{\psi}\quad\text{on } \overline{D_m}.\] 
-%	Then we fix $k_0,k\in \N$, $k>0$ and set $m = k_0+k$. Since $u_{k_0+k}$ satisfies $\Delta u_{k_0+k}(x) =F(x,u_{k_0+k})$ on $D_{k_0+k}\supset D_{k_0}$, we may apply the Schauder interior estimate on $D_{k_0} \subset D_k$ to obtain the inequality
-%	\begin{align}\label{eq:thmnoncptex1}
-%		\|u_{k_0+k}\|_{C^{1,\alpha}(D_{k_0})} 
-%		\leq
-%		C \left( \|F(\;\cdot\;, u_{k_0+k} )\|_{C^0(D_{k_0+k})}+\|u_{k_0+k }\|_{L^2(D_{k_0+k})} \right) 
-%	\ . 
-%	\end{align}
-%	Now we observe,\vspace*{-2mm}
-%	\begin{itemize}[noitemsep]
-%		\item[$\vartriangleright$] For every $x\in D_{k_0+k}$, \[ |u_{k_0+k}(x)| \leq \max \{|\underline{\psi}|,|\overline{\psi}|\}(x)\leq C\]  (because $\underline{\psi}, \overline{\psi}$ are bounded),
-%		\item[$\vartriangleright$] then, since $F_u>0$ and so $F$ is strictly increasing, we have
-%			\begin{align*}
-%				F(x,u_{k_0+k}(x)) \leq F(x,\max\{|\underline{\psi}|,|\overline{\psi}|\}(x) ) \leq C
-%			\ , 
-%			\end{align*} 
-%			(again because of continuity).
-%	\end{itemize}
-%	Then, by substituting the inequalities we just found in \eqref{eq:thmnoncptex1}, we obtain
-%	\begin{align*}
-%		\|u_{k_0+k}\|_{C^{2,\alpha}(D_{k_0})} \leq C
-%	\ . 
-%	\end{align*}
-%
-%	Fix now a compact set $K\subset M$. For $k_0$ sufficiently large and for every $k>0$ there exists a $D_{k_0}$ that contains $K$ and such that
-%	 \begin{align*}
-%		\|u_{k_0+k}\|_{C^2(K)}\leq \|u_{k_0+k}\|_{C^2(D_{k_0})} \leq C
-%	\ . 
-%	\end{align*}
-%	Hence we can apply the Ascoli-Arzelà Theorem for $C^{\alpha,s}$ spaces, obtaining a subsequence $(u_{k'})_{k'}$ that converges in $C^2(K)$.\\
-%
-%	This construction works for every compact set $K$, so using a diagonal argument we find a limiting function defined on all of $M$ which is $C^2$ and solves the equation $\Delta u = F(x,u)$.
-%
-%	
-%	Since $F_u>0$ we can apply the boostrapping argument and obtain that $u\in C^\infty$.\comm{tbd}
-%\end{proof}
+Let us fix $\Omega\subset \R^n$ an open set. We assume the reader to be familiar with the Sobolev spaces $W^{k,p}$ and the spaces $C^{k,\alpha}$, but we will recall some basic information.\\
+
+We will use the Sobolev immersion theorem, in the following form, so it will be useful to recall its statement.
+\begin{thm}[Sobolev embedding on domains satisfying the cone condition]\label{th:sobemb}
+	Let $\Omega$ be a bounded domain with regular boundary. Let $\ell\in \mathbb N$ and $1\leq p<\infty$. If
+	\begin{align*}
+		m<\ell-\frac{n}{p},
+	\end{align*}
+	then there is a continuous embedding
+	\begin{align*}
+		W^{\ell,p}(\Omega)\hookrightarrow C^m(\overline{\Omega}).
+	\end{align*}
+\end{thm}
+We shall use only the following special case of the Ascoli-Arzelà theorem.
+\begin{thm}[Ascoli-Arzelà]\label{th:ascoli}
+	Suppose $\Omega$ to be bounded, and let $(f_j)_j$ be a sequence
+	bounded in $C^{m+1}(\overline{\Omega})$. Then there exists a subsequence
+	$(f_{j_k})_k$ and a function $f\in C^m(\overline{\Omega})$ such that
+	\begin{align*}
+		f_{j_k}\to f \qquad \text{in } C^m(\overline{\Omega}).
+	\end{align*}
+\end{thm}
+
+Then we will need the following notion of convergence, which will be used show that the limit of a sequence of solutions of an equation is itself a solution.
+\begin{defn}
+	A sequence $(u_j)_j\subset C^2(\Omega)$
+	is said to converge to $u$ in $C^2_{\loc}(\Omega)$ if for every compact set $K\subset \Omega$,
+	\begin{align*}
+		\|u_j-u\|_{C^2(K)}\to 0\ .
+	\end{align*}
+\end{defn}
+
+Then, we will need the following theorem, whose proof can be found in \cite{gilbarg_trudinger_1983} 
+\begin{thm}[Elliptic interior $L^2$-estimate]\label{th:ellintestltwo}
+	Let $\Omega',\Omega\subset \mathbb R^n$ be bounded domains with
+	$\overline{\Omega'}\subset \Omega$, and let $\ell\in \mathbb N\cup\{0\}$. Suppose
+	that $u\in H^{\ell+2}_{\loc}(\Omega)$ satisfies
+	\begin{align*}
+		\Delta u = f
+	\end{align*}
+	on $\Omega$, with $f\in H^\ell(\Omega)$. Then $u\in H^{\ell+2}(\Omega')$ and there
+	exists a constant $C=C(\ell,\Omega',\Omega)$ such that
+	\begin{align*}
+		\|u\|_{H^{\ell+2}(\Omega')}
+		\leq C\Bigl(\|u\|_{H^1(\Omega)}+\|f\|_{H^\ell(\Omega)}\Bigr).
+	\end{align*}
+\end{thm}
+
+Finally, we might recall the statement of the method for sub- and super-solutions, in the form that can be found in \cite{Wan1992}.
+\begin{thm}\label{th:wan9}
+	Let $M$ be a complete Riemannian manifold, and let $ F(x,u)$ be a $C^\infty$ function on $M\times \mathbb R$ such that \[ \frac{\partial F}{\partial u}>0. \]
+	If there exist two functions $ \underline{\psi}\leq \overline{\psi} \in C^0(M)\cap H^1(M)$
+	such that
+		\begin{align*}
+			\begin{cases}
+				\Delta \overline{\psi} \leq F(x,\overline{\psi})\\
+				\Delta \underline{\psi} \geq F(x,\underline{\psi})
+			\end{cases} \text{weakly}
+		\ , 
+		\end{align*}
+	then there is a certain $u\in C^\infty(M)$ such that
+	\[
+		\Delta u=F(x,u)
+	\]
+	and \[ \psi_-\leq u\leq \psi. \]
+	We call $\underline{\psi}$ and $\overline{\psi}$ respectively the sub- and super-solutions.
+\end{thm}
 \subsection{The bounded case}
-We may prove the existence theorem with the stronger hypothesis of boundedness. 
+We may prove the existence theorem with the stronger hypothesis of boundedness for the norm of the quadratic differential. 
 \begin{prop}\label{pr:exboundcase}
-	Let $\Phi$ a holomorphic quadratic differential on $\mathbb{D}$, such that $\|\Phi\|$ is bounded. Then the equation \ref{} has a unique $C^\infty$ solution $w$ that satisfies
+	Let $\Phi$ a holomorphic quadratic differential on $\mathbb{D}$, such that $\|\Phi\|$ is bounded. Then the equation \eqref{eq:box} has a unique $C^\infty$ solution $w$ that satisfies
 	 \begin{align*}
 		1\leq e^{2w} \leq \frac{1+\sqrt{1+4a^2}}{2}
 	\ , 
@@ -2938,8 +2915,40 @@ We may prove the existence theorem with the stronger hypothesis of boundedness.
 	with $a=\sup\|\Phi\|$.
 \end{prop}
 \begin{proof}
-	We use the method of sub- and super-solutions, applied to the equation in the form with respect to the metric, for simplicity.\\
+First we observe that if
+\[ F(x,u)=e^{2u}-\|\Phi\|^2(x)e^{-2u}-1, \]
+then
+\[
+\frac{\partial F}{\partial u}(x,u)
+=
+2e^{2u}+2\|\Phi\|^2(x)e^{-2u}
+>
+0,
+\]
+then we can apply Theorem \ref{th:wan9} if we find a sub-solution and a super-solution.\\
 
+First let us show that the constant function $\underline{\psi}\equiv 0$
+is a subsolution.
+\[
+\Delta_p 0 = 0 \leq \|\Phi\|^2=e^{2\cdot 0}-\|\Phi\|^2e^{-2\cdot 0}+1
+\]
+Hence $0$ is a subsolution.\\
+
+Then we may try to find another constant  $\overline{\psi}$ as a supersolution. Let us then impose $\overline{\psi}\equiv C$ and that it is a supersolution,
+\begin{align*}
+	0   \overset{!}{\leq} \Delta_p C-e^{2C}+\|\Phi\|^2e^{-2C}+1 
+\ . 
+\end{align*}
+Setting $X = e^{2C}$, and setting $a=\sup \|\Phi\|$, this is equivalent to
+\begin{align*}
+	-X + a^2 X^{-1} +1 \leq 0
+\ . 
+\end{align*}
+By solving the inequality we find that $X= \frac{1+\sqrt{1+4a^2} }{2}$ is a valid solution for the inequality, which results to
+\begin{align*}
+	\overline{\psi} = C = \frac{1}{2}\log \left( \frac{1+\sqrt{1+4a^2} }{2} \right) 
+\ . 
+\end{align*}
 \end{proof}
 \subsection{The general case}
 \begin{thm}
@@ -2948,92 +2957,88 @@ We may prove the existence theorem with the stronger hypothesis of boundedness.
 \begin{proof}
 	The idea of this proof is to construct a sequence of solutions on consecutive domains that exhaust $\mathbb{D}$ and prove their convergence in a topology sufficient to obtain the equation valid for the limit.\\
 
-	For every positive integer $k$, denoting with $d_p(\cdot ,\cdot )$ the Poincaré metric on $\mathbb{D}$, define the sequence of open bounded sets
+	For every positive integer $k$, denoting with $d_p(\cdot,\cdot)$ the Poincaré distance on $\mathbb{D}$, define the sequence of open bounded sets
 	\begin{align*}
-		D_k &:= \{ z\in \mathbb{D} \mid d_p(z,0) \leq k\}   \\
-		&= \{ z\in \mathbb{D} \mid |z|\leq R_k \} 
+		D_k &:= \{ z\in \mathbb{D} \mid d_p(z,0) < k\}   \\
+		&= \{ z\in \mathbb{D} \mid |z|< R_k \} 
 	\ , 
 	\end{align*}
 	where $R_k = \frac{e^k-1}{e^k+1}<1$.
 	Then
 	\begin{align*}
-		\overline{D_k} \subset D_{k+1}\text{ for every }k,\quad \bigcup_{k=1}^\infty D_k = \mathbb{D}
+		\overline{D_k} \subset D_{k+1}\text{ for every }k,\qquad \bigcup_{k=1}^\infty D_k = \mathbb{D}
 	\ . 
 	\end{align*}
 	Every $D_k$ can be seen as a Riemannian manifold, with the metric 
-	\[ ds_{p,k} = \frac{4R_k^2}{(R_k-|z|)^2} |dz|^2 = \lambda^2_{p,k}|dz|^2\ .\]
+	\[
+	ds_{p,k}^2 = \frac{4R_k^2}{(R_k^2-|z|^2)^2} |dz|^2 = \lambda^2_{p,k}|dz|^2
+	\ . 
+	\]
 
-
-	Furthermore $\overline{D_k}$ is compact and $|\Phi|$ is smooth, then $|\Phi|$ is bounded.
-
-
-	Hence we may apply \ref{pr:exboundcase} and find, for every $k$ a function $\tilde w_k$ that solves
+	Furthermore $\overline{D_k}$ is compact and $|\Phi|$ is smooth, then $|\Phi|$ is bounded on $\overline{D_k}$.
+	Hence we may apply Proposition \ref{pr:exboundcase} and find, for every $k$, a function $\tilde w_k$ that solves
 	\begin{align*}
 		\begin{cases}
-			\Delta \tilde w_k = e^{2\tilde w_k}-|\Phi|^2 e^{-2\tilde w:k}\geq 0\\
+			\Delta \tilde w_k = e^{2\tilde w_k}-|\Phi|^2 e^{-2\tilde w_k}\\
 			(D_k,e^{2\tilde w_k}|dz|^2) \text{ is complete.}
 		\end{cases}
-	\  
 	\end{align*}
 	
-	It may be useful to define $w_k$ the conformal factor with respect to the Euclidean metric $|dz|^2$. So that
+	It may be useful to define $w_k$ as the conformal factor with respect to the metric $ds_{p,k}^2$. Then
 	\begin{align*}
 		\tilde  w_k &= w_k +\log \left( \lambda_{p,k} \right) \\
-		&=  w_k +\log\left( \frac{2R_k}{R^2_k-|z|^2} \right) 
+		&=  w_k +\log\left( \frac{2R_k}{R_k^2-|z|^2} \right) 
 	\ . 
 	\end{align*}
 	
 	In the proof of Proposition \ref{pr:exboundcase} we have seen that $e^{2w_k}\geq 1$, this translates on $\tilde w_k$ to 
-	\begin{align*}
+	\begin{align}\label{eq:exthm2}
 		e^{2\tilde w_k} = e^{2w_k}\frac{4R_k^2}{(R_k^2-|z|^2)^2}
 		\geq \frac{4R_k^2}{(R_k^2-|z|^2)^2} \geq \frac{4}{(1-|z|^2)^2}
 	\ , 
-	\end{align*}
-	where in the last inequality we used  that $\frac{R_k^2}{(R_k^2-r^2)}\geq \frac{1}{1-r^2}$, which can be proved using $0<r<R_k<1$.\\
+	\end{align}
+	where in the last inequality we used that $\frac{R_k}{R_k^2-r^2}\geq \frac{1}{1-r^2}$, which follows from $0<r<R_k<1$.\\
 
 	Now, since $(D_k,e^{2\tilde w_k}|dz|^2)$ is complete and $\tilde w_{k+1}|_{D_k}$ is still a solution to 
 	\begin{align*}
-		\Delta w = e^{2\tilde w}-|\Phi|^2 e^{-2\tilde w} \text{ on } D_k
+		\Delta w = e^{2\tilde w}-|\Phi|^2 e^{-2\tilde w}\text{ on } D_k
 	\ , 
 	\end{align*}
-	we can apply Theorem  \ref{th:unithm1}, and obtain that
-	\begin{align*}
+	we can apply Theorem \ref{th:unithm1}, and obtain that
+	\begin{align}\label{eq:exthm3}
 		 \tilde w_{k+1} \leq \tilde w_k \text{ on } D_k
 	\ . 
-	\end{align*}
-	This implies that $(\tilde w_{k+j})_{j}$ is a sequence of pointwise decreasing functions on $D_k$. This fact in turn implies that $(\tilde w_k)_k$ is a pointwise convergent sequence of functions in $\mathbb{D}$. In fact, choose $x\in \mathbb{D}$, there exists a $k$ sufficiently large such that $x\in D_k$. From what we just showed, $(\tilde w_{k+j}(x))_j$ is convergent hence the sequence $(\tilde w_{k}(x))_k$, which is well defined for $k$ sufficiently large, is convergent.\\
+	\end{align}
+	This implies that $(\tilde w_{k+j})_{j}$ is a sequence of pointwise decreasing functions on $D_k$. This fact in turn implies that $(\tilde w_k)_k$ is a pointwise convergent sequence of functions on $\mathbb{D}$. In fact, choose $x\in \mathbb{D}$, then there exists $k$ sufficiently large such that $x\in D_k$. From what we just showed, $(\tilde w_{k+j}(x))_j$ is convergent, hence the sequence $(\tilde w_k(x))_k$, which is well defined for $k$ sufficiently large, is convergent as well. Let $\tilde w$ be its pointwise limit.\\
 
-	The pointwise convergence is obviously not sufficient to show that the limit satisfies the equation. For that, we will prove the convergence in $C^2_{\loc}(\mathbb{D})$ for a subsequence, at that point uniqueness or the Urysohn property will grant convergence for the whole sequence, and this convergence is sufficiently strong to prove that the limit is a solution.\comm{todo:add the definition of this}.\\
+	The pointwise convergence is obviously not sufficient to show that the limit satisfies the equation. For that, we will prove the convergence in $C^2_{\loc}(\mathbb{D})$ for a subsequence. Since the pointwise limit has already been found, this will be sufficient to conclude that $\tilde w$ satisfies the equation.\\
 
-	Since we already have a sequence of domains that invades $\mathbb{D}$, we may prove the $C^2$ convergence on a certain  $D_k$, to get the full $C^2_\loc$ convergence on $\mathbb{D}$ we will apply at the end a diagonal argument. In order to have that, we may prove the boundedness in a more regular space, $C^3$, and apply the Ascoli-Arzelà Theorem \comm{todo}.\\
+	Since we already have a sequence of domains that invades $\mathbb{D}$, we may prove the $C^2$ convergence on a certain $D_k$. Then, to get the full $C^2_{\loc}$ convergence on $\mathbb{D}$ we will apply a diagonal argument at the end. Instead, in order to have the $C^2_\loc$ convergence, we may prove the boundedness in the more regular space $C^3$ and apply the Ascoli-Arzelà theorem.\\
 	
-	So, let us fix a positive integer $k$ and consider the sequence of functions $(\tilde w_{k+j+2})_{k=1}^\infty$ on $D_k$. Since the $D_k$ are convex, we can choose a ball $B_k$ such that
+	So, let us fix a positive integer $k$ and consider the sequence of functions $(\tilde w_{k+j+2})_{j=1}^\infty$ on $D_k$. Since $D_k$ is a disk, we can choose a smooth bounded domain $B_k$ such that
 	\begin{align*}
-		\overline{D_k} \subset  B_k \subset  D_{k+1}
+		\overline{D_k} \subset  B_k \subset \overline{B_k}\subset D_{k+1}
 	\ . 
 	\end{align*}
 	
-	We will now procede to apply a series of inequalities to $\| \tilde w_{k+j+2}\|_{C^3(\overline{D_k})}$ to obtain finally an estimate independent form $j$.\\
+	We will now procede to apply a series of inequalities to $\| \tilde w_{k+j+2}\|_{C^3(\overline{D_k})}$ in order to obtain finally an estimate independent of $j$.\\
 
-	$B_k$ has a sufficiently regular boundary, so we can apply the Sobolev immersion $H^{\ell} \hookrightarrow C^m$, with indexes $\ell = 5$, $m=3$\comm{todo}, along with the obvious immersion $C^m(\overline{D_k}) \hookrightarrow C^3(B_k)$, 
+	Since $B_k$ has sufficiently regular boundary, we can apply the Sobolev immersion $H^{\ell} \hookrightarrow C^m$, with indexes $\ell = 5$, $m=3$, together with the obvious immersion $C^3(B_k)\hookrightarrow C^3(\overline{D_k})$, and obtain
 	\begin{align}\label{eq:exthm1}
 		\| u  \|_{C^3(\overline{D_{k}})} \leq \|u\|_{C^3(B_k)}
-		\leq \|u\|_{H^5(B_k)}
+		\leq C(k)\|u\|_{H^5(B_k)}
 	\ . 
 	\end{align}
-	Then we recall the elliptic interior $L^2$-estimate \comm{todo}, given a bounded domain $\Omega$ and $\Omega'$ such that $\overline{\Omega'} \subset  \Omega$, there is a constant $C = C(\ell,\Omega',\Omega)$ such that
+	
+	We also recall the elliptic interior $L^2$-estimate: given bounded domains $\Omega',\Omega$ such that $\overline{\Omega'} \subset  \Omega$, there is a constant $C = C(\ell,\Omega',\Omega)$ such that
 	\begin{align*}
-		\|u\|_{H^\ell(\Omega')} \leq C \left( \|w\|_{H^1(\Omega)}+\|\Delta u\|_{H^\ell(\Omega)} \right)
-	\ . 
-	\end{align*}
-	By applying it with $\ell=3$ we have
-	\begin{align*}
-		\|u\|_{H^5(\Omega')} \leq C \left( \|w\|_{H^1(\Omega)}+\|\Delta u\|_{H^3(\Omega)} \right)
+		\|u\|_{H^{\ell+2}(\Omega')} \leq C \left( \|u\|_{H^1(\Omega)}+\|\Delta u\|_{H^\ell(\Omega)} \right)
 	\ . 
 	\end{align*}
 	
-	Using the equation, we will show now that we can estimate $\|\tilde w_{k+j+2}\|_{C^3(\overline{D_k})}$ using $\|\tilde w_{k+j+2}\|_{H^1(D_{k+1})}$. To simplify the notation, let us denote with $v = w_{k+j+2}$ for the remainder of the proof.\\
-	We know that $v = \tilde w_{k+j+2}$ is a solution for the equation
+	Using the equation, we will show now that we can estimate $\|\tilde w_{k+j+2}\|_{C^3(\overline{D_k})}$ using $\|\tilde w_{k+j+2}\|_{H^1(D_{k+1})}$. To simplify the notation, let us denote with $v=\tilde w_{k+j+2}$ for the remainder of the proof.\\
+
+	We know that $v$ is a solution of the equation
 	\begin{align*}
 		\Delta v = e^{2v}-|\Phi|^2 e^{-2v}
 	\ , 
@@ -3043,36 +3048,206 @@ We may prove the existence theorem with the stronger hypothesis of boundedness.
 		\nabla ( \Delta v ) = 2(e^{2v}+|\Phi|^2 e^{-2v})\nabla v - e^{-2v}\nabla|\Phi|^2
 	\ . 
 	\end{align*}
+	From this we have, on $D_{k+1}$, a uniform bound in $j$ for $v=\tilde w_{k+j+2}$; in fact
+	\begin{itemize}[noitemsep]
+		\item[$\vartriangleright$] $|\Phi|$ and $\nabla|\Phi|^2$ are smooth, hence bounded on $\overline{D_{k+1}}$,
+		\item[$\vartriangleright$] for every $j\geq 1$, from \eqref{eq:exthm3} we have 
+		\begin{align*}
+			v = \tilde w_{k+j+2} \leq \tilde w_{k+3}
+		\qquad \text{on } D_{k+1},
+		\end{align*}
+		\item[$\vartriangleright$] from \eqref{eq:exthm2} we have 
+		\begin{align}\label{eq:exthm4}
+			e^{2v}=e^{2\tilde w_{k+j+2}} \geq \frac{4}{(1-|z|^2)^2}
+		\qquad \text{on } D_{k+1}.
+		\end{align}
+	\end{itemize}
+	Then there exists a constant $C=C(k)$ such that, pointwise on $D_{k+1}$,
+	\begin{align*}
+		|\nabla (\Delta v) | \leq C(k)( |\nabla v| + 1)
+	\ . 
+	\end{align*}
+	This in turn means that
+	\begin{align}\label{eq:exthm6a}
+		\|\nabla ( \Delta v) \|_{L^2(D_{k+1})} \leq C(k)( \|\nabla v\|_{L^2(D_{k+1})} +1)
+	\ . 
+	\end{align}
+	Now, again from the equation, and by applying the bounds above, we obtain
+	\begin{align}\label{eq:exthm5}
+		|\Delta v| = |e^{2v} -|\Phi|^2e^{-2v}| \leq C(k)\qquad \text{on }D_{k+1},
+	\end{align}
+	hence
+	\begin{align}\label{eq:exthm5b}
+		\|\Delta v\|_{L^2(D_{k+1})} \leq C(k)
+	\ . 
+	\end{align}
+	Therefore
+	\begin{align}\label{eq:exthm6}
+		\|\Delta v\|_{H^1(D_{k+1})} &= \|\Delta v\|_{L^2(D_{k+1})}+\|\nabla(\Delta v)\|_{L^2(D_{k+1})}\notag\\
+		&\commb{\qref{eq:exthm5b},\qref{eq:exthm6a}}\leq C(k) (1+\|\nabla v\|_{L^2(D_{k+1})}) \notag\\
+		&\leq C(k) \left( 1+ \|v\|_{H^1(D_{k+1})} \right) 
+	\ . 
+	\end{align}
+
+	Choose now a smooth bounded domain $\Omega'$ such that
+	\begin{align*}
+		\overline{B_k}\subset \Omega' \subset \overline{\Omega'} \subset D_{k+1}
+	\ . 
+	\end{align*}
+	By the interior $L^2$-estimate with $\ell=1$, applied to the pair $(\Omega',D_{k+1})$, we obtain
+	\begin{align}\label{eq:exthm11a}
+		\|v\|_{H^3(\Omega')} 
+		&\leq C(k,\Omega')\left( \|v\|_{H^1(D_{k+1})}+\|\Delta v\|_{H^1(D_{k+1})}\right)\notag\\
+		&\commb{\qref{eq:exthm6}}\leq C(k,\Omega')\left(1+\|v\|_{H^1(D_{k+1})}\right)
+	\ . 
+	\end{align}
+	By Sobolev immersion on $\Omega'$, from \eqref{eq:exthm11a} we also get a uniform $C^1$ bound for $v$ on $\Omega'$. Since $|\Phi|^2$ is smooth, by differentiating the equation up to order $3$ and using the previous $C^1$ bound, we obtain
+	\begin{align}\label{eq:exthm11b}
+		\|\Delta v\|_{H^3(\Omega')}
+		\leq C(k,\Omega')\left(1+\|v\|_{H^3(\Omega')}\right)
+	\ . 
+	\end{align}
+	Now we apply the interior $L^2$-estimate again, this time with $\ell=3$, to the pair $(B_k,\Omega')$:
+	\begin{align}\label{eq:exthm11}
+		\|v\|_{H^5(B_k)} 
+		&\leq C(k,\Omega') \left( \|v\|_{H^1(\Omega')} + \|\Delta v\|_{H^3(\Omega')}\right)\notag\\
+		&\commb{\qref{eq:exthm11b}}\leq C(k,\Omega') \left( 1+\|v\|_{H^1(\Omega')} + \|v\|_{H^3(\Omega')}\right)\notag\\
+		&\commb{\qref{eq:exthm11a}}\leq C(k,\Omega') \left( 1+\|v\|_{H^1(D_{k+1})}\right)
+	\ . 
+	\end{align}
+	So that finally it is sufficient to estimate $\|v\|_{H^1(D_{k+1})}$.
+
+	Similarly to before, $v=\tilde w_{k+j+2}$ solves the equation on $D_{k+2}$
+	\begin{align*}
+		\Delta v = e^{2v}-|\Phi|^2 e^{-2v}\quad\text{ on } D_{k+2}
+	\ . 
+	\end{align*}
+	Choose a positive test function $\varphi\in C^\infty_c(D_{k+2})$ such that $\varphi\equiv 1$ on $D_{k+1}$. Then
+	\begin{align*}
+		\int_{D_{k+2}} \varphi^2 v\Delta v = \int_{D_{k+2}} v \varphi^2( e^{2v}-|\Phi|^2 e^{-2v}) \geq 0
+	\ . 
+	\end{align*}
+	This implies that
+	\begin{align*}
+		\int_{D_{k+2}} \nabla(\varphi^2 v)\cdot \nabla v = 
+		-\int_{D_{k+2}} \varphi^2 v\Delta v \leq 0 
+	\ . 
+	\end{align*}
+	Hence 
+	\begin{align*}
+		0 &\geq \int_{D_{k+2}} \nabla(\varphi^2 v)\cdot \nabla v \\
+		  &= \int_{D_{k+2}} 2\varphi\,v\; \nabla \varphi\cdot  \nabla v + \varphi^2 |\nabla v|^2
+	\ , 
+	\end{align*}
+	so that
+	\begin{align*}
+		\int_{D_{k+2}} \varphi^2|\nabla v|^2 
+		&\leq
+		- 2 \int_{D_{k+2}} \varphi v \nabla\varphi \cdot \nabla v\\
+		&\leq 2\int_{D_{k+2}} \varphi v |\nabla \varphi| |\nabla v|\\
+		&=  2\left<\varphi \nabla v, v \nabla \varphi \right>_{L^2(D_{k+2})}\\
+		&\leq 2 \|\varphi \nabla v\|_{L^2(D_{k+2})}\| v\nabla\varphi\|_{L^2(D_{k+2})} \\
+		&=  2 \left( \int_{D_{k+2}} \varphi^2 |\nabla v|^2 \right)^\frac{1}{2} \left( \int_{D_{k+2}}   v^2|\nabla \varphi|^2\right)^\frac{1}{2} \ .
+	\end{align*}
+	This is an inequality of the form $A^2 \leq 2AB$, where
+	\begin{align*}
+		A = \left( \int_{D_{k+2}} \varphi^2 |\nabla v|^2 \right)^\frac{1}{2},
+		\qquad
+		B = \left( \int_{D_{k+2}}   v^2|\nabla \varphi|^2\right)^\frac{1}{2}.
+	\end{align*}
+	If $A=0$ there is nothing to prove; otherwise, dividing by $A$, we obtain $A\leq 2B$, so that
+	\begin{align}\label{eq:exthm7}
+		 \int_{D_{k+2}} \varphi^2|\nabla v|^2= A^2  \leq  4B^2 =4\int_{D_{k+2}}   v^2|\nabla \varphi|^2  
+	\ . 
+	\end{align}
+	Then, remembering that $\varphi$ is a test function that depends only on $k$ and is equal to $1$ on $D_{k+1}$,
+	\begin{align*}
+		\|\nabla v\|^2_{L^2(D_{k+1})}&=\int_{D_{k+1}} |\nabla v|^2 \\
+								  &\leq
+		\int_{D_{k+2}} \varphi^2|\nabla v|^2\\
+		\commb{\qref{eq:exthm7}}\hspace{4mm}&\leq 4 \int_{D_{k+2}}v^2|\nabla \varphi|^2\\
+		&\leq  4\|\nabla \varphi\|^2_{L^\infty(D_{k+2})}\| v\|^2_{L^2(D_{k+2})}\\
+		&= C(k) \| v\|^2_{L^2(D_{k+2})} 
+	\ . 
+	\end{align*}
+	Then we have
+	\begin{align}\label{eq:exthm8}
+		\| v\|_{H^1(D_{k+1})} &= \|v\|_{L^2(D_{k+1})} + \|\nabla v\|_{L^2(D_{k+1})}\notag\\
+						   &\leq C(k) \|v\|_{L^2(D_{k+2})}
+	\ . 
+	\end{align}
+	Since, by \eqref{eq:exthm3}, we have $v=\tilde w_{k+j+2}\leq \tilde w_{k+3}$ on $D_{k+2}$, while by \eqref{eq:exthm2} we have
+	\begin{align*}
+		v=\tilde w_{k+j+2}\geq \log\left( \frac{2}{1-|z|^2}\right)\qquad\text{on }D_{k+2},
+	\end{align*}
+	and both bounds depend only on $k$, there exists $C(k)$ such that
+	\begin{align}\label{eq:exthm9}
+		|v(z)|\leq C(k)\qquad \forall z\in D_{k+2}.
+	\end{align}
+	Hence
+	\begin{align}\label{eq:exthm10}
+		\|v\|_{L^2(D_{k+2})}\leq C(k).
+	\end{align}
+	Therefore
+	\begin{align*}
+		\|\tilde w_{k+j+2}\|_{C^3(\overline{D_k})}
+		&\overset{\qref{eq:exthm1}}{\leq} C(k)\|\tilde w_{k+j+2}\|_{H^5(B_k)} \\
+		&\overset{\qref{eq:exthm11}}{\leq} C(k)\bigl(1+\|\tilde w_{k+j+2}\|_{H^1(D_{k+1})}\bigr) \\
+		&\overset{\qref{eq:exthm8}}{\leq} C(k)\bigl(1+\|\tilde w_{k+j+2}\|_{L^2(D_{k+2})}\bigr) \\
+		&\overset{\qref{eq:exthm10}}{\leq} C(k).
+	\end{align*}
+	So the sequence $(\tilde w_{k+j+2})_j$ is uniformly bounded in $C^3(\overline{D_k})$.\\
+
+	We may briefly illustrate the diagonal argument yielding the convergence in $C^2_\loc$.\\
+	For every $a\in \N$, we proved above that the sequence $(\tilde w_{a+j+2})_{j=1}^\infty$ is uniformly bounded in $C^3(\overline{D_a})$.\\
+	Define $w_{0,b}:=\tilde w_b$ and fix a positive integer index $a$. Up to taking a subsequence, we may assume that $(w_{a-1,b})_b$ is a subsequence of $(\tilde w_{a+j+2})_j$, hence it is bounded in $C^3(\overline{D_a})$. By the Ascoli-Arzelà theorem we can therefore extract a subsequence $(w_{a,b})_b$ of $(w_{a-1,b})_b$ which converges in $C^2(\overline{D_a})$.\\
+	We claim that the diagonal sequence $(w_{a,a})_a$ converges in $C^2_\loc$.\\
+	To show that, first fix an index $m$. By construction $(w_{m,b})_b$ converges in $C^2(\overline{D_m})$. Then, if $a_0\geq m$,
+	\[
+	(w_{a,a})_{a\geq a_0} \text{ is a subsequence of } (w_{m,b})_b,
+	\]
+	hence $(w_{a,a})_{a\geq a_0}$ converges in $C^2(\overline{D_m})$. Since $m$ is arbitrary, and every compact set $K\subset \mathbb{D}$ is contained in $D_m$ for some $m$, the diagonal sequence converges in $C^2(K)$ for every compact set $K\subset \mathbb{D}$. Denoting by $(\tilde w_{k'})$ the diagonal subsequence, we have then
+	\begin{align*}
+		\tilde w_{k'}\to \tilde w \qquad \text{in } C^2_\loc(\mathbb{D}),
+	\end{align*}
+	and since the original sequence already converges pointwise to $\tilde w$, the limit of the diagonal subsequence is necessarily the same function $\tilde w$.\\
+
+
+	Now let $K\subset \mathbb{D}$ be a compact set. Since $\tilde w_{k'}\to \tilde w$ in $C^2(K)$, we have
+	\begin{align*}
+		\tilde w_{k'}\to \tilde w,\qquad \Delta \tilde w_{k'}\to \Delta \tilde w
+	\end{align*}
+	uniformly on $K$. Moreover, since $|\Phi|^2$ is fixed and smooth, from the uniform convergence of $\tilde w_{k'}$ to $\tilde w$ on $K$ we also get
+	\begin{align*}
+		e^{2\tilde w_{k'}}\to e^{2\tilde w},\qquad |\Phi|^2e^{-2\tilde w_{k'}}\to |\Phi|^2e^{-2\tilde w}
+	\end{align*}
+	uniformly on $K$. Therefore, passing to the limit in
+	\begin{align*}
+		\Delta \tilde w_{k'}=e^{2\tilde w_{k'}}-|\Phi|^2e^{-2\tilde w_{k'}},
+	\end{align*}
+	we obtain
+	\begin{align*}
+		\Delta \tilde w=e^{2\tilde w}-|\Phi|^2e^{-2\tilde w}
+	\end{align*}
+	on $K$. Since $K$ is arbitrary, the equation holds on all of $\mathbb{D}$.\\
+
+	Finally, passing to the limit in \eqref{eq:exthm2}, we get
+	\begin{align*}
+		e^{2\tilde w}\geq \frac{4}{(1-|z|^2)^2}.
+	\end{align*}
+	Hence the metric $e^{2\tilde w}|dz|^2$ dominates the Poincaré metric on
+	$\mathbb{D}$. Therefore every curve which has infinite length with respect to the
+	Poincaré metric also has infinite length with respect to $e^{2\tilde w}|dz|^2$.
+	Since the Poincaré metric is complete, this proves that $e^{2\tilde w}|dz|^2$ is
+	complete.
+
+	This concludes the proof.
 \end{proof}
 
 
 
 
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
 \nocite{*}
 \printbibliography
 \end{document}

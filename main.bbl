@@ -141,6 +141,7 @@
       \field{title}{Maximal spacelike hypersurfaces in the Lorentz-Minkowski space}
       \field{volume}{104}
       \field{year}{1976}
+      \true{nocite}
       \field{pages}{407\bibrangedash 419}
       \range{pages}{13}
     \endentry
@@ -207,7 +208,6 @@
       \field{edition}{2}
       \field{title}{Elliptic Partial Differential Equations of Second Order}
       \field{year}{1983}
-      \true{nocite}
     \endentry
     \entry{jost2006compact}{book}{}
       \name{author}{1}{}{%
@@ -342,6 +342,7 @@
       \field{title}{Harmonic functions on complete Riemannian manifolds}
       \field{volume}{28}
       \field{year}{1975}
+      \true{nocite}
       \field{pages}{201\bibrangedash 228}
       \range{pages}{28}
     \endentry

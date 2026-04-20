@@ -3,7 +3,7 @@
 \contentsline {paragraph}{Space-like immersions.}{2}{section*.2}%
 \contentsline {paragraph}{Entire surfaces.}{3}{section*.3}%
 \contentsline {paragraph}{Normal vectors to a space-like surface in $\mathbb {M}^{2,1}$}{5}{section*.4}%
-\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{6}{section*.5}%
+\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{5}{section*.5}%
 \contentsline {paragraph}{The Gauss Map in $\mathbb {M}^{2,1}$}{7}{section*.6}%
 \contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{7}{section.3}%
 \contentsline {subsection}{\numberline {C.1}Recall on the second fundamental form}{7}{subsection.3.1}%
@@ -12,7 +12,7 @@
 \contentsline {paragraph}{Mean curvature}{11}{section*.8}%
 \contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{12}{section.4}%
 \contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{12}{subsection.4.1}%
-\contentsline {paragraph}{Conformal structures on 2-surfaces}{13}{section*.9}%
+\contentsline {paragraph}{Conformal structures on 2-surfaces}{12}{section*.9}%
 \contentsline {paragraph}{Integration through a conformal chart}{14}{section*.10}%
 \contentsline {subsection}{\numberline {D.2}Uniformization}{14}{subsection.4.2}%
 \contentsline {subsection}{\numberline {D.3}Harmonic maps into $\mathbb {H}$}{15}{subsection.4.3}%
@@ -24,11 +24,12 @@
 \contentsline {paragraph}{The Codazzi equation is equivalent to $\Phi $ holomorphic}{28}{section*.14}%
 \contentsline {subsection}{\numberline {D.6}A different form for Gauss' equation}{30}{subsection.4.6}%
 \contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{32}{section.5}%
-\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{34}{section.6}%
+\contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{35}{section.6}%
 \contentsline {section}{\numberline {G}Uniqueness for the PDE}{38}{section.7}%
 \contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{38}{subsection.7.1}%
-\contentsline {paragraph}{A boundedness result}{42}{section*.15}%
-\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{47}{subsection.7.2}%
-\contentsline {section}{\numberline {H}Existence for the PDE}{50}{section.8}%
-\contentsline {subsection}{\numberline {H.1}The bounded case}{50}{subsection.8.1}%
-\contentsline {subsection}{\numberline {H.2}The general case}{51}{subsection.8.2}%
+\contentsline {paragraph}{A boundedness result}{45}{section*.15}%
+\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{49}{subsection.7.2}%
+\contentsline {section}{\numberline {H}Existence for the PDE}{53}{section.8}%
+\contentsline {subsection}{\numberline {H.1}Analytic preliminaries}{53}{subsection.8.1}%
+\contentsline {subsection}{\numberline {H.2}The bounded case}{54}{subsection.8.2}%
+\contentsline {subsection}{\numberline {H.3}The general case}{55}{subsection.8.3}%
