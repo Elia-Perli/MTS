@@ -1,35 +1,36 @@
-\contentsline {section}{\numberline {A}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {B}Minkowski space and space-like surfaces}{2}{section.2}%
-\contentsline {paragraph}{Space-like immersions.}{2}{section*.2}%
-\contentsline {paragraph}{Entire surfaces.}{3}{section*.3}%
-\contentsline {paragraph}{Normal vectors to a space-like surface in $\mathbb {M}^{2,1}$}{5}{section*.4}%
-\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{5}{section*.5}%
-\contentsline {paragraph}{The Gauss Map in $\mathbb {M}^{2,1}$}{7}{section*.6}%
-\contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{7}{section.3}%
-\contentsline {subsection}{\numberline {C.1}Recall on the second fundamental form}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {C.2}The Gauss-Codazzi equations and Gaussian curvature}{9}{subsection.3.2}%
-\contentsline {paragraph}{Bonnet's theorem}{11}{section*.7}%
-\contentsline {paragraph}{Mean curvature}{11}{section*.8}%
-\contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{12}{section.4}%
-\contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{12}{subsection.4.1}%
-\contentsline {paragraph}{Conformal structures on 2-surfaces}{12}{section*.9}%
-\contentsline {paragraph}{Integration through a conformal chart}{14}{section*.10}%
-\contentsline {subsection}{\numberline {D.2}Uniformization}{14}{subsection.4.2}%
-\contentsline {subsection}{\numberline {D.3}Harmonic maps into $\mathbb {H}$}{15}{subsection.4.3}%
-\contentsline {subsection}{\numberline {D.4}Harmonic maps between Riemann surfaces}{20}{subsection.4.4}%
-\contentsline {subsection}{\numberline {D.5}Energy densities and the Hopf differential}{21}{subsection.4.5}%
-\contentsline {paragraph}{Energy densities and Jacobian}{21}{section*.11}%
+\contentsline {section}{\numberline {A}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {B}Minkowski space and space-like surfaces}{3}{section.2}%
+\contentsline {paragraph}{Space-like immersions.}{3}{section*.2}%
+\contentsline {paragraph}{Entire surfaces.}{4}{section*.3}%
+\contentsline {paragraph}{Normal vectors to a space-like surface in $\mathbb {M}^{2,1}$}{6}{section*.4}%
+\contentsline {paragraph}{$\mathbb {H}$ is a model for the Hyperbolic plane.}{7}{section*.5}%
+\contentsline {paragraph}{The Gauss Map in $\mathbb {M}^{2,1}$}{8}{section*.6}%
+\contentsline {section}{\numberline {C}The Gauss-Codazzi equations and the curvatures of $S$}{8}{section.3}%
+\contentsline {subsection}{\numberline {C.1}Recall on the second fundamental form}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {C.2}The Gauss-Codazzi equations and Gaussian curvature}{10}{subsection.3.2}%
+\contentsline {paragraph}{Bonnet's theorem}{12}{section*.7}%
+\contentsline {paragraph}{Mean curvature}{12}{section*.8}%
+\contentsline {section}{\numberline {D}Riemann surfaces and harmonic maps}{13}{section.4}%
+\contentsline {subsection}{\numberline {D.1}Preliminaries on Riemann surfaces}{13}{subsection.4.1}%
+\contentsline {paragraph}{Conformal structures on 2-surfaces}{13}{section*.9}%
+\contentsline {paragraph}{Integration through a conformal chart}{15}{section*.10}%
+\contentsline {subsection}{\numberline {D.2}Uniformization}{15}{subsection.4.2}%
+\contentsline {subsection}{\numberline {D.3}Harmonic maps between Riemann surfaces}{16}{subsection.4.3}%
+\contentsline {paragraph}{Energy densities and Jacobian}{17}{section*.11}%
+\contentsline {subsection}{\numberline {D.4}Harmonic maps into $\mathbb {H}$}{17}{subsection.4.4}%
+\contentsline {subsection}{\numberline {D.5}Energy densities and the Hopf differential}{22}{subsection.4.5}%
 \contentsline {paragraph}{Quadratic differentials}{22}{section*.12}%
-\contentsline {paragraph}{The second fundamental form and the Hopf differential of the Gauss map}{25}{section*.13}%
-\contentsline {paragraph}{The Codazzi equation is equivalent to $\Phi $ holomorphic}{28}{section*.14}%
-\contentsline {subsection}{\numberline {D.6}A different form for Gauss' equation}{30}{subsection.4.6}%
-\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{32}{section.5}%
+\contentsline {paragraph}{The second fundamental form and the Hopf differential of the Gauss map}{26}{section*.13}%
+\contentsline {subsection}{\numberline {D.6}A different form for Gauss' equation}{29}{subsection.4.6}%
+\contentsline {section}{\numberline {E}CMC surfaces and harmonic maps}{31}{section.5}%
 \contentsline {section}{\numberline {F}Classification of hyperbolic CMC cuts}{35}{section.6}%
-\contentsline {section}{\numberline {G}Uniqueness for the PDE}{38}{section.7}%
-\contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{38}{subsection.7.1}%
-\contentsline {paragraph}{A boundedness result}{45}{section*.15}%
-\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{49}{subsection.7.2}%
-\contentsline {section}{\numberline {H}Existence for the PDE}{53}{section.8}%
-\contentsline {subsection}{\numberline {H.1}Analytic preliminaries}{53}{subsection.8.1}%
-\contentsline {subsection}{\numberline {H.2}The bounded case}{54}{subsection.8.2}%
-\contentsline {subsection}{\numberline {H.3}The general case}{55}{subsection.8.3}%
+\contentsline {paragraph}{The codazzi equation and holomorphic quadratic differentials}{35}{section*.14}%
+\contentsline {subsection}{\numberline {F.1}The classification theorem}{37}{subsection.6.1}%
+\contentsline {section}{\numberline {G}Uniqueness for the PDE}{41}{section.7}%
+\contentsline {subsection}{\numberline {G.1}A generalized maximum principle}{41}{subsection.7.1}%
+\contentsline {paragraph}{A boundedness result}{47}{section*.15}%
+\contentsline {subsection}{\numberline {G.2}The uniqueness theorem}{51}{subsection.7.2}%
+\contentsline {section}{\numberline {H}Existence for the PDE}{55}{section.8}%
+\contentsline {subsection}{\numberline {H.1}Analytic preliminaries}{55}{subsection.8.1}%
+\contentsline {subsection}{\numberline {H.2}The bounded case}{56}{subsection.8.2}%
+\contentsline {subsection}{\numberline {H.3}The general case}{58}{subsection.8.3}%

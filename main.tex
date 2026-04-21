@@ -167,10 +167,23 @@ bottomline=false,topline=false,rightline=false]{theo}
 
 \tableofcontents
 
-
-
 \section{Introduction}
-Goal of the work, maybe a simple example, some mention to preliminary information and a soft mention to what's the problem and the philosophy.
+
+The purpose of this thesis is to study hyperbolic space-like constant mean curvature one cuts in three-dimensional Minkowski space and to prove a classification result for them. The main idea is to parametrize these surfaces using a particularly regular analytic datum on the hyperbolic disk, namely a holomorphic quadratic differential. Using the approach of this work, the classification problem becomes an existence and uniqueness problem for a nonlinear elliptic partial differential equation.
+
+The first part of the thesis is focused on some geometric background. We begin by considering space-like immersions in Minkowski space and discussing some global properties of complete immersions. In particular, the hypothesis of completeness yields some useful topological properties. Since these surfaces are hyperbolic Riemann surfaces, the uniformization theorem then provides a concrete , namely the Poincaré disk, on which all the relevant objects can be studied.
+
+We then give a different formulation of the Gauss--Codazzi equations, adapting them to the Lorentzian setting, which results in a form of the equations that differs in a small yet important way from the classical Euclidean case. This eventually manifests itself in the form of the PDE that is central to the thesis. Another crucial step is to prove that the Gauss map of a space-like surface, whose values in this case lie in $\mathbb{H}$ instead of the classical $\mathbb{S}^2$, is harmonic if and only if the mean curvature is constant. This fact is remarkable because it translates a geometric condition on the surface into an analytic condition on its Gauss map. This is further translated into the fact that the corresponding Hopf differential is holomorphic, and this leads to the construction of a map
+\[
+\mathscr{A}:\mathbf{E}\to\mathbf{Q}_{\mathbb{D}},
+\]
+which associates to each CMC-$1$ cut, up to isometry, a holomorphic quadratic differential on the Poincaré disk.
+
+The main theorem proved in this thesis states that this map is a bijection. In order to prove it, we have to invert the previous construction. Starting from a holomorphic quadratic differential, we reconstruct the geometric data, namely the first and second fundamental forms of the surface, using the properties found in the previous step, which are necessary conditions and turn out also to be sufficient. First, the Gauss equation, which we translated into a PDE, is solved for the conformal factor of the induced metric, thereby obtaining the first fundamental form. Then, using the properties of traceless symmetric tensors, we reconstruct the second fundamental form. To reconstruct the surface itself, we use Bonnet's fundamental theorem, which requires that the candidate first and second fundamental forms satisfy the Gauss--Codazzi equations. In this inverse direction, an important step is to show that a traceless symmetric $2$-tensor satisfies the Codazzi equation if and only if the associated quadratic differential is holomorphic. In this way, the geometric compatibility conditions are rewritten in analytic terms.
+
+The last part of the thesis is dedicated to the study of this PDE. The bijectivity of $\mathscr{A}$ is reduced to existence and uniqueness for this equation under the natural completeness and positivity conditions. Uniqueness is obtained by means of a generalized maximum principle, while existence is proved through a sub- and supersolution method, first on bounded domains and then on an exhaustion of the disk.
+
+Our discussion is based mainly on the work of Wan \cite{Wan1992}.
 \section{Minkowski space and space-like surfaces}\label{sc:splsrf}
 The environment we will work within is the Minkowki 3-space, defined as $\R^3$ endowed with the pseudometric
 \[ds^2 = ( dx^1)^{2} + (dx^2)^{2}-(dx^3)^2.\]
@@ -743,21 +756,93 @@ In our case the surface we consider is simply connected and noncompact (for inst
 	If $\Sigma$ is a simply connected noncompact Riemann surface, then $\Sigma$ is conformally equivalent either to $\C$ or to $\mathbb{D}$.
 \end{cor}
 
-\subsection{Harmonic maps into $\mathbb{H}$}
-An important result we need to prove is that the Gauss map of a complete space-like surface in $\M$ is harmonic if and only if the surface is CMC. In order to do this we need first to give a definition of harmonicity for a map with values in $\M$. \\
-Let us consider $f:(\mathbb{D},e^{2\eta}(dx^2+dy^2))\to  \M$. We can define the energy density of $f$ as 
-\[e(f) = e^{-2\eta}(f_x\cdot f_x+f_y\cdot f_y)\ .\] 
-If the map has compact support we can integrate the energy density, obtaining the energy of the map,
+\subsection{Harmonic maps between Riemann surfaces}
+Let $(\Sigma_1,g)$ and $(\Sigma_2,h)$ be two Riemann surfaces, and let $z$ and $w$ be local conformal coordinates on $\Sigma_1$ and $\Sigma_2$, respectively, so that the metrics are written as
 \begin{align*}
-	E(f) &= \int_{\mathbb{D}} e^{2\eta} e(f) dx \wedge dy\\
-	&= \int_{\mathbb{D}} f_x\cdot f_x +f_y\cdot f_y dx  \wedge dy
+	g=e^{2\eta}|dz|^2 = \lambda^2|dz|^2,
+	\qquad
+	h=\rho^2(w)|dw|^2
+	\ \ .
+\end{align*}
+Let $f:\Sigma_1\to \Sigma_2$ be a smooth map, and denote for simplicity by $w$ its local expression in the chosen coordinates. In these coordinates the energy density of $f$ is given by
+\begin{align*}
+	e(f)
+	&=
+	\frac{\rho^2(w)}{\lambda^2}\bigl(|w_x|^2+|w_y|^2\bigr)\\
+	&=
+	2\frac{\rho^2(w)}{\lambda^2}\bigl(|w_z|^2+|w_{\bar z}|^2\bigr)
+	\ \ .
+\end{align*}
+Then, if $\Omega\subset \Sigma_1$ is a compact domain, the energy of $f$ on $\Omega$ is
+\begin{align*}
+	E_\Omega(f)
+	&:=
+	\int_\Omega e(f)\, dA_g\\
+	&=
+	\int_\Omega \lambda^2(z)e(f(z))\, \frac{i}{2}\, dzd\bar z\\
+	&=
+	\int_\Omega \rho^2(w)\bigl(|w_z|^2+|w_{\bar z}|^2\bigr)\, i\, dzd\bar z
+	\ \ .
+\end{align*}
+We say that $f$ is harmonic if it is a critical point of this functional with respect to compactly supported perturbations. The corresponding Euler-Lagrange equation is
+\[
+w_{z\bar z}+2\frac{\rho_w}{\rho}w_zw_{\bar z}=0
+\ \ .
+\]
+For a complete derivation of the compact case we redirect the reader to \cite{jost2006compact}.\\
+
+An important observation is that the local harmonic map equation does not involve the conformal factor $\lambda$ of the metric on the domain. This reflects the fact that, in dimension two, harmonicity depends only on the conformal class of the metric on the source surface.
+
+\paragraph{Energy densities and Jacobian}\mbox{}\\
+In addition to the energy density of the map $f$, it is convenient to introduce two more refined quantities, the holomorphic and anti-holomorphic energy densities. These objects will let us also express the Jacobian of $f$ in a convenient way.
+\begin{defn}
+	We define the holomorphic and antiholomorphic energy density of a smooth map $f:\Sigma_1\to \Sigma_2$ respectively as	
+\begin{align*}
+	\mathcal H(f):=\frac{\rho^2(f)}{\lambda^2}|f_z|^2,
+	\qquad\text{and}\qquad
+	\mathcal L(f):=\frac{\rho^2(f)}{\lambda^2}|f_{\bar z}|^2
+\ \ .
+\end{align*}
+\end{defn}
+It is immediate to note that 
+\[e(f) = \mathcal H(f)+\mathcal L(f)\ .\] 
+The Jacobian of the map is by definition
+\begin{align*}
+	J(f) =  \frac{\rho^2(f)}{\lambda^2}(|f_z|^2-|f_{\overline{z}}|^2)
 \ \ . 
 \end{align*}
-This quantity does not define an $\mathbb{R}$-valued functional on the space of all maps $f$, since the integral may be infinite. Nevertheless, if we consider a compactly supported deformation of $f$, the corresponding first variation is still well defined. This in turn lets us give the definition of a harmonic map.\\
+So that we also have 
+\begin{align}\label{eq:defjacob}
+	J(f) = \mathcal H(f) - \mathcal L(f)\ .
+\ \ . 
+\end{align}
+\subsection{Harmonic maps into $\mathbb{H}$}
+We now specialize the previous discussion to maps with values in the hyperbolic plane. Since $\mathbb{H}$ is itself a Riemann surface, the notion of harmonic map introduced above already applies to maps with target $\mathbb{H}$. Nevertheless, in order to relate harmonicity to the geometry of a space-like surface in $\M$, it is convenient to rewrite the first variation in an extrinsic way, regarding $\mathbb{H}$ as the hyperboloid in Minkowski space.\\
+
+Let us consider
+\[
+f:(\mathbb{D},e^{2\eta}(dx^2+dy^2))\to \mathbb{H}\subset \M
+\ \ .
+\]
+Since the metric on $\mathbb{H}$ is the one induced by the Minkowski product of $\M$, the energy density can be written as
+\[
+e(f) = e^{-2\eta}(f_x\cdot f_x+f_y\cdot f_y)
+\ \ .
+\]
+When the energy density is integrable, we define the energy of the map by
+\begin{align*}
+	E(f)
+	&=
+	\int_{\mathbb{D}} e^{2\eta} e(f) dx \wedge dy\\
+	&=
+	\int_{\mathbb{D}} f_x\cdot f_x +f_y\cdot f_y dx  \wedge dy
+	\ \ .
+\end{align*}
+As before, this quantity may well be infinite for a general map. However, if we consider compactly supported deformations, the corresponding first variation is still well defined, and this is enough for our purposes.\\
 
 Let us fix a compactly supported deformation of $f$, namely a smooth map
 \[
-\xi:\mathbb{D}\times (-\epsilon,\epsilon) \to \M
+\xi:\mathbb{D}\times (-\epsilon,\epsilon) \to \mathbb{H}
 \]
 such that
 \[
@@ -768,15 +853,23 @@ for every $(x,y)\in\mathbb{D}$, and there exists a compact set $K\subset \mathbb
 \xi(x,y,t)=f(x,y)
 \]
 for every $(x,y)\in \mathbb{D}\setminus K$ and every $t\in (-\epsilon,\epsilon)$. We call $\xi$ of this form an admissible deformation of $f$. \\
-Then, we define \[ f_t := \xi(\cdot,\cdot,t)\ .\]
+Then, we define
+\[
+f_t := \xi(\cdot,\cdot,t)
+\ \ .
+\]
+If $\Omega\subset \mathbb{D}$ is a compact domain containing $K$ in its interior, we define
+\[
+\Delta E(t):=\int_\Omega e^{2\eta}\bigl(e(f_t)-e(f)\bigr)\,dx\wedge dy
+\ \ .
+\]
+Since $f_t=f$ on $\mathbb{D}\setminus K$, the quantity $\Delta E(t)$ is independent of the choice of $\Omega$, provided $\Omega$ is sufficiently large.
+
 \begin{defn}
-	We say that $f$ is a harmonic map if for every admissible deformation $\xi$, and for one, equivalently any, compact domain $\Omega\subset \mathbb{D}$ containing the support of the deformation, one has
+	We say that $f$ is a harmonic map if for every admissible deformation $\xi$ one has
 	\[
-	\lim_{t\to 0}\frac{\Delta E_\Omega(t)}{t}=0,
-	\]
-	where
-	\[
-	\Delta E_\Omega(t):=\int_\Omega e^{2\eta}\bigl(e(f_t)-e(f)\bigr)\,dx\wedge dy\ .
+	\lim_{t\to 0}\frac{\Delta E(t)}{t}=0
+	\ \ .
 	\]
 \end{defn}
 The following lemma is needed to give later a characterizaion of harmonic maps.
@@ -1002,87 +1095,7 @@ We have now all the pieces needed to prove the central theorem of this subsectio
 	\[(\Delta N)^T = 2 \nabla H. \]
 	Then recall from corollary \ref{cor:tglapnull} that $N$ if and only if the LHS in the last equation is zero, which in turn is equivalent to $H$ being constant. 
 \end{proof}
-\subsection{Harmonic maps between Riemann surfaces}
-We can formulate the notion of harmonicity in a slightly more general setting. Let $(\Sigma_1,g)$ and $(\Sigma_2,h)$ be two Riemann surfaces, and let $z$ and $w$ be local conformal coordinates on $\Sigma_1$ and $\Sigma_2$, respectively, so that the metrics are written as
-\begin{align*}
-	g=e^{2\eta}|dz|^2 = \lambda^2|dz|^2,
-	\qquad
-	h=\rho^2(w)|dw|^2
-	\ \ .
-\end{align*}
-Let $f:\Sigma_1\to \Sigma_2$ be a smooth map, and denote for simplicity by $w$ its local expression in the chosen coordinates. In the last section we set $\Sigma_1 = \mathbb{D}$ and $\Sigma_2=\mathbb{H}$ and defined the energy density of $f$ as
-\begin{align*}
-	e(f)=\frac{1}{\lambda^2}\bigl(f_x\cdot f_x+f_y\cdot f_y\bigr)
-	\ \ .
-\end{align*}
-Since the metric on the target is $\rho^2(w)|dw|^2$, we have
-\begin{align*}
-	f_x\cdot f_x=\rho^2(w)|w_x|^2,
-	\qquad
-	f_y\cdot f_y=\rho^2(w)|w_y|^2,
-\end{align*}
-and therefore
-\begin{align*}
-	e(f)=\frac{\rho^2(w)}{\lambda^2}\bigl(|w_x|^2+|w_y|^2\bigr)
-	\ \ .
-\end{align*}
-Now, if we introduce the complex coordinate $z=x+iy$, as before, we have $w_z=\frac12(w_x-iw_y)$ and $w_{\bar z}=\frac12(w_x+iw_y)$. Thus
-\begin{align*}
-	w_x=w_z+w_{\bar z},
-	\qquad
-	w_y=i(w_z-w_{\bar z})
-	\ \ .
-\end{align*}
-Hence
-\begin{align*}
-	|w_x|^2+|w_y|^2
-	&=
-	|w_z+w_{\bar z}|^2+|i(w_z-w_{\bar z})|^2\\
-	&=
-	|w_z+w_{\bar z}|^2+|w_z-w_{\bar z}|^2\\
-	&=
-	2\bigl(|w_z|^2+|w_{\bar z}|^2\bigr),
-\end{align*}
-so that the energy density can be written as
-\begin{align*}
-	e(f)=2 \frac{\rho^2(w)}{\lambda^2}\bigl(|w_z|^2+|w_{\bar z}|^2\bigr)
-	\ \ .
-\end{align*}
-Then the energy of the map, when defined, becomes
-\begin{align*}
-	E(f)
-	&:= \int_{\Sigma_1}\lambda^2(z)e(f(z))\, i\, dzd\overline{z}\\
-	&= \int_{\Sigma_1}\rho^2(w)\bigl(|w_z|^2+|w_{\bar z}|^2\bigr)\, i\, dzd\bar z
-	\ \ .
-\end{align*}
-Like we already did before, we can define a harmonic map as a critical point for any admissible deformation (that is, a perturbation with compact support). The correspective Euler-Lagrange equation of such a problem is 
-\[ w_{z\bar z}+2\frac{\rho_w}{\rho}w_zw_{\bar z}=0\ .\]
-For a complete derivation we redirect the reader to \cite{jost2006compact}.
-An important observation is that the local harmonic map equation does not involve the conformal factor $\lambda$ of the metric on the domain. This reflects the fact that, in dimension two, harmonicity depends only on the conformal class of the metric on the source surface.
 \subsection{Energy densities and the Hopf differential}
-\paragraph{Energy densities and Jacobian}\mbox{}\\
-In addition to the energy density of the map $f$, it is convenient to introduce two more refined quantities, the holomorphic and anti-holomorphic energy densities. These objects will let us also express the Jacobian of $f$ in a convenient way.
-\begin{defn}
-	We define the holomorphic and antiholomorphic energy density of a smooth map $f:\Sigma_1\to \Sigma_2$ respectively as	
-\begin{align*}
-	\mathcal H(f):=\frac{\rho^2(f)}{\lambda^2}|f_z|^2,
-	\qquad\text{and}\qquad
-	\mathcal L(f):=\frac{\rho^2(f)}{\lambda^2}|f_{\bar z}|^2
-\ \ .
-\end{align*}
-\end{defn}
-It is immediate to note that 
-\[e(f) = \mathcal H(f)+\mathcal L(f)\ .\] 
-The Jacobian of the map is by definition
-\begin{align*}
-	J(f) =  \frac{\rho^2(f)}{\lambda^2}(|f_z|^2-|f_{\overline{z}}|^2)
-\ \ . 
-\end{align*}
-So that we also have 
-\begin{align}\label{eq:defjacob}
-	J(f) = \mathcal H(f) - \mathcal L(f)\ .
-\ \ . 
-\end{align}
 \paragraph{Quadratic differentials}\mbox{}\\
 To each map between Riemann surfaces we can associate a quantity that carries information about how far the map is from being conformal.
 \begin{defn}
@@ -1100,7 +1113,7 @@ To each map between Riemann surfaces, we can associate a quadratic differential,
 \begin{proof}
 	Let us show first that the expression of $q$ doesn't change under conformal transformations of the domain and the target.\\
 
-	First let us consider a conformal transformation on the domain, $z=\psi(z')$. Then $dz=\psi'(z') dz'$, $dz^2 =(\psi(z'))^2 () dz')^2$, 
+	First let us consider a conformal transformation on the domain, $z=\psi(z')$. Then $dz=\psi'(z') dz'$, $dz^2 =(\psi(z'))^2 (dz')^2$, 
 	\[w_{z'}=w_z \psi'(z'),\qquad\text{and}\qquad \overline{w}_{z'}=\overline{w}_z\psi'(z')\ .\] 
 	So the metric transforms as
 	 \begin{align*}
@@ -1150,7 +1163,7 @@ We can actually give a decomposition of any symmetric 0-2 tensor field
 where $\omega^{(2,0)}$ and $\overline{\omega^{(0,2)}}$ are quadratic differentials compatible with the complex structure and $\omega^{(1,1)}$ is a multiple of the metric $g$. 
 \end{lemma}
 \begin{proof}
-	Just observe that once fixed local coordinates $u,v$ the symmetric forms $dz^2 = du^2-dv^2+2idudv$, $d\bar z = du^2-dv^2-2idudv$ and $|dz|^2 = du^2+dv^2$ are three linearly independent elements in a three-dimensional space, hence a base. 
+	Just observe that once fixed local coordinates $u,v$ the symmetric forms $dz^2 = du^2-dv^2+2idudv$, $d\bar z = du^2-dv^2-2idudv$ and $|dz|^2 = du^2+dv^2$ are three linearly independent elements in a three-dimensional vector space, hence a base. 
 \end{proof}
 We can use this lemma to find a decomposition of the pull-back metric $(f^*(h))$. What we find is actually the quadratic differential we defined in lemma \ref{lm:exholdiff}
 \begin{lemma}
@@ -1176,7 +1189,7 @@ We can use this lemma to find a decomposition of the pull-back metric $(f^*(h))$
 \end{proof}
 This motivates the definition of the Hopf differential
 \begin{defn}
-	Given $f:(\sigma_1,g) \to  (\Sigma_2,h) $ between two Riemann surfaces, we define the Hopf differential as the quadratic differential
+	Given $f:(\Sigma_1,g) \to  (\Sigma_2,h) $ between two Riemann surfaces, we define the Hopf differential as the quadratic differential
 	\[\Hopf(f) = (f^*(h))^{(2,0)}\ .\] 
 \end{defn}
 This lets us state an important result, that is a partial inverse of lemma \ref{lm:exholdiff}.
@@ -1305,7 +1318,15 @@ By separating the traceless part and the trace part we have
 	\alpha^{(1,1)} = \tfrac{1}{2}\tr(L)\I, \qquad \alpha^{(2,0)}+\alpha^{(0,2)} = \I(L_0\cdot ,\cdot )
 \ . 
 \end{align}
-Also, again from \ref{lm:tfdec}, since $\alpha$ is real valued, we have $\alpha^{(0,2)}=\overline{\alpha^{(2,0)}}$.
+Also, again from \ref{lm:tfdec}, since $\alpha$ is real valued, we have $\alpha^{(0,2)}=\overline{\alpha^{(2,0)}}$.\\
+We have proved the following lemma
+\begin{lemma}\label{lm:trsym2form}
+	$\alpha$ symmetric 2-form on $S$ with values in $\R$. Then 	$\alpha$ is traceless if and only if there is a quadratic differential $  \alpha^{(2,0)} = \Phi$ such that 
+	\begin{align*}
+		\alpha = \tfrac{1}{2}\left( \Phi+\overline{\Phi} \right) 
+	\ . 
+	\end{align*}
+\end{lemma}
 We may now prove the following important lemma
 \begin{lemma}\label{lm:hopfdifflocalform}
 	With the notation above, it holds that
@@ -1401,7 +1422,7 @@ hence
 	\qquad
 	h_{12}=-\Im(\varphi).
 \end{align*}
-We note that these relations can be used to reconstruct the differential $\varphi dz^2$, by solving the linear
+We note that these relations can be used to reconstruct the coefficients $(h_{ij})$, and therefore the second fundamental form $\II$, from the data $w$ and $\varphi$. 
 \begin{align}\label{eq:gausspde1}
 	\begin{cases}
 		h_{11}+h_{22} = 2e^{2w}\\
@@ -1410,131 +1431,7 @@ We note that these relations can be used to reconstruct the differential $\varph
 	\end{cases}
 \ \ .
 \end{align}
-\paragraph{The Codazzi equation is equivalent to $\Phi$ holomorphic}\mbox{}\\
-The relations obtained above connect the second fundamental form with the Hopf differential of the Gauss map. In particular, when the mean curvature is constant, they allow us to prove that the Codazzi equation for the second fundamental form is equivalent to the holomorphicity of the Hopf differential of the Gauss map.\\
 
-First we need to remind that from the compatibility of $\nabla$ with the metric we get $(\nabla_X\I)(Y,Z) = 0$, so that
-\begin{align*}
-	(\nabla_X\II)(Y,Z) &= (\nabla_X(H\I +\II_0))(Y,Z) \\
-	\commb{$H$ is constant, $\nabla \I = 0$}\hspace*{1cm} &= (\nabla_X\II_0)(Y,Z)
-	\ . \hspace*{2cm}
-\end{align*}
-Hence the Codazzi equation can be rewritten exclusively in terms of the traceless part
-\begin{align*}
-	(\nabla_X\II)(Y,Z) = (\nabla_Z \II) (X,Y)\quad \iff \quad (\nabla_X\II_0)(Y,Z) = (\nabla_Z \II_0) (X,Y) 
-\ . 
-\end{align*}
-
-Let us now choose local isothermal coordinates $(x,y)$. Since $A_0$ is self-adjoint and traceless, with respect to the frame $(\partial_x,\partial_y)$ it is represented by a matrix of the form
-\begin{align*}
-	[A_0]=
-	\begin{pmatrix}
-		a & b\\
-		b & -a
-	\end{pmatrix}
-\ . 
-\end{align*}
-And thanks to Lemma \ref{lm:hopfdifflocalform}, we can write the Hopf differential of $N$ as
-\begin{align*}
-	\Phi = \tfrac{1}{2}(a-ib)dz^2
-\ . 
-\end{align*}
-We then recall the definition of the derivative of a tensor,
-\[ (\nabla_X\II_0)(Y,Z) = X(\II_0(Y,Z))-\II_0(\nabla_XY,Z)-\II_0(Y,\nabla_XZ)\ ,\]
-so that we may explicit the equation in the basis. In order to do that we need the Christoffel symbols for the metric $g=e^{2w}(dx^2+dy^2)$.\\
-Let $\Gamma^k_{ij}$ be such that
-\begin{align*}
-\nabla_{\partial_i}\partial_j=\Gamma^k_{ij}\partial_k\ . 
-\end{align*}
-Since $\langle \partial_x,\partial_x\rangle=\langle \partial_y,\partial_y\rangle=e^{2w}$ and $\langle \partial_x,\partial_y\rangle=0$, the compatibility with the metric yields
-\begin{align*}
-\Gamma^1_{11}e^{2w}=\langle \nabla_{\partial_x}\partial_x,\partial_x\rangle
-&=\frac12\partial_x\langle \partial_x,\partial_x\rangle=
-e^{2w}w_x\\
-\Gamma^2_{11}e^{2w}=
-\langle \nabla_{\partial_x}\partial_x,\partial_y\rangle
-&=-\frac12\partial_y\langle \partial_x,\partial_x\rangle
-=-e^{2w}w_y,
-\end{align*}
-hence $\Gamma^1_{11}=w_x$ and $\Gamma^2_{11}=-w_y$. Similarly,
-\begin{align*}
-\Gamma^1_{12}e^{2w}=
-\langle \nabla_{\partial_x}\partial_y,\partial_x\rangle
-&=\frac12\partial_y\langle \partial_x,\partial_x\rangle
-=e^{2w}w_y,\\
-\Gamma^2_{12}e^{2w}=
-\langle \nabla_{\partial_x}\partial_y,\partial_y\rangle
-&=\frac12\partial_x\langle \partial_y,\partial_y\rangle
-=e^{2w}w_x.
-\end{align*}
-so $\Gamma^1_{12}=w_y$ and $\Gamma^2_{12}=w_x$. Since the connection is torsion free, $\Gamma^k_{21}=\Gamma^k_{12}$. Finally,
-\begin{align*}
-\Gamma^1_{22}e^{2w}=
-\langle \nabla_{\partial_y}\partial_y,\partial_x\rangle
-&=-\frac12\partial_x\langle \partial_y,\partial_y\rangle
-=-e^{2w}w_x,\\
-\Gamma^2_{22}e^{2w}=
-\langle \nabla_{\partial_y}\partial_y,\partial_y\rangle
-&=\frac12\partial_y\langle \partial_y,\partial_y\rangle
-=e^{2w}w_y.
-\end{align*}
-so $\Gamma^1_{22}=-w_x$ and $\Gamma^2_{22}=w_y$. Therefore
-\begin{align*}
-\nabla_{\partial_x}\partial_x&=w_x\partial_x-w_y\partial_y\ ,\\
-\nabla_{\partial_x}\partial_y&=w_y\partial_x+w_x\partial_y=\nabla_{\partial_y}\partial_x\ ,\\
-\nabla_{\partial_y}\partial_y&=-w_x\partial_x+w_y\partial_y\ .
-\end{align*}
-We observe that $\II_0$ is symmetric, and therefore $\nabla \II_0$ is symmetric in the last two entries, therefore the Codazzi equations in the basis $(\partial_x,\partial_y)$ reduce to
-\begin{align*}
-	\begin{cases}
-		(\nabla_{\partial_x}\II_0)(\partial_x,\partial_y)
-		&=(\nabla_{\partial_y}\II_0)(\partial_x,\partial_x),\\
-		(\nabla_{\partial_x}\II_0)(\partial_y,\partial_y)
-		&=(\nabla_{\partial_y}\II_0)(\partial_x,\partial_y).
-	\end{cases}
-\end{align*}
-We can calculate $(\nabla_{\partial_x}\II_0)(\partial_x,\partial_y)$ and $(\nabla_{\partial_y}\II_0)(\partial_x,\partial_x)$,
-\begin{align*}
-(\nabla_{\partial_x}\II_0)(\partial_y,\partial_x)
-&=\partial_x\bigl(\II_0(\partial_y,\partial_x)\bigr)
--\II_0(\nabla_{\partial_x}\partial_y,\partial_x)
--\II_0(\partial_y,\nabla_{\partial_x}\partial_x)\\
-&=\partial_x b
--\II_0(w_y\partial_x+w_x\partial_y,\partial_x)
--\II_0(\partial_y,w_x\partial_x-w_y\partial_y)\\
-&=b_x-(w_ya+w_xb)-(w_xb+w_ya)\\
-&=b_x-2w_xb-2w_ya,\ \\
-(\nabla_{\partial_y}\II_0)(\partial_x,\partial_x)
-&=\partial_y\bigl(\II_0(\partial_x,\partial_x)\bigr)
--\II_0(\nabla_{\partial_y}\partial_x,\partial_x)
--\II_0(\partial_x,\nabla_{\partial_y}\partial_x)\\
-&=\partial_y a
--\II_0(w_y\partial_x+w_x\partial_y,\partial_x)
--\II_0(\partial_x,w_y\partial_x+w_x\partial_y)\\
-&=a_y-(w_ya+w_xb)-(w_ya+w_xb)\\
-&=a_y-2w_ya-2w_xb.
-\end{align*}
-Hence
-\begin{align*}
-	(\nabla_{\partial_x}\II_0)(\partial_x,\partial_y)=(\nabla_{\partial_y}\II_0)(\partial_x,\partial_x) \iff b_x = a_y
-\ . 
-\end{align*}
-Developing the calculations in the same way we obtain the equivalence
-\begin{align*}
-	(\nabla_{\partial_x}\II_0)(\partial_y,\partial_y)=(\nabla_{\partial_y}\II_0)(\partial_x,\partial_y) \iff b_y = -a_x\ .
-\end{align*}
-So that the Codazzi equations reduce to
-\begin{align*}
-	\begin{cases}
-		a_x = (-b)_y\\
-		a_y = -(-b)_x 
-	\end{cases}
-\ , 
-\end{align*}
-which are the Cauchy-Riemann equations for $\varphi = a-ib$. We can summarize the content of this section in a statement of a theorem
-\begin{thm}\label{th:codhophol}
-	Let $S$ be a constant mean curvature surface, and let $N:\mathbb{D}\to\mathbb{H}$ be its Gauss map. Then the Hopf differential of $N$ is holomorphic if and only if the second fundamental form $\II$ of $S$ satisfies the Codazzi equations.
-\end{thm}
 \subsection{A different form for Gauss' equation}\label{sc:geq}\mbox{}\\
 We shall now prove the equivalence of Gauss' equation with a certain PDE on $\mathbb{D}$, which we will derive with respect to the Euclidean backgroun metric $|dz|^2$ and then rewrite it with respect to the hyperbolic metric.\\
 
@@ -1679,7 +1576,7 @@ This is exactly the form of the PDE found in \cite{Wan1992}. Again, it might be 
 	\end{align*}
 \end{thm}
 
-\section{CMC surfaces and harmonic maps}
+\section{CMC surfaces and harmonic maps}\label{sc:cmcsurfharmmp}
 
 We now introduce the class of surfaces that will be studied throughout this section.
 \begin{defn}
@@ -1710,37 +1607,174 @@ Therefore, there exists a bijection between complete space-like surfaces with co
 
 Let us then fix $S$ a hyperbolic CMC cut with mean curvature $1$. The hyperbolic hypothesis means that using the uniformization theorem we can find a conformal diffeomorphism
 \[
-	\Lambda:\mathbb D \to S.
+	\sigma:\mathbb D \to S.
 \]
-Let us now consider the Gauss map of  $S$, $u:S\to \mathbb{D}$. By composing with $\Lambda$ read it as a map
+Let us now consider the Gauss map of  $S$, $u:S\to \mathbb{D}$. By composing with $\sigma$ read it as a map
 \[
 	u:\mathbb D \to \mathbb{D}.
 \]
 The hypothesis on the mean curvature of $S$ being constant lets us apply the Theorem  \ref{th:gaussmapharmiffconsth} and obtain that $u$ is harmonic (we remind that $\mathbb{D}$ is isometric to $\mathbb{H}$ found in the statement of the theorem).\\
 
-Now, we can pull back the metric of $S$ through the  conformal parametrization and express it in terms of  $u$:
-\begin{prop}\label{prop:indmetr}
-	Suppose that $S$ has constant mean curvature $1$. Then the pulled-back induced metric $g=\Lambda^*(\I)$ of $S$ and the respective Gaussian curvature are given by
+Now, we can pull back the metric of $S$ through the  conformal parametrization and express it in terms of  $u$. We provide its proof at the endo of the section.
+\begin{prop}\label{pr:indmetr}
+	Suppose that $S$ has constant mean curvature $1$. Then the pulled-back induced metric $g=\sigma^*(\I)$ of $S$ and the respective Gaussian curvature are given by
 	\begin{align*}
 		g = \frac{4}{(1-|u|^2)^2}|u_z|^2 |dz|^2, \qquad K = \frac{|u_{\overline z}|^2}{|u_z|^2} - 1
 	\ \ .
 	\end{align*}
 \end{prop}
 \begin{proof}
-	We redirect the reader to \cite{akutagawa_nishikawa_1990}.
+Let us denote by $N:S\to \mathbb H$ the Gauss map with values in the hyperboloid, and by $j$ the isometry $j:\mathbb{H}\to \mathbb{D}$. Then we use the notation
+\[
+u=j\circ N:S\to \mathbb D.
+\]
+As usual, we fix isothermal coordinates $(x,y)$ on $S$ and set $z=x+iy$. Denote by $\sigma:\mathbb{D}\to S$ the corresponding local parametrization. Then we express the metric of $S$ in these coordinates as 
+\begin{equation}\label{eq:metric-local}
+g=\sigma^*(\I)=e^{2w}|dz|^2\ .
+\end{equation}
+By abuse of notation, we still denote by $u$ and $N$ the local expressions $u\circ \sigma$ and $N\circ \sigma$ on $\mathbb D$.
+
+Then
+\begin{equation}\label{eq:sigma-conformal}
+\langle \sigma_x,\sigma_x\rangle=\langle \sigma_y,\sigma_y\rangle=e^{2w},
+\qquad
+\langle \sigma_x,\sigma_y\rangle=0.
+\end{equation}
+Let $A$ be the shape operator of the surface $S$. Since the mean curvature is $1$, we have
+\[
+\tr(A)=2.
+\]
+Moreover $A$ is self-adjoint with respect to the induced metric, hence, in the orthogonal basis $(\sigma_x,\sigma_y)$, it can be represented by
+\begin{equation}\label{eq:A-matrix}
+[A] = \begin{pmatrix} 1+a & b \\ b &1-a \end{pmatrix}, 
+\qquad\text{equivalently}\qquad 
+\begin{cases}
+A(\sigma_x)=(1+a)\sigma_x+b\sigma_y,\\
+A(\sigma_y)=b\sigma_x+(1-a)\sigma_y,
+\end{cases}
+\end{equation}
+for some real-valued functions $a,b$.
+
+Now let $J$ be the positive rotation of angle $\pi/2$ on the tangent plane, so that
+\begin{equation}\label{eq:J}
+J\sigma_x=\sigma_y,\qquad J\sigma_y=-\sigma_x.
+\end{equation}
+Using the chain rule, and recalling that $A = DN$, we have
+\begin{equation}\label{eq:uxuy}
+\begin{aligned}
+u_x &= dj_N(DN(\sigma_x)) \\
+&= dj_N(A(\sigma_x)),
+\end{aligned}
+\qquad\qquad
+\begin{aligned}
+u_y &= dj_N(DN(\sigma_y)) \\
+&= dj_N(A(\sigma_y)).
+\end{aligned}
+\end{equation}
+Using that $j$ is an isometry, we obtain
+\[
+|u_x|_h^2 = |A(\sigma_x)|_{g_{\mathbb H}}^2,
+\qquad
+|u_y|_h^2 = |A(\sigma_y)|_{g_{\mathbb H}}^2.
+\]
+Since the hyperbolic metric on $\mathbb D$ is given by
+\begin{equation}\label{eq:h-lambda}
+h=\lambda(u)^2 |du|^2,
+\qquad
+\lambda(u)=\frac{2}{1-|u|^2},
+\end{equation}
+this becomes
+\begin{equation}\label{eq:uxuy-lambda}
+\lambda(u)^2 |u_x|^2 = |A(\sigma_x)|_{g_{\mathbb H}}^2,
+\qquad
+\lambda(u)^2 |u_y|^2 = |A(\sigma_y)|_{g_{\mathbb H}}^2.
+\end{equation}
+In the following, we omit the subscript $g_{\mathbb H}$ from the norms and scalar products on $T\mathbb H$.
+
+Also, we observe that using the coordinates $z = x+iy$, the multiplication by $i$ on $\mathbb D$ corresponds to a positive rotation $J$ on the tangent plane, so that, recalling that $u_z=\frac12(u_x-iu_y)$ and $u_{\bar z}=\frac12(u_x+iu_y)$,
+\[
+iu_y=dj_N(J A(\sigma_y))\ .
+\]
+In particular, recalling that $|dz|^2 = \Re(dz \otimes d\overline{z})$ and using that $j$ is an isometry, we have
+\begin{equation}\label{eq:mixed}
+\lambda^2(u)\Re(iu_y\overline{u_x})
+=
+h(iu_y,u_x)
+=
+\langle J A(\sigma_y),A(\sigma_x)\rangle\ .
+\end{equation}
+Then we obtain
+\begin{align}
+4\lambda^2(u)|u_z|^2\notag
+&= \lambda^2(u) |u_x-iu_y|^2 \hspace{2cm}\notag\\
+&= \lambda^2(u) (u_x-iu_y) \overline{(u_x-iu_y)} \notag\\
+&= \lambda^2(u) (u_x-iu_y) (\overline{u}_x+i\overline{u}_y) \notag\\
+&= \lambda^2(u) (u_x \overline{u}_x +u_y \overline{u}_y + i u_x \overline{u}_y - i u_y \overline{u}_x) \notag\\
+\commb{\qref{eq:mixed}}\hspace{4mm}&=\lambda^2(u)\bigl(|u_x|^2+|u_y|^2-2\Re(iu_y\overline{u_x})\bigr)\notag\\
+	\commb{\qref{eq:uxuy-lambda}}\hspace{4mm}&=|A(\sigma_x)|^2+|A(\sigma_y)|^2-2\langle J A(\sigma_y),A(\sigma_x)\rangle.
+\label{eq:uz}
+\end{align}
+Moreover, using \eqref{eq:A-matrix} and \eqref{eq:sigma-conformal},
+\begin{align}
+|A(\sigma_x)|^2
+&=\langle (1+a)\sigma_x+b\sigma_y,(1+a)\sigma_x+b\sigma_y\rangle \hspace{2cm}\notag\\
+&=e^{2w}\bigl((1+a)^2+b^2\bigr), \label{eq:Ax}
+\\
+	|A(\sigma_y)|^2 &=\langle b\sigma_x+(1-a)\sigma_y,b\sigma_x+(1-a)\sigma_y\rangle \notag\\
+&=e^{2w}\bigl((1-a)^2+b^2\bigr), \label{eq:Ay}
+\\
+\hspace{4mm}
+ \langle J A(\sigma_y),A(\sigma_x)\rangle
+&=\langle b\sigma_y-(1-a)\sigma_x,(1+a)\sigma_x+b\sigma_y\rangle \hspace{2cm}\notag\\
+&=e^{2w}(a^2+b^2-1). \label{eq:JA}
+\end{align}
+Substituting \eqref{eq:Ax}, \eqref{eq:Ay}, and \eqref{eq:JA} into \eqref{eq:uz} we obtain
+\begin{align}\label{eq:lamew}
+4\lambda(u)^2|u_z|^2=4e^{2w}, \quad\then \quad
+\lambda(u)^2|u_z|^2=e^{2w}.
+\end{align}
+
+Since $g=e^{2w}|dz|^2$, we conclude that
+\[
+g=\frac{4}{(1-|u|^2)^2}|u_z|^2|dz|^2.
+\]
+
+For the curvature formula, we compute similarly
+\begin{align*}
+	4e^{2w} \overset{\commb{\qref{eq:lamew}}}{=}   4\lambda(u)^2|u_{\bar z}|^2
+&=\lambda(u)^2\bigl(|u_x|^2+|u_y|^2+2\Re(iu_y\overline{u_x})\bigr) \hspace{2cm}\\
+&=|A(\sigma_x)|^2+|A(\sigma_y)|^2+2\langle J A(\sigma_y),A(\sigma_x)\rangle\\
+&=4(a^2+b^2)e^{2w}.
+\end{align*}
+Therefore
+\begin{align}\label{eq:uzzuzab}
+\frac{|u_{\bar z}|^2}{|u_z|^2}=a^2+b^2
+\ . 
+\end{align}
+
+On the other hand, we have that
+ \begin{align*}
+	 \det(A) = \det([A]) = 1-a^2-b^2
+\ , 
+\end{align*}
+Then we recall that, for Gauss' equation,
+\[
+K=-\det A=a^2+b^2-1.
+\]
+Substituting \ref{eq:uzzuzab} in the last equation we obtain
+\[
+K=\frac{|u_{\bar z}|^2}{|u_z|^2}-1.
+\]
+Which ends the proof.
 \end{proof}
-We now need a claim we will prove later in the section.
-\begin{claim}\label{cl:jhupos}
+We will also need the following lemma.
+\begin{lemma}\label{cl:jhupos}
 	The Gauss map $u$ satisfies  
 	\[J(u) > 0\qquad\text{and}\qquad \mathcal H(u)>0\ .\] 
-\end{claim}
-The fact that $J(u)>0$ along with $u$ being harmonic lets us apply Corollary \ref{cor:diffeopresthenharm} and conclude that its Hopf differential is a holomorphic quadratic differential. So, if we denote by
-\[\Hopf(u)(z) = \varphi(z) dz^2\]
-then $\varphi(z) = \rho^2(u(z)) u_z \overline{u}_{\overline{z}} $ is holomorphic. For brevity we set $\Phi:=\Hopf(u)$\\
+\end{lemma}
 
-Let us now prove the claim 
 \begin{proof}[Proof of Claim \ref{cl:jhupos}]
-	First, by Proposition \ref{prop:indmetr} we have that the metric $g:= \Lambda^*(\I_S)$ is expressed by
+	First, by Proposition \ref{pr:indmetr} we have that the metric $g:= \Lambda^*(\I_S)$ is expressed by
 	\[g =  \frac{4}{(1-|u|^2)^2}|u_z|^2 |dz|^2\ .\] 
 	Then we recall that the metric on $\mathbb{D}$ at a point $v$ is $ds_p^2|_v:= \frac{4}{(1-|v|^2)^2} |dz|^2$.
 	So we have
@@ -1752,7 +1786,7 @@ Let us now prove the claim
 	\end{align*}
 	We know that both  $g$ and $ds_p^2$ are Riemannian metrics, so that we obtain $\mathcal H(u)>0$.
 
-	Now, from the second equation of Proposition \ref{prop:indmetr} we have
+	Now, from the second equation of Proposition \ref{pr:indmetr} we have
 	\begin{align*}
 		K = \frac{|u_{\overline{z}}|^2}{|u_z|^2}-1
 	\ \  
@@ -1765,27 +1799,161 @@ Let us now prove the claim
 	\end{align*}
 	Then \[J(u)=-|u_z|^2K>0\ ,\] since $K<0$, which is true by applying Proposition \ref{pr:convfun} and recalling that $S$ is hyperbolic.
 \end{proof}
-From the proof we can also observe that the metric induced on $S$ can be expressed as $g = \mathcal H ds_p^2 = e^{2w}ds_p^2$.\\
+Now we observe that, since we know that $S$ has constant mean curvature, we know from Theorem \ref{th:gaussmapharmiffconsth} that $u$ is harmonic. Then by applying Lemma \ref{lm:exholdiff} we obtain that $\Hopf(u)$ is holomorphic. Furthermore we observe that from the proof of the last lemma, the metric $g$ of $S$ is expressed on $\mathbb{D}$ by $e^{2w}ds_p^2$, where $w=\frac{1}{2}\log \mathcal{H}(u)$, which is well defined since $\mathcal{H}>0$.\\
 
-We have proven the following theorem:
+We have thus proved the following theorem:
 \begin{thm}\label{th:pdenecthm}
-	Let $S$ be a hyperbolic constant mean curvature cut with mean curvature equal to 1, let $u:\mathbb{D}\to \mathbb{H}$ be the Gauss map of $S$ read through the conformal parametrization $\Lambda$ and $\Phi = \varphi(z)dz^2$ its Hopf differential. Then
+	Let $S$ be a hyperbolic constant mean curvature cut with mean curvature equal to 1, let $u:\mathbb{D}\to \mathbb{D}$ be the Gauss map of $S$ read through the conformal parametrization $\sigma$ and $\Phi = \varphi(z)dz^2$ its Hopf differential. Then
 	\begin{itemize}[itemsep=0mm]
 		\item $\Phi$ is holomorphic as a quadratic differential,
-		\item $u$ preserves the orientation,
+		\item $u$ preserves the orientation, so that $\mathcal{J}(u)>0$,
 		\item $w := \frac{1}{2}\log\mathcal{H}(u)$ is a well defined function on $\mathbb{D}$,
-		\item $e^{2w}ds_p^2$ is  the metric of $S$ read through the conformal parametrization $\Lambda$,
+		\item $e^{2w}ds_p^2$ is  the metric of $S$ read through the conformal parametrization $\sigma$,
 	\end{itemize}
 
 \end{thm}
 \section{Classification of hyperbolic CMC cuts}
+We will need first to make some observations on quadratic differentials, that we will use in the proof of the classification theorem.
+\paragraph{The codazzi equation and holomorphic quadratic differentials}\mbox{}\\
+Let $g=e^{2w}(dx^2+dy^2)$ be a conformal metric on $\mathbb{D}$, and let $h$ be a symmetric real 2-form on $(\mathbb{D},g)$. 
 
+By applying Lemma \ref{lm:trsym2form} we obtain that $h = \Phi+\overline{\Phi}$ for a certain quadratic differential $\Phi$. We may now prove that, if  $h$ satisfies the Codazzi equations if and only if $\Phi$ is holomorphic.\\
 
-In the last section we essentially followed the sequence of constructions
+Let us choose local isothermal coordinates $(x,y)$. Writing locally
+\begin{align*}
+	\Phi = \tfrac{1}{2}(a-ib)dz^2
+\ ,
+\end{align*}
+we have
+\begin{align*}
+	h=\Phi+\bar\Phi
+	=
+	a(dx^2-dy^2)+2b\,dxdy
+\ ,
+\end{align*}
+so that, with respect to the frame $(\partial_x,\partial_y)$, $h$ is represented by
+\begin{align*}
+	[h]=
+	\begin{pmatrix}
+		a & b\\
+		b & -a
+	\end{pmatrix}
+\ . 
+\end{align*}
+In particular, $h$ is symmetric and traceless with respect to $g$.\\
+
+We now recall the definition of the derivative of a tensor,
+\begin{align*}
+	(\nabla_Xh)(Y,Z) = X(h(Y,Z))-h(\nabla_XY,Z)-h(Y,\nabla_XZ)
+\ ,
+\end{align*}
+so that we may explicit the equation in the basis. In order to do that we need the Christoffel symbols for the metric $g=e^{2w}(dx^2+dy^2)$.\\
+Let $\Gamma^k_{ij}$ be such that
+\begin{align*}
+\nabla_{\partial_i}\partial_j=\Gamma^k_{ij}\partial_k\ . 
+\end{align*}
+Since $\langle \partial_x,\partial_x\rangle=\langle \partial_y,\partial_y\rangle=e^{2w}$ and $\langle \partial_x,\partial_y\rangle=0$, the compatibility with the metric yields
+\begin{align*}
+\Gamma^1_{11}e^{2w}=\langle \nabla_{\partial_x}\partial_x,\partial_x\rangle
+&=\frac12\partial_x\langle \partial_x,\partial_x\rangle=
+e^{2w}w_x\\
+\Gamma^2_{11}e^{2w}=
+\langle \nabla_{\partial_x}\partial_x,\partial_y\rangle
+&=-\frac12\partial_y\langle \partial_x,\partial_x\rangle
+=-e^{2w}w_y,
+\end{align*}
+hence $\Gamma^1_{11}=w_x$ and $\Gamma^2_{11}=-w_y$. Similarly,
+\begin{align*}
+\Gamma^1_{12}e^{2w}=
+\langle \nabla_{\partial_x}\partial_y,\partial_x\rangle
+&=\frac12\partial_y\langle \partial_x,\partial_x\rangle
+=e^{2w}w_y,\\
+\Gamma^2_{12}e^{2w}=
+\langle \nabla_{\partial_x}\partial_y,\partial_y\rangle
+&=\frac12\partial_x\langle \partial_y,\partial_y\rangle
+=e^{2w}w_x.
+\end{align*}
+so $\Gamma^1_{12}=w_y$ and $\Gamma^2_{12}=w_x$. Since the connection is torsion free, $\Gamma^k_{21}=\Gamma^k_{12}$. Finally,
+\begin{align*}
+\Gamma^1_{22}e^{2w}=
+\langle \nabla_{\partial_y}\partial_y,\partial_x\rangle
+&=-\frac12\partial_x\langle \partial_y,\partial_y\rangle
+=-e^{2w}w_x,\\
+\Gamma^2_{22}e^{2w}=
+\langle \nabla_{\partial_y}\partial_y,\partial_y\rangle
+&=\frac12\partial_y\langle \partial_y,\partial_y\rangle
+=e^{2w}w_y.
+\end{align*}
+so $\Gamma^1_{22}=-w_x$ and $\Gamma^2_{22}=w_y$. Therefore
+\begin{align*}
+\nabla_{\partial_x}\partial_x&=w_x\partial_x-w_y\partial_y\ ,\\
+\nabla_{\partial_x}\partial_y&=w_y\partial_x+w_x\partial_y=\nabla_{\partial_y}\partial_x\ ,\\
+\nabla_{\partial_y}\partial_y&=-w_x\partial_x+w_y\partial_y\ .
+\end{align*}
+We observe that $h$ is symmetric, and therefore $\nabla h$ is symmetric in the last two entries, therefore the Codazzi equations in the basis $(\partial_x,\partial_y)$ reduce to
+\begin{align*}
+	\begin{cases}
+		(\nabla_{\partial_x}h)(\partial_x,\partial_y)
+		&=(\nabla_{\partial_y}h)(\partial_x,\partial_x),\\
+		(\nabla_{\partial_x}h)(\partial_y,\partial_y)
+		&=(\nabla_{\partial_y}h)(\partial_x,\partial_y).
+	\end{cases}
+\end{align*}
+We can calculate $(\nabla_{\partial_x}h)(\partial_x,\partial_y)$ and $(\nabla_{\partial_y}h)(\partial_x,\partial_x)$,
+\begin{align*}
+(\nabla_{\partial_x}h)(\partial_y,\partial_x)
+&=\partial_x\bigl(h(\partial_y,\partial_x)\bigr)
+-h(\nabla_{\partial_x}\partial_y,\partial_x)
+-h(\partial_y,\nabla_{\partial_x}\partial_x)\\
+&=\partial_x b
+-h(w_y\partial_x+w_x\partial_y,\partial_x)
+-h(\partial_y,w_x\partial_x-w_y\partial_y)\\
+&=b_x-(w_ya+w_xb)-(w_xb+w_ya)\\
+&=b_x-2w_xb-2w_ya,\ \\
+(\nabla_{\partial_y}h)(\partial_x,\partial_x)
+&=\partial_y\bigl(h(\partial_x,\partial_x)\bigr)
+-h(\nabla_{\partial_y}\partial_x,\partial_x)
+-h(\partial_x,\nabla_{\partial_y}\partial_x)\\
+&=\partial_y a
+-h(w_y\partial_x+w_x\partial_y,\partial_x)
+-h(\partial_x,w_y\partial_x+w_x\partial_y)\\
+&=a_y-(w_ya+w_xb)-(w_ya+w_xb)\\
+&=a_y-2w_ya-2w_xb.
+\end{align*}
+Hence
+\begin{align*}
+	(\nabla_{\partial_x}h)(\partial_x,\partial_y)=(\nabla_{\partial_y}h)(\partial_x,\partial_x) \iff b_x = a_y
+\ . 
+\end{align*}
+Developing the calculations in the same way we obtain the equivalence
+\begin{align*}
+	(\nabla_{\partial_x}h)(\partial_y,\partial_y)=(\nabla_{\partial_y}h)(\partial_x,\partial_y) \iff b_y = -a_x\ .
+\end{align*}
+So that the Codazzi equations reduce to
+\begin{align*}
+	\begin{cases}
+		a_x = (-b)_y\\
+		a_y = -(-b)_x 
+	\end{cases}
+\ , 
+\end{align*}
+which are the Cauchy-Riemann equations for $\varphi = a-ib$. We can summarize the content of this section in the following statement.
+
+\begin{prop}\label{prop:codazziqd}
+	Let $g=e^{2\tilde w}|dz|^2$ be a conformal metric on $\mathbb{D}$, and let $\Phi$ be a quadratic differential. If $h=\Phi+\bar\Phi$, then $h$ is a symmetric traceless bilinear form. Moreover,
+	\begin{align*}
+		h \text{ satisfies the Codazzi equations for } g
+		\quad \iff \quad
+		\Phi \text{ is holomorphic}
+		\ .
+	\end{align*}
+\end{prop}
+\subsection{The classification theorem}
+In Section \ref{sc:cmcsurfharmmp} we essentially followed the sequence of constructions
 \begin{align}\label{eq:infrel}
 S\longmapsto u\longmapsto (\Phi,w)\longmapsto \Phi,
 \end{align}
-where $S$ is a hyperbolic CMC-$1$ cut in $\M$; $u:\mathbb{D}\to \mathbb{H}$ is the Gauss map of $S$ read through the conformal parametrization obtained by the uniformization theorem; $\Phi$ is the Hopf differential of $u$ and $w=\frac{1}{2}\log\mathcal{H}(u)$ with $\mathcal{H}$ denoting the holomorphic energy of $u$. Furthermore we showed that the involved quantities satisfy the properties in Theorem \ref{th:pdenecthm}\\
+where $S$ is a hyperbolic CMC-$1$ cut in $\M$; $u:\mathbb{D}\to \mathbb{D}$ is the Gauss map of $S$ read through the conformal parametrization obtained by the uniformization theorem; $\Phi$ is the Hopf differential of $u$ and $w=\frac{1}{2}\log\mathcal{H}(u)$ with $\mathcal{H}$ denoting the holomorphic energy of $u$. Furthermore we showed that the involved quantities satisfy the properties in Theorem \ref{th:pdenecthm}\\
 
 As it is, the assignment from the surface $S$ to the holomorphic quadratic differential on $\mathbb{D}$, $S\mapsto \Phi$, is not well defined, because it depends on the choice of the conformal parametrization. This ambiguity disappears after passing to equivalent classes by considering the map
 \begin{align*}
@@ -1814,7 +1982,7 @@ Let $[\Phi]\in \mathbf{Q}_{\mathbb{D}}$ and choose a representative
 \[
 \Phi=\varphi(z)\,dz^2.
 \]
-We reconstruct the surface $S$ starting from $\Phi$ using the following diagrams
+We reconstruct the surface $S$ starting from $\Phi$ using the following diagram
 \begin{center}	
 \begin{tikzpicture}[
 	every node/.style={inner sep=2pt},
@@ -1869,19 +2037,36 @@ We reconstruct the surface $S$ starting from $\Phi$ using the following diagrams
 	\[
 	\II = h_{ij}dx^i dx^j
 	\]
-	by requiring that
+	by requiring that the relation we found in  \eqref{eq:gausspde1} hold,
 	\begin{equation}\label{eq:class1}
 		\begin{cases}
 		\frac{1}{2}(h_{11}+h_{22})= e^{2\tilde w}\\
 		h_{11}-h_{22} = 2\Re(\varphi)\\
-		h_{12} = -\Im(\varphi)\ ,
+		h_{12} = -\Im(\varphi)\ .
 		\end{cases}
 	\ \ 
 	\end{equation}
-	which are the equations we found in \eqref{eq:gausspde1}. This is a linear system which can be easily solved to find $(h_{ij})_{ij}$.
+	 This is a linear system which can be easily solved to find $(h_{ij})_{ij}$.
 	\item[\astr{6}] We claim that the pair $(\I,\II)$ satisfies the Gauss-Codazzi equations.\\
+	
+	First we observe that, in virtue of Equation \eqref{eq:class1}, we have that the symmetric real bilinear $\II$ form satisfies
+	\begin{align*}
+		\II = \Phi + e^{2\tilde w}|dz|^2  +\overline{\Phi}
+	\ . 
+	\end{align*}
+	Then when we look at the traceless part $\II_0 = \Phi + \overline{\Phi}$, this satisfies the Codazzi equations due to \ref{prop:codazziqd}. The Codazzi equations for $\II$ are equivalent to the same equations for $\II_0$. In fact, if $\nabla$ is the Levi-Civita connection of the metric $\I$, we recall that $(\nabla_X\I)(Y,Z) = 0$
 
-	For the Codazzi equations, we may recognize that the statement of Theorem \ref{th:codhophol} holds not only if $\Phi$ is the Hopf differential of a Gauss map, but also by simply assuming that the relation \eqref{eq:class1} holds.\\
+	\begin{align*}
+		(\nabla_X\II)(Y,Z) &= (\nabla_X(H\I +\II_0))(Y,Z) \\
+		\commb{$H$ is constant, $\nabla \I = 0$}\hspace*{1cm} &= (\nabla_X\II_0)(Y,Z)
+		\ . \hspace*{2cm}
+	\end{align*}
+	Hence the Codazzi equation can be rewritten exclusively in terms of the traceless part
+	\begin{align*}
+		(\nabla_X\II)(Y,Z) = (\nabla_Z \II) (X,Y)\quad \iff \quad (\nabla_X\II_0)(Y,Z) = (\nabla_Z \II_0) (X,Y) 
+	\ . 
+	\end{align*}
+	Since we know that $\II_0$ satisfies the Codazzi equations, also $\II$ does.
 
 	Regarding Gauss' equation, by Theorem \ref{thm:gausseqnthm}, it is equivalent to $w$ solving the equation
 	\[
@@ -1912,7 +2097,7 @@ We want to show that $[S_1]=[S_2]$.
 
 Let us choose some conformal parametrizations
 \[
-\Lambda_i:\mathbb{D}\to S_i,
+\sigma_i:\mathbb{D}\to S_i,
 \qquad i=1,2,
 \]
 and define
@@ -1931,7 +2116,7 @@ Then we define $w_i$ be the function associated to $S_i$ as in Theorem \ref{th:p
 \[
 \I_i=e^{2w_i}ds_p^2
 \]
-is the first fundamental form of $S_i$ read through $\Lambda_i$. Since both surfaces have Hopf differential $\Phi$, the functions $w_1$ and $w_2$ solve the same equation
+is the first fundamental form of $S_i$ read through $\sigma_i$. Since both surfaces have Hopf differential $\Phi$, the functions $w_1$ and $w_2$ solve the same equation
 \[
 \Delta_p w = e^{2w}-\|\Phi\|^2e^{-2w}-1,
 \]
@@ -1982,51 +2167,25 @@ such that the metric $e^{2w}ds_p^2$ is complete and
 on $\mathbb{D}$.
 In this section we prove uniqueness.
 \subsection{A generalized maximum principle}
-Let $M$ be a complete Riemannian manifold of dimension $n$, and fix a point $p\in M$. Assume moreover that $M$ is simply connected and has nonpositive sectional curvature. This assumption is stronger than what is strictly needed in this section, but greatly simplifies the discussion and is satisfied in the case of a complete space-like surface of $\M$. These hypotheses allow us to apply the Cartan-Hadamard theorem, so that the exponential map $\exp_p$ is a diffeomorphism. In particular, this tells us that for every $x\in M$ there exists a unique geodesic joining $p$ to $x$, and that $d(\cdot ,\cdot )$ is smooth on $M\setminus \{x=y\} $.\\
-
-We need now to define an important quantity we will refer to multiple times later. Let us fix a point $x\in M$ and let $\sigma$ be the unique unit speed geodesic that joins $x$ to $p$. In the following expression we also denote with $l$ the length of $\sigma$, or in other terms $l=d(x,p)$. Let $\sigma'(t)$ be the velocity vector of $\sigma$, and denote with $\Ric(\sigma'(t))$ the Ricci curvature along $\sigma$. We then define
-\begin{align}\label{eq:intromaxprin1}
-	K(x) = \min_{k\in [0,l]}  \left[ \frac{n-1}{l-k} - \frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t))dt\right]
-\ \ .
-\end{align}
-We now claim that, if $r(x) \geq 1$ and the Ricci curvature is bounded from below, then $K(x)$ is bounded from above by a constant independent of $x$. Indeed, if we assume that for every unit vector $v$, $\Ric(v)\geq \mathscr{S}$, then
-\begin{align*}
-	\frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t)) \,dt
-	\geq
-	\frac{1}{(l-k)^2} \int_k^l (t-k)^2\mathscr{S}\,dt
-	=
-	\frac{(l-k)}{3}\mathscr{S}
-\ \ .
-\end{align*}
-Therefore in the argument of $\min$ in \eqref{eq:intromaxprin1} we have
-\begin{align*}
-	\frac{n-1}{l-k} - \frac{1}{(l-k)^2} \int_k^l (t-k)^2\Ric(\sigma'(t)) \,dt
-	\leq
-	\frac{n-1}{l-k}-\frac{(l-k)}{3}\mathscr{S}
-\ \ .
-\end{align*}
-Since $r(x)=l\geq 1$, if we choose $k=l-1$ we get
-\begin{align*}
-	K(x)\leq n-1-\frac{\mathscr{S}}{3}
-\ \ .
-\end{align*}
-Which proves our claim.\\
-
-The next lemma, due to Yau, provides the estimate for the distance function that will be used in the proof of Theorem \ref{th:maxprin}.
-\begin{lemma}\label{lm:distest}
-With the notation introduced above, for every $x\in M\setminus\{p\}$ such that $r(x)\geq 1$ we have
-\begin{align*}
-	\Delta r(x)\leq K(x)
-	\ .
-\end{align*}
-\end{lemma}
-\begin{proof}
-Since $M$ is complete, simply connected, and has nonpositive curvature, the Cartan--Hadamard theorem implies that
+Let $M$ be a complete Riemannian manifold of dimension $n$, and fix a point $p\in M$. Assume moreover that $M$ is simply connected and has nonpositive sectional curvature. This assumption is stronger than what is strictly needed in this section, but greatly simplifies the discussion and is satisfied in the case of a complete space-like surface of $\M$. By the Cartan--Hadamard theorem, the exponential map
 \[
 \exp_p:T_pM\to M
 \]
-is a diffeomorphism. In particular, $r$ is smooth on $M\setminus\{p\}$.\\
+is a diffeomorphism. In particular, for every $x\in M$ there exists a unique geodesic joining $p$ to $x$. Define
+\[
+r(x):=d(x,p).
+\]
+We will need the following estimate on the Laplacian of $r$.
 
+\begin{lemma}\label{lm:distest}
+Assume that the Ricci curvature of $M$ is bounded below. Then there exists a constant $C>0$ such that
+\[
+\Delta r(x)\leq C
+\]
+for every $x\in M$ with $r(x)\geq 1$.
+\end{lemma}
+\begin{proof}
+We prove the statement in the case $\dim M=2$, which is the only one needed in what follows. \\
 Let us fix an orthonormal basis $(e_1,e_2)$ of $T_pM$, and consider the polar coordinates
 \[
 \Phi(r,\theta)=\exp_p\bigl(r\cos\theta\,e_1+r\sin\theta\,e_2\bigr).
@@ -2238,7 +2397,7 @@ In particular,
 	-
 	\frac{2(f(x)-f(p)+1)r(x)}{k(r(x)^2+2)\log(r(x)^2+2)^{1+1/k}}\nabla r(x)
 	\ \ .\]
-	Since $x_k$ is a maximum point of $g_k$, we have $\nabla g(x_k)=0$. Hence
+	Since $x_k$ is a maximum point of $g$, we have $\nabla g(x_k)=0$. Hence
 	\begin{align}
 		\nabla f(x_k)
 		&=
@@ -2345,13 +2504,12 @@ Hence, by substituting in  \eqref{eq:boundprindeltag1} and simplifying, we obtai
 		\commb{\eqref{eq:boundprin14}, \eqref{eq:boundprin20}}\hspace*{5mm}&\leq \frac{2A}{k} \left( C +2\Delta r(x_k)   \right) \label{eq:boundprin11}
 	\ \ .
 	\end{align}
-	We now apply the estimate of Lemma~\ref{lm:distest}. We can do this because under the assumption that $r(x_k)\to\infty$ we have $r(x_k)\geq 1$ for $k$ sufficienly large, so that
+	We now apply the estimate of Lemma~\ref{lm:distest}. We can do this because under the assumption that $r(x_k)\to\infty$ we have $r(x_k)\geq 1$ for $k$ sufficienly large, so that there exists a constant $C>0$ such that
 	\begin{align*}
-		\Delta r(x)\leq K(x)
+		\Delta r(x)\leq C
 		\ .
 	\end{align*}
-	But, as we already observed, $K(x)$ is uniformly bounded from above when $r(x) \geq 1$ since the Ricci curvature is bounded from below.\\
-	So we conclude in \eqref{eq:boundprin11} that there is a constant $\tilde C$ for which
+	Therefore we conclude in \eqref{eq:boundprin11} that there is a constant $\tilde C$ for which
 	\begin{align*}
 		\Delta f(x_k)\leq \frac{\tilde C}{k}
 		\ .
@@ -2623,7 +2781,7 @@ We now prove the uniqueness part of Claim \ref{cl:existenceuniquew}. We recall t
 \[
 w:\mathbb{D}\to\mathbb{R}
 \]
-solves the hyperbolic equation
+solves the equation
 \[
 \Delta_p w=e^{2w}-q^2e^{-2w}-1,
 \]
@@ -2907,7 +3065,7 @@ Finally, we might recall the statement of the method for sub- and super-solution
 \subsection{The bounded case}
 We may prove the existence theorem with the stronger hypothesis of boundedness for the norm of the quadratic differential. 
 \begin{prop}\label{pr:exboundcase}
-	Let $\Phi$ a holomorphic quadratic differential on $\mathbb{D}$, such that $\|\Phi\|$ is bounded. Then the equation \eqref{eq:box} has a unique $C^\infty$ solution $w$ that satisfies
+	Let $\Phi$ a holomorphic quadratic differential on $\mathbb{D}$, such that $\|\Phi\|$ is bounded. Then the equation \eqref{eq:box} has a $C^\infty$ solution $w$ that satisfies
 	 \begin{align*}
 		1\leq e^{2w} \leq \frac{1+\sqrt{1+4a^2}}{2}
 	\ , 
@@ -2915,9 +3073,11 @@ We may prove the existence theorem with the stronger hypothesis of boundedness f
 	with $a=\sup\|\Phi\|$.
 \end{prop}
 \begin{proof}
-First we observe that if
-\[ F(x,u)=e^{2u}-\|\Phi\|^2(x)e^{-2u}-1, \]
-then
+Set
+\[
+F(x,u)=e^{2u}-\|\Phi\|^2(x)e^{-2u}-1.
+\]
+Then
 \[
 \frac{\partial F}{\partial u}(x,u)
 =
@@ -2925,34 +3085,101 @@ then
 >
 0,
 \]
-then we can apply Theorem \ref{th:wan9} if we find a sub-solution and a super-solution.\\
+so we may apply Theorem \ref{th:wan9} once we find a subsolution and a supersolution.\\
 
-First let us show that the constant function $\underline{\psi}\equiv 0$
-is a subsolution.
+First we claim that
 \[
-\Delta_p 0 = 0 \leq \|\Phi\|^2=e^{2\cdot 0}-\|\Phi\|^2e^{-2\cdot 0}+1
+\underline{\psi}:=\frac{1}{2}\log^+\|\Phi\|
 \]
-Hence $0$ is a subsolution.\\
+is a weak subsolution, where
+\[
+\log^+\|\Phi\|=\max\{\log\|\Phi\|,0\}.
+\]
+Indeed,
+\[
+\underline{\psi}=\sup\left\{0,\frac12\log\|\Phi\|\right\},
+\]
+so it is enough to show that both $0$ and $\frac12\log\|\Phi\|$ are weak subsolutions.
 
-Then we may try to find another constant  $\overline{\psi}$ as a supersolution. Let us then impose $\overline{\psi}\equiv C$ and that it is a supersolution,
+The constant zero is a subsolution, because
+\[
+\Delta_p 0-e^{2\cdot 0}+\|\Phi\|^2e^{-2\cdot 0}+1
+=
+\|\Phi\|^2
+\geq 0.
+\]
+
+For $\frac12\log\|\Phi\|$, recalling that $\Phi=\varphi(z)\,dz^2$ is holomorphic, we have that $\log|\varphi|$ is weakly subharmonic. Since
+\[
+\|\Phi\|=\rho^{-2}|\varphi|
+\]
+with respect to the Poincaré metric, it follows that
+\[
+\Delta_p \log\|\Phi\|=\Delta_p \log|\varphi|+2
+\]
+weakly. Hence
 \begin{align*}
-	0   \overset{!}{\leq} \Delta_p C-e^{2C}+\|\Phi\|^2e^{-2C}+1 
-\ . 
+\Delta_p\left(\frac12\log\|\Phi\|\right)
+-e^{\log\|\Phi\|}
++\|\Phi\|^2e^{-\log\|\Phi\|}+1
+&=
+\frac12\Delta_p\log\|\Phi\|-\|\Phi\|+\|\Phi\|+1\\
+&=
+\frac12\Delta_p\log\|\Phi\|+1\\
+&=
+\frac12\Delta_p\log|\varphi|
+\geq 0
 \end{align*}
-Setting $X = e^{2C}$, and setting $a=\sup \|\Phi\|$, this is equivalent to
+weakly. Therefore $\underline{\psi}$ is a weak subsolution.\\
+
+Now let us find a constant supersolution. Set $\overline{\psi}\equiv C$. Then we need
 \begin{align*}
-	-X + a^2 X^{-1} +1 \leq 0
-\ . 
+0
+\geq
+\Delta_p C-e^{2C}+\|\Phi\|^2e^{-2C}+1
+=
+-e^{2C}+\|\Phi\|^2e^{-2C}+1.
 \end{align*}
-By solving the inequality we find that $X= \frac{1+\sqrt{1+4a^2} }{2}$ is a valid solution for the inequality, which results to
+If we set $X=e^{2C}$ and $a=\sup\|\Phi\|$, it is enough to require
 \begin{align*}
-	\overline{\psi} = C = \frac{1}{2}\log \left( \frac{1+\sqrt{1+4a^2} }{2} \right) 
-\ . 
+-X+a^2X^{-1}+1\leq 0,
 \end{align*}
+that is,
+\[
+X^2-X-a^2\geq 0.
+\]
+Therefore it is enough to choose
+\[
+X=\frac{1+\sqrt{1+4a^2}}{2},
+\]
+namely
+\[
+\overline{\psi}
+=
+\frac12\log\left(\frac{1+\sqrt{1+4a^2}}{2}\right).
+\]
+
+By Theorem \ref{th:wan9}, there exists a smooth solution $w$ with
+\[
+\frac12\log^+\|\Phi\|
+\leq
+w
+\leq
+\frac12\log\left(\frac{1+\sqrt{1+4a^2}}{2}\right).
+\]
+Exponentiating, we obtain
+\[
+1\leq e^{2w}\leq \frac{1+\sqrt{1+4a^2}}{2}.
+\]
 \end{proof}
 \subsection{The general case}
 \begin{thm}
-	Let $\Phi$ be a holomorphic quadratic differential on $\mathbb{D}$, then \ref{} has a unique $C^\infty$ solution.
+	Let $\Phi$ be a holomorphic quadratic differential on $\mathbb{D}$, then the equation 
+	\begin{align*}
+		\Delta\tilde w = e^{2\tilde w} - h^{2} e^{-2\tilde w}
+	\ . 
+	\end{align*}
+	 has a $C^\infty$ solution.
 \end{thm}
 \begin{proof}
 	The idea of this proof is to construct a sequence of solutions on consecutive domains that exhaust $\mathbb{D}$ and prove their convergence in a topology sufficient to obtain the equation valid for the limit.\\

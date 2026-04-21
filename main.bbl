@@ -46,6 +46,7 @@
       \field{title}{The Gauss map and spacelike surfaces with prescribed mean curvature in Minkowski 3-space}
       \field{volume}{42}
       \field{year}{1990}
+      \true{nocite}
       \field{pages}{67\bibrangedash 82}
       \range{pages}{16}
     \endentry
