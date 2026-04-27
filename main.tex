@@ -1,35 +1,61 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper,11pt,openright,twoside]{book}
+
+%\usepackage[italian]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage{a4}
 \usepackage{amsmath}
-\usepackage{amssymb,amsthm}
-\usepackage{amsfonts}
-\usepackage{graphicx}
+\usepackage{amssymb,amsthm,amsfonts,amscd}
 \usepackage{mathtools}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{eucal}
+\usepackage{xifthen}
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage{mathrsfs}
-%\usepackage{setspace}
-\usepackage{xfrac}
-%\usepackage{scalerel}[2014/03/10]
-%\usepackage{stackengine}
 \usepackage{lipsum}
 \usepackage{xparse}
 \usepackage{soul}
 \usepackage{hyperref}
 \usepackage{cancel}
 \usepackage{dsfont}
-\usepackage{showlabels}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usepackage{xstring}
+
+% figure support
+\usepackage{import}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+% comment this out in the final version if you do not want labels shown
+%\usepackage{showlabels}
 
 \usepackage{biblatex}
 \addbibresource{out-mybiblio.bib}
 
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
+% variabili booleane del template
+\newboolean{english}
+\setboolean{english}{true}
+\newboolean{corelatore}
+\setboolean{corelatore}{false}
 
-\usepackage{xstring}
+\title{Hyperbolic spacelike constant mean curvature cuts in Minkowski space}
+\author{Elia Perli}
 
 \newcommand{\numunderarrow}[2]{%
 	\tikz[baseline=(X.base)]{
@@ -61,28 +87,12 @@
   {\begin{quote}\itshape\noindent\textbf{#1.}\ }
   {\end{quote}}
 
-
-
-\title{Master thesis notes}
-\author{Elia Perli}
-
-
-\renewcommand\thesection{\Alph{section}} %← mette le sezioni con le lettere anziché i numeri
-
-\newtheorem{theo}{Theorem}
-\surroundwithmdframed[outerlinewidth=0.4pt,
-innerlinewidth=0.4pt,
-middlelinewidth=1pt,
-middlelinecolor=white,
-bottomline=false,topline=false,rightline=false]{theo}
-
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\Omega}{\varOmega}
 \renewcommand{\Gamma}{\varGamma}
 \renewcommand{\iff}{\Leftrightarrow}
 \renewcommand{\rho}{\varrho}
 \renewcommand{\div}{\operatorname{div}}
-
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -92,7 +102,6 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\M}{\mathbb{M}^{2,1}}
 \newcommand{\E}{\mathbf{E}}
 \newcommand{\QD}{\mathbf{QD}}
-
 
 \newcommand{\htl}{\reallywidetilde{h^{-1}}}
 \newcommand{\Leb}{\mathscr{L}}
@@ -114,77 +123,123 @@ bottomline=false,topline=false,rightline=false]{theo}
 \newcommand{\Dkk}{{D_{k+1}}}
 \newcommand{\Dkkk}{{D_{k+2}}}
 
-
-%\newcommand{\comment}[1]{\text{\parbox{5cm}{\setstretch{0.1}#1}}}
-%\newcommand{\comment}[1]{\text{{\setstretch{0.1}#1}}
 \newcommand{\commb}[1]{\textsf{{\footnotesize[#1]}}}
 \newcommand{\comm}[1]{\textcolor{red}{#1}}
-%\newcommand{\astr}[1]{\text{$(*#1)$}}
 \newcommand{\astr}[1]{\textsf{{(${*}$#1)}}}
 \newcommand{\astrf}[1]{\textsf{{(${\overset{\to}{*}}$#1)}}}
 \newcommand{\astrb}[1]{\textsf{{(${\overset{\leftarrow}{*}}$#1)}}}
 \newcommand{\qref}[1]{(\ref{#1})}
 
-\newtheorem{manualtheoreminner}{\textsc{teorema}}
-\newenvironment{manualtheorem}[1]{%
-	\renewcommand\themanualtheoreminner{#1}%
-	\manualtheoreminner
-}{\endmanualtheoreminner}
+\theoremstyle{plain}
+\newtheorem{thm}{\textsc{Theorem}}[chapter]
+\newtheorem{cor}[thm]{\textsc{Corollary}}
+\newtheorem{prop}[thm]{\textsc{Proposition}}
+\newtheorem{lemma}[thm]{\textsc{Lemma}}
+\newtheorem{claim}[thm]{\textsc{Claim}}
 
-\newtheorem{thm}{\textsc{Theorem}}[section]
-\newtheorem{cor}{\textsc{Corollary}}[section] %,\Alph] %[section/chapter, ...] \newtheorem{prop}{\textsc{Proposition}}[section]
-\newtheorem*{prop*}{\textsc{Proposition}}
-\newtheorem{prop}{\textsc{Proposition}}
-\newtheorem{lemma}{\textsc{Lemma}}
-\newtheorem*{lemma*}{\textsc{Lemma}}
-\newtheorem{rmk}{\textsc{Remark}}[section]
 \theoremstyle{definition}
-\newtheorem{defn}{\textsc{Definition}}[section]
-\newtheorem*{defn*}{\textsc{Definition}}
-\newtheorem{ntt}{\textsc{Notation}}[section]
-\newtheorem{es}{\textsc{example}}[section]
-\newtheorem{claim}{\textsc{Claim}}
+\newtheorem{defn}[thm]{\textsc{Definition}}
+\newtheorem{ntt}[thm]{\textsc{Notation}}
+\newtheorem{es}[thm]{\textsc{Example}}
+
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{\textsc{Remark}}
+
+\newtheorem*{prop*}{\textsc{Proposition}}
+\newtheorem*{lemma*}{\textsc{Lemma}}
 \newtheorem*{claim*}{\textsc{Claim}}
+\newtheorem*{defn*}{\textsc{Definition}}
 
-
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
 \newcommand{\incfig}[1]{%
 	\def\svgwidth{\columnwidth}
 	\import{./figures/}{#1.pdf_tex}
 }
 
 \pdfsuppresswarningpagegroup=1
-
-
 \setcounter{tocdepth}{4}
 
 \begin{document}
 
+\thispagestyle{empty}
+\space
+\begin{center}
+\textsc{\Large{Università degli studi di Pavia}\\
+\normalsize{Dipartimento di Matematica\\
+Corso di Laurea Magistrale in Matematica}}
+\end{center}
+\[\]
+\begin{center}
+	\includegraphics[width=0.35\textwidth]{logo}
+\end{center}
+\[\]
+\space
+\begin{center}
+
+\ifthenelse{\boolean{english}}
+{
+\smallskip
+
+\textbf{\Large{Classification of hyperbolic space-like constant mean curvature surfaces in Minkowski space}}
+}
+{}
+\end{center}
+\singlespace
+\[\]
+\begin{center}
+\textbf{Tesi di Laurea Magistrale in Matematica}
+\end{center}
+\[\]\[\]\[\]
+\begin{flushleft}
+\ifthenelse{\boolean{english}}{Supervisor:\\}{Relatore:\\}
+\textbf{Prof. Francesco Bonsante}
+\ifthenelse{\boolean{corelatore}}{
+\ifthenelse{\boolean{english}}{\\Co-Supervisor:\\}{\\Correlatore:\\}
+\textbf{Nome Correlatore}
+}
+{}
+\end{flushleft}
+\[\]\[\]
+\begin{flushright}
+Master thesis by: \\
+\textbf{Elia Andrea Perli}\\
+Matricola 547304
+\end{flushright}
+\[\]\[\]\[\]
+\begin{center}
+Academic Year 2024--2025
+\end{center}
+
+\newpage\null\thispagestyle{empty}\newpage
+\pagestyle{plain}
+\chapter*{Abstract}
+The thesis is aimed at the study of complete hyperbolic space-like constant mean curvature surfaces (CMCs) in Minkowski $3$-space. After introducing the necessary preliminary material on space-like surfaces in Minkowski space, harmonic maps, and holomorphic quadratic differentials, our work focuses on translating the geometric properties derived from the constant mean curvature hypothesis into analytic properties.
+
+In particular, we construct a map that associates a holomorphic quadratic differential on the Poincaré disk to each CMC cut. We then invert this correspondence, proving that this map is a bijection using the previously established properties. This reduces the problem to the study of a nonlinear PDE for the conformal factor of the induced metric. The last part of the thesis is therefore devoted to proving existence, by means of a sub- and supersolution method, and uniqueness, by means of a generalized maximum principle.
+
+\chapter*{Acknowledgments}
+	I would like to thank Professor Francesco Bonsante for patiently guiding me throughout the writing of this work, for his constant availability, help, and support. I also wish to express my respect and admiration for him.
 \tableofcontents
 
-\section{Introduction}
+\chapter{Preface}
 
-The purpose of this thesis is to study hyperbolic space-like constant mean curvature one cuts in three-dimensional Minkowski space and to prove a classification result for them. The main idea is to parametrize these surfaces using a particularly regular analytic datum on the hyperbolic disk, namely a holomorphic quadratic differential. Using the approach of this work, the classification problem becomes an existence and uniqueness problem for a nonlinear elliptic partial differential equation.
+The first part of the thesis is focused on the geometric background. We begin by considering space-like immersions in Minkowski space and discussing some global properties of complete immersions. In particular, the hypothesis of completeness implies that these surfaces are simply connected. After endowing these surfaces with a natural complex structure, we can then use the uniformization theorem to parametrize them by their universal cover, which is a concrete object, namely the Poincaré disk, on which all the relevant objects can be studied.
 
-The first part of the thesis is focused on some geometric background. We begin by considering space-like immersions in Minkowski space and discussing some global properties of complete immersions. In particular, the hypothesis of completeness yields some useful topological properties. Since these surfaces are hyperbolic Riemann surfaces, the uniformization theorem then provides a concrete , namely the Poincaré disk, on which all the relevant objects can be studied.
+We then give a different formulation of the Gauss--Codazzi equations, adapting them to the Lorentzian setting. This yields a form of the equations that differs in a small yet important way from the classical Euclidean case. Furthermore, these equations play an important role in the later development of the thesis.
 
-We then give a different formulation of the Gauss--Codazzi equations, adapting them to the Lorentzian setting, which results in a form of the equations that differs in a small yet important way from the classical Euclidean case. This eventually manifests itself in the form of the PDE that is central to the thesis. Another crucial step is to prove that the Gauss map of a space-like surface, whose values in this case lie in $\mathbb{H}$ instead of the classical $\mathbb{S}^2$, is harmonic if and only if the mean curvature is constant. This fact is remarkable because it translates a geometric condition on the surface into an analytic condition on its Gauss map. This is further translated into the fact that the corresponding Hopf differential is holomorphic, and this leads to the construction of a map
+Another crucial step is to prove that the Gauss map of a space-like surface, whose values in this case lie in $\mathbb{H}$ instead of the classical $\mathbb{S}^2$, is harmonic if and only if the mean curvature is constant. This fact is important because it translates a geometric condition on the surface into an analytic condition on its Gauss map. In turn, this implies that the corresponding Hopf differential is holomorphic, and this leads to the construction of a map
 \[
 \mathscr{A}:\mathbf{E}\to\mathbf{Q}_{\mathbb{D}},
 \]
 which associates to each CMC-$1$ cut, up to isometry, a holomorphic quadratic differential on the Poincaré disk.
 
-The main theorem proved in this thesis states that this map is a bijection. In order to prove it, we have to invert the previous construction. Starting from a holomorphic quadratic differential, we reconstruct the geometric data, namely the first and second fundamental forms of the surface, using the properties found in the previous step, which are necessary conditions and turn out also to be sufficient. First, the Gauss equation, which we translated into a PDE, is solved for the conformal factor of the induced metric, thereby obtaining the first fundamental form. Then, using the properties of traceless symmetric tensors, we reconstruct the second fundamental form. To reconstruct the surface itself, we use Bonnet's fundamental theorem, which requires that the candidate first and second fundamental forms satisfy the Gauss--Codazzi equations. In this inverse direction, an important step is to show that a traceless symmetric $2$-tensor satisfies the Codazzi equation if and only if the associated quadratic differential is holomorphic. In this way, the geometric compatibility conditions are rewritten in analytic terms.
+The main result of this work is to show that this map is a bijection. In order to prove it, we have to invert the previous construction. Hence, starting from a holomorphic quadratic differential, we reconstruct the geometric data of a surface, namely the first and second fundamental forms. This is performed by using the properties found in the previous step, which are necessary conditions and turn out also to be sufficient. First, the Gauss equation, which we translated into a PDE, is solved for the conformal factor of the induced metric, obtaining the first fundamental form. Then, using the properties of traceless symmetric tensors, we reconstruct the second fundamental form.To reconstruct the surface itself, we use Bonnet's fundamental theorem, which requires that the candidate first and second fundamental forms satisfy the Gauss-Codazzi equations. Gauss' equation is satisfied by construction, since the conformal factor is obtained by solving the corresponding PDE. The Codazzi equations are reduced to showing that a traceless symmetric $2$-tensor satisfies the Codazzi equation if and only if the associated quadratic differential is holomorphic, which is true by assumption.
 
-The last part of the thesis is dedicated to the study of this PDE. The bijectivity of $\mathscr{A}$ is reduced to existence and uniqueness for this equation under the natural completeness and positivity conditions. Uniqueness is obtained by means of a generalized maximum principle, while existence is proved through a sub- and supersolution method, first on bounded domains and then on an exhaustion of the disk.
+
+The last part of the thesis is dedicated to the study of the aforementioned PDE. The bijectivity of $\mathscr{A}$ is reduced to existence and uniqueness for this equation under the necessary conditions of completeness of the induced metric of $S$ and positivity of the Jacobian of the respective Gauss map. Uniqueness is obtained by means of a generalized maximum principle, while existence is proved through a sub- and supersolution method, first on bounded domains and then by exhaustion of the domain with bounded sets.
+
 
 Our discussion is based mainly on the work of Wan \cite{Wan1992}.
-\section{Minkowski space and space-like surfaces}\label{sc:splsrf}
+\chapter{Minkowski space and space-like surfaces}\label{sc:splsrf}
 The environment we will work within is the Minkowki 3-space, defined as $\R^3$ endowed with the pseudometric
 \[ds^2 = ( dx^1)^{2} + (dx^2)^{2}-(dx^3)^2.\]
 In order to distinguish the use of this metric from the standard euclidean metric of $\R^3$ we will use the notation $\M$. We will also denote the coordinates either as $(x^1,x^2,x^3)$ or $(x,y,t)$, choosing the notation according to convenience and will identify the slice $\{(x,y,0)\}$ of $\M$ with $\R^2$ and with $\C$.\\
@@ -200,8 +255,7 @@ The following definition, borrowed from physics, will be useful later.
 	\end{itemize}
 	We also call a subspace $P \subseteq T_pM$ space-like if every nonzero vector in $P$ is space-like.
 \end{defn*}
-\paragraph{Space-like immersions.}\mbox{}\\
-
+\section{Space-like immersions}%\mbox{}\\
 We will always denote with $S$ a differentiable manifold of dimension  $2$  (a surface) immersed in $\M$, $\iota:S\hookrightarrow \M$. We assume that the ambient pseudometric, $g_{\M}$ when restricted to $S$, yields a nondegenerate positive definite bilinear form. We call this form the first fundamental form or pull-back pseudometric, which we indicate as $\I = \iota^*(g_{\M}) $ and write in coordinates as $\I = g_{ij}dx^i dx^j$ (for simplicity we sometimes forget the immersion $\iota$). By definition, this condition is equivalent to requiring that every tangent plane to $S$ be space-like, and such a surface is called a space-like surface.\\
 
 
@@ -236,7 +290,7 @@ Since the parametrization is regular, the condition that $g$ be positive-definit
 0<\det g = 1-(f_x^2+f_y^2)=1-|\nabla f|^2,
 \]
 and therefore $|\nabla f|^2<1$.
-\paragraph{Entire surfaces.}\mbox{}\\
+\section{Entire surfaces}%\mbox{}\\
 Given a surface $S$ immersed in  $\M$, we can define a projection $\Pi:S\to \R^2$ by forgetting the time coordinate, $\Pi(x^1,x^2,x^3):=(x^1,x^2)$ for any $(x^1,x^2,x^3)\in S$. We call the surface $S$ is entire when the map $\Pi$ is a diffeomorphism. If the surface is globally a graph of a function $\varphi$, this condition is exactly stating that the function $\varphi$ is an entire map from $\R^2$ to $\R$.\\
 
 The situation for complete space-like surfaces is actually a lot nicer than what we presented up to now, as the representation as a graph is not only local but actually global as we prove in the proposition below.
@@ -289,7 +343,7 @@ Before laying out the proof let us recall a definition and a proposition from th
 			By the arbitrariness of the sequence  $(\tau_k)_k$ we deduce the limit $\lim_{\tau\to \bar \tau} \gamma^*(\tau) $ exists.
 \end{proof}
 In this section we have essentially proved that a complete space-like surface immersed in $\M$ is actually the graph of a smooth function $f$ satisfying $|\nabla f|^2<1$. A partial converse also holds: the graph of a smooth function whose gradient has norm strictly smaller than $1$ is a space-like surface, although it may lack completeness.
-\paragraph{Normal vectors to a space-like surface in $\M$}\mbox{}\\
+\section{Normal vectors to a space-like surface in $\M$}%\mbox{}\\
 Since the ambient metric $g$ is nondegenerate and each tangent plane $T_pS$ is space-like, the restriction of $g$ to $T_pS$ is positive-definite, hence nondegenerate. It follows that, for every $p\in S$,
 
 \begin{equation*}
@@ -325,7 +379,7 @@ This way we obtain a globally defined map
 	\tilde  u:S\to \mathbb{H}
 \ \ .
 \end{align}
-\paragraph{$\mathbb{H}$ is a model for the Hyperbolic plane.}\label{sc:Hmodel}\mbox{}\\
+\section{$\mathbb{H}$ is a model for the Hyperbolic plane}\label{sc:Hmodel}%\mbox{}\\
 The space $\mathbb{H}$ that we just defined is clearly a surface immersed in $\M$, but there is more.
 First of all, we observe that, by manipulating the definition of $\mathbb{H}$, we can write it as the graph of the function $\varphi(x,y) = \sqrt{x^2+y^2+1} $. The gradient of such function is $\nabla \varphi = \frac{1 }{\sqrt{x^2+y^2+1} }(x,y) $, from which it is clear that $|\nabla \varphi| <1$. By applying the result we proved before, we obtain that the bilinear form that $\mathbb{H}$ inherited from the immersion in $\M$ is a Riemannian metric.
 In fact this space is one of the many models of the hyperbolic plane.\\
@@ -398,14 +452,14 @@ By the argument on rotational invariance, we conclude that for every $\xi\in \ma
 	\left(\frac{2}{1-|\xi|^2}\right)^2 g^E_\xi.
 \end{align*}
 The disk $\mathbb{D}$ with this metric, which we denote also with $ds_p^2$, is called the Poincaré model of the Hyperbolic plane.\\
-\paragraph{The Gauss Map in $\M$}\mbox{}\\
+\subsection{The Gauss Map in $\M$}\mbox{}\\
 In \eqref{eq:gausshmap} we constructed a map $\tilde u$ between the surface $S$ and $\mathbb{H}$. Having now at our disposal the isometry $q$ between $\mathbb{H}$ and the Poincaré disk, $\mathbb{D}$, we can compose $\tilde u$ with $q$, obtaining what is called the Gauss map of the surface $S$. 
 \[ u := q \circ \tilde u:S\to \mathbb{D}. \]
 The construction we followed is analogous to the classical one, except that the target of the Gauss map is here $\mathbb{D}^2$ instead of $\mathbb{S}^2$. Moreover, unlike the Euclidean case, for a space-like surface we always have a globally defined unit normal field: once a time orientation of $\M$ is fixed, the timelike line $(T_pS)^\perp$ intersects the corresponding connected component of $\hat{\mathbb{H}}^2$ in exactly one point for every $p\in S$. Instead, for an immersed surface in Euclidean space, there is no canonical way to choose a normal vector.\\
 
-\section{The Gauss-Codazzi equations and the curvatures of $S$}
+\chapter{The Gauss-Codazzi equations and the curvatures of $S$}
 In this section we derive the Gauss-Codazzi equations for a space-like surface immersed in $\M$ and see that they assume a different form from the Euclidean case. These equations will play a central role in the discussion that follows, especially due to Bonnet's fundamental theorem on surfaces, stated at the end of the section.
-\subsection{Recall on the second fundamental form}
+\section{Recall on the second fundamental form}
 We repeat now the construction of the second fundamental form of the immersion $\iota$, which brings a different sign convention that will occur also to the expression of the Gaussian curvature.\\
 
 
@@ -468,7 +522,7 @@ Since this holds for every $V_p\in T_pS$, we obtain
 A_pW_p=D_{W_p}N.\ 
 \]
 So we have $A = DN$.
-\subsection{The Gauss-Codazzi equations and Gaussian curvature}
+\section{The Gauss-Codazzi equations and Gaussian curvature}
 It is easy to see that $\M$ is actually flat with its metric. This mean that its curvature tensor is zero $\overline{R} (X,Y)Z \equiv 0 $.
 Let us rewrite $\overline{R}$ in relation with $R$ the curvature tensor of the surface $S$.
 By definition
@@ -558,7 +612,7 @@ So that the two equations get the following form:
 	\displaystyle d^\nabla \II = 0. 
 \end{cases}	
 \end{equation}
-\paragraph{Bonnet's theorem}\mbox{}\\
+\subsection{Bonnet's theorem}\mbox{}\\
 The Gauss-Codazzi equations play a fundamental role when the ambient manifold has constant sectional curvature. In this case, they are not only necessary compatibility conditions for the existence of an isometric immersion, but, on a simply connected surface, they are also sufficient.
 \begin{thm}[Bonnet]\label{th:bonnet}
 	Let $(g_{ij})_{ij}$	and $(h_{ij})_{ij}$ be differentiable functions defined on an open set $V\subset \R^2$ to $\R$ such that $g = (g_{ij})_{ij}$ is is a symmetric positive definite matrix and $h = (h_{ij})_{ij}$ is symmetric. Suppose that they satisfy the equation \eqref{eq:gc}.\\
@@ -568,7 +622,7 @@ The Gauss-Codazzi equations play a fundamental role when the ambient manifold ha
 	 is another diffeomorphism satisfying the same conditions, then there exist an isometry $T:\M\to \M$ such that $\overline{\mathbf{x}} = T \circ \mathbf{x}$.
 \end{thm}
 We redirect to \cite{do_carmo_2016} for a proof of the Euclidean case, whose only difference is the sign of Gauss' equation.
-\paragraph{Mean curvature}\mbox{}\\
+\subsection{Mean curvature}\mbox{}\\
 We conclude this section by briefly recalling the definition of mean curvature, which does not differ from the usual Euclidean setting.
 As we have already seen, we can associate to the bilinear form $\II$ a linear operator $A_p:T_pS\to T_pS$, called shape operator, such that $\II(v,w)=\left<A_p(v),w\right>$.\\
 We define the mean curvature of $S$ at $p$ as
@@ -619,10 +673,10 @@ we obtain
 	\ \ .
 \end{align*}
 As we already mentioned, there is no formal difference with surfaces immersed in $\R^3$.
-\section{Riemann surfaces and harmonic maps}
+\chapter{Riemann surfaces and harmonic maps}
 We here introduce some notation and some fundamental concepts of Riemann surfaces. The most crucial part will be the fact that each metric on a surface is locally conformal to the Euclidean, the relationship between a Riemannian metric and a complex structure, the Uniformization theorem and the definition of the Hopf differential.
 
-\subsection{Preliminaries on Riemann surfaces}
+\section{Preliminaries on Riemann surfaces}
 
 Let us fix $S$ a surface (a topological manifold of dimension 2).
 \begin{defn}
@@ -648,7 +702,7 @@ Let us fix $S$ a surface (a topological manifold of dimension 2).
 	\end{align*}
 	Equivalently, $g'$ is at each point a positive multiple of $g$ by a smooth function. The function $e^{2\upsilon}$ is called the conformal factor.
 \end{defn}
-\paragraph{Conformal structures on 2-surfaces}\mbox{}\\
+\subsection{Conformal structures on 2-surfaces}\mbox{}\\
 Here we state the results that lead to the fact that every Riemannian surface admits a complex structure.
 \begin{thm}
 	Given  a Riemannian metric $g$ on a differentiable surface $S$, and a point $p\in S$, there is a chart near $p$, $\varphi:U\to \R^2$ such that $g$ takes the form and a smooth positive function $\lambda$ such that
@@ -722,7 +776,7 @@ Let us finally observe that,
 \ ,
 \end{align*}
 where we define $dxdy = \frac{1}{2} (dx\otimes dy+dy \otimes dx) $.
-\paragraph{Integration through a conformal chart}\mbox{}\\
+\subsection{Integration through a conformal chart}\mbox{}\\
 Given a curve $\gamma$ in S, its length is defined by
 \[ \ell(\gamma) = \int_\gamma \lambda(z) |dz|\ .\] 
 On the other hand the area form can be expressed as follows
@@ -734,7 +788,7 @@ On the other hand the area form can be expressed as follows
 \end{align*}	
 
 
-\subsection{Uniformization}
+\section{Uniformization}
 An important property of Riemann surfaces is that they can be classified in just three categories, depending on their universal covering. This result is  (a direct consequence of) the uniformization theorem.
 In what follows we denote by $\widehat{\C}$ the 2-sphere, with the metric and conformal structure induced by the Euclidean metric of $\R^3$.
 \begin{thm}[Uniformization Theorem]
@@ -756,7 +810,7 @@ In our case the surface we consider is simply connected and noncompact (for inst
 	If $\Sigma$ is a simply connected noncompact Riemann surface, then $\Sigma$ is conformally equivalent either to $\C$ or to $\mathbb{D}$.
 \end{cor}
 
-\subsection{Harmonic maps between Riemann surfaces}
+\section{Harmonic maps between Riemann surfaces}
 Let $(\Sigma_1,g)$ and $(\Sigma_2,h)$ be two Riemann surfaces, and let $z$ and $w$ be local conformal coordinates on $\Sigma_1$ and $\Sigma_2$, respectively, so that the metrics are written as
 \begin{align*}
 	g=e^{2\eta}|dz|^2 = \lambda^2|dz|^2,
@@ -793,7 +847,7 @@ For a complete derivation of the compact case we redirect the reader to \cite{jo
 
 An important observation is that the local harmonic map equation does not involve the conformal factor $\lambda$ of the metric on the domain. This reflects the fact that, in dimension two, harmonicity depends only on the conformal class of the metric on the source surface.
 
-\paragraph{Energy densities and Jacobian}\mbox{}\\
+\subsection{Energy densities and Jacobian}\mbox{}\\
 In addition to the energy density of the map $f$, it is convenient to introduce two more refined quantities, the holomorphic and anti-holomorphic energy densities. These objects will let us also express the Jacobian of $f$ in a convenient way.
 \begin{defn}
 	We define the holomorphic and antiholomorphic energy density of a smooth map $f:\Sigma_1\to \Sigma_2$ respectively as	
@@ -816,7 +870,7 @@ So that we also have
 	J(f) = \mathcal H(f) - \mathcal L(f)\ .
 \ \ . 
 \end{align}
-\subsection{Harmonic maps into $\mathbb{H}$}
+\section{Harmonic maps into $\mathbb{H}$}
 We now specialize the previous discussion to maps with values in the hyperbolic plane. Since $\mathbb{H}$ is itself a Riemann surface, the notion of harmonic map introduced above already applies to maps with target $\mathbb{H}$. Nevertheless, in order to relate harmonicity to the geometry of a space-like surface in $\M$, it is convenient to rewrite the first variation in an extrinsic way, regarding $\mathbb{H}$ as the hyperboloid in Minkowski space.\\
 
 Let us consider
@@ -868,9 +922,10 @@ Since $f_t=f$ on $\mathbb{D}\setminus K$, the quantity $\Delta E(t)$ is independ
 \begin{defn}
 	We say that $f$ is a harmonic map if for every admissible deformation $\xi$ one has
 	\[
-	\lim_{t\to 0}\frac{\Delta E(t)}{t}=0
+	\left.\frac{dE(f_t)}{dt}\right|_{t=0}:=\lim_{t\to 0}\frac{\Delta E(t)}{t}=0
 	\ \ .
 	\]
+	(We use the notation $\left.\frac{dE(f_t)}{dt}\right|_{t=0}$ for simplicity).
 \end{defn}
 The following lemma is needed to give later a characterizaion of harmonic maps.
 \begin{lemma}\label{lm:deren1}
@@ -1095,8 +1150,8 @@ We have now all the pieces needed to prove the central theorem of this subsectio
 	\[(\Delta N)^T = 2 \nabla H. \]
 	Then recall from corollary \ref{cor:tglapnull} that $N$ if and only if the LHS in the last equation is zero, which in turn is equivalent to $H$ being constant. 
 \end{proof}
-\subsection{Energy densities and the Hopf differential}
-\paragraph{Quadratic differentials}\mbox{}\\
+\section{Energy densities and the Hopf differential}
+\subsection{Quadratic differentials}\mbox{}\\
 To each map between Riemann surfaces we can associate a quantity that carries information about how far the map is from being conformal.
 \begin{defn}
 	Given $\Sigma$ a Riemann surface we say that a symmetric 0-2 tensor field on $\Sigma$ with values in $\C$ is compatible with the complex structure if it can be expressed locally in isothermal coordinates as $\Phi = \varphi(z)dz^2$. We say that $\Phi$ is holomorphic if $\varphi$ is a holomorphic function.
@@ -1249,7 +1304,7 @@ So that we have
 
 If we apply calculate the norm of the Hopf differential of a smooth $f:\Sigma_1\to \Sigma_2$, with local representation $w=w(z)$, 
 \[\|\Hopf(f)\|_g^2(z) = \frac{\rho^4(w)}{\lambda^4} |w_z|^2|w_{\overline{z}}|^2\ .\] 
-\paragraph{The second fundamental form and the Hopf differential of the Gauss map}\mbox{}\\
+\subsection{The second fundamental form and the Hopf differential of the Gauss map}\mbox{}\\
 We now present some observations that will illustrate how the Hopf differential of the Gauss map is related to the second fundamental form.
 \begin{lemma}\label{lm:lemmaqforms}
 	Let $x,y$ be some coordinates. Then
@@ -1432,7 +1487,7 @@ We note that these relations can be used to reconstruct the coefficients $(h_{ij
 \ \ .
 \end{align}
 
-\subsection{A different form for Gauss' equation}\label{sc:geq}\mbox{}\\
+\section{A different form for Gauss' equation}\label{sc:geq}\mbox{}\\
 We shall now prove the equivalence of Gauss' equation with a certain PDE on $\mathbb{D}$, which we will derive with respect to the Euclidean backgroun metric $|dz|^2$ and then rewrite it with respect to the hyperbolic metric.\\
 
 Let $\I=e^{2w}|dz|^2$, and let $(x,y)$ be the corresponding isothermal coordinates, with associated complex coordinate $z=x+iy$. It is clear that
@@ -1576,7 +1631,7 @@ This is exactly the form of the PDE found in \cite{Wan1992}. Again, it might be 
 	\end{align*}
 \end{thm}
 
-\section{CMC surfaces and harmonic maps}\label{sc:cmcsurfharmmp}
+\chapter{CMC surfaces and harmonic maps}\label{sc:cmcsurfharmmp}
 
 We now introduce the class of surfaces that will be studied throughout this section.
 \begin{defn}
@@ -1812,9 +1867,9 @@ We have thus proved the following theorem:
 	\end{itemize}
 
 \end{thm}
-\section{Classification of hyperbolic CMC cuts}
+\chapter{Classification of hyperbolic CMC cuts}
 We will need first to make some observations on quadratic differentials, that we will use in the proof of the classification theorem.
-\paragraph{The codazzi equation and holomorphic quadratic differentials}\mbox{}\\
+\subsection{The codazzi equation and holomorphic quadratic differentials}\mbox{}\\
 Let $g=e^{2w}(dx^2+dy^2)$ be a conformal metric on $\mathbb{D}$, and let $h$ be a symmetric real 2-form on $(\mathbb{D},g)$. 
 
 By applying Lemma \ref{lm:trsym2form} we obtain that $h = \Phi+\overline{\Phi}$ for a certain quadratic differential $\Phi$. We may now prove that, if  $h$ satisfies the Codazzi equations if and only if $\Phi$ is holomorphic.\\
@@ -1948,7 +2003,7 @@ which are the Cauchy-Riemann equations for $\varphi = a-ib$. We can summarize th
 		\ .
 	\end{align*}
 \end{prop}
-\subsection{The classification theorem}
+\section{The classification theorem}
 In Section \ref{sc:cmcsurfharmmp} we essentially followed the sequence of constructions
 \begin{align}\label{eq:infrel}
 S\longmapsto u\longmapsto (\Phi,w)\longmapsto \Phi,
@@ -2151,7 +2206,7 @@ Which proves that $\mathscr A$ is injective.
 
 
 
-\section{Uniqueness for the PDE}
+\chapter{Uniqueness for the PDE}
 We now begin the proof of Claim \ref{cl:existenceuniquew}. Recall that, if $\Phi$ is a holomorphic quadratic differential on $\mathbb{D}$ and we set
 \[
 q=\|\Phi\|,
@@ -2166,7 +2221,7 @@ such that the metric $e^{2w}ds_p^2$ is complete and
 \end{align}
 on $\mathbb{D}$.
 In this section we prove uniqueness.
-\subsection{A generalized maximum principle}
+\section{A generalized maximum principle}
 Let $M$ be a complete Riemannian manifold of dimension $n$, and fix a point $p\in M$. Assume moreover that $M$ is simply connected and has nonpositive sectional curvature. This assumption is stronger than what is strictly needed in this section, but greatly simplifies the discussion and is satisfied in the case of a complete space-like surface of $\M$. By the Cartan--Hadamard theorem, the exponential map
 \[
 \exp_p:T_pM\to M
@@ -2517,7 +2572,7 @@ Hence, by substituting in  \eqref{eq:boundprindeltag1} and simplifying, we obtai
 
 \end{proof}
 
-\paragraph{A boundedness result}\mbox{}\\
+\subsection{A boundedness result}\mbox{}\\
 We will also use this theorem to obtain a boundedness result for a certain differential inequality. We first make a few preliminary observations, and then state the theorem at the end of the section.\\
 
 Let $M$ be a complete Riemannian manifold with Ricci curvature bounded from below, and let $u\in C^2(M)$ satisfy
@@ -2775,7 +2830,7 @@ then $G\in C^1([a,\infty))$, $G(a)=0$, and $G'(t)=g(t)>0$ for every $t\geq a$. I
 		\end{cases}
 	\end{align*}
 \end{thm}
-\subsection{The uniqueness theorem}
+\section{The uniqueness theorem}
 
 We now prove the uniqueness part of Claim \ref{cl:existenceuniquew}. We recall that, if
 \[
@@ -2991,8 +3046,8 @@ w_1=w_2
 \ \ .
 \]
 \end{proof}
-\section{Existence for the PDE}
-\subsection{Analytic preliminaries}
+\chapter{Existence for the PDE}
+\section{Analytic preliminaries}
 In this chapter we will recall some essential concepts of functional analysis, that will be used extensively in the proof of the existence theorem. We report these results in this section as they come useful only now. 
 
 Let us fix $\Omega\subset \R^n$ an open set. We assume the reader to be familiar with the Sobolev spaces $W^{k,p}$ and the spaces $C^{k,\alpha}$, but we will recall some basic information.\\
@@ -3059,10 +3114,10 @@ Finally, we might recall the statement of the method for sub- and super-solution
 	\[
 		\Delta u=F(x,u)
 	\]
-	and \[ \psi_-\leq u\leq \psi. \]
+	and \[ \underline{\psi}\leq u\leq \overline{\psi}. \]
 	We call $\underline{\psi}$ and $\overline{\psi}$ respectively the sub- and super-solutions.
 \end{thm}
-\subsection{The bounded case}
+\section{The bounded case}
 We may prove the existence theorem with the stronger hypothesis of boundedness for the norm of the quadratic differential. 
 \begin{prop}\label{pr:exboundcase}
 	Let $\Phi$ a holomorphic quadratic differential on $\mathbb{D}$, such that $\|\Phi\|$ is bounded. Then the equation \eqref{eq:box} has a $C^\infty$ solution $w$ that satisfies
@@ -3172,7 +3227,7 @@ Exponentiating, we obtain
 1\leq e^{2w}\leq \frac{1+\sqrt{1+4a^2}}{2}.
 \]
 \end{proof}
-\subsection{The general case}
+\section{The general case}
 \begin{thm}
 	Let $\Phi$ be a holomorphic quadratic differential on $\mathbb{D}$, then the equation 
 	\begin{align*}

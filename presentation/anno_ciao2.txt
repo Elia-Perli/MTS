@@ -1,0 +1,52 @@
+Slide 1 ~ Setting geometrico
+	- A parole di' che potrebbe succedere che sia degenere la forma se ristretta ad un sottospazio.
+	- Come nel caso euclideo le superfici sono equipaggiate di una I e II forma fondamentale, la prima è la metrica indotta, la seconda si calcola con la variazione della normale. "Come nel caso euclideo si può parlare di curvatura media e curvatura di Gauss"
+	- Tra le superfici space-like le più semplici sono quelle che si scrivono come una grafico da R^2 in R. L'essere space-like corrisponde in questo caso alla condizione che tale funzione sia 1-Lipschitz, ovvero che il tangente "non è troppo verticale"
+	- Finisco la slide dando le Equazioni di Gauss-Codazzi  e (magari a voce) il teorema di Bonnet
+
+Slide 2 ~ (nuova)
+	- Nella tesi mi sono concentrato sulle superfici a curvatura media costante e complete, che sono grafici interi. Per una CMC, essere un grafico intero, per un teorema di Cheng e Yau, equivale ad avere la prima forma fondamentale è una metrica Riemanniana completa, cioè che la distanza indotta rende la varietà uno spazio metrico competo.
+	- Cheng-Yau dimostrano l'analogo del teorema di Bernstein, cioè che le CMC a curvatura zero sono solo gli iperpiani e dunque non sono interessanti. A meno di riscala ogni CMC a curvatura può essere assunta a curvatura media pari ad esattamente 1. (Se non c'è spazio questo posso dirlo solo a voce)
+Slide 3 ~  Parametrizzazione conforme
+	- Di' (a voce) che \hat \C lo elimini perché sappiamo che la superficie non è compatta.
+	- Se non utilizzo la metrica di Poincaré, posso saltare la sua definizione
+Slide 5 ~ Risultato principale
+	- Questa slide non va bene perché sto enunciando cosa è la mappa $\mathcal{A}$ ma spiego gli elementi della sua definizione solo dopo.
+
+
+
+- Anche senza scriverlo, molto presto tipo nella seconda slide, devo dire che l'obiettivo è quello di classificare le CMC1 a meno di isometria.
+	- Lo strumento geometrico principale è che se prendo la parametrizzazione conforme, \I = e^{2w}(dx^2+dy^2), \II = h_{ij} dx^idx^j.
+	- Se prendo h_{11}-1 - h_{21} e^{-2u} ottengo una *funzione olomorfa sul disco* (evito di dare una definizione rigorosa di differenziale quadratico olomorfo). Posso evitare di parlare della decomposizione dei differenziali quadratici olomorfi, e fare tutto un po' a mano.
+	- Il fatto che questa funzione è olomorfa viene dall'equazione di codazzi - Mentre l'equazione di Gauss, in questo caso, si scrive come "$\Delta w = .."
+	- Quindi le incognite del problema sono: il fattore conforme u, h_{11},h_{21}. Tutto il resto è determinato.
+	- Fisso una qualunque funzione olomorfa $f$.  Definisco $h_{11} = \Re(f), h_{21} = -\Im(f)$ (faccio il processo inverso). Questo definisce i dati di immersione. Con questa scelta l'equazione di Codazzi è automaticamente verificata. Mi manca di verificare l'equazione di gauss e scegliere $u$.
+	- Data una funzione olomorfa sul disco, cerco una soluzione della PDE, con la condizione aggiuntiva che $\I$ che verifichi che la metrica è completa
+	- Non è un problema di Dirichlet (non ho un dato al bordo), voglio una soluzione che diverge al bordo.
+- A questo punto do l'enunciato del teorema di classificazione. Posso applicare una semplificazione e vedere questi differenziali quadratici come mappe olomorfe sul disco (a livello di presentazione). Voglio far vedere che la mappa è biunivoca, e questo si riduce a trovar un'unica soluzione u che verifica la PDE tale che e^{2u} ds_p^2 è completa ecc...
+- Rimuovere la parte della presentazione sulla mappa di gauss della superficie. Tenere però (nella forma di quanto detto sopra) la parte sull'equazione di Gauss.
+
+
+- Il problema analitico
+- Tra esistenza e unicità mi soffermo sull'unicità.
+	- Principio del massimo
+		- Enuncio il fatto che la dimostrazione generale è tecnica. Diamo una dimostrazione più semplice del caso 2-dimensionale e sfruttando la curvatura negativa di $\mathbb{D}$.
+	- Poi ti soffermi un attimo sulla dimostrazione dell'unicità
+	- Sull'unicità qualche parola in più riguardo alla dimostrazione.
+
+- Esistenza va anticipata a prima dell'unicità e va commentata brevemente. La tecnica è abbastanza standard, si usa il metodo delle sottosoluzioni e sovrasoluzioni, per cui se si trova una sottosoluzione che sta sotto ed una sovrasoluzione che sta sopra, allora c'è una soluzione che sta in mezzo.
+	- Accenno solo al caso in cui la funzione $\|\Phi\|$ è limitata. Breve accenno a cosa sia la norma $\|\Phi\|$, forse anche a voce. Dimentica il caso dove $\|\Phi\|$ è illimitato.
+	- Posso dire che "per dimostrare che la metrica è completa" un motivo buono è che dato che ds_p^2 è completa, se w è limitata dal basso da una costante positiva, allora sto moltiplicando la metrica per un fattore che non è vicino a zero e quindi ottengo ancora una metrica completa. 
+	- w è naturalmente limitato dal basso perché la sottosoluzione è limitata dal basso. 
+
+Riassumendo
+- togliere quello che non è necessario
+- Dire più sulla I e II ff
+- Dire cosa sono le coordinate isoterme
+- Di' subito che in coordinate isoterme h_11 h_21 come variabili del problema
+- Codazzi dice h_11 -  i h_21 è olomorfa
+- Prendo una funzione olomorfa sul disco, definisco h_11 e h_21 come sopra, mi rimane come unica variabile da determinare, u. L'ultimo constraint è l'equazione di Gauss nella forma della PDE. 
+- Do l'enunciato. Dimostrare problema di biunivocità
+- $Q_{\D}$ "a meno di mappe conformi del disco" e non "a meno di cambi di coordinate conformi".
+- Salta la mappa di Gauss.
+- Se trovo spazio: Una delle motivazioni per studiare le CMC-1 nello spazio di Minkowski è che le mappe di Gauss producono delle mappe armoniche da $D\to D$ e viceversa ogni mappa armonica deriva da questa costruzione, quindi studiare le CMC-1 permette di studiare anche le mappe armoniche. (Da usare come applicazione/motivazione di questa teoria.
