@@ -1,0 +1,513 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[provide=*,italian]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{array}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,arrows.meta}
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\M}{\mathbb{M}^{2,1}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\OD}{\mathcal{O}(\D)}
+\newcommand{\EE}{\mathbf{E}}
+\newcommand{\Amap}{\mathcal{A}}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\II}{\mathbf{II}}
+\newcommand{\Iff}{\mathbf{I}}
+\newcommand{\IIff}{\mathbf{II}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
+\title{Classificazione delle superfici space-like iperboliche\\ a curvatura media costante in spazio di Minkowski}
+\subtitle{Tesi di Laurea in Matematica}
+\author{\centering \textbf{Candidato:} Elia Andrea Perli\\
+        \textbf{Relatore:} Prof.\ Francesco Bonsante}
+\institute{Università degli Studi di Pavia}
+\date{2026 -- 04 -- 28}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+% =================== SETTING GEOMETRICO ===================
+\section{Setup geometrico}
+
+\begin{frame}[t]{Lo spazio di Minkowski e le superfici space-like}
+  \emph{Spazio di Minkowski}: $\M=\R^3$ con pseudometrica
+  \[
+    ds^2 \;=\; (dx^1)^2+(dx^2)^2-(dx^3)^2.
+  \]
+  Una superficie immersa $\iota:S\hookrightarrow\M$ è \alert{di tipo
+  spazio} se la metrica indotta $\Iff:=\iota^* g_\M$ è Riemanniana.
+
+  \vspace{2mm}
+  \begin{block}{Forme fondamentali e curvature}
+    Come nel caso euclideo, $S$ è equipaggiata con la \emph{prima
+    forma fondamentale} $\Iff$ (metrica indotta) e la \emph{seconda
+    forma fondamentale} $\IIff$ (variazione della normale unitaria),
+    e si parla di \emph{curvatura media} $H=\tfrac12\tr_{\Iff}(\IIff)$ e
+    \emph{curvatura di Gauss} $K$. Le forme $(\Iff,\IIff)$ soddisfano
+    le equazioni di \alert{Gauss-Codazzi}.
+  \end{block}
+
+  \vspace{2mm}
+  \emph{Esempio canonico:} grafico di $f:\R^2\to\R$. La condizione
+  space-like si traduce in $\;|\nabla f|<1$, cioè $f$
+  \alert{$1$-Lipschitz}: il piano tangente non è ``troppo verticale''.
+\end{frame}
+
+
+% =================== CMC E COMPLETEZZA ===================
+\begin{frame}[t]{Superfici CMC complete}
+  Ci concentriamo su superfici \alert{a curvatura media costante}
+  (CMC) e \alert{complete}, dette \emph{tagli CMC}.
+
+  \vspace{2mm}
+  \begin{block}{Teorema (Cheng--Yau)}
+    Per una superficie space-like CMC, sono equivalenti:
+    \begin{itemize}\itemsep=0pt
+      \item $S$ è un grafico intero su $\R^2$;
+      \item la prima forma fondamentale $\Iff$ è una metrica
+            Riemanniana \alert{completa}.
+    \end{itemize}
+  \end{block}
+
+  \vspace{2mm}
+  \emph{Analogo del teorema di Bernstein.}\;
+  Una CMC con $K\equiv 0$ è un iperpiano $\Rightarrow$ non interessante;
+  ci occuperemo del caso $K<0$ ovunque, detto \alert{iperbolico}.
+  Per omotetia, ogni CMC con $H=\kappa>0$ corrisponde ad una con $H=1$.
+
+  \vspace{3mm}
+  \begin{alertblock}{Obiettivo della tesi}
+    \centering
+    Classificare le \emph{CMC-$1$ iperboliche} a meno di isometria di $\M$.
+  \end{alertblock}
+\end{frame}
+
+
+% =================== COORDINATE ISOTERME ===================
+\section{Riduzione del problema}
+
+\begin{frame}[t]{Coordinate isoterme e parametrizzazione conforme}
+  \begin{block}{Coordinate isoterme}
+    Su una superficie Riemanniana orientata esistono coordinate locali
+    $(x,y)$ in cui la metrica si scrive
+    \[
+      \Iff \;=\; e^{2u}\,(dx^2+dy^2),
+      \qquad u:U\to\R.
+    \]
+    Posto $z=x+iy$, definiscono una struttura complessa.
+  \end{block}
+
+  \vspace{1mm}
+  Una CMC-$1$ iperbolica $S$ è semplicemente connessa (grafico intero):
+  per il \alert{teorema di uniformizzazione} esiste un diffeomorfismo
+  conforme $\sigma:\D\to S$.
+
+  \vspace{1mm}
+  In tali coordinate, su tutto $\D$:
+  \[
+    \Iff \;=\; e^{2u}|dz|^2,
+    \qquad
+    \IIff \;=\; h_{ij}\,dx^i\,dx^j.
+  \]
+\end{frame}
+
+
+% =================== INCOGNITE DEL PROBLEMA ===================
+\begin{frame}[t]{Le incognite del problema}
+  Le \alert{quattro funzioni incognite} $u,h_{11},h_{12},h_{22}$ sono
+  legate dalle relazioni geometriche.
+
+  \vspace{2mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \begin{block}{Vincolo CMC-$1$}
+      \centering
+      Da $H=\tfrac12\tr_{\Iff}(\IIff)=1$:
+      \[
+        h_{11}+h_{22} \;=\; 2e^{2u}.
+      \]
+      $h_{22}$ è dunque determinato.
+    \end{block}
+    \column{0.48\textwidth}
+    \begin{block}{Incognite indipendenti}
+      \centering
+      Restano \alert{tre} funzioni:
+      \[
+        u,\quad h_{11},\quad h_{12}\,:\,\D\to\R.
+      \]
+    \end{block}
+  \end{columns}
+
+  \vspace{3mm}
+  Resta da imporre le equazioni di \alert{Gauss-Codazzi}, che
+  garantiscono che $(\Iff,\IIff)$ provengano effettivamente da una
+  superficie immersa in $\M$ (\emph{teorema di Bonnet}).
+\end{frame}
+
+
+% =================== CODAZZI E FUNZIONE OLOMORFA ===================
+\begin{frame}[t]{Codazzi: una funzione olomorfa sul disco}
+  Definiamo la funzione $f:\D\to\C$ ponendo
+  \[
+    f(z) \;:=\; \tfrac{h_{11}-h_{22}}{2}\;-\;i\,h_{12}
+        \;=\; (h_{11}-e^{2u})\;-\;i\,h_{12}.
+  \]
+
+  \vspace{1mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.10\textwidth}\hfill
+    \column{0.80\textwidth}
+    \begin{block}{Proposizione (traduzione di Codazzi)}
+      \centering
+      Le equazioni di Codazzi per $\IIff$ rispetto ad $\Iff=e^{2u}|dz|^2$ sono
+      equivalenti a
+      \[
+        f \text{ è \alert{olomorfa} su } \D.
+      \]
+    \end{block}
+    \column{0.10\textwidth}\hfill
+  \end{columns}
+
+  \vspace{2mm}
+  \emph{Idea.} In coordinate isoterme, dopo cancellazione dei
+  simboli di Christoffel di $\Iff$, le equazioni di Codazzi sulla
+  parte traceless di $\IIff$ si riducono alle equazioni di
+  \alert{Cauchy-Riemann} per $f$.
+
+  \vspace{2mm}
+  \emph{Conseguenza.} I dati $(h_{11},h_{12})$ si recuperano dalla
+  parte reale ed immaginaria di $f$. Resta da determinare il fattore
+  conforme $u$.
+\end{frame}
+
+
+% =================== GAUSS COME PDE ===================
+\begin{frame}[t]{Gauss: una PDE non lineare per il fattore conforme}
+  Dato $f$ olomorfa, l'equazione di Gauss diventa un'equazione
+  \alert{solo per $u$}.
+
+  \vspace{1mm}
+  Per ottenerne una forma analiticamente trattabile, si scrive $\Iff$
+  rispetto alla \emph{metrica di Poincaré}
+  $ds_p^2 = \frac{4}{(1-|z|^2)^2}|dz|^2$ (completa, di curvatura $-1$):
+  \[
+    \Iff \;=\; e^{2w}\,ds_p^2,
+    \qquad
+    w:\D\to\R.
+  \]
+
+  \vspace{1mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.10\textwidth}\hfill
+    \column{0.80\textwidth}
+    \begin{block}{Proposizione (traduzione di Gauss)}
+      \centering
+      L'equazione di Gauss è equivalente alla PDE
+      \[
+        \boxed{\;\Delta_p w \;=\; e^{2w}\;-\;\norm{f}^2 e^{-2w}\;-\;1\;}
+        \quad\text{su }\D,
+      \]
+      dove $\Delta_p$ è il laplaciano di Poincaré e $\norm{f}$ la
+      norma di $f$ rispetto a $ds_p^2$.
+    \end{block}
+    \column{0.10\textwidth}\hfill
+  \end{columns}
+\end{frame}
+
+
+% =================== STRATEGIA DI INVERSIONE ===================
+\begin{frame}[t]{Strategia di inversione e enunciato}
+  \emph{Schema.} Data una funzione olomorfa $f:\D\to\C$:
+  \begin{enumerate}\itemsep=0pt
+    \item si cerca $w$ soluzione della PDE, con $e^{2w}ds_p^2$ completa;
+    \item si definiscono $h_{11},h_{12}$ tramite $f$ (Codazzi gratis);
+    \item dalla CMC-$1$, $h_{22}=2e^{2w}\rho_p^{-2}-h_{11}$, dove
+          $\rho_p^{-2}=\frac{(1-|z|^2)^2}{4}$;
+    \item per il \emph{teorema di Bonnet}, esiste $S\subset\M$ con
+          tali $\Iff,\IIff$, unica a meno di isometria.
+  \end{enumerate}
+
+  \vspace{2mm}
+  Definendo
+  $\EE = \{\text{CMC-$1$ iperboliche}\}/\text{isometrie di }\M$ e
+  $\OD = \{f:\D\to\C \text{ olomorfa}\}/\text{mappe conformi di }\D$,
+  la costruzione produce
+  $\Amap:\EE\to\OD,\;[S]\mapsto[f]$.
+
+  \vspace{2mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.10\textwidth}\hfill
+    \column{0.80\textwidth}
+    \begin{block}{Teorema di classificazione (Wan, 1992)}
+      \centering
+      L'applicazione $\Amap:\EE\to\OD$ è
+      \alert{ben definita e biunivoca}.
+    \end{block}
+    \column{0.10\textwidth}\hfill
+  \end{columns}
+\end{frame}
+
+
+% =================== IL PROBLEMA ANALITICO ===================
+\begin{frame}[t]{Il problema analitico}
+  La biunivocità di $\Amap$ si riduce a:
+
+  \vspace{2mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.07\textwidth}\hfill
+    \column{0.86\textwidth}
+    \begin{block}{Problema}
+      Data $f:\D\to\C$ olomorfa, esiste \alert{un'unica}
+      $w\in C^\infty(\D)$ tale che
+      \[
+        \Delta_p w \;=\; e^{2w}\;-\;\norm{f}^2 e^{-2w}\;-\;1
+        \quad\text{su }\D,
+      \]
+      con $e^{2w}ds_p^2$ \alert{metrica completa} su $\D$.
+    \end{block}
+    \column{0.07\textwidth}\hfill
+  \end{columns}
+
+  \vspace{3mm}
+  \begin{itemize}\itemsep=2pt
+    \item Non è un problema di Dirichlet: \alert{nessun dato al bordo}.
+    \item La condizione di completezza richiede a $w$ di
+          \emph{divergere opportunamente} all'avvicinarsi a $\partial\D$.
+    \item Affronteremo nell'ordine: prima l'\alert{esistenza}, poi
+          l'\alert{unicità}.
+  \end{itemize}
+\end{frame}
+
+
+% =================== ESISTENZA - METODO ===================
+\section{Esistenza}
+
+\begin{frame}[t]{Esistenza: il metodo delle sotto/sovra-soluzioni}
+  La tecnica è classica: trovare due funzioni $\underline\psi\le\overline\psi$,
+  rispettivamente \alert{sotto-soluzione} e \alert{sovra-soluzione}
+  della PDE, e dedurne una soluzione $w$ con $\underline\psi\le w\le\overline\psi$.
+
+  \vspace{2mm}
+  \begin{block}{Teorema (metodo monotono)}
+    Su una varietà Riemanniana completa, se $F(x,u)\in C^\infty(M\times\R)$
+    con $\partial_u F>0$ ed esistono
+    $\underline\psi\le\overline\psi\in C^0(M)\cap H^1(M)$ con
+    $\Delta\underline\psi\ge F(x,\underline\psi)$,
+    $\Delta\overline\psi\le F(x,\overline\psi)$,
+    allora esiste $u\in C^\infty(M)$ con
+    $\Delta u=F(x,u)$ e $\underline\psi\le u\le\overline\psi$.
+  \end{block}
+
+  \vspace{2mm}
+  Nel nostro caso $F(x,w)=e^{2w}-\norm{f(x)}^2 e^{-2w}-1$, con
+  $\partial_w F = 2(e^{2w}+\norm{f}^2 e^{-2w}) > 0$.
+\end{frame}
+
+
+% =================== ESISTENZA - CASO LIMITATO ===================
+\begin{frame}[t]{Esistenza: il caso $\norm{f}$ limitata}
+  \emph{Ipotesi:} $\norm{f}$ \alert{limitata}, $a:=\sup_\D\norm{f}<\infty$.
+  Cerchiamo sotto/sovra-soluzioni costanti.
+
+  \vspace{2mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.48\textwidth}
+    \begin{block}{Sotto-soluzione: $\underline\psi\equiv 0$}
+      \centering
+      \[
+        \Delta_p 0 - F(x,0) \;=\; \norm{f}^2 \;\ge\; 0.\qquad\checkmark
+      \]
+    \end{block}
+    \column{0.48\textwidth}
+    \begin{block}{Sovra-soluzione: $\overline\psi\equiv C$}
+      \centering
+      Posto $X=e^{2C}$, basta $X^2-X-a^2\ge 0$:
+      \[
+        C \;=\; \tfrac12\log\!\left(\tfrac{1+\sqrt{1+4a^2}}{2}\right).
+      \]
+    \end{block}
+  \end{columns}
+
+  \vspace{3mm}
+  Per il metodo monotono otteniamo $w\in C^\infty(\D)$ con
+  \[
+    0 \;\le\; w \;\le\; C
+    \quad\Longrightarrow\quad
+    1 \;\le\; e^{2w} \;\le\; \tfrac{1+\sqrt{1+4a^2}}{2}.
+  \]
+
+  \vspace{1mm}
+  \begin{alertblock}{Completezza, gratis}
+    \centering
+    $w \ge 0\;\Rightarrow\; e^{2w}ds_p^2 \ge ds_p^2$.\\
+    Poiché $ds_p^2$ è completa su $\D$, anche $e^{2w}ds_p^2$ lo è.
+  \end{alertblock}
+\end{frame}
+
+
+% =================== UNICITÀ - PRINCIPIO DEL MASSIMO ===================
+\section{Unicità}
+
+\begin{frame}[t]{Unicità: il principio del massimo generalizzato}
+  Su domini non compatti la mancanza di un punto di massimo si rimpiazza
+  con \emph{quasi-massimi}, sfruttando la completezza della metrica.
+
+  \vspace{2mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.07\textwidth}\hfill
+    \column{0.86\textwidth}
+    \begin{block}{Principio del massimo generalizzato (Omori-Yau)}
+      Sia $(M,g)$ Riemanniana completa con curvatura di Ricci limitata
+      dal basso, $\eta\in C^2(M)$ limitata superiormente. Allora
+      esiste $(p_n)\subset M$ con
+      \[
+        \eta(p_n)\to\sup_M\eta,
+        \qquad
+        |\nabla_g\eta|(p_n)\to 0,
+        \qquad
+        \limsup_n \Delta_g\eta(p_n)\le 0.
+      \]
+    \end{block}
+    \column{0.07\textwidth}\hfill
+  \end{columns}
+
+  \vspace{2mm}
+  \begin{itemize}\itemsep=2pt
+    \item Nel caso generale la dimostrazione è \emph{tecnica} (stime
+          del laplaciano della distanza tramite Hessiana).
+    \item Nel nostro caso (\alert{dimensione 2}, curvatura non
+          positiva) bastano argomenti più semplici basati sui
+          confronti di Hessiana.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{Unicità: applicazione alla PDE}
+  Siano $w_1,w_2$ soluzioni del problema. Poniamo $\eta = w_2-w_1$ e
+  dimostriamo $\eta\le 0$ (la disuguaglianza inversa segue per simmetria).
+
+  \vspace{2mm}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.07\textwidth}\hfill
+    \column{0.86\textwidth}
+    \begin{block}{Identità chiave}
+      Posto $|\mu|^2=\norm{f}^2 e^{-4 w_1}\le 1$
+      (la condizione di positività),
+      \[
+        \Delta_{g_1}\eta
+        \;=\; e^{2\eta}-|\mu|^2 e^{-2\eta}-1+|\mu|^2
+        \;\ge\; e^{2\eta}-e^{-2\eta}-1
+        \;=:\; F(\eta).
+      \]
+      $F$ è strettamente crescente con $F(0)=0$.
+    \end{block}
+    \column{0.07\textwidth}\hfill
+  \end{columns}
+
+  \vspace{2mm}
+  Applicando il principio del massimo a $\eta$ sulla varietà completa
+  $(\D,g_1=e^{2w_1}ds_p^2)$:
+  \[
+    \exists\,(p_n):\;
+    \eta(p_n)\to\bar\eta:=\sup\eta,\quad
+    \limsup_n\Delta_{g_1}\eta(p_n)\le 0
+  \]
+  e passando al limite, $F(\bar\eta)\le 0$, cioè $\bar\eta\le 0$.
+  Per simmetria, $w_1=w_2$.\quad\alert{Unicità.}
+\end{frame}
+
+
+% =================== MOTIVAZIONE / CONCLUSIONI ===================
+\section{Conclusione}
+
+\begin{frame}[t]{Una motivazione: mappe armoniche $\D\to\D$}
+  Una motivazione importante per lo studio delle CMC-$1$ in $\M$ viene
+  dalla \alert{teoria delle mappe armoniche}.
+
+  \vspace{2mm}
+  \begin{itemize}\itemsep=4pt
+    \item Per ogni CMC-$1$ iperbolica $S\subset\M$, la sua mappa di
+          Gauss letta in coordinate conformi è una \alert{mappa armonica}
+          $u:\D\to\D$.
+    \item Viceversa, ogni mappa armonica $\D\to\D$ proviene da una
+          tale CMC-$1$.
+    \item La classificazione $\Amap$ fornisce dunque un dizionario tra
+          \emph{geometria delle CMC} in $\M$ e
+          \emph{teoria delle mappe armoniche} sul disco;
+          è il punto di contatto con lo \emph{spazio di Teichmüller
+          universale} (Wan, 1992).
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]{Conclusioni}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.07\textwidth}\hfill
+    \column{0.86\textwidth}
+    \begin{block}{Teorema di classificazione}
+      \centering
+      $\Amap:\EE\to\OD,\;[S]\mapsto[f]\;$
+      è \alert{ben definita e biunivoca}.
+    \end{block}
+    \column{0.07\textwidth}\hfill
+  \end{columns}
+
+  \vspace{3mm}
+  \textbf{In sintesi.}
+  \begin{itemize}\itemsep=2pt
+    \item In coordinate isoterme, l'equazione di Codazzi diventa
+          l'\emph{olomorfia} di una funzione $f:\D\to\C$;
+    \item l'equazione di Gauss diventa la PDE non lineare
+          $\Delta_p w = e^{2w}-\norm{f}^2 e^{-2w}-1$;
+    \item la biunivocità di $\Amap$ corrisponde a esistenza ed unicità
+          di $w$, con $e^{2w}ds_p^2$ \emph{completa}.
+  \end{itemize}
+
+  \vspace{2mm}
+  \textbf{Strumenti analitici.}
+  \begin{itemize}\itemsep=2pt
+    \item Esistenza: \alert{metodo delle sotto/sovra-soluzioni}.
+    \item Unicità: \alert{principio del massimo generalizzato}.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \vfill
+  \begin{center}
+    \Huge Grazie per l'attenzione.
+  \end{center}
+  \vfill
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Riferimenti essenziali}
+\footnotesize
+\begin{thebibliography}{9}
+\bibitem{Wan} T.~Y.~H.~Wan, \emph{Constant mean curvature surface,
+  harmonic maps, and universal Teichmüller space}, J.\ Differential
+  Geom.\ 35 (1992), 643--657.
+\bibitem{Jost} J.~Jost, \emph{Compact Riemann Surfaces}, Springer, 2006.
+\bibitem{doCarmo} M.~P.\ do Carmo, \emph{Differential Geometry of
+  Curves and Surfaces}, Dover, 2016.
+\end{thebibliography}
+\end{frame}
+
+\end{document}

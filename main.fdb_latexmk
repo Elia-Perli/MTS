@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1776801357 "main.bcf" "main.bbl" "main" 1777284635 0
+["biber main"] 1776801357 "main.bcf" "main.bbl" "main" 1779201017 0
   "./out-mybiblio.bib" 1776333047 3622 5e94618ef5d1221a93f37ee9a24421ab ""
-  "main.bcf" 1777284634 108309 713abe52468eba2d90ef90909d3f35b7 "pdflatex"
+  "main.bcf" 1779201016 108309 713abe52468eba2d90ef90909d3f35b7 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777284632 "main.tex" "main.pdf" "main" 1777284635 0
+["pdflatex"] 1779201014 "main.tex" "main.pdf" "main" 1779201017 0
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -326,12 +326,12 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1692786545 8172927 68f9a24ea8f7d641bc5d66e1182a9271 ""
   "/usr/local/texlive/2023/texmf.cnf" 1692786301 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
   "logo.eps" 1643618538 930679 e6a44156712f819b8eefc7f0069ddce0 ""
-  "main.aux" 1777284634 17444 c00d1aa397c06517d8a3bb6770e0646d "pdflatex"
+  "main.aux" 1779201016 17444 c00d1aa397c06517d8a3bb6770e0646d "pdflatex"
   "main.bbl" 1776801359 14130 fdcefdd903ff4d787c866dc42e2a2b33 "biber main"
-  "main.out" 1777284634 7755 36c44d11ee2a47ce8b1ae152a1953b27 "pdflatex"
-  "main.run.xml" 1777284634 2307 badf4e090609f6e58a0e9f15a5732579 "pdflatex"
-  "main.tex" 1777284631 155661 2aa0873330b9d67854282f7330728cbb ""
-  "main.toc" 1777284634 3436 8046246a6363087c3b7383e705921268 "pdflatex"
+  "main.out" 1779201016 7755 36c44d11ee2a47ce8b1ae152a1953b27 "pdflatex"
+  "main.run.xml" 1779201016 2307 badf4e090609f6e58a0e9f15a5732579 "pdflatex"
+  "main.tex" 1779200962 155661 2aa0873330b9d67854282f7330728cbb ""
+  "main.toc" 1779201016 3436 8046246a6363087c3b7383e705921268 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

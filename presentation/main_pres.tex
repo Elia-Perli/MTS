@@ -74,354 +74,200 @@
 
 
 \begin{frame}{Setting geometrico}
+	\begin{itemize}
+		\item Lo spazio di Minkowski è $\M=\R^3$ con pseudometrica
+			\[
+				g_{\M} = ds^2 = (dx^1)^2+(dx^2)^2-(dx^3)^2.
+			\]
+		\item Una superficie immersa $ \iota:S\hookrightarrow \M$ è
+			\alert{space-like} se la metrica indotta è Riemanniana.
+			Questa è la prima forma fondamentale della superficie
+			$\I = \iota^*(g_{\M})$. Si definisce analogamente al caso euclideo la seconda
+			forma fondamentale $\II$.
+		\item Se la superficie è space-like, questa è localmente della forma
+			$x^3=f(x^1,x^2)$ con $|\nabla f|<1$.
+	\end{itemize}
+	\vspace{0mm}
+	\begin{columns}[T,onlytextwidth]
+		\begin{column}{0.48\textwidth}
+			\begin{itemize}
+				\item Valgono le equazioni di Gauss-Codazzi
+					\begin{align*}
+						\begin{cases}
+							\det_{\I}(\II)=-K,\\
+							d^{\nabla_\I}\II=0\ .
+						\end{cases}
+					\end{align*}
+					Queste equazioni di compatibilità permettono di
+					ricostruire la superficie.
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{0.48\textwidth}
+			\begin{itemize}
+				\item Come nel caso euclideo, da $\I$ e $\II$ si definisce
+					la curvatura media:
+					\begin{align*}
+						H=\frac{1}{2}\tr_{\I}(\II).
+					\end{align*}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Superfici complete a curvatura media costante}
 \begin{itemize}
-  \item Lo spazio di Minkowski è $\M=\R^3$ con pseudometrica
-  \[
-    ds^2 = (dx^1)^2+(dx^2)^2-(dx^3)^2.
-  \]
-  \item Una superficie immersa $ \iota:S\hookrightarrow \M$ è \alert{space-like} se la metrica indotta è Riemanniana.
-  \item Prima forma fondamentale → si calcola come  
-  \item Una superficie space-like completa è, in particolare, un grafico intero su $\R^2$. Dunque è semplicemente connessa.
-  \item Fissato un valore per la curvatura media $\kappa$ è possibile mettere in biezione tramite $L:\M\to \M: x\mapsto \kappa x$,
-\begin{align*}
-	\left\{
-	\begin{array}{c}
-		\text{superfici space-like complete}\\
-		\text{a curvatura costante }\kappa
-	\end{array}
-	\right\}
-	\quad \overset{L}{\longleftrightarrow}\quad
-	\left\{
-	\begin{array}{c}
-		\text{superfici space-like complete}\\
-		\text{a curvatura costante }1
-	\end{array}
-	\right\}
-\end{align*}
-
-
+	\setlength\itemsep{2mm}
+	\item Consideriamo delle superfici space-like complete a curvatura
+	media costante (CMC):
+	\begin{align*}
+		H=\text{cost}.
+	\end{align*}
+	\item Per una CMC, questa è un grafico intero $f(x^1,x^2) =x^3$ se e soltanto se la prima forma fondamentale è completa. In particolare è semplicemente connessa.
+	\item Usando un risultato di Cheng e Yau $f$ è una funzione convessa. Inoltre se $H=0$, $S$ è un iperpiano.
+	\item Se $H>0$, riscalando l'immersione possiamo normalizzare $H=1$.
 \end{itemize}
 
-\vspace{1mm}
-\begin{block}{Definizione}
-	Diciamo taglio CMC una superficie space-like completa e con curvatura media costante.
+\begin{block}{Obiettivo}
+	Classificare le superfici space-like complete con $H=1$, a meno di
+	isometria di $\M$.
 \end{block}
-
 \end{frame}
+
 
 \begin{frame}{Parametrizzazione conforme}
-
-\begin{block}{Struttura complessa e uniformizzazione}
-	\begin{itemize}
-		\item Fissate $(x,y)$ coordinate isoterme che preservano l'orientazione, $z=x+iy$ determina una struttura complessa.
-		\item Se inoltre $S$ è semplicemente connessa, il teorema di uniformizzazione implica l'esistenza di un diffeomorfismo conforme
-\[
-\sigma:\Sigma \to S,
-\qquad
-\Sigma \in \{\C,\widehat{\C},\mathbb{D}\}.
-\]
-	\end{itemize}
-\end{block}
-
-\vspace{1mm}
-$S$ è iperbolica per ipotesi, allora
-\[
-\Sigma=\mathbb{D},
-\]
-dotata della metrica di Poincaré
-\[
-ds_p^2=\frac{4}{(1-|z|^2)^2}|dz|^2.
-\]
-Possiamo quindi leggere $S$ come
-\[
-\sigma:\mathbb{D}\to S.
-\]
-\end{frame}
-
-\begin{frame}{Risultato principale}
-Consideriamo $\EE$ lo spazio delle superfici CMC-$1$ iperboliche a meno di isometria, e $\QDD$ lo spazio dei differenziali quadratici olomorfi su $\D$, a meno di cambio di coordinate conformi.
-
-\vspace{2mm}
-Prendiamo l'applicazione
-\[
-\Amap:\EE\longrightarrow \QDD
-\]
-che associa a una superficie il differenziale quadratico ottenuto dalla mappa di Gauss.
-
-\begin{block}{Teorema}
-L'applicazione $\Amap$ è ben definita e biiettiva.
-\end{block}
-
-\vspace{1mm}
-Procediamo a:
-\begin{enumerate}
-  \item illustrare la costruzione di $\Amap$;
-  \item illustrare come la biettività si riduce ad esistenza e unicità per una certa PDE;
-  \item illustrare il risultato di esistenza e unicità.
-\end{enumerate}
-\end{frame}
-
-\section{Il risultato di classificazione, la mappa $\Amap$}
-
-\begin{frame}{La mappa di Gauss}
 \begin{itemize}
-	\item Se $S\subset \M$ è una superficie space-like orientata, il suo vettore normale unitario è time-like.
-	
-	\item Quindi la normale unitaria prende valori nell'iperboloide
+  \item Essendo $S$ una superficie riemanniana con $\I$ possiamo trovare localmente delle coordinate isoterme $(x,y)$, ovvero tali che
+  \[
+    \I=e^{2u}(dx^2+dy^2)=e^{2u}|dz|^2,
+    \qquad z=x+iy.
+  \]
+  \item Il cambio di coordinate $z=x+iy$ determina una struttura complessa sulla superficie.
+	\item $S$ è semplicemente connessa. Il teorema di uniformizzazione implica l'esistenza di un diffeomorfismo conforme
 	\[
-	\HH=\{x\in \M:\langle x,x\rangle=-1,\ x^3>0\} \cong \mathbb{D}.
+	\sigma:\Sigma \to S,
+	\qquad
+	\Sigma \in \{\C,\widehat{\C},\mathbb{D}\}.
 	\]
-	
-	\item Questo permette di definire la mappa di Gauss
-	\[
-	N:S\to \HH:p\mapsto N_p \quad \text{oppure}\quad u = j\circ N\circ \sigma :\mathbb{D}\to \mathbb{D}
-	\]
-	
-	\item Risultato fondamentale:
-	
+  \item $S$ è iperbolica, dunque otteniamo una parametrizzazione
+  \[
+    \sigma:\D\to S.
+  \]
+  Dove $\D$ dotato della metrica $ ds_p^2=\frac{4}{(1-|z|^2)^2}|dz|^2$.
 \end{itemize}
 
-	
-	\begin{block}{Teorema}
-		Una superficie space-like ha curvatura media costante se e solo se la sua mappa di Gauss è armonica.
-	\end{block}
-\vspace{2mm}
-
+\section{Il risultato di classificazione, la mappa $\Amap$}
 \end{frame}
+\begin{frame}{Le incognite in coordinate isoterme}
+\begin{itemize}
+	\setlength\itemsep{2mm}
 
-
-
-\begin{frame}[t]{Il differenziale di Hopf}
-
-\begin{columns}[T,onlytextwidth]
-	\column{0.48\textwidth}
-	\begin{block}{ Decomposizione tensori tipo 0-2}
-		Dato $\omega$ tensore $(0,2)$ su $S$, è possibile decomporre $\omega$ in
-		\begin{align*}
-			\omega = \omega^{(2,0)} + \omega^{(1,1)} + \omega^{(0,2)}.
-		\end{align*}
-
-		\vspace{-2mm}
-
-		con
-		\begin{itemize}\itemsep0.4em
-			\item $\omega^{(2,0)}$ e $\overline{\omega^{(0,2)}}$ localmente della forma
-				$\varphi(z)\,dz^2$,
-			\item $\omega^{(1,1)}$ localmente della forma $k(z)|dz|^2$
-		\end{itemize}
-			Diciamo che $\varphi(z) dz^2$ è olomorfo se $\varphi$ è olomorfa come funzione a valori in $\C$.
-	\end{block}
-	\column{0.48\textwidth}
-	\vspace{-2mm}
-	\textbf{Applicato a $u^*(g_{\mathbb D})$} si ottiene
-	\begin{align*}
-		u^*(g_\D)=\Phi+\mathcal H|dz|^2+\overline{\Phi}.\quad\Phi := \Hopf(u).
-	\end{align*}
-	$u$ è la mappa di Gauss di $S$ ed è armonica. Allora:
-	\begin{itemize}\itemsep0.4em
-		\item $\Phi$ è un differenziale quadratico olomorfo,
-		\item $\mathcal H|dz|^2$ è la metrica indotta su $S$.
-	\end{itemize}
-
-	Possiamo scrivere
-	\begin{align*}
-		\tilde w=\frac12\log\mathcal H(u),
-	\end{align*}
-	e quindi
-	\begin{align*}
-		\I=e^{2\tilde w}|dz|^2=e^{2w}ds_p^2.
-	\end{align*}
-\end{columns}
-
-\end{frame}
-
-
-
-\begin{frame}{La mappa \boldmath{$\mathcal{A}$}}
-	\begin{block}{}
-		Riassumendo, abbiamo costruito l'associazione
-		\[
-			S \longmapsto u \longmapsto (\Phi,w) \longmapsto \Phi.
-		\]
-		Con $S$ superficie CMC-1, $u$ mappa di Gauss letta in carta, $\Phi = \Hopf(u)$ e $w = \frac{1}{2}\mathcal{H}(u)$.
-	\end{block}
-	\vspace{1mm}
-	Dove
-	\begin{itemize}
-		\item $u$ è armonica,
-		\item $\Phi$ è olomorfo,
-		\item $\Iff=e^{2w}ds_p^2$ è la metrica della superficie letta su $\D$.
-	\end{itemize}
-
-	\vspace{1mm}
-	L'applicazione $\mathcal{A}$ si costruisce quozientando
+	\item Fissate coordinate isoterme su $\D$, scriviamo
+	$\I=e^{2u}(dx^2+dy^2)$. Poiché $H=1$, la seconda forma fondamentale
+	è della forma
 	\[
-		\Amap:\EE\to \QDD : [S] \mapsto [\Phi].
+		\II=e^{2u}(dx^2+dy^2)
+		+h_{11}(dx^2-dy^2)+2h_{21}\,dxdy.
 	\]
-\end{frame}
 
+	\item Definiamo
+	\[
+		\varphi:=h_{11}-ih_{21}.
+	\]
+	L'equazione di Codazzi per $\II$ equivale al fatto che $\varphi$ sia
+	olomorfa su $\D$.
 
-\begin{frame}{Invertire \boldmath{$\mathcal{A}$}}
-	
-Partiamo da un differenziale quadratico olomorfo $\Phi\in\QDD,$ e cerchiamo di ricostruire la superficie $S$.
-\begin{block}{Teorema (Bonnet)}
-	Date una forma bilineare simmetrica definita positiva $g$, e una forma bilineare simmetrica $h$
-	su un dominio semplicemente connesso di $\R^2$,  se $g$ e $h$ soddisfano le equazioni di Gauss-Codazzi per $\M$, allora esiste una superficie space-like immersa in $\M$ con forme fondamentali $g$ e $h$, unica a meno di isometria di $\M$.
-\end{block}
-
-\vspace{1mm}
-
-Per applicarlo, dobbiamo quindi
-\begin{enumerate}
-	\item la metrica indotta $\Iff$;
-	\item la seconda forma fondamentale $\IIff$;
-	\item verificare che $\Iff$ e $\IIff$ soddisfino le equazioni di Gauss-Codazzi.
-\end{enumerate}
-
-\vspace{1mm}
-
-\end{frame}
-
-\begin{frame}[t]{La prima forma fondamentale e l'equazione di Gauss}
-  Dato $\Phi\in\QDD$, cerchiamo la metrica di $S$
-  nella forma
-  \[
-    \Iff \;=\; e^{2w}\,ds_p^2,\qquad w:\D\to\R\ \text{incognita}.
-  \]
-
-  \vspace{1mm}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.14\textwidth}\hfill
-    \column{0.72\textwidth}
-    \begin{block}{Riformulazione dell'equazione di Gauss}
-      \centering
-      L'equazione di Gauss per $\Iff$ è equivalente alla PDE
-      \[
-        \Delta_p w \;=\; e^{2w}-\norm{\Phi}^2 e^{-2w}-1 \quad\text{su }\D.
-      \]
-    \end{block}
-    \column{0.14\textwidth}\hfill
-  \end{columns}
-
-  \vspace{2mm}
-  Inoltre valgono anche i seguenti fatti
-  \begin{itemize}\itemsep=2pt
-    \item Rappresentando la metrica di $S$ come $\I=e^{2w}\,ds_p^2$, si richiede che essa sia completa 
-    \item La mappa di Gauss di $S$ preserva l'orientazione si traduce in $J(u)>0$ e dunque in
-          $\;e^{2w}-\norm{\Phi}^2 e^{-2w}>0$.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[t]{Ricostruzione della seconda forma fondamentale}
-Se $\II$ è la seconda forma fondamentale di $S$ e $\II_0$ la sua parte traceless,
-si ha
-\[
-2\II_0 = \Hopf(N) + \overline{\Hopf(N)},
-\qquad
-\tr_\I(\II)=2H.
-\]
-
-\vspace{1mm}
-
-Se $\Hopf(N) = \Phi = \varphi(z) dz^2$, e $\II = h_{ij}dx^idx^j$si ottengono quindi le relazioni:
-\vspace{1mm}
+	\item L'equazione di Gauss è equivalente alla PDE
+	\begin{align}
+		\Delta u=e^{2u}-|\varphi|^2e^{-2u}.
+		\tag{\boldmath{$*$}} \label{eq:gausspde}
+	\end{align}
+\end{itemize}
 
 \begin{center}
 \begin{minipage}{0.72\textwidth}
-\begin{block}{Condizioni necessarie su $(h_{ij})_{ij}$}
-\[
-\begin{cases}
-h_{11}+h_{22}=2e^{2\tilde w}\\
-h_{11}-h_{22}=2\Re(\varphi)\\
-h_{12}=-\Im(\varphi)\ .
-\end{cases}
-\]
+\begin{block}{Riassumendo} 
+	\begin{center}
+		$(\I,\II)\longmapsto(\varphi,u)$ dove
+
+		\vspace{1mm}
+		\begin{minipage}{0.72\linewidth}
+		\begin{itemize}
+			\item $\varphi=h_{11}-ih_{21}$ è olomorfa;
+			\item $u$ verifica l'equazione \eqref{eq:gausspde}.
+		\end{itemize}
+		\end{minipage}
+	\end{center}
+\end{block}
+\end{minipage}
+\end{center}
+\end{frame}
+\begin{frame}{Codazzi produce il dato olomorfo}
+\begin{itemize}
+	\setlength\itemsep{2mm}
+
+	\item Viceversa, fissiamo una funzione olomorfa
+	$\varphi:\D\to\C$ e definiamo
+	\[
+		h_{11}=\Re(\varphi),
+		\qquad
+		h_{21}=-\Im(\varphi).
+	\]
+
+	\item Con questa scelta l'equazione di Codazzi è automaticamente
+	verificata.
+
+	\item Rimane da scegliere $u$ in modo che l'equazione di Gauss sia
+	soddisfatta e che la metrica
+	\[
+		\I=e^{2u}(dx^2+dy^2)
+	\]
+	sia completa.
+\end{itemize}
+
+Abbiamo ridotto la classificazione seguente problema.
+\begin{center}
+\vspace{-2mm}
+\begin{minipage}{0.72\textwidth}
+\begin{block}{Problema}
+		Data $\varphi$ olomorfa, trovare $u$ tale che
+		\[
+			\Delta u=e^{2u}-|\varphi|^2e^{-2u}
+		\]
+		e
+		$\I=e^{2u}(dx^2+dy^2)$ sia completa.
+\end{block}
+\end{minipage}
+\end{center}
+\end{frame}
+\begin{frame}{Riassumendo}
+\begin{itemize}
+	\item Abbiamo definito una relazione che associa ad una CMC una funzione olomorfa sul disco $\mathbb{D}$, \[ S \mapsto \varphi .\] 
+	\item Quozientando per le relazioni di isometria $S \sim S'$ e trasformazioni conformi di $\mathbb{D}$, $\varphi \sim \varphi'$, otteniamo la mappa $\Amap$
+		\[\Amap : \mathbf{E} \to \QDD\ ,\] 
+
+	Dove $\EE$ è lo spazio delle superfici CMC-$1$ iperboliche a meno di isometria, e $\QDD$ lo spazio dei differenziali quadratici olomorfi su $\D$, a meno di cambio di trasformazioni conformi di $\mathbb{D}$.
+\end{itemize}
+\vspace{2mm}
+\begin{center}
+\begin{minipage}{0.68\textwidth}
+\begin{block}{Teorema di classificazione}
+	\begin{center}
+		L'applicazione $\Amap$ è ben definita e biettiva.
+	\end{center}
 \end{block}
 \end{minipage}
 \end{center}
 
 \vspace{1mm}
-
-Dati \(\tilde w\) e \(\Phi\) possiamo ricostruire $\II$ usando il sistema.
-\end{frame}
-
-
-\begin{frame}[t]{L'equazione di Codazzi}
-Sia $g=e^{2\widetilde w}|dz|^2$ una metrica conforme su $\D$ e sia $h$ una
-2-forma bilineare simmetrica reale, di parte traceless $h_0$.
-
-\vspace{1mm}
-
-\begin{itemize}
-  \item Sapendo che $H$ è costante si ha
-  \[
-    h \text{ verifica Codazzi}
-    \iff
-    h_0 \text{ verifica Codazzi}.
-  \]
-
-  \item Essendo $h$  a valori reali, si può scrivere
-  \[
-    h_0=\Phi+\overline\Phi.
-  \]
-
-  \item Si ha:
-  \[
-    h_0=\Phi+\overline\Phi \text{ verifica Codazzi rispetto a} g
-    \iff
-    \Phi \text{ è olomorfo}.
-  \]
-\end{itemize}
-
-\vspace{1mm}
-
-Si deduce quindi che, per la candidata seconda forma fondamentale
-\[
-\IIff := e^{2\widetilde w}|dz|^2 + (\Phi+\overline\Phi),
-\]
-vale l'equazione di Codazzi, essendo $\Phi$ olomorfo per ipotesi.
 \end{frame}
 
 
 
-\begin{frame}[t]{Riassumendo}
-	Finora abbiamo dimostrato che $\Amap$ è \alert{suriettiva} seguendo lo schema
-
-  \vspace{2mm}
-  \begin{center}
-    \begin{tikzpicture}[
-      every node/.style={inner sep=2.5pt},
-      lbl/.style={font=\scriptsize}
-    ]
-      \node (phi)     at (0,0)     {$\Phi$};
-      \node (normphi) at (1.7,0)   {$\norm{\Phi}$};
-      \node (w)       at (3.3,0)   {$w$};
-      \node (hij)     at (5.3,0)   {$(h_{ij})_{ij}$};
-      \node (metric)  at (3.3,-1.5){$e^{2w}ds_p^2$};
-      \node (gij)     at (5.3,-1.5){$(g_{ij})_{ij}$};
-      \node[draw,circle,inner sep=1pt]
-              (gc)    at (6.9,-0.75){\tiny\textsf{G.C.}};
-      \node (S)       at (8.3,-0.75){$S$};
-
-      \draw[|->] (phi)     -- node[above,lbl] {} (normphi);%(1)
-	  \draw[|->] (normphi) -- node[above,lbl] {\astr{}} (w);      %(2)
-      \draw[|->] (w)       -- node[above,lbl] {} (hij);    %(5)
-      \draw[|->] (w)       -- node[right,lbl] {} (metric); %(3)
-      \draw[|->] (metric)  -- node[above,lbl] {} (gij);    %(4)
-      \draw[|-]  (hij)     -- (gc);                        %   
-      \draw[|-]  (gij)     -- (gc);                        %   
-      \draw[->]  (gc)      -- node[above,lbl] {} (S);      %(6)
-    \end{tikzpicture}
-  \end{center}
-	
-  In \astr{} richiediamo sia possibile trovare $w$ tale che $\I$ soddisfa l'equazione di Gauss.\\
-  \vspace{6mm}
-  Per quanto riguarda l'\alert{iniettività} di $\Amap$, si mostra che se due superfici hanno lo stesso $\Phi$ allora sono isometriche, richiedendo l'unicità del passaggio in \astr{} e il teorema di Bonnet.
-\end{frame}
 
 
 \begin{frame}[t]{Il problema analitico}
-	Abbiamo ridotto il teorema di classificazione alla risoluzione del seguente problema
+	Abbiamo ridotto il teorema di classificazione alla risoluzione del seguente problema che assume la seguente forma perché l'equazione può essere riformulata nella nuova incognita $w$ tale che $e^{2u}|dz|^2 = e^{2w} ds_p^2$.
 
   \begin{columns}[T,onlytextwidth]
     \column{0.08\textwidth}\hfill
@@ -436,51 +282,19 @@ vale l'equazione di Codazzi, essendo $\Phi$ olomorfo per ipotesi.
 	  e tale che
       \begin{itemize}\itemsep=2pt
         \item $e^{2w}\,ds_p^2$ è una metrica completa su $\D$;
-        \item $e^{2w}-\norm{\Phi}^2 e^{-2w} > 0$ su $\D$.
+        \item $e^{2w}-\norm{\Phi}^2 e^{-2w} > 0$ su $\D$.    
       \end{itemize}
     \end{block}
     \column{0.08\textwidth}\hfill
   \end{columns}
 
   \vspace{3mm}
-  \begin{itemize}\itemsep=2pt
-    \item \alert{unicità}: principio del massimo generalizzato;
-    \item \alert{esistenza}: metodo delle sotto-soluzioni/sovra-soluzioni.
-  \end{itemize}
-\end{frame}
-
-
-
-
-\section{Il problema analitico}
-
-
-\begin{frame}[t]{Unicità: principio del massimo generalizzato}
-  La PDE è ambientata su $(\D,ds_p^2)$.
-
-  \vspace{1mm}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.07\textwidth}\hfill
-    \column{0.86\textwidth}
-    \begin{block}{Principio del massimo generalizzato}
-      Sia $(M,g)$ Riemanniana completa con la curvatura di Ricci limitata dal basso, e sia $f\in C^2(M)$ limitata superiormente. Allora esiste una successione di punti $(p_n)\subset M$ tale che
-      \[
-        f(p_n)\to \sup_M f,\qquad
-        |\nabla_g f|(p_n)\to 0,\qquad
-        \limsup_n \Delta_g f(p_n)\le 0.
-      \]
-    \end{block}
-    \column{0.07\textwidth}\hfill
-  \end{columns}
-
-  \vspace{1mm}
-  Nella dimostrazione di unicità:
   \begin{itemize}
-    \item si fissano due soluzioni \(v,\widetilde w\);
-    \item si applica il principio alla differenza \(\eta=v-\widetilde w\), verificando che $\sup \eta = \overline{\eta} \leq 0$;
-    \item scambiando i ruoli di \(v\) e \(\widetilde w\), si conclude \(v=\widetilde w\).
+    \item \alert{esistenza}: metodo delle sotto-soluzioni/sovra-soluzioni.
+    \item \alert{unicità}: principio del massimo generalizzato;
   \end{itemize}
 \end{frame}
+
 \begin{frame}[t]{Esistenza: sotto/sovra-soluzioni ed esaustione}
 
 \begin{block}{Metodo delle sotto/sovra-soluzioni}
@@ -494,15 +308,87 @@ allora esiste \(u\in C^\infty(M)\) tale che \(\Delta u=F(x,u)\) e \(\underline\p
 
 Nel nostro caso:
 \begin{itemize}
-
-  \item nel caso generale, si costruisce una successioni di limitati $(D_k)_k$ che invade \(\D\). Su ciascun dominio $\|\Phi\|$ è limitata.
-
-  \item Dal teorema di unicità si ottiene che \((w_k)_k\) è monotona. Da questo si trova poi la convergeza in $C^2_{\mathrm{loc}}$.
+	\item Si risolve il problema nel caso limitato esibendo una sottosoluzione e una sovrasoluzione.
+  \item Nel caso generale, si costruisce una successioni di limitati $(D_k)_k$ che invade \(\D\). Su ciascun dominio $\|\Phi\|$ è limitata.  Da questo si trova poi la convergeza in $C^2_{\mathrm{loc}}$
 \end{itemize}
 
 \end{frame}
 
 
+
+\section{Il problema analitico}
+
+
+
+\begin{frame}[t]{Unicità: principio del massimo generalizzato}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.07\textwidth}\hfill
+    \column{0.86\textwidth}
+    \begin{block}{Principio del massimo generalizzato (Omori-Yau) }
+      Sia $(M,g)$ completa, semplicemente connessa, con curvatura sezionale
+      non positiva e curvatura di Ricci limitata dal basso. Se
+      $f\in C^2(M)$ è limitata superiormente, allora esiste una successione
+      $(p_n)\subset M$ tale che
+      \[
+        f(p_n)\to \sup_M f,\qquad
+        |\nabla_g f|(p_n)\to 0,\qquad
+        \limsup_n \Delta_g f(p_n)\le 0.
+      \]
+    \end{block}
+    \column{0.07\textwidth}\hfill
+  \end{columns}
+
+  \vspace{2mm}
+  Nella dimostrazione di unicità:
+  \begin{itemize}
+    \item si fissano due soluzioni $w,\tilde w$;
+    \item si considera la loro differenza $\eta=w-\tilde w$;
+    \item si mostra che $\eta$ è limitata superiormente;
+    \item si applica il principio del massimo generalizzato a $\eta$ su $(\mathbb{D},\I)$.
+  \end{itemize}
+\end{frame}
+\begin{frame}[t]{Unicità: conclusione}
+
+\begin{itemize}
+  \item Otteniamo una successione $(z_k)_k\subset\D$ tale che
+  \[
+    \eta(z_k)\to \bar\eta:=\sup_\D\eta,
+    \qquad
+    \limsup_{k\to\infty}\Delta_\I\eta(z_k)\leq 0.
+  \]
+
+  \item L'equazione soddisfatta da $w$ e $\tilde w$ implica, dove $|\mu|^2 = \|\Phi\|^2 e^{-4w}$
+  \[
+    \Delta_\I\eta
+    =
+    e^{2\eta}-|\mu|^2e^{-2\eta}-1+|\mu|^2.
+  \]
+
+  \item A meno di sottosuccessioni possiamo
+  assumere
+  \[
+    |\mu|^2(z_k)\to a,
+    \qquad
+    0\leq a\leq 1.
+  \]
+  Passando al limite lungo $(z_k)_k$ otteniamo
+  \[
+    0
+    \geq
+    e^{2\bar\eta}-ae^{-2\bar\eta}-1+a.
+  \]
+
+  \item Definendo
+  \[
+    \psi(s)=e^{2s}-ae^{-2s}-1+a,
+  \]
+  si ha $\psi'(s)>0$ e $\psi(0)=0$. Dunque
+  $\psi(\bar\eta)\leq 0$ implica $\bar\eta\leq 0$.
+
+  \item Quindi $w\leq \tilde w$. Scambiando i ruoli delle due soluzioni,
+  otteniamo $w=\tilde w$.
+\end{itemize}
+\end{frame}
 \begin{frame}
   \vfill
   \begin{center}
